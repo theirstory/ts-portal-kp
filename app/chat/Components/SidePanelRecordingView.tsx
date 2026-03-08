@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Box, Typography, Button, Tab, Tabs, TextField, InputAdornment } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArticleIcon from '@mui/icons-material/Article';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SearchIcon from '@mui/icons-material/Search';
 import MuxPlayer from '@mux/mux-player-react';
 import MuxPlayerElement from '@mux/mux-player';
@@ -11,6 +12,7 @@ import { useChatStore } from '@/app/stores/useChatStore';
 import { Citation } from '@/types/chat';
 import { getMuxPlaybackId } from '@/app/utils/converters';
 import { colors } from '@/lib/theme';
+import { highlightSearchText } from '@/app/indexes/highlightSearch';
 
 // Chapter synopses use a teal/green accent; transcript clips use primary blue
 const CHAPTER_COLOR = colors.success.main;
@@ -22,7 +24,7 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-const ExpandableText = ({ text }: { text: string }) => {
+const ExpandableText = ({ text, highlight = '' }: { text: string; highlight?: string }) => {
   const [expanded, setExpanded] = useState(false);
   const textRef = useRef<HTMLElement>(null);
   const [isClamped, setIsClamped] = useState(false);
@@ -32,7 +34,7 @@ const ExpandableText = ({ text }: { text: string }) => {
     if (el) {
       setIsClamped(el.scrollHeight > el.clientHeight + 1);
     }
-  }, [text]);
+  }, [text, expanded]);
 
   return (
     <>
@@ -50,7 +52,7 @@ const ExpandableText = ({ text }: { text: string }) => {
             overflow: 'hidden',
           }),
         }}>
-        {text}
+        {highlightSearchText(text, highlight)}
       </Typography>
       {(isClamped || expanded) && (
         <Typography
@@ -69,104 +71,317 @@ const ExpandableText = ({ text }: { text: string }) => {
   );
 };
 
-const AllSourcesCard = ({
-  citation,
-  siblings,
-  onSelect,
-}: {
-  citation: Citation;
-  siblings: Citation[];
-  onSelect: () => void;
-}) => {
-  const setActiveCitation = useChatStore((s) => s.setActiveCitation);
-  const playbackId = getMuxPlaybackId(citation.videoUrl);
-  const thumbnailUrl = playbackId && !citation.isAudioFile
-    ? `https://image.mux.com/${playbackId}/thumbnail.jpg?time=${Math.floor(citation.startTime)}&width=320&height=180&fit_mode=crop`
-    : null;
-  const accentColor = citation.isChapterSynopsis ? CHAPTER_COLOR : CLIP_COLOR;
+type RecordingGroup = {
+  theirstoryId: string;
+  interviewTitle: string;
+  videoUrl: string;
+  isAudioFile: boolean;
+  chapters: (Citation & { clips: Citation[] })[];
+  ungroupedClips: Citation[];
+};
 
-  const handleClick = () => {
-    setActiveCitation(citation, siblings);
-    onSelect();
+function groupByRecording(citations: Citation[]): RecordingGroup[] {
+  const recordingMap = new Map<string, { chapters: Citation[]; clips: Citation[] }>();
+  const recordingOrder: string[] = [];
+  const recordingMeta = new Map<string, { interviewTitle: string; videoUrl: string; isAudioFile: boolean }>();
+
+  for (const c of citations) {
+    const id = c.theirstoryId;
+    if (!recordingMap.has(id)) {
+      recordingMap.set(id, { chapters: [], clips: [] });
+      recordingOrder.push(id);
+      recordingMeta.set(id, { interviewTitle: c.interviewTitle, videoUrl: c.videoUrl, isAudioFile: c.isAudioFile ?? false });
+    }
+    if (c.isChapterSynopsis) {
+      recordingMap.get(id)!.chapters.push(c);
+    } else {
+      recordingMap.get(id)!.clips.push(c);
+    }
+  }
+
+  return recordingOrder.map((id) => {
+    const { chapters, clips } = recordingMap.get(id)!;
+    const meta = recordingMeta.get(id)!;
+
+    // Sort chapters by start time
+    const sortedChapters = [...chapters].sort((a, b) => a.startTime - b.startTime);
+
+    // Assign clips to their parent chapter (clip falls within chapter time range)
+    const assignedClipIndexes = new Set<number>();
+    const chaptersWithClips = sortedChapters.map((ch) => {
+      const chClips: Citation[] = [];
+      clips.forEach((clip, idx) => {
+        if (!assignedClipIndexes.has(idx) && clip.startTime >= ch.startTime && clip.startTime < ch.endTime) {
+          chClips.push(clip);
+          assignedClipIndexes.add(idx);
+        }
+      });
+      chClips.sort((a, b) => a.startTime - b.startTime);
+      return { ...ch, clips: chClips };
+    });
+
+    // Clips that don't fall within any chapter
+    const ungroupedClips = clips.filter((_, idx) => !assignedClipIndexes.has(idx));
+    ungroupedClips.sort((a, b) => a.startTime - b.startTime);
+
+    return {
+      theirstoryId: id,
+      interviewTitle: meta.interviewTitle,
+      videoUrl: meta.videoUrl,
+      isAudioFile: meta.isAudioFile,
+      chapters: chaptersWithClips,
+      ungroupedClips,
+    };
+  });
+}
+
+const CitationBadge = ({ index, isChapter }: { index: number; isChapter: boolean }) => (
+  <Box
+    sx={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      bgcolor: isChapter ? CHAPTER_COLOR : CLIP_COLOR,
+      color: colors.primary.contrastText,
+      fontWeight: 700,
+      fontSize: '0.7rem',
+      borderRadius: '4px',
+      minWidth: 20,
+      height: 20,
+      flexShrink: 0,
+      px: 0.4,
+    }}>
+    {index}
+  </Box>
+);
+
+const GroupedSourcesView = ({
+  citations,
+  siblings,
+  filterTerm,
+  onSelectCitation,
+}: {
+  citations: Citation[];
+  siblings: Citation[];
+  filterTerm: string;
+  onSelectCitation: (c: Citation) => void;
+}) => {
+  const groups = useMemo(() => groupByRecording(citations), [citations]);
+  const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+  const hoveredCitationIndex = useChatStore((s) => s.hoveredCitationIndex);
+  const setHoveredCitationIndex = useChatStore((s) => s.setHoveredCitationIndex);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to hovered citation and expand its parent group
+  useEffect(() => {
+    if (hoveredCitationIndex === null || !containerRef.current) return;
+    const el = containerRef.current.querySelector(`[data-citation-index="${hoveredCitationIndex}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      // Citation may be in a collapsed group — expand it
+      for (const group of groups) {
+        const allIndices = [
+          ...group.chapters.map((ch) => ch.index),
+          ...group.chapters.flatMap((ch) => ch.clips.map((cl) => cl.index)),
+          ...group.ungroupedClips.map((cl) => cl.index),
+        ];
+        if (allIndices.includes(hoveredCitationIndex) && collapsed.has(group.theirstoryId)) {
+          setCollapsed((prev) => {
+            const next = new Set(prev);
+            next.delete(group.theirstoryId);
+            return next;
+          });
+          // Scroll after re-render
+          requestAnimationFrame(() => {
+            const elAfter = containerRef.current?.querySelector(`[data-citation-index="${hoveredCitationIndex}"]`);
+            elAfter?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+          break;
+        }
+      }
+    }
+  }, [hoveredCitationIndex, groups, collapsed]);
+
+  const toggleCollapse = (id: string) => {
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
   };
 
+  if (citations.length === 0) {
+    return (
+      <Typography variant="body2" color="text.secondary" sx={{ px: 2, py: 3, textAlign: 'center' }}>
+        No sources match your filter.
+      </Typography>
+    );
+  }
+
+  const highlightSx = (index: number) => ({
+    ...(hoveredCitationIndex === index && {
+      bgcolor: `${colors.primary.main}14`,
+      boxShadow: `inset 3px 0 0 ${colors.primary.main}`,
+    }),
+  });
+
   return (
-    <Box
-      onClick={handleClick}
-      sx={{
-        p: 2,
-        cursor: 'pointer',
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-        borderLeft: `3px solid ${accentColor}`,
-        '&:hover': { bgcolor: colors.grey[50] },
-        transition: 'background-color 0.15s',
-        display: 'flex',
-        alignItems: 'flex-start',
-        gap: 1.5,
-      }}>
-      <Box sx={{ width: 100, flexShrink: 0 }}>
-        {thumbnailUrl ? (
-          <Box
-            component="img"
-            src={thumbnailUrl}
-            alt={citation.interviewTitle}
-            sx={{
-              width: '100%',
-              aspectRatio: '16/9',
-              objectFit: 'cover',
-              borderRadius: 1,
-              bgcolor: colors.grey[200],
-            }}
-          />
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              aspectRatio: '16/9',
-              bgcolor: colors.grey[200],
-              borderRadius: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Typography variant="caption" color="text.secondary">
-              {citation.isAudioFile ? 'Audio' : ''}
-            </Typography>
+    <Box ref={containerRef}>
+      {groups.map((group) => {
+        const playbackId = getMuxPlaybackId(group.videoUrl);
+        const thumbnailUrl = playbackId && !group.isAudioFile
+          ? `https://image.mux.com/${playbackId}/thumbnail.jpg?width=320&height=180&fit_mode=crop`
+          : null;
+        const hasContent = group.chapters.length > 0 || group.ungroupedClips.length > 0;
+        if (!hasContent) return null;
+        const isCollapsed = collapsed.has(group.theirstoryId);
+        const itemCount = group.chapters.length + group.ungroupedClips.length;
+
+        return (
+          <Box key={group.theirstoryId} sx={{ borderBottom: '2px solid', borderColor: 'divider' }}>
+            {/* Recording header — sticky + collapsible */}
+            <Box
+              onClick={() => toggleCollapse(group.theirstoryId)}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1.5,
+                px: 2,
+                py: 1.5,
+                bgcolor: colors.grey[50],
+                position: 'sticky',
+                top: 0,
+                zIndex: 2,
+                cursor: 'pointer',
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                '&:hover': { bgcolor: colors.grey[100] },
+              }}>
+              <ExpandMoreIcon
+                sx={{
+                  fontSize: 20,
+                  transform: isCollapsed ? 'rotate(-90deg)' : 'rotate(0deg)',
+                  transition: 'transform 0.2s',
+                  flexShrink: 0,
+                }}
+              />
+              {thumbnailUrl ? (
+                <Box
+                  component="img"
+                  src={thumbnailUrl}
+                  alt={group.interviewTitle}
+                  sx={{ width: 64, aspectRatio: '16/9', objectFit: 'cover', borderRadius: 1, bgcolor: colors.grey[200], flexShrink: 0 }}
+                />
+              ) : (
+                <Box sx={{ width: 64, aspectRatio: '16/9', bgcolor: colors.grey[200], borderRadius: 1, flexShrink: 0 }} />
+              )}
+              <Box sx={{ flex: 1, minWidth: 0 }}>
+                <Typography variant="subtitle2" fontWeight={700} sx={{ lineHeight: 1.3 }}>
+                  {highlightSearchText(group.interviewTitle, filterTerm)}
+                </Typography>
+                {isCollapsed && (
+                  <Typography variant="caption" color="text.secondary">
+                    {itemCount} source{itemCount !== 1 ? 's' : ''}
+                  </Typography>
+                )}
+              </Box>
+            </Box>
+
+            {!isCollapsed && (
+              <>
+                {/* Chapters with nested clips */}
+                {group.chapters.map((chapter) => (
+                  <Box key={`ch-${chapter.startTime}`}>
+                    {/* Chapter row */}
+                    <Box
+                      data-citation-index={chapter.index}
+                      onClick={() => onSelectCitation(chapter)}
+                      onMouseEnter={() => setHoveredCitationIndex(chapter.index)}
+                      onMouseLeave={() => setHoveredCitationIndex(null)}
+                      sx={{
+                        pl: 2,
+                        pr: 2,
+                        py: 1.25,
+                        cursor: 'pointer',
+                        borderLeft: `3px solid ${CHAPTER_COLOR}`,
+                        '&:hover': { bgcolor: colors.grey[50] },
+                        transition: 'all 0.15s',
+                        ...highlightSx(chapter.index),
+                      }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.25 }}>
+                        <CitationBadge index={chapter.index} isChapter />
+                        <Typography variant="body2" fontWeight={600} sx={{ flex: 1, minWidth: 0 }}>
+                          {highlightSearchText(chapter.sectionTitle, filterTerm)}
+                        </Typography>
+                      </Box>
+                      <ExpandableText text={chapter.transcription} highlight={filterTerm} />
+                    </Box>
+
+                    {/* Clips within this chapter */}
+                    {chapter.clips.map((clip) => (
+                      <Box
+                        key={`clip-${clip.startTime}-${clip.index}`}
+                        data-citation-index={clip.index}
+                        onClick={() => onSelectCitation(clip)}
+                        onMouseEnter={() => setHoveredCitationIndex(clip.index)}
+                        onMouseLeave={() => setHoveredCitationIndex(null)}
+                        sx={{
+                          pl: 4,
+                          pr: 2,
+                          py: 1,
+                          cursor: 'pointer',
+                          borderLeft: `3px solid ${CLIP_COLOR}`,
+                          ml: 2,
+                          '&:hover': { bgcolor: colors.grey[50] },
+                          transition: 'all 0.15s',
+                          ...highlightSx(clip.index),
+                        }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.25 }}>
+                          <CitationBadge index={clip.index} isChapter={false} />
+                          <Typography variant="caption" color="text.secondary">
+                            {highlightSearchText(clip.speaker, filterTerm)} &middot; {formatTime(clip.startTime)}
+                          </Typography>
+                        </Box>
+                        <ExpandableText text={clip.transcription} highlight={filterTerm} />
+                      </Box>
+                    ))}
+                  </Box>
+                ))}
+
+                {/* Ungrouped clips (not within any chapter) */}
+                {group.ungroupedClips.map((clip) => (
+                  <Box
+                    key={`uclip-${clip.startTime}-${clip.index}`}
+                    data-citation-index={clip.index}
+                    onClick={() => onSelectCitation(clip)}
+                    onMouseEnter={() => setHoveredCitationIndex(clip.index)}
+                    onMouseLeave={() => setHoveredCitationIndex(null)}
+                    sx={{
+                      pl: 2,
+                      pr: 2,
+                      py: 1.25,
+                      cursor: 'pointer',
+                      borderLeft: `3px solid ${CLIP_COLOR}`,
+                      '&:hover': { bgcolor: colors.grey[50] },
+                      transition: 'all 0.15s',
+                      ...highlightSx(clip.index),
+                    }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.25 }}>
+                      <CitationBadge index={clip.index} isChapter={false} />
+                      <Typography variant="caption" color="text.secondary">
+                        {highlightSearchText(clip.speaker, filterTerm)} &middot; {formatTime(clip.startTime)}
+                      </Typography>
+                    </Box>
+                    <ExpandableText text={clip.transcription} highlight={filterTerm} />
+                  </Box>
+                ))}
+              </>
+            )}
           </Box>
-        )}
-      </Box>
-      <Box sx={{ minWidth: 0, flex: 1 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.25 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              bgcolor: accentColor,
-              color: colors.primary.contrastText,
-              fontWeight: 700,
-              fontSize: '0.7rem',
-              borderRadius: '4px',
-              minWidth: 20,
-              height: 20,
-              flexShrink: 0,
-            }}>
-            {citation.index}
-          </Box>
-          <Typography variant="subtitle2" fontWeight={600} noWrap sx={{ flex: 1, minWidth: 0 }}>
-            {citation.interviewTitle}
-          </Typography>
-        </Box>
-        <Typography variant="caption" color="text.secondary">
-          {citation.isChapterSynopsis ? (
-            <>Chapter Summary &middot; {citation.sectionTitle}</>
-          ) : (
-            <>{citation.speaker} &middot; {formatTime(citation.startTime)}</>
-          )}
-        </Typography>
-        <ExpandableText text={citation.transcription} />
-      </Box>
+        );
+      })}
     </Box>
   );
 };
@@ -175,54 +390,51 @@ export const SidePanelRecordingView = () => {
   const activeCitation = useChatStore((s) => s.activeCitation);
   const previousMode = useChatStore((s) => s.previousMode);
   const activeCitationSiblings = useChatStore((s) => s.activeCitationSiblings);
+  const citationOpenedViaChip = useChatStore((s) => s.citationOpenedViaChip);
   const goBack = useChatStore((s) => s.goBack);
   const openTranscript = useChatStore((s) => s.openTranscript);
+  const setActiveCitation = useChatStore((s) => s.setActiveCitation);
   const videoRef = useRef<MuxPlayerElement>(null);
   const hasSiblings = activeCitationSiblings.length > 1;
-  const [tabIndex, setTabIndex] = useState(hasSiblings ? 1 : 0);
+  // Tab 0 = All Sources, Tab 1 = Source
+  // If opened via chip click, go straight to Source; if auto-opened after streaming, show All Sources
+  const [tabIndex, setTabIndex] = useState(citationOpenedViaChip ? 1 : (hasSiblings ? 0 : 1));
   const [filterTerm, setFilterTerm] = useState('');
-  const prevCitationRef = useRef<Citation | null>(null);
 
   useEffect(() => {
     if (videoRef.current && activeCitation) {
       videoRef.current.currentTime = activeCitation.startTime;
     }
-    // If the citation changed (user clicked a specific chip), go to Source tab
-    // But not on initial mount (when prevCitationRef is null — that's the auto-open)
-    if (prevCitationRef.current !== null && activeCitation !== prevCitationRef.current) {
-      setTabIndex(0);
+    // When citation changes after mount (user clicked a chip), go to Source tab
+    if (citationOpenedViaChip) {
+      setTabIndex(1);
     }
-    prevCitationRef.current = activeCitation;
-  }, [activeCitation]);
+  }, [activeCitation, citationOpenedViaChip]);
 
   // Reset filter when switching tabs
   useEffect(() => {
     setFilterTerm('');
   }, [tabIndex]);
 
-  const { clips, chapters, filteredClips, filteredChapters } = useMemo(() => {
-    const allClips = activeCitationSiblings.filter((c) => !c.isChapterSynopsis);
-    const allChapters = activeCitationSiblings.filter((c) => c.isChapterSynopsis);
+  const filteredCitations = useMemo(() => {
     const q = filterTerm.trim().toLowerCase();
-    if (!q) {
-      return { clips: allClips, chapters: allChapters, filteredClips: allClips, filteredChapters: allChapters };
-    }
-    const match = (c: Citation) =>
+    if (!q) return activeCitationSiblings;
+    return activeCitationSiblings.filter((c) =>
       c.interviewTitle.toLowerCase().includes(q) ||
       c.sectionTitle.toLowerCase().includes(q) ||
       c.transcription.toLowerCase().includes(q) ||
-      c.speaker.toLowerCase().includes(q);
-    return {
-      clips: allClips,
-      chapters: allChapters,
-      filteredClips: allClips.filter(match),
-      filteredChapters: allChapters.filter(match),
-    };
+      c.speaker.toLowerCase().includes(q),
+    );
   }, [activeCitationSiblings, filterTerm]);
 
   if (!activeCitation) return null;
 
   const accentColor = activeCitation.isChapterSynopsis ? CHAPTER_COLOR : CLIP_COLOR;
+
+  const handleSelectCitation = (citation: Citation) => {
+    setActiveCitation(citation, activeCitationSiblings);
+    setTabIndex(1);
+  };
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -241,15 +453,45 @@ export const SidePanelRecordingView = () => {
           value={tabIndex}
           onChange={(_, v) => setTabIndex(v)}
           sx={{ px: 2, borderBottom: '1px solid', borderColor: 'divider' }}>
-          <Tab label="Source" sx={{ textTransform: 'none', minHeight: 40, py: 0 }} />
           <Tab
             label={`All Sources (${activeCitationSiblings.length})`}
             sx={{ textTransform: 'none', minHeight: 40, py: 0 }}
           />
+          <Tab label="Source" sx={{ textTransform: 'none', minHeight: 40, py: 0 }} />
         </Tabs>
       )}
 
-      {tabIndex === 0 && (
+      {/* All Sources tab */}
+      {tabIndex === 0 && hasSiblings && (
+        <Box>
+          <Box sx={{ px: 2, pt: 1.5, pb: 1 }}>
+            <TextField
+              size="small"
+              fullWidth
+              placeholder="Filter sources..."
+              value={filterTerm}
+              onChange={(e) => setFilterTerm(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon fontSize="small" />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{ bgcolor: colors.background.default, borderRadius: '8px' }}
+            />
+          </Box>
+          <GroupedSourcesView
+            citations={filteredCitations}
+            siblings={activeCitationSiblings}
+            filterTerm={filterTerm}
+            onSelectCitation={handleSelectCitation}
+          />
+        </Box>
+      )}
+
+      {/* Source tab */}
+      {tabIndex === 1 && (
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, p: 2 }}>
           <Box sx={{ borderRadius: 2, overflow: 'hidden', bgcolor: colors.common.black }}>
             <MuxPlayer
@@ -302,86 +544,6 @@ export const SidePanelRecordingView = () => {
             sx={{ textTransform: 'none' }}>
             Open Full Transcript
           </Button>
-        </Box>
-      )}
-
-      {tabIndex === 1 && hasSiblings && (
-        <Box>
-          <Box sx={{ px: 2, pt: 1.5, pb: 1 }}>
-            <TextField
-              size="small"
-              fullWidth
-              placeholder="Filter sources..."
-              value={filterTerm}
-              onChange={(e) => setFilterTerm(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon fontSize="small" />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{ bgcolor: colors.background.default, borderRadius: '8px' }}
-            />
-          </Box>
-
-          {filteredClips.length > 0 && (
-            <>
-              <Typography
-                variant="overline"
-                fontWeight={700}
-                sx={{
-                  px: 2,
-                  pt: 1.5,
-                  pb: 0.5,
-                  display: 'block',
-                  color: CLIP_COLOR,
-                  letterSpacing: 1,
-                }}>
-                Clips ({filteredClips.length})
-              </Typography>
-              {filteredClips.map((citation, idx) => (
-                <AllSourcesCard
-                  key={`clip-${citation.theirstoryId}-${citation.startTime}-${idx}`}
-                  citation={citation}
-                  siblings={activeCitationSiblings}
-                  onSelect={() => setTabIndex(0)}
-                />
-              ))}
-            </>
-          )}
-
-          {filteredChapters.length > 0 && (
-            <>
-              <Typography
-                variant="overline"
-                fontWeight={700}
-                sx={{
-                  px: 2,
-                  pt: 2,
-                  pb: 0.5,
-                  display: 'block',
-                  color: CHAPTER_COLOR,
-                  letterSpacing: 1,
-                }}>
-                Chapters ({filteredChapters.length})
-              </Typography>
-              {filteredChapters.map((citation, idx) => (
-                <AllSourcesCard
-                  key={`chapter-${citation.theirstoryId}-${citation.startTime}-${idx}`}
-                  citation={citation}
-                  siblings={activeCitationSiblings}
-                  onSelect={() => setTabIndex(0)}
-                />
-              ))}
-            </>
-          )}
-
-          {filteredClips.length === 0 && filteredChapters.length === 0 && (
-            <Typography variant="body2" color="text.secondary" sx={{ px: 2, py: 3, textAlign: 'center' }}>
-              No sources match your filter.
-            </Typography>
-          )}
         </Box>
       )}
     </Box>

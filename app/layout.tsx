@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import './globals.css';
 import { AppTopBar } from '@/components/AppTopBar/AppTopBar';
 import { MainContainer } from './MainContainer';
+import { EmbedGuard } from './EmbedGuard';
 import MaterialUIThemeProvider from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default function RootLayout({
         <MaterialUIThemeProvider>
           <Suspense>
             <MainContainer>
-              <AppTopBar />
+              <EmbedGuard>
+                <AppTopBar />
+              </EmbedGuard>
               {children}
             </MainContainer>
           </Suspense>

@@ -57,6 +57,7 @@ export const SidePanelTranscriptView = () => {
       <Box sx={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
         <iframe
           src={iframeSrc}
+          sandbox="allow-scripts allow-same-origin"
           style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
           title="Full Transcript"
         />

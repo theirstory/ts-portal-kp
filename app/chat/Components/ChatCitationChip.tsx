@@ -19,6 +19,10 @@ function formatTime(seconds: number): string {
 
 export const ChatCitationChip = ({ citation, siblings }: Props) => {
   const setActiveCitation = useChatStore((s) => s.setActiveCitation);
+  const setHoveredCitationIndex = useChatStore((s) => s.setHoveredCitationIndex);
+  const hoveredCitationIndex = useChatStore((s) => s.hoveredCitationIndex);
+
+  const isHighlighted = hoveredCitationIndex === citation.index;
 
   const tooltipContent = citation.isChapterSynopsis
     ? `Chapter Summary — "${citation.interviewTitle}" · ${citation.sectionTitle}`
@@ -28,16 +32,19 @@ export const ChatCitationChip = ({ citation, siblings }: Props) => {
     <Tooltip title={tooltipContent} arrow placement="top">
       <Box
         component="span"
+        data-citation-index={citation.index}
         onClick={(e: React.MouseEvent) => {
           e.stopPropagation();
           setActiveCitation(citation, siblings);
         }}
+        onMouseEnter={() => setHoveredCitationIndex(citation.index)}
+        onMouseLeave={() => setHoveredCitationIndex(null)}
         sx={{
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
           bgcolor: citation.isChapterSynopsis ? colors.success.main : colors.primary.main,
-          color: citation.isChapterSynopsis ? colors.success.contrastText : colors.primary.contrastText,
+          color: colors.primary.contrastText,
           fontSize: '0.7rem',
           fontWeight: 700,
           borderRadius: '4px',
@@ -48,9 +55,13 @@ export const ChatCitationChip = ({ citation, siblings }: Props) => {
           minWidth: 20,
           lineHeight: 1.4,
           verticalAlign: 'super',
-          transition: 'background-color 0.15s',
+          transition: 'all 0.15s',
+          ...(isHighlighted && {
+            transform: 'scale(1.3)',
+            boxShadow: `0 0 0 2px ${colors.background.paper}, 0 0 0 4px ${citation.isChapterSynopsis ? colors.success.main : colors.primary.main}`,
+          }),
           '&:hover': {
-            bgcolor: citation.isChapterSynopsis ? colors.success.dark : colors.primary.dark,
+            bgcolor: citation.isChapterSynopsis ? colors.success.light : colors.primary.dark,
           },
         }}>
         {citation.index}

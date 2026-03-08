@@ -16,9 +16,12 @@ type ChatStore = {
   previousMode: SidePanelMode | null;
   activeCitationSiblings: Citation[];
   selectionSearchType: SearchType;
+  citationOpenedViaChip: boolean;
+  hoveredCitationIndex: number | null;
 
   sendMessage: (content: string) => Promise<void>;
   setActiveCitation: (citation: Citation, siblings?: Citation[]) => void;
+  setHoveredCitationIndex: (index: number | null) => void;
   closeSidePanel: () => void;
   setSearchResults: (results: Citation[], query: string, type?: SearchType) => void;
   selectSearchResult: (citation: Citation) => void;
@@ -45,6 +48,8 @@ export const useChatStore = create<ChatStore>()(
       previousMode: null,
       activeCitationSiblings: [],
       selectionSearchType: 'hybrid',
+      citationOpenedViaChip: false,
+      hoveredCitationIndex: null,
 
       sendMessage: async (content: string) => {
         const userMessage: ChatMessage = {
@@ -140,15 +145,58 @@ export const useChatStore = create<ChatStore>()(
                       if (last?.role === 'assistant' && citations) {
                         msgs[msgs.length - 1] = { ...last, citations };
                       }
-                      const firstCitation = citations?.[0];
+
+                      // Filter to only citations actually referenced in the response,
+                      // then renumber sequentially (1, 2, 3...) in order of first appearance
+                      let responseText = last?.content ?? '';
+                      const citedIndexesOrdered: number[] = [];
+                      const seenIndexes = new Set<number>();
+                      const citationPattern = /\[(\d+)\]/g;
+                      let m;
+                      while ((m = citationPattern.exec(responseText)) !== null) {
+                        const idx = parseInt(m[1], 10);
+                        if (!seenIndexes.has(idx)) {
+                          seenIndexes.add(idx);
+                          citedIndexesOrdered.push(idx);
+                        }
+                      }
+
+                      // Build old→new index mapping
+                      const indexMap = new Map<number, number>();
+                      citedIndexesOrdered.forEach((oldIdx, i) => indexMap.set(oldIdx, i + 1));
+
+                      // Renumber references in the response text
+                      responseText = responseText.replace(/\[(\d+)\]/g, (match, num) => {
+                        const newIdx = indexMap.get(parseInt(num, 10));
+                        return newIdx !== undefined ? `[${newIdx}]` : match;
+                      });
+
+                      // Create renumbered citations
+                      const citationsByOldIndex = new Map<number, Citation>();
+                      citations?.forEach((c) => citationsByOldIndex.set(c.index, c));
+                      const renumberedCitations = citedIndexesOrdered
+                        .map((oldIdx) => {
+                          const c = citationsByOldIndex.get(oldIdx);
+                          if (!c) return null;
+                          return { ...c, index: indexMap.get(oldIdx)! };
+                        })
+                        .filter((c): c is Citation => c !== null);
+
+                      // Store renumbered citations and updated text on the message
+                      if (last?.role === 'assistant' && renumberedCitations.length > 0) {
+                        msgs[msgs.length - 1] = { ...msgs[msgs.length - 1], content: responseText, citations: renumberedCitations };
+                      }
+
+                      const firstCitation = renumberedCitations[0];
                       return {
                         messages: msgs,
                         isStreaming: false,
                         ...(firstCitation
                           ? {
                               activeCitation: firstCitation,
-                              activeCitationSiblings: citations ?? [],
+                              activeCitationSiblings: renumberedCitations,
                               sidePanelMode: 'recording' as const,
+                              citationOpenedViaChip: false,
                             }
                           : {}),
                       };
@@ -191,10 +239,14 @@ export const useChatStore = create<ChatStore>()(
             activeCitation: citation,
             sidePanelMode: 'recording',
             activeCitationSiblings: siblings ?? [],
+            citationOpenedViaChip: true,
           },
           false,
           'setActiveCitation',
         ),
+
+      setHoveredCitationIndex: (index: number | null) =>
+        set({ hoveredCitationIndex: index }, false, 'setHoveredCitationIndex'),
 
       closeSidePanel: () =>
         set(
