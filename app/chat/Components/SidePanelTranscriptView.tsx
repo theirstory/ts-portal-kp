@@ -11,17 +11,21 @@ import {
   CircularProgress,
   TextField,
   InputAdornment,
+  ToggleButtonGroup,
+  ToggleButton,
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 import MuxPlayer from '@mux/mux-player-react';
 import MuxPlayerElement from '@mux/mux-player';
 import { useChatStore } from '@/app/stores/useChatStore';
 import { colors } from '@/lib/theme';
 import { Transcription, Section, Word } from '@/types/transcription';
+import { TextSelectionPopover } from './TextSelectionPopover';
 
 type TranscriptData = {
   transcription: Transcription;
@@ -29,6 +33,43 @@ type TranscriptData = {
   isAudioFile: boolean;
   interviewTitle: string;
 };
+
+type ThematicMatch = {
+  transcription: string;
+  speaker: string;
+  sectionTitle: string;
+  startTime: number;
+  endTime: number;
+  score: number;
+};
+
+type SearchMode = 'text' | 'thematic';
+
+/** Merge overlapping / near-adjacent thematic matches so researchers see distinct passages. */
+function mergeThematicMatches(matches: ThematicMatch[], gapSeconds = 2): ThematicMatch[] {
+  if (matches.length === 0) return [];
+  const sorted = [...matches].sort((a, b) => a.startTime - b.startTime);
+  const merged: ThematicMatch[] = [{ ...sorted[0] }];
+
+  for (let i = 1; i < sorted.length; i++) {
+    const prev = merged[merged.length - 1];
+    const cur = sorted[i];
+    // Overlap or close enough to merge
+    if (cur.startTime <= prev.endTime + gapSeconds) {
+      prev.endTime = Math.max(prev.endTime, cur.endTime);
+      // Keep the higher-scoring transcription text
+      if (cur.score > prev.score) {
+        prev.transcription = cur.transcription;
+        prev.speaker = cur.speaker;
+        prev.sectionTitle = cur.sectionTitle;
+        prev.score = cur.score;
+      }
+    } else {
+      merged.push({ ...cur });
+    }
+  }
+  return merged;
+}
 
 function formatTimestamp(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -43,6 +84,8 @@ const TranscriptWord = ({
   isPast,
   isHighlighted,
   isActiveMatch,
+  isThematicHighlight,
+  isActiveThematicMatch,
   matchKey,
   onClick,
 }: {
@@ -51,31 +94,37 @@ const TranscriptWord = ({
   isPast: boolean;
   isHighlighted: boolean;
   isActiveMatch?: boolean;
+  isThematicHighlight?: boolean;
+  isActiveThematicMatch?: boolean;
   matchKey?: string;
   onClick: () => void;
-}) => (
-  <span
-    onClick={onClick}
-    data-start={word.start}
-    {...(matchKey ? { 'data-match-key': matchKey } : {})}
-    style={{
-      cursor: 'pointer',
-      display: 'inline',
-      backgroundColor: isActiveMatch
-        ? colors.warning.main
-        : isActive
-          ? colors.warning.main
-          : isHighlighted
-            ? `${colors.warning.main}40`
-            : 'transparent',
-      color: isPast && !isActive && !isHighlighted && !isActiveMatch ? colors.text.secondary : colors.text.primary,
-      borderRadius: isActive || isActiveMatch ? '2px' : undefined,
-      outline: isActiveMatch ? `2px solid ${colors.primary.main}` : undefined,
-      transition: 'background-color 0.1s, color 0.1s',
-    }}>
-    {word.text}{' '}
-  </span>
-);
+}) => {
+  const getBgColor = () => {
+    if (isActiveMatch || isActiveThematicMatch) return colors.warning.main;
+    if (isActive) return colors.warning.main;
+    if (isThematicHighlight) return `${colors.success.main}30`;
+    if (isHighlighted) return `${colors.warning.main}40`;
+    return 'transparent';
+  };
+
+  return (
+    <span
+      onClick={onClick}
+      data-start={word.start}
+      {...(matchKey ? { 'data-match-key': matchKey } : {})}
+      style={{
+        cursor: 'pointer',
+        display: 'inline',
+        backgroundColor: getBgColor(),
+        color: isPast && !isActive && !isHighlighted && !isActiveMatch && !isThematicHighlight ? colors.text.secondary : colors.text.primary,
+        borderRadius: isActive || isActiveMatch || isActiveThematicMatch ? '2px' : undefined,
+        outline: isActiveMatch || isActiveThematicMatch ? `2px solid ${colors.primary.main}` : undefined,
+        transition: 'background-color 0.1s, color 0.1s',
+      }}>
+      {word.text}{' '}
+    </span>
+  );
+};
 
 const TranscriptSection = ({
   section,
@@ -84,6 +133,9 @@ const TranscriptSection = ({
   highlightStart,
   highlightEnd,
   searchTerm,
+  searchMode,
+  thematicRanges,
+  activeThematicIndex,
   activeMatchKey,
   isExpanded,
   onToggle,
@@ -95,12 +147,15 @@ const TranscriptSection = ({
   highlightStart: number;
   highlightEnd: number;
   searchTerm: string;
+  searchMode: SearchMode | null;
+  thematicRanges: ThematicMatch[];
+  activeThematicIndex: number;
   activeMatchKey: string | null;
   isExpanded: boolean;
   onToggle: () => void;
   onWordClick: (time: number) => void;
 }) => {
-  const searchLower = searchTerm.toLowerCase();
+  const searchLower = searchMode === 'text' ? searchTerm.toLowerCase() : '';
 
   return (
     <Accordion
@@ -155,10 +210,33 @@ const TranscriptSection = ({
                 const isPast = currentTime >= word.end;
                 const isCitationHighlight =
                   word.start >= highlightStart && word.end <= highlightEnd;
+
+                // Text search matching
                 const isSearchMatch =
                   !!searchLower && word.text.toLowerCase().includes(searchLower);
                 const matchKey = isSearchMatch ? `${sectionIndex}-${pIdx}-${wIdx}` : undefined;
                 const isActiveMatch = matchKey !== undefined && matchKey === activeMatchKey;
+
+                // Thematic search matching — word falls within any thematic range
+                let isThematicHighlight = false;
+                let isActiveThematicMatch = false;
+                let thematicMatchKey: string | undefined;
+                if (searchMode === 'thematic' && thematicRanges.length > 0) {
+                  for (let tIdx = 0; tIdx < thematicRanges.length; tIdx++) {
+                    const range = thematicRanges[tIdx];
+                    if (word.start >= range.startTime && word.start < range.endTime) {
+                      isThematicHighlight = true;
+                      // Mark the first word in the range for navigation
+                      if (word.start <= range.startTime + 0.5) {
+                        thematicMatchKey = `t-${tIdx}`;
+                        if (tIdx === activeThematicIndex) {
+                          isActiveThematicMatch = true;
+                        }
+                      }
+                      break;
+                    }
+                  }
+                }
 
                 return (
                   <TranscriptWord
@@ -168,7 +246,9 @@ const TranscriptSection = ({
                     isPast={isPast}
                     isHighlighted={isCitationHighlight || isSearchMatch}
                     isActiveMatch={isActiveMatch}
-                    matchKey={matchKey}
+                    isThematicHighlight={isThematicHighlight}
+                    isActiveThematicMatch={isActiveThematicMatch}
+                    matchKey={matchKey ?? thematicMatchKey}
                     onClick={() => onWordClick(word.start)}
                   />
                 );
@@ -192,7 +272,12 @@ export const SidePanelTranscriptView = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchMode, setSearchMode] = useState<SearchMode | null>(null);
+  const [pickerOpen, setPickerOpen] = useState(true);
   const [activeMatchIndex, setActiveMatchIndex] = useState(0);
+  const [thematicResults, setThematicResults] = useState<ThematicMatch[]>([]);
+  const [thematicLoading, setThematicLoading] = useState(false);
+  const [activeThematicIndex, setActiveThematicIndex] = useState(0);
   const videoRef = useRef<MuxPlayerElement>(null);
   const transcriptContainerRef = useRef<HTMLDivElement>(null);
   const hasScrolledRef = useRef(false);
@@ -215,7 +300,6 @@ export const SidePanelTranscriptView = () => {
       })
       .then((d: TranscriptData) => {
         setData(d);
-        // Expand all sections by default
         const allSections = new Set<number>(d.transcription.sections.map((_, i) => i));
         setExpandedSections(allSections);
       })
@@ -223,12 +307,11 @@ export const SidePanelTranscriptView = () => {
       .finally(() => setLoading(false));
   }, [storyId, highlightStart]);
 
-  // Scroll to the active word after data loads and sections expand
+  // Scroll to the active word after data loads
   useEffect(() => {
     if (!data || hasScrolledRef.current) return;
     hasScrolledRef.current = true;
 
-    // Retry until the word elements are rendered (sections may still be expanding)
     let attempts = 0;
     const tryScroll = () => {
       const container = transcriptContainerRef.current;
@@ -245,7 +328,6 @@ export const SidePanelTranscriptView = () => {
           closestDist = dist;
           closest = el;
         }
-        // Once we pass the target, the previous closest is good enough
         if (start > highlightStart + 1) break;
       }
 
@@ -260,7 +342,6 @@ export const SidePanelTranscriptView = () => {
     setTimeout(tryScroll, 300);
   }, [data, highlightStart]);
 
-  // Throttled time update from player
   const handleTimeUpdate = useCallback(() => {
     if (videoRef.current) {
       setCurrentTime(videoRef.current.currentTime);
@@ -283,8 +364,9 @@ export const SidePanelTranscriptView = () => {
     });
   }, []);
 
-  // Compute search matches as a flat list of word keys (sectionIdx-paraIdx-wordIdx)
-  const searchMatches = useMemo(() => {
+  // --- Text search matches ---
+  const textSearchMatches = useMemo(() => {
+    if (searchMode !== 'text') return [];
     const q = searchTerm.trim().toLowerCase();
     if (!q || !data) return [];
     const matches: string[] = [];
@@ -298,49 +380,171 @@ export const SidePanelTranscriptView = () => {
       });
     });
     return matches;
-  }, [searchTerm, data]);
+  }, [searchTerm, data, searchMode]);
 
-  // Reset active match when search changes
   useEffect(() => {
     setActiveMatchIndex(0);
-  }, [searchTerm]);
+  }, [searchTerm, searchMode]);
 
-  const totalMatches = searchMatches.length;
-  const activeMatchKey = searchMatches[activeMatchIndex] ?? null;
+  const textMatchCount = textSearchMatches.length;
+  const activeTextMatchKey = textSearchMatches[activeMatchIndex] ?? null;
 
-  // Scroll to active match
+  // Scroll to active text match
   useEffect(() => {
-    if (!activeMatchKey || !transcriptContainerRef.current) return;
-    // Ensure the section containing the match is expanded
-    const sectionIdx = parseInt(activeMatchKey.split('-')[0], 10);
+    if (searchMode !== 'text' || !activeTextMatchKey || !transcriptContainerRef.current) return;
+    const sectionIdx = parseInt(activeTextMatchKey.split('-')[0], 10);
     setExpandedSections((prev) => {
       if (prev.has(sectionIdx)) return prev;
       const next = new Set(prev);
       next.add(sectionIdx);
       return next;
     });
-    // Scroll after expansion renders
     requestAnimationFrame(() => {
       setTimeout(() => {
-        const el = transcriptContainerRef.current?.querySelector(`[data-match-key="${activeMatchKey}"]`);
+        const el = transcriptContainerRef.current?.querySelector(`[data-match-key="${activeTextMatchKey}"]`);
         el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 50);
     });
-  }, [activeMatchKey]);
+  }, [activeTextMatchKey, searchMode]);
+
+  // --- Thematic search ---
+  const runThematicSearch = useCallback(async () => {
+    const q = searchTerm.trim();
+    if (!q || !storyId) return;
+    setThematicLoading(true);
+    setThematicResults([]);
+    setActiveThematicIndex(0);
+    try {
+      const res = await fetch('/api/transcript/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ storyId, query: q }),
+      });
+      if (!res.ok) throw new Error('Search failed');
+      const data = await res.json() as { matches: ThematicMatch[] };
+      setThematicResults(mergeThematicMatches(data.matches));
+    } catch (err) {
+      console.error('Thematic search error:', err);
+    } finally {
+      setThematicLoading(false);
+    }
+  }, [searchTerm, storyId]);
+
+  // Scroll to active thematic match
+  useEffect(() => {
+    if (searchMode !== 'thematic' || thematicResults.length === 0 || !transcriptContainerRef.current) return;
+    const matchKey = `t-${activeThematicIndex}`;
+    // Expand the section containing the thematic match
+    const range = thematicResults[activeThematicIndex];
+    if (range && data) {
+      const sIdx = data.transcription.sections.findIndex(
+        (s) => range.startTime >= s.start && range.startTime < s.end,
+      );
+      if (sIdx >= 0) {
+        setExpandedSections((prev) => {
+          if (prev.has(sIdx)) return prev;
+          const next = new Set(prev);
+          next.add(sIdx);
+          return next;
+        });
+      }
+    }
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const el = transcriptContainerRef.current?.querySelector(`[data-match-key="${matchKey}"]`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          // Fallback: find the closest word by time
+          if (range) {
+            const words = transcriptContainerRef.current?.querySelectorAll('[data-start]');
+            if (words) {
+              for (const w of words) {
+                const start = parseFloat(w.getAttribute('data-start') || '0');
+                if (start >= range.startTime) {
+                  w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }, 100);
+    });
+  }, [activeThematicIndex, thematicResults, searchMode, data]);
+
+  // Handle mode switches
+  useEffect(() => {
+    if (searchMode === 'text') {
+      setThematicResults([]);
+      setActiveThematicIndex(0);
+    } else if (searchMode === 'thematic' && searchTerm.trim()) {
+      runThematicSearch();
+    }
+  }, [searchMode]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // --- Unified navigation ---
+  const isThematic = searchMode === 'thematic';
+  const totalMatches = isThematic ? thematicResults.length : textMatchCount;
+  const currentMatchIndex = isThematic ? activeThematicIndex : activeMatchIndex;
 
   const goToNextMatch = useCallback(() => {
-    if (totalMatches === 0) return;
-    setActiveMatchIndex((prev) => (prev + 1) % totalMatches);
-  }, [totalMatches]);
+    if (isThematic) {
+      if (thematicResults.length === 0) return;
+      setActiveThematicIndex((prev) => (prev + 1) % thematicResults.length);
+    } else {
+      if (textMatchCount === 0) return;
+      setActiveMatchIndex((prev) => (prev + 1) % textMatchCount);
+    }
+  }, [isThematic, thematicResults.length, textMatchCount]);
 
   const goToPrevMatch = useCallback(() => {
-    if (totalMatches === 0) return;
-    setActiveMatchIndex((prev) => (prev - 1 + totalMatches) % totalMatches);
-  }, [totalMatches]);
+    if (isThematic) {
+      if (thematicResults.length === 0) return;
+      setActiveThematicIndex((prev) => (prev - 1 + thematicResults.length) % thematicResults.length);
+    } else {
+      if (textMatchCount === 0) return;
+      setActiveMatchIndex((prev) => (prev - 1 + textMatchCount) % textMatchCount);
+    }
+  }, [isThematic, thematicResults.length, textMatchCount]);
+
+  const clearSearch = useCallback(() => {
+    setSearchTerm('');
+    setSearchMode(null);
+    setPickerOpen(true);
+    setThematicResults([]);
+    setActiveThematicIndex(0);
+    setActiveMatchIndex(0);
+  }, []);
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && searchMode !== null) {
+      e.preventDefault();
+      if (isThematic) {
+        if (thematicResults.length > 0) {
+          // Navigate if results exist
+          if (e.shiftKey) goToPrevMatch();
+          else goToNextMatch();
+        } else {
+          // Run search
+          runThematicSearch();
+        }
+      } else {
+        if (e.shiftKey) goToPrevMatch();
+        else goToNextMatch();
+      }
+    }
+  };
 
   if (!transcriptCitation) return null;
 
   const backLabel = previousMode === 'search' ? 'Back to results' : 'Back to source';
+  const hasResults = totalMatches > 0;
+  const placeholder = searchMode === null
+    ? 'Select a search type...'
+    : isThematic
+      ? 'Search by concept (press Enter)...'
+      : 'Search transcript...';
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -383,7 +587,7 @@ export const SidePanelTranscriptView = () => {
 
       {data && (
         <>
-          {/* Video player — compact to maximize transcript space */}
+          {/* Video player — compact */}
           <Box sx={{ flexShrink: 0, bgcolor: colors.common.black }}>
             <MuxPlayer
               ref={videoRef}
@@ -398,79 +602,180 @@ export const SidePanelTranscriptView = () => {
             />
           </Box>
 
-          {/* Search field with navigation */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 1.5, py: 0.75, flexShrink: 0, borderBottom: '1px solid', borderColor: 'divider' }}>
-            <TextField
-              size="small"
-              fullWidth
-              placeholder="Search transcript..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  if (e.shiftKey) goToPrevMatch();
-                  else goToNextMatch();
-                }
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon fontSize="small" />
-                  </InputAdornment>
-                ),
-                endAdornment: searchTerm.trim() && totalMatches > 0 ? (
-                  <InputAdornment position="end">
-                    <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap', mr: 0.5 }}>
-                      {activeMatchIndex + 1}/{totalMatches}
-                    </Typography>
-                  </InputAdornment>
-                ) : searchTerm.trim() ? (
-                  <InputAdornment position="end">
-                    <Typography variant="caption" color="text.secondary">
-                      0
-                    </Typography>
-                  </InputAdornment>
-                ) : null,
-              }}
-              sx={{ bgcolor: colors.background.default, borderRadius: '8px' }}
-            />
-            <Box
-              component="button"
-              onClick={goToPrevMatch}
-              disabled={totalMatches === 0}
-              sx={{
-                border: 'none',
-                bgcolor: 'transparent',
-                cursor: totalMatches > 0 ? 'pointer' : 'default',
-                opacity: totalMatches > 0 ? 1 : 0.3,
-                p: 0.5,
-                borderRadius: 1,
-                display: 'flex',
-                '&:hover': totalMatches > 0 ? { bgcolor: colors.grey[100] } : {},
-              }}>
-              <KeyboardArrowUpIcon fontSize="small" />
-            </Box>
-            <Box
-              component="button"
-              onClick={goToNextMatch}
-              disabled={totalMatches === 0}
-              sx={{
-                border: 'none',
-                bgcolor: 'transparent',
-                cursor: totalMatches > 0 ? 'pointer' : 'default',
-                opacity: totalMatches > 0 ? 1 : 0.3,
-                p: 0.5,
-                borderRadius: 1,
-                display: 'flex',
-                '&:hover': totalMatches > 0 ? { bgcolor: colors.grey[100] } : {},
-              }}>
-              <KeyboardArrowDownIcon fontSize="small" />
+          {/* Search bar with inline mode picker */}
+          <Box sx={{ flexShrink: 0, borderBottom: '1px solid', borderColor: 'divider' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 1.5, py: 0.75 }}>
+              <TextField
+                size="small"
+                fullWidth
+                placeholder={placeholder}
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  if (searchMode === null) {
+                    setSearchMode('text');
+                    setPickerOpen(false);
+                  }
+                  if (isThematic) {
+                    setThematicResults([]);
+                    setActiveThematicIndex(0);
+                  }
+                }}
+                onKeyDown={handleSearchKeyDown}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start" sx={{ mr: 0 }}>
+                      {pickerOpen ? (
+                        <ToggleButtonGroup
+                          value={searchMode}
+                          exclusive
+                          onChange={(_, v) => {
+                            if (v) {
+                              setSearchMode(v);
+                              setPickerOpen(false);
+                            }
+                          }}
+                          size="small"
+                          sx={{ height: 26, mr: 0.5 }}>
+                          <ToggleButton
+                            value="text"
+                            sx={{
+                              textTransform: 'none',
+                              fontSize: '0.7rem',
+                              fontWeight: 600,
+                              px: 1,
+                              py: 0,
+                              border: 'none',
+                              borderRadius: '4px !important',
+                              '&.Mui-selected': {
+                                bgcolor: colors.grey[200],
+                                color: colors.text.primary,
+                                '&:hover': { bgcolor: colors.grey[300] },
+                              },
+                            }}>
+                            Keyword
+                          </ToggleButton>
+                          <ToggleButton
+                            value="thematic"
+                            sx={{
+                              textTransform: 'none',
+                              fontSize: '0.7rem',
+                              fontWeight: 600,
+                              px: 1,
+                              py: 0,
+                              border: 'none',
+                              borderRadius: '4px !important',
+                              '&.Mui-selected': {
+                                bgcolor: colors.grey[200],
+                                color: colors.text.primary,
+                                '&:hover': { bgcolor: colors.grey[300] },
+                              },
+                            }}>
+                            Thematic
+                          </ToggleButton>
+                        </ToggleButtonGroup>
+                      ) : (
+                        <Box
+                          onClick={() => setPickerOpen(true)}
+                          sx={{
+                            height: 26,
+                            display: 'flex',
+                            alignItems: 'center',
+                            px: 1,
+                            mr: 0.5,
+                            borderRadius: '4px',
+                            bgcolor: colors.grey[200],
+                            cursor: 'pointer',
+                            whiteSpace: 'nowrap',
+                            fontSize: '0.7rem',
+                            fontWeight: 600,
+                            color: colors.text.primary,
+                            '&:hover': { bgcolor: colors.grey[300] },
+                          }}>
+                          {searchMode === 'text' ? 'Keyword' : 'Thematic'}
+                        </Box>
+                      )}
+                      <Box sx={{ width: '1px', height: 20, bgcolor: colors.grey[300], mr: 0.75 }} />
+                      {thematicLoading ? <CircularProgress size={16} /> : <SearchIcon fontSize="small" sx={{ color: colors.text.secondary }} />}
+                    </InputAdornment>
+                  ),
+                  endAdornment: searchTerm.trim() ? (
+                    <InputAdornment position="end">
+                      {hasResults ? (
+                        <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap', mr: 0.5 }}>
+                          {currentMatchIndex + 1}/{totalMatches}
+                        </Typography>
+                      ) : searchMode === 'text' ? (
+                        <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap', mr: 0.5 }}>
+                          No matches
+                        </Typography>
+                      ) : isThematic && !thematicLoading && thematicResults.length === 0 && searchTerm.trim() ? (
+                        <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap', mr: 0.5 }}>
+                          No matches
+                        </Typography>
+                      ) : null}
+                      <CloseIcon
+                        fontSize="small"
+                        onClick={clearSearch}
+                        sx={{
+                          cursor: 'pointer',
+                          color: colors.text.secondary,
+                          fontSize: 18,
+                          '&:hover': { color: colors.text.primary },
+                        }}
+                      />
+                    </InputAdornment>
+                  ) : null,
+                }}
+                sx={{ bgcolor: colors.background.default, borderRadius: '8px' }}
+              />
+              <Box
+                component="button"
+                onClick={goToPrevMatch}
+                disabled={!hasResults}
+                sx={{
+                  border: 'none',
+                  bgcolor: 'transparent',
+                  cursor: hasResults ? 'pointer' : 'default',
+                  opacity: hasResults ? 1 : 0.3,
+                  p: 0.5,
+                  borderRadius: 1,
+                  display: 'flex',
+                  '&:hover': hasResults ? { bgcolor: colors.grey[100] } : {},
+                }}>
+                <KeyboardArrowUpIcon fontSize="small" />
+              </Box>
+              <Box
+                component="button"
+                onClick={goToNextMatch}
+                disabled={!hasResults}
+                sx={{
+                  border: 'none',
+                  bgcolor: 'transparent',
+                  cursor: hasResults ? 'pointer' : 'default',
+                  opacity: hasResults ? 1 : 0.3,
+                  p: 0.5,
+                  borderRadius: 1,
+                  display: 'flex',
+                  '&:hover': hasResults ? { bgcolor: colors.grey[100] } : {},
+                }}>
+                <KeyboardArrowDownIcon fontSize="small" />
+              </Box>
             </Box>
           </Box>
 
+          {/* Thematic results summary */}
+          {isThematic && thematicResults.length > 0 && (
+            <Box sx={{ px: 1.5, py: 0.75, bgcolor: `${colors.success.main}10`, borderBottom: '1px solid', borderColor: 'divider', flexShrink: 0 }}>
+              <Typography variant="caption" color="text.secondary">
+                {thematicResults.length} thematic match{thematicResults.length !== 1 ? 'es' : ''} — {thematicResults[activeThematicIndex]?.speaker && `${thematicResults[activeThematicIndex].speaker} · `}{thematicResults[activeThematicIndex]?.sectionTitle} · {formatTimestamp(thematicResults[activeThematicIndex]?.startTime ?? 0)}
+              </Typography>
+            </Box>
+          )}
+
           {/* Transcript */}
-          <Box ref={transcriptContainerRef} sx={{ flex: 1, overflow: 'auto', minHeight: 0 }}>
+          <Box ref={transcriptContainerRef} sx={{ flex: 1, overflow: 'auto', minHeight: 0, position: 'relative' }}>
+            <TextSelectionPopover containerRef={transcriptContainerRef} />
             {data.transcription.sections.map((section, idx) => (
               <TranscriptSection
                 key={idx}
@@ -480,7 +785,10 @@ export const SidePanelTranscriptView = () => {
                 highlightStart={highlightStart}
                 highlightEnd={highlightEnd}
                 searchTerm={searchTerm}
-                activeMatchKey={activeMatchKey}
+                searchMode={searchMode}
+                thematicRanges={thematicResults}
+                activeThematicIndex={activeThematicIndex}
+                activeMatchKey={searchMode === 'text' ? activeTextMatchKey : `t-${activeThematicIndex}`}
                 isExpanded={expandedSections.has(idx)}
                 onToggle={() => toggleSection(idx)}
                 onWordClick={handleWordClick}
