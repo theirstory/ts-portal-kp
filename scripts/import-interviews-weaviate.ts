@@ -81,11 +81,7 @@ async function waitForNlpReady(): Promise<void> {
     try {
       const res = await fetch(url);
       if (res.ok) {
-        const body = await res.json() as { embedding_loaded?: boolean };
-        if (body.embedding_loaded) return;
-        if (i > 0 && i % 15 === 0) {
-          console.log(`[weaviate-import] NLP is up but embedding model still loading... (${i}s)`);
-        }
+        return;
       }
     } catch {
       // ignore

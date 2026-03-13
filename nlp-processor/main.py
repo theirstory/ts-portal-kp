@@ -8,7 +8,6 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
-from chunker import chunk_words_by_time
 from config import Config, NER_LABELS
 from embedding_service import LocalEmbedding
 from functools import lru_cache
@@ -19,6 +18,8 @@ from ner_processor import (
     safe_ner_process,
 )
 from data_transformers import convert_api_format_to_sections
+from pipeline import TheirStory
+from sentence_chunker import chunk_doc_sections
 from utils import convert_to_uuid, safe_get, to_weaviate_date, words_to_text
 from weaviate_client import (
     weaviate_batch_insert,
@@ -59,12 +60,19 @@ class ProcessRequest(BaseModel):
 app = FastAPI(title="NLP Processor (Chunks + NER)")
 
 
+@lru_cache(maxsize=1)
+def get_theirstory_pipeline() -> TheirStory:
+    """Lazily initialize the TheirStory parsing pipeline."""
+    logger.info("[Pipeline] Loading TheirStory parser")
+    return TheirStory()
+
+
 @app.post("/process-story")
 async def process_story(
     req: ProcessRequest,
     write_to_weaviate: bool = Query(True),
-    chunk_seconds: float = Query(Config.DEFAULT_CHUNK_SECONDS),
-    overlap_seconds: float = Query(Config.DEFAULT_CHUNK_OVERLAP_SECONDS),
+    sentence_chunk_size: int = Query(Config.DEFAULT_SENTENCE_CHUNK_SIZE),
+    overlap_sentences: int = Query(Config.DEFAULT_SENTENCE_OVERLAP),
     run_ner: bool = Query(True),
 ):
     """Process a story with chunking and NER, optionally writing to Weaviate.
@@ -72,8 +80,8 @@ async def process_story(
     Args:
         req: Request containing story payload
         write_to_weaviate: Whether to write results to Weaviate
-        chunk_seconds: Duration of each chunk in seconds
-        overlap_seconds: Overlap between chunks in seconds
+        sentence_chunk_size: Number of sentences per chunk
+        overlap_sentences: Number of sentences to overlap between chunks
         run_ner: Whether to run NER processing
         
     Returns:
@@ -168,6 +176,14 @@ async def process_story(
                 if speaker and speaker not in speakers:
                     speakers.append(speaker)
         
+        # Parse transcript into TheirStory document structure
+        print("\n🧱 BUILDING THEIRSTORY DOCUMENT...")
+        doc = get_theirstory_pipeline().parse_json(testimony_data)
+        print(
+            f"   ✅ TheirStory doc ready with {len(doc._.sections)} sections "
+            f"and {len(doc)} tokens"
+        )
+
         # Create Weaviate testimony object
         testimony_obj = {
             "class": "Testimonies",
@@ -362,73 +378,23 @@ async def process_story(
             print(f"   ⏭️  NER skipped (run_ner={run_ner})")
         
         # STEP 2: Process chunking by sections
-        print(f"\n🔪 STARTING CHUNKING (chunk_seconds={chunk_seconds}, overlap={overlap_seconds})...")
+        print(
+            f"\n🔪 STARTING SENTENCE CHUNKING "
+            f"(sentence_chunk_size={sentence_chunk_size}, overlap_sentences={overlap_sentences})..."
+        )
         chunks_objects: List[Dict[str, Any]] = []
         
+        chunk_data_items = chunk_doc_sections(
+            doc,
+            all_entities,
+            sentence_chunk_size,
+            overlap_sentences,
+        )
+
+        print(f"\n📦 Sentence chunker produced {len(chunk_data_items)} chunks before embedding")
+
         # Collect ALL chunks first, then batch generate embeddings
-        all_chunk_texts = []
-        all_chunk_data = []
-        
-        # Process each section
-        for section_idx, section in enumerate(sections):
-            section_title = section.get("title", f"Section {section_idx}")
-            print(f"\n  📂 Section {section_idx + 1}/{len(sections)}: {section_title}")
-            
-            # Process each paragraph in the section
-            for para_idx, paragraph in enumerate(section.get("paragraphs", [])):
-                para_words = paragraph.get("words", [])
-                
-                print(f"     └─ Processing paragraph {para_idx + 1}...")
-                
-                # Chunk words within this paragraph by time (hybrid: time + sentence boundaries)
-                para_chunks = chunk_words_by_time(
-                    para_words, 
-                    chunk_seconds, 
-                    overlap_seconds,
-                    min_words=Config.MIN_WORDS_PER_CHUNK,
-                    max_words=Config.MAX_WORDS_PER_CHUNK,
-                    prefer_sentence_breaks=Config.PREFER_SENTENCE_BREAKS,
-                    lookahead_seconds=Config.LOOKAHEAD_SECONDS
-                )
-                
-                for word_list in para_chunks:
-                    chunk_text = words_to_text(word_list)
-                    
-                    # Skip empty chunks
-                    if not chunk_text:
-                        continue
-                    
-                    # Skip chunks that are too short
-                    if len(chunk_text.strip()) < Config.MIN_CHARS_PER_CHUNK:
-                        continue
-                    
-                    if len(word_list) < Config.MIN_WORDS_PER_CHUNK:
-                        continue
-                    
-                    word_timestamps = [
-                        {
-                            "start": float(w["start"]),
-                            "end": float(w["end"]),
-                            "text": str(w.get("text") or "")
-                        }
-                        for w in word_list
-                        if isinstance(w, dict) and "start" in w and "end" in w and w.get("text") is not None
-                    ]
-                    
-                    start_time = float(word_list[0]["start"])
-                    end_time = float(word_list[-1]["end"])
-                    
-                    # Store chunk data for later batch processing
-                    all_chunk_texts.append(chunk_text)
-                    all_chunk_data.append({
-                        "start_time": start_time,
-                        "end_time": end_time,
-                        "word_timestamps": word_timestamps,
-                        "section_title": section_title,
-                        "speaker": paragraph.get("speaker", "Unknown"),
-                        "section_idx": section_idx,
-                        "para_idx": para_idx,
-                    })
+        all_chunk_texts = [chunk["text"] for chunk in chunk_data_items]
         
         # Batch generate ALL embeddings at once
         if all_chunk_texts:
@@ -446,34 +412,18 @@ async def process_story(
             print(f"   ✅ Embeddings generated in {time.time() - t_embed:.2f}s")
             
             # Create chunk objects with their embeddings
-            for idx, (chunk_text, chunk_data, chunk_vector) in enumerate(zip(all_chunk_texts, all_chunk_data, chunk_vectors)):
-                # Filter entities that fall within this chunk's time range
-                chunk_start = chunk_data["start_time"]
-                chunk_end = chunk_data["end_time"]
-                
-                chunk_entities = [
-                    {
-                        "text": ent["text"],
-                        "label": ent["label"],
-                        "start_time": ent["start_time"],
-                        "end_time": ent["end_time"]
-                    }
-                    for ent in all_entities
-                    if (ent["start_time"] >= chunk_start and ent["start_time"] < chunk_end) or
-                       (ent["end_time"] > chunk_start and ent["end_time"] <= chunk_end) or
-                       (ent["start_time"] < chunk_start and ent["end_time"] > chunk_end)
-                ]
-                
+            for chunk_data, chunk_vector in zip(chunk_data_items, chunk_vectors):
+                chunk_entities = chunk_data["entities"]
                 chunk_labels = list(set(ent["label"] for ent in chunk_entities))
                 
                 chunks_objects.append({
                     "class": "Chunks",
                     "properties": {
                         "theirstory_id": testimony_uuid,
-                        "chunk_id": idx,
+                        "chunk_id": int(chunk_data["chunk_id"]),
                         "start_time": chunk_data["start_time"],
                         "end_time": chunk_data["end_time"],
-                        "transcription": chunk_text,
+                        "transcription": chunk_data["text"],
                         "interview_title": title or "",
                         "recording_date": record_date or "",
                         "interview_duration": float(safe_get(payload, ["story", "duration"], 0) or 0),
@@ -489,8 +439,8 @@ async def process_story(
                         "asset_id": safe_get(payload, ["story", "asset_id"], "") or "",
                         "organization_id": safe_get(payload, ["story", "organization_id"], "") or "",
                         "project_id": safe_get(payload, ["story", "project_id"], "") or "",
-                        "section_id": int(chunk_data["section_idx"]),
-                        "para_id": int(chunk_data["para_idx"]),
+                        "section_id": int(chunk_data["section_id"]),
+                        "para_id": int(chunk_data["para_id"]),
                         "transcoded": safe_get(payload, ["story", "transcoded"], "") or "",
                         "thumbnail_url": safe_get(payload, ["story", "thumbnail_url"], "") or "",
                         "date": to_weaviate_date(record_date),
@@ -526,7 +476,10 @@ async def process_story(
         result: Dict[str, Any] = {
             "testimony": testimony_obj,
             "chunks": chunks_objects,
-            "counts": {"chunks": len(chunks_objects)},
+            "counts": {
+                "chunks": len(chunks_objects),
+                "sections": len(doc._.sections),
+            },
             "ner_stats": ner_stats,
         }
         
