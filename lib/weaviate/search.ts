@@ -2,7 +2,7 @@
 import { Chunks, Testimonies, SchemaMap, SchemaTypes } from '@/types/weaviate';
 import { initWeaviateClient } from './client';
 import { FilterValue, QueryProperty } from 'weaviate-client';
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 export type CollectionFilterOption = {
@@ -45,14 +45,6 @@ const NER_SEARCH_RETURN_PROPS: QueryProperty<Chunks>[] = [
   'transcription',
   'ner_labels',
   'theirstory_id',
-];
-
-const CHAPTER_GROUP_RETURN_PROPS: QueryProperty<Chunks>[] = [
-  'theirstory_id',
-  'section_id',
-  'section_title',
-  'start_time',
-  'end_time',
 ];
 
 const STORY_ID_ONLY_RETURN_PROPS: QueryProperty<Chunks>[] = ['theirstory_id'];
@@ -569,61 +561,6 @@ export async function searchNerEntitiesAcrossCollection(
     console.error('Error searching NER entities across collection:', error);
     throw new Error('Failed to search NER entities across collection');
   }
-}
-
-export type IndexChapter = {
-  section_id: number;
-  section_title: string;
-  start_time: number;
-  end_time: number;
-};
-
-const INDEXES_CHUNKS_LIMIT = 10_000;
-
-/** Fetches chunks and groups by story (theirstory_id) and section_id for the indexes page. */
-export async function getChaptersGroupedByStory(): Promise<Record<string, IndexChapter[]>> {
-  const client = await initWeaviateClient();
-  const myCollection = client.collections.get<Chunks>('Chunks');
-  const response = await myCollection.query.fetchObjects({
-    limit: INDEXES_CHUNKS_LIMIT,
-    returnProperties: CHAPTER_GROUP_RETURN_PROPS,
-  });
-
-  const byStory = new Map<string, Map<number, { title: string; start: number; end: number }>>();
-  for (const obj of response.objects) {
-    const p = (obj.properties ?? {}) as Partial<Chunks>;
-    const storyId = p?.theirstory_id ?? '';
-    const sectionId = Number(p?.section_id ?? 0);
-    const title = String(p?.section_title ?? '').trim() || 'Untitled section';
-    const start = Number(p?.start_time ?? 0);
-    const end = Number(p?.end_time ?? 0);
-    if (!storyId) continue;
-    if (!byStory.has(storyId)) {
-      byStory.set(storyId, new Map());
-    }
-    const sections = byStory.get(storyId)!;
-    if (!sections.has(sectionId)) {
-      sections.set(sectionId, { title, start, end });
-    } else {
-      const cur = sections.get(sectionId)!;
-      cur.start = Math.min(cur.start, start);
-      cur.end = Math.max(cur.end, end);
-    }
-  }
-
-  const result: Record<string, IndexChapter[]> = {};
-  for (const [storyId, sections] of byStory.entries()) {
-    const arr = Array.from(sections.entries())
-      .sort((a, b) => a[0] - b[0])
-      .map(([section_id, { title: section_title, start: start_time, end: end_time }]) => ({
-        section_id,
-        section_title,
-        start_time,
-        end_time,
-      }));
-    result[storyId] = arr;
-  }
-  return result;
 }
 
 const NER_ENTITY_RECORDING_COUNT_KEY = (text: string, label: string) => `${text.toLowerCase()}|${label}`;
