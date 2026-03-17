@@ -3,6 +3,7 @@
 import React, { useMemo, useRef, type MutableRefObject } from 'react';
 import { Box, Button, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import StopIcon from '@mui/icons-material/Stop';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -35,6 +36,7 @@ type ChatComposerProps = {
   onInputChange: (value: string) => void;
   onSubmit: (e: React.FormEvent) => void;
   onKeyDown: (e: React.KeyboardEvent) => void;
+  onStop?: () => void;
   placeholder: string;
   variant?: 'default' | 'compact';
   fullHeight?: boolean;
@@ -89,7 +91,10 @@ export function ChatStarterQuestions({ onStarterClick, variant = 'default' }: Ch
 
         {STARTER_QUESTIONS.map((q) => (
           <Button
-            id={`chat-starter-question-${q.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+            id={`chat-starter-question-${q
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)/g, '')}`}
             key={q}
             variant="outlined"
             fullWidth
@@ -217,53 +222,53 @@ export function ChatMessagesThread({
                     <Box
                       id={`chat-pair-navigation-${pair.userMsg.id}`}
                       sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      gap: 0.25,
-                      px: 0.25,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        gap: 0.25,
+                        px: 0.25,
+                      }}>
+                      <IconButton
+                        size="small"
+                        disabled={pairIndex === 0}
+                        onClick={() => navigateToPair(pairIndex - 1)}
+                        sx={{
+                          p: 0.25,
+                          color: 'rgba(255,255,255,0.88)',
+                          bgcolor: 'rgba(255,255,255,0.08)',
+                          '&:hover': { bgcolor: 'rgba(255,255,255,0.14)' },
+                          '&.Mui-disabled': { color: 'rgba(255,255,255,0.28)' },
+                        }}>
+                        <KeyboardArrowUpIcon sx={{ fontSize: compact ? 18 : 20 }} />
+                      </IconButton>
+                      <IconButton
+                        size="small"
+                        disabled={pairIndex === pairs.length - 1}
+                        onClick={() => navigateToPair(pairIndex + 1)}
+                        sx={{
+                          p: 0.25,
+                          color: 'rgba(255,255,255,0.88)',
+                          bgcolor: 'rgba(255,255,255,0.08)',
+                          '&:hover': { bgcolor: 'rgba(255,255,255,0.14)' },
+                          '&.Mui-disabled': { color: 'rgba(255,255,255,0.28)' },
+                        }}>
+                        <KeyboardArrowDownIcon sx={{ fontSize: compact ? 18 : 20 }} />
+                      </IconButton>
+                    </Box>
+                  )}
+                  <Box
+                    sx={{
+                      minWidth: 0,
+                      flex: 1,
+                      px: compact ? 0.75 : 0.5,
+                      py: compact ? 0.2 : 0.25,
+                      fontSize: compact ? '0.8rem' : '0.875rem',
+                      lineHeight: 1.5,
+                      fontWeight: 500,
                     }}>
-                    <IconButton
-                      size="small"
-                      disabled={pairIndex === 0}
-                      onClick={() => navigateToPair(pairIndex - 1)}
-                      sx={{
-                        p: 0.25,
-                        color: 'rgba(255,255,255,0.88)',
-                        bgcolor: 'rgba(255,255,255,0.08)',
-                        '&:hover': { bgcolor: 'rgba(255,255,255,0.14)' },
-                        '&.Mui-disabled': { color: 'rgba(255,255,255,0.28)' },
-                      }}>
-                      <KeyboardArrowUpIcon sx={{ fontSize: compact ? 18 : 20 }} />
-                    </IconButton>
-                    <IconButton
-                      size="small"
-                      disabled={pairIndex === pairs.length - 1}
-                      onClick={() => navigateToPair(pairIndex + 1)}
-                      sx={{
-                        p: 0.25,
-                        color: 'rgba(255,255,255,0.88)',
-                        bgcolor: 'rgba(255,255,255,0.08)',
-                        '&:hover': { bgcolor: 'rgba(255,255,255,0.14)' },
-                        '&.Mui-disabled': { color: 'rgba(255,255,255,0.28)' },
-                      }}>
-                      <KeyboardArrowDownIcon sx={{ fontSize: compact ? 18 : 20 }} />
-                    </IconButton>
+                    {pair.userMsg.content}
                   </Box>
-                )}
-                <Box
-                  sx={{
-                    minWidth: 0,
-                    flex: 1,
-                    px: compact ? 0.75 : 0.5,
-                    py: compact ? 0.2 : 0.25,
-                    fontSize: compact ? '0.8rem' : '0.875rem',
-                    lineHeight: 1.5,
-                    fontWeight: 500,
-                  }}>
-                  {pair.userMsg.content}
-                </Box>
                   {pair.assistantMsg.citations && pair.assistantMsg.citations.length > 0 && (
                     <Button
                       id={`chat-view-sources-${pair.assistantMsg.id}`}
@@ -292,7 +297,6 @@ export function ChatMessagesThread({
               </Box>
             </Box>
             <Box sx={{ pt: compact ? 1 : 1.5 }} data-assistant-message-id={pair.assistantMsg.id}>
-              
               {isStreaming && !pair.assistantMsg.content && streamingStatus ? (
                 <Box
                   id={`chat-streaming-status-${pair.assistantMsg.id}`}
@@ -343,6 +347,7 @@ export function ChatComposer({
   onInputChange,
   onSubmit,
   onKeyDown,
+  onStop,
   placeholder,
   variant = 'default',
   fullHeight = false,
@@ -386,18 +391,19 @@ export function ChatComposer({
                   endAdornment: (
                     <InputAdornment position="end" sx={{ alignSelf: 'center', mr: 0.5 }}>
                       <IconButton
-                        type="submit"
-                        disabled={!input.trim() || isStreaming}
+                        type={isStreaming ? 'button' : 'submit'}
+                        onClick={isStreaming ? onStop : undefined}
+                        disabled={isStreaming ? !onStop : !input.trim()}
                         sx={{
-                          bgcolor: colors.primary.main,
+                          bgcolor: isStreaming ? colors.error.main : colors.primary.main,
                           color: colors.primary.contrastText,
-                          '&:hover': { bgcolor: colors.primary.dark },
+                          '&:hover': { bgcolor: isStreaming ? colors.error.main : colors.primary.dark },
                           '&.Mui-disabled': { bgcolor: colors.grey[300] },
                           borderRadius: 2,
                           width: 36,
                           height: 36,
                         }}>
-                        <SendIcon sx={{ fontSize: 18 }} />
+                        {isStreaming ? <StopIcon sx={{ fontSize: 18 }} /> : <SendIcon sx={{ fontSize: 18 }} />}
                       </IconButton>
                     </InputAdornment>
                   ),
@@ -408,7 +414,6 @@ export function ChatComposer({
         sx={{
           '& .MuiOutlinedInput-root': {
             bgcolor: colors.background.paper,
-            borderRadius: compact ? 999 : 3,
             alignItems: fullHeight ? 'flex-end' : undefined,
             fontSize: fullHeight ? '1rem' : undefined,
             boxShadow: compact ? `0 1px 2px ${colors.common.shadow}` : 'none',
@@ -428,12 +433,13 @@ export function ChatComposer({
       {!fullHeight && (
         <IconButton
           id={compact ? 'chat-composer-submit-compact' : 'chat-composer-submit'}
-          type="submit"
-          disabled={!input.trim() || isStreaming}
+          type={isStreaming ? 'button' : 'submit'}
+          onClick={isStreaming ? onStop : undefined}
+          disabled={isStreaming ? !onStop : !input.trim()}
           sx={{
-            bgcolor: colors.primary.main,
+            bgcolor: isStreaming ? colors.error.main : colors.primary.main,
             color: colors.primary.contrastText,
-            '&:hover': { bgcolor: colors.primary.dark },
+            '&:hover': { bgcolor: isStreaming ? colors.error.main : colors.primary.dark },
             '&.Mui-disabled': { bgcolor: colors.grey[300] },
             borderRadius: '50%',
             alignSelf: 'center',
@@ -441,7 +447,7 @@ export function ChatComposer({
             width: compact ? 36 : 40,
             height: compact ? 36 : 40,
           }}>
-          <SendIcon fontSize="small" />
+          {isStreaming ? <StopIcon fontSize="small" /> : <SendIcon fontSize="small" />}
         </IconButton>
       )}
     </Box>

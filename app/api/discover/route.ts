@@ -37,6 +37,10 @@ function sseEvent(data: Record<string, unknown>): string {
   return `data: ${JSON.stringify(data)}\n\n`;
 }
 
+function getUserFacingDiscoverError(err: unknown): string {
+  return err instanceof Error ? err.message : String(err ?? 'Sorry, an error occurred while generating the response.');
+}
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as ChatRequest;
@@ -111,7 +115,7 @@ export async function POST(request: Request) {
         } catch (err) {
           console.error('Chat provider streaming error:', err);
           controller.enqueue(
-            encoder.encode(sseEvent({ type: 'text', content: 'Sorry, an error occurred while generating the response.' })),
+            encoder.encode(sseEvent({ type: 'text', content: getUserFacingDiscoverError(err) })),
           );
           controller.enqueue(encoder.encode(sseEvent({ type: 'done' })));
         }

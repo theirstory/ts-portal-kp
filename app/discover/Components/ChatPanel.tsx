@@ -13,6 +13,7 @@ export const ChatPanel = () => {
   const isStreaming = useChatStore((s) => s.isStreaming);
   const streamingStatus = useChatStore((s) => s.streamingStatus);
   const sendMessage = useChatStore((s) => s.sendMessage);
+  const stopStreaming = useChatStore((s) => s.stopStreaming);
   const clearMessages = useChatStore((s) => s.clearMessages);
   const showSourcesForMessage = useChatStore((s) => s.showSourcesForMessage);
   const scrollToCitationIndex = useChatStore((s) => s.scrollToCitationIndex);
@@ -91,6 +92,7 @@ export const ChatPanel = () => {
             onInputChange={setInput}
             onSubmit={handleSubmit}
             onKeyDown={handleKeyDown}
+            onStop={stopStreaming}
             placeholder="Ask a question about the interviews..."
             fullHeight
           />
@@ -154,6 +156,7 @@ export const ChatPanel = () => {
         onInputChange={setInput}
         onSubmit={handleSubmit}
         onKeyDown={handleKeyDown}
+        onStop={stopStreaming}
         placeholder="Ask a question about the interviews..."
         variant="compact"
       />

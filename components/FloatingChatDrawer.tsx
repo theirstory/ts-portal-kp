@@ -110,6 +110,7 @@ export const FloatingChatDrawer = () => {
   const isStreaming = useChatStore((s) => s.isStreaming);
   const streamingStatus = useChatStore((s) => s.streamingStatus);
   const sendMessage = useChatStore((s) => s.sendMessage);
+  const stopStreaming = useChatStore((s) => s.stopStreaming);
   const clearMessages = useChatStore((s) => s.clearMessages);
   const storeSetTranscriptCitation = useChatStore((s) => s.openTranscript);
 
@@ -898,6 +899,7 @@ export const FloatingChatDrawer = () => {
                 onInputChange={setInput}
                 onSubmit={handleSubmit}
                 onKeyDown={handleKeyDown}
+                onStop={stopStreaming}
                 placeholder="Ask a question..."
                 variant="compact"
               />

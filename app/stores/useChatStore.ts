@@ -9,6 +9,7 @@ type ChatStore = {
   messages: ChatMessage[];
   isStreaming: boolean;
   streamingStatus: string | null;
+  activeRequestController: AbortController | null;
   sidePanelMode: SidePanelMode;
   activeCitation: Citation | null;
   searchResults: Citation[];
@@ -26,6 +27,7 @@ type ChatStore = {
   activeAssistantMessageId: string | null;
 
   sendMessage: (content: string) => Promise<void>;
+  stopStreaming: () => void;
   setActiveCitation: (citation: Citation, siblings?: Citation[]) => void;
   setHoveredCitationIndex: (index: number | null, fromPanel?: boolean) => void;
   closeSidePanel: () => void;
@@ -52,6 +54,7 @@ export const useChatStore = create<ChatStore>()(
       messages: [],
       isStreaming: false,
       streamingStatus: null,
+      activeRequestController: null,
       sidePanelMode: 'hidden',
       activeCitation: null,
       searchResults: [],
@@ -69,6 +72,7 @@ export const useChatStore = create<ChatStore>()(
       activeAssistantMessageId: null,
 
       sendMessage: async (content: string) => {
+        const controller = new AbortController();
         const userMessage: ChatMessage = {
           id: nextId(),
           role: 'user',
@@ -85,6 +89,7 @@ export const useChatStore = create<ChatStore>()(
           (state) => ({
             messages: [...state.messages, userMessage, assistantMessage],
             isStreaming: true,
+            activeRequestController: controller,
           }),
           false,
           'sendMessage:start',
@@ -100,6 +105,7 @@ export const useChatStore = create<ChatStore>()(
           const response = await fetch('/api/discover', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
             body: JSON.stringify({
               messages: apiMessages,
               query: content,
@@ -216,6 +222,7 @@ export const useChatStore = create<ChatStore>()(
                         messages: msgs,
                         isStreaming: false,
                         streamingStatus: null,
+                        activeRequestController: null,
                         ...(firstCitation
                           ? {
                               activeCitation: firstCitation,
@@ -240,8 +247,21 @@ export const useChatStore = create<ChatStore>()(
           }
 
           // In case we never got a 'done' event
-          set({ isStreaming: false, streamingStatus: null }, false, 'sendMessage:streamEnd');
+          set({ isStreaming: false, streamingStatus: null, activeRequestController: null }, false, 'sendMessage:streamEnd');
         } catch (error) {
+          if (error instanceof Error && error.name === 'AbortError') {
+            set(
+              {
+                isStreaming: false,
+                streamingStatus: null,
+                activeRequestController: null,
+              },
+              false,
+              'sendMessage:aborted',
+            );
+            return;
+          }
+
           console.error('Chat error:', error);
           set(
             (state) => {
@@ -253,12 +273,17 @@ export const useChatStore = create<ChatStore>()(
                   content: 'Sorry, something went wrong. Please try again.',
                 };
               }
-              return { messages: msgs, isStreaming: false, streamingStatus: null };
+              return { messages: msgs, isStreaming: false, streamingStatus: null, activeRequestController: null };
             },
             false,
             'sendMessage:error',
           );
         }
+      },
+
+      stopStreaming: () => {
+        const controller = get().activeRequestController;
+        controller?.abort();
       },
 
       setActiveCitation: (citation: Citation, siblings?: Citation[]) => {
@@ -340,6 +365,7 @@ export const useChatStore = create<ChatStore>()(
             messages: [],
             isStreaming: false,
             streamingStatus: null,
+            activeRequestController: null,
             sidePanelMode: 'hidden',
             activeCitation: null,
             searchResults: [],
