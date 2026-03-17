@@ -170,7 +170,6 @@ Before running deployment commands:
 
 - Create a Linux server in your hosting provider (DigitalOcean, AWS, Hetzner, etc.).
 - Connect to that server via SSH (example: `ssh root@YOUR_SERVER_IP`).
-- If you want to use Discover (RAG), add the API key for the provider to `.env.production` before deploying. If `.env.production` does not exist yet, create it from `.env.production.example`.
 
 On the server terminal (remote host):
 
@@ -183,6 +182,10 @@ cd ts-portal
 # Install Docker once (Ubuntu)
 sudo bash scripts/deploy/setup-docker-ubuntu.sh
 # If prompted about /etc/ssh/sshd_config, choose: keep the local version currently installed
+
+# If you want to use Discover chat create and edit the .env.production file with you api keys
+cp -n .env.production.example .env.production
+nano .env.production
 
 # Deploy/update
 ./scripts/deploy/deploy-prod.sh
