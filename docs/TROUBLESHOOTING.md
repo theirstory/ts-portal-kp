@@ -241,7 +241,7 @@ GLINER_THRESHOLD=0.5  # Higher = fewer entities = faster
 MIN_TEXT_LENGTH_FOR_NER=100  # Skip short texts
 
 # Increase chunk size (fewer chunks)
-CHUNK_SECONDS=60
+SENTENCE_CHUNK_SIZE=14
 MAX_WORDS_PER_CHUNK=300
 
 # Process in smaller batches
@@ -413,12 +413,12 @@ docker compose logs weaviate | grep -i slow
 
 # Check number of chunks
 curl -s "http://localhost:8080/v1/objects?class=Chunks" | jq '.objects | length'
-# Too many? (>10,000) → Increase CHUNK_SECONDS
+# Too many? (>10,000) → Increase SENTENCE_CHUNK_SIZE
 
 # Check vector size
 curl -s "http://localhost:8080/v1/objects?class=Chunks&limit=1" | \
   jq '.objects[0].vector | length'
-# Should be 384
+# Depends on the configured EMBEDDING_MODEL (for LaBSE, expect 768)
 
 # Restart Weaviate
 docker compose restart weaviate
