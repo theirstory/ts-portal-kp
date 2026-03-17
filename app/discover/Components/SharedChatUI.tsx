@@ -210,7 +210,7 @@ export function ChatMessagesThread({
               <Box
                 sx={{
                   overflow: 'hidden',
-                  borderRadius: 3,
+                  borderRadius: 1,
                   px: compact ? 1 : 1.25,
                   py: compact ? 0.9 : 1,
                   color: colors.common.white,
@@ -365,9 +365,6 @@ export function ChatComposer({
         px: 0,
         py: compact ? 1 : 2,
         alignItems: compact ? 'center' : 'flex-end',
-        borderTop: fullHeight ? '1px solid' : 'none',
-        borderColor: 'divider',
-        bgcolor: 'transparent',
         flexShrink: 0,
       }}>
       <TextField

@@ -15,7 +15,9 @@ function buildSystemPrompt(allCitations: Citation[]): string {
   return `You are a helpful research assistant for an oral history interview archive. Answer questions based on the sources provided below. Sources include both chapter summaries (high-level overviews) and transcript excerpts (detailed quotes).
 
 RULES:
-- Use numbered citations like [1], [2] to reference sources. Always cite your sources.
+- Use numbered citations like [1], [2] to reference sources. 
+- Always cite your sources next to the relevant information. Not at the end of the answer, but right after the fact. For example: "The interviewee discusses their childhood in New York [3]."
+- Only use bracketed citations for source numbers. Never output ranges like [3-5] or [3–5], and never put timestamps in brackets.
 - You MUST cite every source that is relevant to your answer, including chapter summaries.
 - Include direct quotes from transcript excerpts when relevant, using quotation marks.
 - If the sources don't contain enough information to answer, say so honestly.
@@ -106,17 +108,13 @@ export async function POST(request: Request) {
             systemPrompt,
             messages: providerMessages,
           })) {
-            controller.enqueue(
-              encoder.encode(sseEvent({ type: 'text', content: text })),
-            );
+            controller.enqueue(encoder.encode(sseEvent({ type: 'text', content: text })));
           }
 
           controller.enqueue(encoder.encode(sseEvent({ type: 'done' })));
         } catch (err) {
           console.error('Chat provider streaming error:', err);
-          controller.enqueue(
-            encoder.encode(sseEvent({ type: 'text', content: getUserFacingDiscoverError(err) })),
-          );
+          controller.enqueue(encoder.encode(sseEvent({ type: 'text', content: getUserFacingDiscoverError(err) })));
           controller.enqueue(encoder.encode(sseEvent({ type: 'done' })));
         }
 
@@ -128,7 +126,7 @@ export async function POST(request: Request) {
       headers: {
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache, no-transform',
-        'Connection': 'keep-alive',
+        Connection: 'keep-alive',
         'X-Accel-Buffering': 'no',
       },
     });
