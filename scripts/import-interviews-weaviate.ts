@@ -1,5 +1,8 @@
 import { readFile, readdir } from 'node:fs/promises';
-import { join } from 'node:path';
+import { request as httpRequest } from 'node:http';
+import { request as httpsRequest } from 'node:https';
+import { basename, dirname, join, relative, resolve } from 'node:path';
+import { URL } from 'node:url';
 
 function buildWeaviateUrl(): string {
   const host = process.env.WEAVIATE_HOST_URL ?? 'weaviate';
@@ -18,7 +21,16 @@ function buildNlpUrl(): string {
 const WEAVIATE_URL = buildWeaviateUrl();
 const NLP_URL = buildNlpUrl();
 
+/** NLP /process-story responds only after full processing; undici fetch uses a short default headersTimeout. */
+const NLP_PROCESS_TIMEOUT_MS =
+  Number(process.env.NLP_PROCESS_TIMEOUT_MS) > 0
+    ? Number(process.env.NLP_PROCESS_TIMEOUT_MS)
+    : 60 * 60 * 1000;
+
 const INTERVIEWS_DIR = process.env.INTERVIEWS_DIR ?? './json/interviews';
+
+/** If set, import only this file (path relative to cwd or absolute). Skips clearing Weaviate. */
+const WEAVIATE_IMPORT_SINGLE_FILE = process.env.WEAVIATE_IMPORT_SINGLE_FILE?.trim() ?? '';
 const IGNORED_INTERVIEW_FILENAME = 'example-minimum-interview.json';
 const IGNORED_COLLECTION_FOLDERS = new Set(['example-collection']);
 const COLLECTION_META_JSON_FILES = new Set(['collection.json', 'collection.config.json']);
@@ -93,6 +105,55 @@ async function waitForNlpReady(): Promise<void> {
   }
 
   throw new Error(`[weaviate-import] NLP not ready after ${maxWaitSeconds}s: ${url}`);
+}
+
+async function postJsonAwaitingSlowResponse(
+  urlString: string,
+  body: string,
+  timeoutMs: number,
+): Promise<{ ok: boolean; status: number; text: string }> {
+  const u = new URL(urlString);
+  const isHttps = u.protocol === 'https:';
+  const doRequest = isHttps ? httpsRequest : httpRequest;
+
+  return new Promise((resolve, reject) => {
+    const req = doRequest(
+      {
+        hostname: u.hostname,
+        port: u.port || (isHttps ? 443 : 80),
+        path: `${u.pathname}${u.search}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(body),
+        },
+        timeout: timeoutMs,
+      },
+      (res) => {
+        const chunks: Buffer[] = [];
+        res.on('data', (chunk: Buffer) => {
+          chunks.push(chunk);
+        });
+        res.on('end', () => {
+          resolve({
+            ok: (res.statusCode ?? 0) >= 200 && (res.statusCode ?? 0) < 300,
+            status: res.statusCode ?? 0,
+            text: Buffer.concat(chunks).toString('utf8'),
+          });
+        });
+        res.on('error', reject);
+      },
+    );
+
+    req.on('error', reject);
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error(`[weaviate-import] NLP request timed out after ${timeoutMs}ms`));
+    });
+
+    req.write(body);
+    req.end();
+  });
 }
 
 async function deleteAllObjectsFromClass(className: string): Promise<void> {
@@ -276,6 +337,50 @@ async function discoverInterviewJobs(rootDir: string): Promise<InterviewImportJo
   return jobs.sort((a, b) => a.filePath.localeCompare(b.filePath));
 }
 
+async function resolveSingleInterviewJob(
+  fileInput: string,
+  interviewsDir: string,
+): Promise<InterviewImportJob> {
+  const interviewsRoot = resolve(process.cwd(), interviewsDir);
+  const absoluteFile = resolve(process.cwd(), fileInput);
+
+  const relToRoot = relative(interviewsRoot, absoluteFile);
+  if (relToRoot.startsWith('..') || relToRoot === '') {
+    throw new Error(
+      `[weaviate-import] WEAVIATE_IMPORT_SINGLE_FILE must be under INTERVIEWS_DIR (${interviewsRoot}). Got: ${absoluteFile}`,
+    );
+  }
+
+  try {
+    await readFile(absoluteFile, 'utf-8');
+  } catch {
+    throw new Error(`[weaviate-import] Interview file not found: ${absoluteFile}`);
+  }
+
+  const fileBase = basename(absoluteFile);
+  if (!isInterviewJsonFile(fileBase)) {
+    throw new Error(`[weaviate-import] Not a valid interview json filename: ${fileBase}`);
+  }
+
+  const parentDir = dirname(absoluteFile);
+  if (resolve(parentDir) === resolve(interviewsRoot)) {
+    const defaultCollection = await loadCollectionMetadata(interviewsRoot, 'default');
+    defaultCollection.id = 'default';
+    if (!defaultCollection.name || defaultCollection.name === humanizeCollectionName('default')) {
+      defaultCollection.name = 'Default';
+    }
+    return { filePath: absoluteFile, collection: defaultCollection };
+  }
+
+  const folderName = basename(parentDir);
+  if (IGNORED_COLLECTION_FOLDERS.has(folderName.toLowerCase())) {
+    throw new Error(`[weaviate-import] Collection folder is ignored: ${folderName}`);
+  }
+
+  const collection = await loadCollectionMetadata(parentDir, folderName);
+  return { filePath: absoluteFile, collection };
+}
+
 type ProcessStoryRequest = {
   payload: any;
   collection: {
@@ -304,23 +409,17 @@ async function processInterviewFileThroughNlp(job: InterviewImportJob): Promise<
 
   const url = `${NLP_URL}/process-story?write_to_weaviate=true&run_ner=true`;
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(10 * 60 * 1000), // 10 minutes
-  });
+  const res = await postJsonAwaitingSlowResponse(url, JSON.stringify(body), NLP_PROCESS_TIMEOUT_MS);
 
-  const text = await res.text().catch(() => '');
   if (!res.ok) {
     throw new Error(
       `[weaviate-import] NLP process failed for ${job.filePath} (collection=${job.collection.id}). ` +
-        `HTTP ${res.status}. ${text}`,
+        `HTTP ${res.status}. ${res.text}`,
     );
   }
 
   try {
-    const parsed = JSON.parse(text);
+    const parsed = JSON.parse(res.text);
     const chunks = parsed?.counts?.chunks;
     console.log(`[weaviate-import] NLP OK: ${job.filePath} collection=${job.collection.id} chunks=${chunks ?? 'unknown'}`);
   } catch {
@@ -354,6 +453,27 @@ async function main(): Promise<void> {
   console.log(`[weaviate-import] INTERVIEWS_DIR=${INTERVIEWS_DIR}`);
 
   await waitForReady();
+
+  if (WEAVIATE_IMPORT_SINGLE_FILE) {
+    console.log(
+      `[weaviate-import] Single-file mode: ${WEAVIATE_IMPORT_SINGLE_FILE} (not clearing existing Weaviate data)`,
+    );
+    const job = await resolveSingleInterviewJob(WEAVIATE_IMPORT_SINGLE_FILE, INTERVIEWS_DIR);
+    console.log(
+      `[weaviate-import] NLP process-story timeout: ${Math.round(NLP_PROCESS_TIMEOUT_MS / 60_000)} min (override with NLP_PROCESS_TIMEOUT_MS ms)`,
+    );
+    await waitForNlpReady();
+    await processInterviewFileThroughNlp(job);
+    console.log('');
+    console.log('==================================================');
+    console.log('✅ Single interview re-import complete');
+    console.log(`📍 Weaviate: ${WEAVIATE_URL}`);
+    console.log(`📄 File: ${job.filePath}`);
+    console.log('==================================================');
+    console.log('');
+    return;
+  }
+
   await clearAllData();
 
   const jobs = await discoverInterviewJobs(INTERVIEWS_DIR);
@@ -372,6 +492,9 @@ async function main(): Promise<void> {
 
   console.log(`[weaviate-import] Found ${jobs.length} interview json(s). Using NLP processor...`);
   logCollectionSummary(jobs);
+  console.log(
+    `[weaviate-import] NLP process-story timeout: ${Math.round(NLP_PROCESS_TIMEOUT_MS / 60_000)} min (override with NLP_PROCESS_TIMEOUT_MS ms)`,
+  );
   await waitForNlpReady();
 
   for (const job of jobs) {

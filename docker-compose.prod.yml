@@ -1,7 +1,7 @@
 services:
   weaviate:
     image: semitechnologies/weaviate:1.35.0
-    container_name: weaviate-prod
+    container_name: weaviate-prod-kp
     environment:
       QUERY_DEFAULTS_LIMIT: "25"
       AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
@@ -22,7 +22,7 @@ services:
     build:
       context: ./nlp-processor
       dockerfile: Dockerfile
-    container_name: nlp-processor-prod
+    container_name: nlp-processor-prod-kp
     env_file:
       - ./nlp-processor/.env
     depends_on:
@@ -44,7 +44,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    container_name: weaviate-init-prod
+    container_name: weaviate-init-prod-kp
     env_file:
       - ./.env.production
     depends_on:
@@ -62,7 +62,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    container_name: next-frontend-prod
+    container_name: next-frontend-prod-kp
     env_file:
       - ./.env.production
     depends_on:
