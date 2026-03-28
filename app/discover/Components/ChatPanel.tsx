@@ -92,8 +92,10 @@ export const ChatPanel = () => {
             maxWidth: 680,
             display: 'flex',
             flexDirection: 'column',
-            gap: 2,
+            gap: 1,
           }}>
+          <ChatStarterQuestions onStarterClick={handleStarterClick} headingOnly />
+
           <ChatComposer
             input={input}
             isStreaming={isStreaming}
@@ -105,8 +107,8 @@ export const ChatPanel = () => {
             fullHeight
           />
 
-          <Box sx={{ mt: 2 }}>
-            <ChatStarterQuestions onStarterClick={handleStarterClick} />
+          <Box sx={{ mt: 1.5 }}>
+            <ChatStarterQuestions onStarterClick={handleStarterClick} promptsOnly />
           </Box>
         </Box>
       </Box>

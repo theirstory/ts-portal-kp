@@ -45,6 +45,8 @@ type ChatComposerProps = {
 type ChatStarterQuestionsProps = {
   onStarterClick: (question: string) => void;
   variant?: 'default' | 'compact';
+  headingOnly?: boolean;
+  promptsOnly?: boolean;
 };
 
 function buildQAPairs(messages: ChatMessageType[]): QAPair[] {
@@ -57,7 +59,7 @@ function buildQAPairs(messages: ChatMessageType[]): QAPair[] {
   return result;
 }
 
-export function ChatStarterQuestions({ onStarterClick, variant = 'default' }: ChatStarterQuestionsProps) {
+export function ChatStarterQuestions({ onStarterClick, variant = 'default', headingOnly = false, promptsOnly = false }: ChatStarterQuestionsProps) {
   const compact = variant === 'compact';
 
   return (
@@ -68,28 +70,30 @@ export function ChatStarterQuestions({ onStarterClick, variant = 'default' }: Ch
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
-        px: compact ? 2 : { xs: 2, md: 3 },
+        height: (headingOnly || promptsOnly) ? 'auto' : '100%',
+        px: compact ? 2 : (headingOnly || promptsOnly) ? 0 : { xs: 2, md: 3 },
         py: compact ? 4 : 0,
       }}>
       <Box
         id={compact ? 'chat-starter-questions-list-compact' : 'chat-starter-questions-list'}
         sx={{
           width: '100%',
-          maxWidth: compact ? '100%' : 680,
+          maxWidth: compact ? '100%' : (headingOnly || promptsOnly) ? '100%' : 680,
           display: 'flex',
           flexDirection: 'column',
-          gap: compact ? 1 : 1.5,
+          gap: compact ? 1 : 1,
         }}>
-        <Typography
-          variant={compact ? 'body1' : 'h4'}
-          fontWeight={600}
-          color={colors.text.primary}
-          sx={{ textAlign: 'center', mb: compact ? 2 : 1 }}>
-          Ask about the interviews
-        </Typography>
+        {!promptsOnly && (
+          <Typography
+            variant={compact ? 'body1' : 'h4'}
+            fontWeight={600}
+            color={colors.text.primary}
+            sx={{ textAlign: 'center', mb: compact ? 2 : 0.5 }}>
+            Ask about the interviews
+          </Typography>
+        )}
 
-        {STARTER_QUESTIONS.map((q) => (
+        {!headingOnly && STARTER_QUESTIONS.map((q) => (
           <Button
             id={`chat-starter-question-${q
               .toLowerCase()
@@ -363,7 +367,7 @@ export function ChatComposer({
         display: 'flex',
         gap: 1,
         px: 0,
-        py: compact ? 1 : 2,
+        py: compact ? 1 : fullHeight ? 0.5 : 2,
         alignItems: compact ? 'center' : 'flex-end',
         flexShrink: 0,
       }}>
@@ -386,7 +390,7 @@ export function ChatComposer({
             ? {
                 input: {
                   endAdornment: (
-                    <InputAdornment position="end" sx={{ alignSelf: 'center', mr: 0.5 }}>
+                    <InputAdornment position="end" sx={{ alignSelf: 'flex-end', mb: 1, mr: 0.5 }}>
                       <IconButton
                         type={isStreaming ? 'button' : 'submit'}
                         onClick={isStreaming ? onStop : undefined}
@@ -413,6 +417,7 @@ export function ChatComposer({
             bgcolor: colors.background.paper,
             alignItems: fullHeight ? 'flex-end' : undefined,
             fontSize: fullHeight ? '1rem' : undefined,
+            borderRadius: fullHeight ? 3 : undefined,
             boxShadow: compact ? `0 1px 2px ${colors.common.shadow}` : 'none',
             minHeight: compact ? 52 : undefined,
             '& fieldset': {
