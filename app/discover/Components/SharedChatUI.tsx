@@ -1,9 +1,12 @@
 'use client';
 
-import React, { useMemo, useRef, type MutableRefObject } from 'react';
-import { Box, Button, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
+import React, { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject } from 'react';
+import { Box, Button, IconButton, InputAdornment, Menu, MenuItem, TextField, Tooltip, Typography } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import StopIcon from '@mui/icons-material/Stop';
+import MicIcon from '@mui/icons-material/Mic';
+import MicOffIcon from '@mui/icons-material/MicOff';
+import LanguageIcon from '@mui/icons-material/Language';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -11,6 +14,29 @@ import { ChatMessage as ChatMessageType } from '@/types/chat';
 import { ChatMessage } from './ChatMessage';
 import { TextSelectionPopover } from './TextSelectionPopover';
 import { colors } from '@/lib/theme';
+
+const SPEECH_LANGUAGES = [
+  { code: 'en-US', label: 'English' },
+  { code: 'es-ES', label: 'Espa\u00f1ol' },
+  { code: 'fr-FR', label: 'Fran\u00e7ais' },
+  { code: 'de-DE', label: 'Deutsch' },
+  { code: 'pt-BR', label: 'Portugu\u00eas' },
+  { code: 'it-IT', label: 'Italiano' },
+  { code: 'nl-NL', label: 'Nederlands' },
+  { code: 'ru-RU', label: '\u0420\u0443\u0441\u0441\u043a\u0438\u0439' },
+  { code: 'zh-CN', label: '\u4e2d\u6587' },
+  { code: 'ja-JP', label: '\u65e5\u672c\u8a9e' },
+  { code: 'ko-KR', label: '\ud55c\uad6d\uc5b4' },
+  { code: 'ar-SA', label: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629' },
+  { code: 'hi-IN', label: '\u0939\u093f\u0928\u094d\u0926\u0940' },
+  { code: 'vi-VN', label: 'Ti\u1ebfng Vi\u1ec7t' },
+  { code: 'th-TH', label: '\u0e44\u0e17\u0e22' },
+  { code: 'pl-PL', label: 'Polski' },
+  { code: 'tr-TR', label: 'T\u00fcrk\u00e7e' },
+  { code: 'uk-UA', label: '\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430' },
+  { code: 'id-ID', label: 'Bahasa Indonesia' },
+  { code: 'ms-MY', label: 'Bahasa Melayu' },
+];
 
 export const STARTER_QUESTIONS = [
   'What are interesting questions this collection could uniquely answer?',
@@ -357,6 +383,65 @@ export function ChatComposer({
   fullHeight = false,
 }: ChatComposerProps) {
   const compact = variant === 'compact';
+  const [isListening, setIsListening] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(false);
+  const [speechLang, setSpeechLang] = useState('');
+  const [langMenuAnchor, setLangMenuAnchor] = useState<null | HTMLElement>(null);
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
+
+  useEffect(() => {
+    setSpeechSupported('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
+    setSpeechLang(navigator.language || 'en-US');
+  }, []);
+
+  const toggleListening = useCallback(() => {
+    if (isListening) {
+      recognitionRef.current?.stop();
+      setIsListening(false);
+      return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) return;
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = speechLang;
+
+    let finalTranscript = '';
+
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      let interim = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript;
+        } else {
+          interim += transcript;
+        }
+      }
+      onInputChange(input + finalTranscript + interim);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.onerror = () => {
+      setIsListening(false);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
+    setIsListening(true);
+  }, [isListening, input, onInputChange, speechLang]);
+
+  useEffect(() => {
+    return () => {
+      recognitionRef.current?.stop();
+    };
+  }, []);
 
   return (
     <Box
@@ -390,7 +475,44 @@ export function ChatComposer({
             ? {
                 input: {
                   endAdornment: (
-                    <InputAdornment position="end" sx={{ alignSelf: 'flex-end', mb: 1, mr: 0.5 }}>
+                    <InputAdornment position="end" sx={{ alignSelf: 'flex-end', mb: 1, mr: 0.5, gap: 0.5 }}>
+                      {speechSupported && (
+                        <>
+                          <Tooltip title={`Language: ${SPEECH_LANGUAGES.find((l) => l.code === speechLang)?.label ?? speechLang}`}>
+                            <IconButton
+                              type="button"
+                              onClick={(e) => setLangMenuAnchor(e.currentTarget)}
+                              disabled={isStreaming || isListening}
+                              sx={{
+                                color: colors.grey[500],
+                                '&:hover': { bgcolor: colors.grey[100] },
+                                '&.Mui-disabled': { color: colors.grey[300] },
+                                borderRadius: 2,
+                                width: 36,
+                                height: 36,
+                              }}>
+                              <LanguageIcon sx={{ fontSize: 18 }} />
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title={isListening ? 'Stop listening' : 'Voice input'}>
+                            <IconButton
+                              type="button"
+                              onClick={toggleListening}
+                              disabled={isStreaming}
+                              sx={{
+                                bgcolor: isListening ? colors.error.main : 'transparent',
+                                color: isListening ? colors.primary.contrastText : colors.grey[500],
+                                '&:hover': { bgcolor: isListening ? colors.error.main : colors.grey[100] },
+                                '&.Mui-disabled': { color: colors.grey[300] },
+                                borderRadius: 2,
+                                width: 36,
+                                height: 36,
+                              }}>
+                              {isListening ? <MicOffIcon sx={{ fontSize: 18 }} /> : <MicIcon sx={{ fontSize: 18 }} />}
+                            </IconButton>
+                          </Tooltip>
+                        </>
+                      )}
                       <IconButton
                         type={isStreaming ? 'button' : 'submit'}
                         onClick={isStreaming ? onStop : undefined}
@@ -433,25 +555,85 @@ export function ChatComposer({
         }}
       />
       {!fullHeight && (
-        <IconButton
-          id={compact ? 'chat-composer-submit-compact' : 'chat-composer-submit'}
-          type={isStreaming ? 'button' : 'submit'}
-          onClick={isStreaming ? onStop : undefined}
-          disabled={isStreaming ? !onStop : !input.trim()}
-          sx={{
-            bgcolor: isStreaming ? colors.error.main : colors.primary.main,
-            color: colors.primary.contrastText,
-            '&:hover': { bgcolor: isStreaming ? colors.error.main : colors.primary.dark },
-            '&.Mui-disabled': { bgcolor: colors.grey[300] },
-            borderRadius: '50%',
-            alignSelf: 'center',
-            mt: compact ? -0.25 : 0,
-            width: compact ? 36 : 40,
-            height: compact ? 36 : 40,
-          }}>
-          {isStreaming ? <StopIcon fontSize="small" /> : <SendIcon fontSize="small" />}
-        </IconButton>
+        <>
+          {speechSupported && (
+            <>
+              <Tooltip title={`Language: ${SPEECH_LANGUAGES.find((l) => l.code === speechLang)?.label ?? speechLang}`}>
+                <IconButton
+                  type="button"
+                  onClick={(e) => setLangMenuAnchor(e.currentTarget)}
+                  disabled={isStreaming || isListening}
+                  sx={{
+                    color: colors.grey[500],
+                    '&:hover': { bgcolor: colors.grey[100] },
+                    '&.Mui-disabled': { color: colors.grey[300] },
+                    borderRadius: '50%',
+                    alignSelf: 'center',
+                    mt: compact ? -0.25 : 0,
+                    width: compact ? 36 : 40,
+                    height: compact ? 36 : 40,
+                  }}>
+                  <LanguageIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title={isListening ? 'Stop listening' : 'Voice input'}>
+                <IconButton
+                  type="button"
+                  onClick={toggleListening}
+                  disabled={isStreaming}
+                  sx={{
+                    bgcolor: isListening ? colors.error.main : 'transparent',
+                    color: isListening ? colors.primary.contrastText : colors.grey[500],
+                    '&:hover': { bgcolor: isListening ? colors.error.main : colors.grey[100] },
+                    '&.Mui-disabled': { color: colors.grey[300] },
+                    borderRadius: '50%',
+                    alignSelf: 'center',
+                    mt: compact ? -0.25 : 0,
+                    width: compact ? 36 : 40,
+                    height: compact ? 36 : 40,
+                  }}>
+                  {isListening ? <MicOffIcon fontSize="small" /> : <MicIcon fontSize="small" />}
+                </IconButton>
+            </Tooltip>
+            </>
+          )}
+          <IconButton
+            id={compact ? 'chat-composer-submit-compact' : 'chat-composer-submit'}
+            type={isStreaming ? 'button' : 'submit'}
+            onClick={isStreaming ? onStop : undefined}
+            disabled={isStreaming ? !onStop : !input.trim()}
+            sx={{
+              bgcolor: isStreaming ? colors.error.main : colors.primary.main,
+              color: colors.primary.contrastText,
+              '&:hover': { bgcolor: isStreaming ? colors.error.main : colors.primary.dark },
+              '&.Mui-disabled': { bgcolor: colors.grey[300] },
+              borderRadius: '50%',
+              alignSelf: 'center',
+              mt: compact ? -0.25 : 0,
+              width: compact ? 36 : 40,
+              height: compact ? 36 : 40,
+            }}>
+            {isStreaming ? <StopIcon fontSize="small" /> : <SendIcon fontSize="small" />}
+          </IconButton>
+        </>
       )}
+      <Menu
+        anchorEl={langMenuAnchor}
+        open={Boolean(langMenuAnchor)}
+        onClose={() => setLangMenuAnchor(null)}
+        slotProps={{ paper: { sx: { maxHeight: 300 } } }}>
+        {SPEECH_LANGUAGES.map((lang) => (
+          <MenuItem
+            key={lang.code}
+            selected={lang.code === speechLang}
+            onClick={() => {
+              setSpeechLang(lang.code);
+              setLangMenuAnchor(null);
+            }}>
+            {lang.label}
+          </MenuItem>
+        ))}
+      </Menu>
     </Box>
   );
 }
