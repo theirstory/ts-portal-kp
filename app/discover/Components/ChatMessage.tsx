@@ -35,11 +35,13 @@ export const ChatMessage = memo(({ message }: Props) => {
       ).sort((a, b) => a - b);
 
       if (citationIndices.length > 0) {
+        const origin = typeof window !== 'undefined' ? window.location.origin : '';
         const footnotes = citationIndices
           .map((idx) => {
             const c = message.citations!.find((c) => c.index === idx);
             if (!c) return null;
-            return `${idx}. ${c.speaker}, "${c.interviewTitle}," ${c.sectionTitle}, ${formatTimeChicago(c.startTime)}–${formatTimeChicago(c.endTime)}.`;
+            const url = `${origin}/story/${c.theirstoryId}?start=${c.startTime}`;
+            return `${idx}. ${c.speaker}, "${c.interviewTitle}," ${c.sectionTitle}, ${formatTimeChicago(c.startTime)}–${formatTimeChicago(c.endTime)}.\n   ${url}`;
           })
           .filter(Boolean)
           .join('\n');

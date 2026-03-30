@@ -5,7 +5,8 @@ import { Box, Button, IconButton, InputAdornment, Menu, MenuItem, TextField, Too
 import SendIcon from '@mui/icons-material/Send';
 import StopIcon from '@mui/icons-material/Stop';
 import MicIcon from '@mui/icons-material/Mic';
-import MicOffIcon from '@mui/icons-material/MicOff';
+import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@mui/icons-material/Check';
 import LanguageIcon from '@mui/icons-material/Language';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -370,6 +371,82 @@ export function ChatMessagesThread({
   );
 }
 
+function AudioWaveform({ stream }: { stream: MediaStream | null }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const animFrameRef = useRef<number>(0);
+  const contextRef = useRef<AudioContext | null>(null);
+
+  useEffect(() => {
+    if (!stream || !canvasRef.current) return;
+
+    const audioCtx = new AudioContext();
+    const analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    analyser.smoothingTimeConstant = 0.7;
+    const source = audioCtx.createMediaStreamSource(stream);
+    source.connect(analyser);
+    analyserRef.current = analyser;
+    contextRef.current = audioCtx;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d')!;
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const barCount = 48;
+
+    const draw = () => {
+      animFrameRef.current = requestAnimationFrame(draw);
+      analyser.getByteFrequencyData(dataArray);
+
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      const centerX = w / 2;
+      const centerY = h / 2;
+      const barWidth = 2.5;
+      const gap = (w - barCount * barWidth) / (barCount - 1);
+      const step = Math.floor(dataArray.length / barCount);
+
+      for (let i = 0; i < barCount; i++) {
+        const value = dataArray[i * step] / 255;
+        const minH = 2;
+        const maxH = h * 0.85;
+        // Bars taper from center outward
+        const distFromCenter = Math.abs(i - barCount / 2) / (barCount / 2);
+        const taper = 1 - distFromCenter * 0.5;
+        const barH = Math.max(minH, value * maxH * taper);
+        const x = i * (barWidth + gap);
+        const y = centerY - barH / 2;
+
+        ctx.fillStyle = value > 0.05 ? 'rgba(100,100,100,0.8)' : 'rgba(180,180,180,0.5)';
+        ctx.beginPath();
+        ctx.roundRect(x, y, barWidth, barH, barWidth / 2);
+        ctx.fill();
+      }
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animFrameRef.current);
+      source.disconnect();
+      audioCtx.close();
+    };
+  }, [stream]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ width: '100%', height: '100%', display: 'block' }}
+    />
+  );
+}
+
 export function ChatComposer({
   input,
   isStreaming,
@@ -387,33 +464,50 @@ export function ChatComposer({
   const [speechSupported, setSpeechSupported] = useState(false);
   const [speechLang, setSpeechLang] = useState('');
   const [langMenuAnchor, setLangMenuAnchor] = useState<null | HTMLElement>(null);
+  const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
+  const [preListenInput, setPreListenInput] = useState('');
   const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const transcriptRef = useRef('');
 
   useEffect(() => {
     setSpeechSupported('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
     setSpeechLang(navigator.language || 'en-US');
   }, []);
 
-  const toggleListening = useCallback(() => {
-    if (isListening) {
-      recognitionRef.current?.stop();
-      setIsListening(false);
-      return;
+  const stopListening = useCallback(() => {
+    recognitionRef.current?.stop();
+    if (mediaStream) {
+      mediaStream.getTracks().forEach((t) => t.stop());
+      setMediaStream(null);
     }
+    setIsListening(false);
+  }, [mediaStream]);
 
+  const startListening = useCallback(async () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) return;
+
+    let stream: MediaStream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch {
+      return;
+    }
+    setMediaStream(stream);
+    setPreListenInput(input);
+    transcriptRef.current = '';
 
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.lang = speechLang;
 
-    let finalTranscript = '';
+    const baseInput = input;
 
     recognition.onresult = (event: SpeechRecognitionEvent) => {
+      let finalTranscript = '';
       let interim = '';
-      for (let i = event.resultIndex; i < event.results.length; i++) {
+      for (let i = 0; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
         if (event.results[i].isFinal) {
           finalTranscript += transcript;
@@ -421,27 +515,103 @@ export function ChatComposer({
           interim += transcript;
         }
       }
-      onInputChange(input + finalTranscript + interim);
+      transcriptRef.current = finalTranscript + interim;
+      onInputChange(baseInput + (baseInput ? ' ' : '') + finalTranscript + interim);
     };
 
     recognition.onend = () => {
+      stream.getTracks().forEach((t) => t.stop());
+      setMediaStream(null);
       setIsListening(false);
     };
 
     recognition.onerror = () => {
+      stream.getTracks().forEach((t) => t.stop());
+      setMediaStream(null);
       setIsListening(false);
     };
 
     recognitionRef.current = recognition;
     recognition.start();
     setIsListening(true);
-  }, [isListening, input, onInputChange, speechLang]);
+  }, [input, onInputChange, speechLang]);
+
+  const cancelListening = useCallback(() => {
+    onInputChange(preListenInput);
+    stopListening();
+  }, [preListenInput, onInputChange, stopListening]);
+
+  const confirmListening = useCallback(() => {
+    stopListening();
+  }, [stopListening]);
 
   useEffect(() => {
     return () => {
       recognitionRef.current?.stop();
     };
   }, []);
+
+  const langLabel = SPEECH_LANGUAGES.find((l) => l.code === speechLang)?.label ?? speechLang;
+  const btnSize = compact ? 36 : 40;
+
+  if (isListening) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 1,
+          px: 0,
+          py: compact ? 1 : fullHeight ? 0.5 : 2,
+          alignItems: 'center',
+          flexShrink: 0,
+        }}>
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            bgcolor: colors.background.paper,
+            borderRadius: fullHeight ? 3 : 999,
+            border: `1px solid ${colors.grey[300]}`,
+            height: compact ? 52 : 56,
+            px: 2,
+            gap: 1,
+          }}>
+          <Box sx={{ flex: 1, height: '100%', py: 0.5 }}>
+            <AudioWaveform stream={mediaStream} />
+          </Box>
+        </Box>
+        <Tooltip title="Cancel">
+          <IconButton
+            type="button"
+            onClick={cancelListening}
+            sx={{
+              color: colors.grey[600],
+              '&:hover': { bgcolor: colors.grey[100] },
+              width: btnSize,
+              height: btnSize,
+            }}>
+            <CloseIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Done">
+          <IconButton
+            type="button"
+            onClick={confirmListening}
+            sx={{
+              bgcolor: colors.primary.main,
+              color: colors.primary.contrastText,
+              '&:hover': { bgcolor: colors.primary.dark },
+              borderRadius: '50%',
+              width: btnSize,
+              height: btnSize,
+            }}>
+            <CheckIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+      </Box>
+    );
+  }
 
   return (
     <Box
@@ -478,11 +648,11 @@ export function ChatComposer({
                     <InputAdornment position="end" sx={{ alignSelf: 'flex-end', mb: 1, mr: 0.5, gap: 0.5 }}>
                       {speechSupported && (
                         <>
-                          <Tooltip title={`Language: ${SPEECH_LANGUAGES.find((l) => l.code === speechLang)?.label ?? speechLang}`}>
+                          <Tooltip title={`Language: ${langLabel}`}>
                             <IconButton
                               type="button"
                               onClick={(e) => setLangMenuAnchor(e.currentTarget)}
-                              disabled={isStreaming || isListening}
+                              disabled={isStreaming}
                               sx={{
                                 color: colors.grey[500],
                                 '&:hover': { bgcolor: colors.grey[100] },
@@ -494,21 +664,20 @@ export function ChatComposer({
                               <LanguageIcon sx={{ fontSize: 18 }} />
                             </IconButton>
                           </Tooltip>
-                          <Tooltip title={isListening ? 'Stop listening' : 'Voice input'}>
+                          <Tooltip title="Voice input">
                             <IconButton
                               type="button"
-                              onClick={toggleListening}
+                              onClick={startListening}
                               disabled={isStreaming}
                               sx={{
-                                bgcolor: isListening ? colors.error.main : 'transparent',
-                                color: isListening ? colors.primary.contrastText : colors.grey[500],
-                                '&:hover': { bgcolor: isListening ? colors.error.main : colors.grey[100] },
+                                color: colors.grey[500],
+                                '&:hover': { bgcolor: colors.grey[100] },
                                 '&.Mui-disabled': { color: colors.grey[300] },
                                 borderRadius: 2,
                                 width: 36,
                                 height: 36,
                               }}>
-                              {isListening ? <MicOffIcon sx={{ fontSize: 18 }} /> : <MicIcon sx={{ fontSize: 18 }} />}
+                              <MicIcon sx={{ fontSize: 18 }} />
                             </IconButton>
                           </Tooltip>
                         </>
@@ -558,11 +727,11 @@ export function ChatComposer({
         <>
           {speechSupported && (
             <>
-              <Tooltip title={`Language: ${SPEECH_LANGUAGES.find((l) => l.code === speechLang)?.label ?? speechLang}`}>
+              <Tooltip title={`Language: ${langLabel}`}>
                 <IconButton
                   type="button"
                   onClick={(e) => setLangMenuAnchor(e.currentTarget)}
-                  disabled={isStreaming || isListening}
+                  disabled={isStreaming}
                   sx={{
                     color: colors.grey[500],
                     '&:hover': { bgcolor: colors.grey[100] },
@@ -570,31 +739,30 @@ export function ChatComposer({
                     borderRadius: '50%',
                     alignSelf: 'center',
                     mt: compact ? -0.25 : 0,
-                    width: compact ? 36 : 40,
-                    height: compact ? 36 : 40,
+                    width: btnSize,
+                    height: btnSize,
                   }}>
                   <LanguageIcon fontSize="small" />
                 </IconButton>
               </Tooltip>
-              <Tooltip title={isListening ? 'Stop listening' : 'Voice input'}>
+              <Tooltip title="Voice input">
                 <IconButton
                   type="button"
-                  onClick={toggleListening}
+                  onClick={startListening}
                   disabled={isStreaming}
                   sx={{
-                    bgcolor: isListening ? colors.error.main : 'transparent',
-                    color: isListening ? colors.primary.contrastText : colors.grey[500],
-                    '&:hover': { bgcolor: isListening ? colors.error.main : colors.grey[100] },
+                    color: colors.grey[500],
+                    '&:hover': { bgcolor: colors.grey[100] },
                     '&.Mui-disabled': { color: colors.grey[300] },
                     borderRadius: '50%',
                     alignSelf: 'center',
                     mt: compact ? -0.25 : 0,
-                    width: compact ? 36 : 40,
-                    height: compact ? 36 : 40,
+                    width: btnSize,
+                    height: btnSize,
                   }}>
-                  {isListening ? <MicOffIcon fontSize="small" /> : <MicIcon fontSize="small" />}
+                  <MicIcon fontSize="small" />
                 </IconButton>
-            </Tooltip>
+              </Tooltip>
             </>
           )}
           <IconButton
@@ -610,8 +778,8 @@ export function ChatComposer({
               borderRadius: '50%',
               alignSelf: 'center',
               mt: compact ? -0.25 : 0,
-              width: compact ? 36 : 40,
-              height: compact ? 36 : 40,
+              width: btnSize,
+              height: btnSize,
             }}>
             {isStreaming ? <StopIcon fontSize="small" /> : <SendIcon fontSize="small" />}
           </IconButton>
