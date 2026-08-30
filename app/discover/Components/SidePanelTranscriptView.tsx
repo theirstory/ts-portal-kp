@@ -29,6 +29,7 @@ import { useChatStore } from '@/app/stores/useChatStore';
 import { useChatInteraction } from '@/app/discover/ChatInteractionContext';
 import { colors } from '@/lib/theme';
 import { Transcription, Section, Word } from '@/types/transcription';
+import { formatTime } from '@/app/utils/util';
 import { TextSelectionPopover } from './TextSelectionPopover';
 
 type TranscriptData = {
@@ -73,12 +74,6 @@ function mergeThematicMatches(matches: ThematicMatch[], gapSeconds = 2): Themati
     }
   }
   return merged;
-}
-
-function formatTimestamp(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
 // Hyperaudio-lite inspired word-level transcript component
@@ -185,7 +180,7 @@ const TranscriptSection = ({
         }}>
         <Box>
           <Typography variant="body2" fontWeight={600}>
-            {formatTimestamp(section.start)} &middot; {section.title}
+            {formatTime(section.start)} &middot; {section.title}
           </Typography>
           {section.synopsis && (
             <Typography variant="caption" sx={{ opacity: 0.85, display: 'block', mt: 0.25 }}>
@@ -203,7 +198,7 @@ const TranscriptSection = ({
                 color="text.secondary"
                 fontWeight={600}
                 sx={{ display: 'block', mb: 0.25 }}>
-                {para.speaker} &middot; {formatTimestamp(para.start)}
+                {para.speaker} &middot; {formatTime(para.start)}
               </Typography>
             )}
             <Typography variant="body2" component="div" sx={{ lineHeight: 1.8 }}>
@@ -788,7 +783,7 @@ export const SidePanelTranscriptView = () => {
           {isThematic && thematicResults.length > 0 && (
             <Box sx={{ px: 1.5, py: 0.75, bgcolor: `${colors.success.main}10`, borderBottom: '1px solid', borderColor: 'divider', flexShrink: 0 }}>
               <Typography variant="caption" color="text.secondary">
-                {thematicResults.length} thematic match{thematicResults.length !== 1 ? 'es' : ''} — {thematicResults[activeThematicIndex]?.speaker && `${thematicResults[activeThematicIndex].speaker} · `}{thematicResults[activeThematicIndex]?.sectionTitle} · {formatTimestamp(thematicResults[activeThematicIndex]?.startTime ?? 0)}
+                {thematicResults.length} thematic match{thematicResults.length !== 1 ? 'es' : ''} — {thematicResults[activeThematicIndex]?.speaker && `${thematicResults[activeThematicIndex].speaker} · `}{thematicResults[activeThematicIndex]?.sectionTitle} · {formatTime(thematicResults[activeThematicIndex]?.startTime ?? 0)}
               </Typography>
             </Box>
           )}

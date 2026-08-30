@@ -43,8 +43,12 @@ services:
         condition: service_healthy
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
-    command: sh -c "yarn weaviate:generate-schemas && yarn weaviate:import && exit 0"
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+        volume:
+          nocopy: true
+    command: sh -c "yarn install --immutable && yarn weaviate:generate-schemas && yarn weaviate:import && exit 0"
     restart: "no"
   
   nlp-processor:
@@ -100,10 +104,14 @@ services:
       # weaviate-init runs separately: docker compose run --rm weaviate-init
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+        volume:
+          nocopy: true
       - yarn_cache:/yarn-cache
       - ./config.json:/app/config.json:ro
-    command: sh -lc "yarn dev -p 3000 -H 0.0.0.0"
+    command: sh -lc "yarn install --immutable && yarn dev -p 3000 -H 0.0.0.0"
 
   frontend_cloud:
     profiles: ["cloud"]
@@ -123,10 +131,14 @@ services:
         condition: service_healthy
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
+      - type: volume
+        source: node_modules
+        target: /app/node_modules
+        volume:
+          nocopy: true
       - yarn_cache:/yarn-cache
       - ./config.json:/app/config.json:ro
-    command: sh -lc "yarn dev -p 3000 -H 0.0.0.0"
+    command: sh -lc "yarn install --immutable && yarn dev -p 3000 -H 0.0.0.0"
 
 volumes:
   weaviate_data:

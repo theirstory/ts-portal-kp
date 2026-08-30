@@ -29,7 +29,9 @@ export const SidePanel = () => {
         return activePromptText || activeCitation?.interviewTitle || '';
       case 'transcript': {
         const citation = transcriptCitation ?? activeCitation;
-        const indexPrefix = citation ? `[${citation.index}] ` : '';
+        // Chat citations are numbered from 1; Explore excerpts aren't numbered
+        // at all and pass 0, so the prefix is dropped for them.
+        const indexPrefix = citation?.index ? `[${citation.index}] ` : '';
         return `${indexPrefix}${citation?.interviewTitle ?? ''}`;
       }
       case 'search': {

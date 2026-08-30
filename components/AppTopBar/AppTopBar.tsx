@@ -32,7 +32,8 @@ export const AppTopBar = () => {
   if (isEmbed) return null;
   const isStoryPage = pathname.startsWith('/story/');
   const isChatPage = pathname.startsWith('/discover');
-  const isFullScreenPage = isStoryPage || isChatPage;
+  const isExplorePage = pathname.startsWith('/explore');
+  const isFullScreenPage = isStoryPage || isChatPage || isExplorePage;
   const isHeaderOverlayEnabled = config?.ui?.portalHeaderOverlay?.enabled ?? true;
   const organizationLogoPath = config.organization.logo?.path?.trim();
   const shouldUseCustomLogo = Boolean(organizationLogoPath);
@@ -110,6 +111,9 @@ export const AppTopBar = () => {
                 <Link href="/indexes">
                   INDEXES
                 </Link>
+                <Link href="/explore">
+                  EXPLORE
+                </Link>
                 {shouldShowCollectionsLink && (
                   <Link href="/collections">
                     COLLECTIONS
@@ -186,6 +190,9 @@ export const AppTopBar = () => {
                 </Link>
                 <Link href="/indexes">
                   INDEXES
+                </Link>
+                <Link href="/explore">
+                  EXPLORE
                 </Link>
                 {shouldShowCollectionsLink && (
                   <Link href="/collections">

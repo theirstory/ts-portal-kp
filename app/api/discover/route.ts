@@ -104,7 +104,9 @@ export async function POST(request: Request) {
 
           for await (const text of provider.streamText({
             model: providerSettings.model,
-            maxTokens: 2048,
+            // Thinking tokens share this budget on current models, so leave
+            // headroom — 2048 could be spent before the answer starts.
+            maxTokens: 8000,
             systemPrompt,
             messages: providerMessages,
           })) {

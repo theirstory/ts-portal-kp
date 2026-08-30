@@ -78,7 +78,7 @@ Example:
     "chat": {
       "enabled": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-4-20250514",
+      "model": "claude-sonnet-4-6",
       "baseUrl": ""
     }
   }

@@ -9,12 +9,7 @@ import { Citation } from '@/types/chat';
 import { getMuxPlaybackId } from '@/app/utils/converters';
 import { colors } from '@/lib/theme';
 import { highlightSearchText } from '@/app/indexes/highlightSearch';
-
-function formatTime(seconds: number): string {
-  const m = Math.floor(seconds / 60);
-  const s = Math.floor(seconds % 60);
-  return `${m}:${s.toString().padStart(2, '0')}`;
-}
+import { formatTime } from '@/app/utils/util';
 
 const ExpandableText = ({ text, highlight = '' }: { text: string; highlight?: string }) => {
   const [expanded, setExpanded] = useState(false);

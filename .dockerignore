@@ -1,0 +1,14 @@
+node_modules
+.next
+.yarn/cache
+.yarn/install-state.gz
+.yarn/unplugged
+.yarn/build-state.yml
+.git
+*.log
+.env*
+!.env.example
+!.env.production.example
+weaviate-data.tar.gz
+.DS_Store
+.vscode

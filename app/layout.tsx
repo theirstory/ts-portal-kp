@@ -18,7 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className=" overflow-x-hidden" lang="en">
+    // Browser extensions commonly stamp attributes onto <html> and <body>
+    // before React hydrates; suppress the mismatch they cause on both.
+    <html className=" overflow-x-hidden" lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <MaterialUIThemeProvider>
           <Suspense>

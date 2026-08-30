@@ -27,7 +27,7 @@ export type ChatProvider = {
 };
 
 const DEFAULT_MODELS: Record<ChatProviderName, string> = {
-  anthropic: 'claude-sonnet-4-20250514',
+  anthropic: 'claude-sonnet-4-6',
   openai: 'gpt-4.1-mini',
   'openai-compatible': 'gpt-4.1-mini',
 };
@@ -104,6 +104,10 @@ function createAnthropicProvider(settings: ChatProviderSettings): ChatProvider {
         max_tokens: input.maxTokens,
         system: input.systemPrompt,
         messages: input.messages,
+        // Current Claude models think adaptively by default. Answering from
+        // retrieved transcript passages doesn't need deep reasoning, and a
+        // chat UI is latency-sensitive, so hold effort down.
+        output_config: { effort: 'medium' },
       });
 
       for await (const event of stream) {
