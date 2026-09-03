@@ -40,8 +40,18 @@ const INTERVIEWS_DIR = path.join(process.cwd(), 'json/interviews/oral-histories'
 
 /** How far outside the recorded chunk bounds a match may sit before we distrust it. */
 const WINDOW_PAD_SECONDS = 20;
-/** Minimum token-overlap ratio to accept an alignment. */
-const MIN_RATIO = 0.7;
+/** Fraction of the quote's tokens that must appear, in order, to accept a
+ *  match inside the recorded chunk. */
+const MIN_RATIO = 0.8;
+/**
+ * Some excerpts are filed against the wrong chunk, so the quote genuinely sits
+ * outside the recorded bounds. A match out there is only trusted when it is
+ * near-verbatim AND no rival comes close — a unique exact hit in a two-hour
+ * transcript is not a coincidence.
+ */
+const STRONG_RATIO = 0.95;
+/** A rival within this much of the best score makes the match ambiguous. */
+const AMBIGUITY_MARGIN = 0.03;
 /** Words of the quote's head/tail to fall back on when the full span won't match. */
 const PREFIX_FALLBACK_TOKENS = 12;
 
@@ -121,20 +131,16 @@ function align(
   }
   if (candidates.length === 0) return null;
 
-  // Only trust a match inside the recorded chunk. Without this a phrase the
-  // speaker repeats later in the interview can win, landing the clip minutes
-  // away; leaving it unmatched keeps the original bounds, which is far safer.
-  const searchSet = candidates.filter((c) => c >= lowIndex && c <= highIndex);
-  if (searchSet.length === 0) return null;
+  const scored: Alignment[] = [];
 
-  let best: Alignment | null = null;
-
-  for (const start of searchSet) {
+  for (const start of candidates) {
     const window = tokens.slice(start, Math.min(tokens.length, start + needle.length + slack));
     if (window.length < needle.length * 0.6) continue;
 
-    const ratio = (2 * lcsLength(needle, window)) / (needle.length + window.length);
-    if (best && ratio <= best.ratio) continue;
+    // Coverage of the quote's tokens, not of the padded window: dividing by the
+    // window length would cap a perfect short match below 0.9 and make the
+    // near-verbatim threshold unreachable.
+    const ratio = lcsLength(needle, window) / needle.length;
 
     // Trim the window back to the last token that matches the quote's ending.
     const lastToken = needle[needle.length - 1];
@@ -146,10 +152,31 @@ function align(
       }
     }
 
-    best = { startIndex: start, endIndex: Math.min(endIndex, tokens.length - 1), ratio };
+    scored.push({ startIndex: start, endIndex: Math.min(endIndex, tokens.length - 1), ratio });
   }
 
-  if (!best || best.ratio < MIN_RATIO) return null;
+  if (scored.length === 0) return null;
+
+  const inWindow = scored.filter((c) => c.startIndex >= lowIndex && c.startIndex <= highIndex);
+  const pick = (list: Alignment[]) => list.reduce((a, b) => (b.ratio > a.ratio ? b : a));
+
+  const bestInWindow = inWindow.length > 0 ? pick(inWindow) : null;
+  const bestOverall = pick(scored);
+
+  let best: Alignment | null = null;
+
+  // A near-verbatim match with no rival anywhere in the transcript is the
+  // strongest evidence available — stronger than the recorded chunk, which is
+  // itself wrong for a handful of excerpts. Only when no such match exists do
+  // we fall back to the best candidate inside the chunk.
+  const unrivalled =
+    bestOverall.ratio >= STRONG_RATIO &&
+    scored.every((c) => c === bestOverall || c.ratio < bestOverall.ratio - AMBIGUITY_MARGIN);
+
+  if (unrivalled) best = bestOverall;
+  else if (bestInWindow && bestInWindow.ratio >= MIN_RATIO) best = bestInWindow;
+
+  if (!best) return null;
 
   // The window score can favour a start a few filler words early. Snap to the
   // nearest position where the quote's opening words match exactly.
@@ -274,11 +301,17 @@ function main() {
           continue;
         }
 
+        // Search for the tail forward of the head rather than inside the
+        // recorded chunk: when the chunk was mis-filed the head can land past
+        // the old end, leaving an empty range and a truncated highlight.
+        const quoteLength = tokenize(match.quote).length;
+        const tailHigh = Math.min(tokens.length - 1, first.startIndex + quoteLength * 3 + 200);
+
         const last =
           (segments.length === 1 && headTokens.length <= PREFIX_FALLBACK_TOKENS
             ? first
-            : align(tokens, positions, tailTokens, first.startIndex, highIndex) ??
-              align(tokens, positions, tailTokens.slice(-PREFIX_FALLBACK_TOKENS), first.startIndex, highIndex)) ??
+            : align(tokens, positions, tailTokens, first.startIndex, tailHigh) ??
+              align(tokens, positions, tailTokens.slice(-PREFIX_FALLBACK_TOKENS), first.startIndex, tailHigh)) ??
           first;
 
         const startWord = words[tokenToWord[first.startIndex]];

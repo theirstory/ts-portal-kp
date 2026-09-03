@@ -8,12 +8,38 @@ import { plural, shorten, stamp } from '@/lib/insights/format';
 import type { EvidenceClip } from '@/types/insights';
 import { mono, monoPlain, serif, t } from '../tokens';
 import { Shell } from './primitives';
+import { SpeakerThumb } from './SpeakerThumb';
 import { useOpenExcerpt } from './useOpenExcerpt';
 
 const ALL_THEMES = 'All themes';
 
-/** A matching excerpt. The whole block opens the side panel, as elsewhere in Explore. */
-const Hit = ({ clip }: { clip: EvidenceClip }) => {
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/** The searched term, marked inside a snippet. */
+const Highlight = ({ text, query }: { text: string; query: string }) => {
+  const term = query.trim();
+  if (!term) return <>{text}</>;
+
+  const parts = text.split(new RegExp(`(${escapeRegExp(term)})`, 'gi'));
+  const lowered = term.toLowerCase();
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.toLowerCase() === lowered ? (
+          <Box key={index} component="mark" sx={{ background: t.wash, color: 'inherit', px: '1px' }}>
+            {part}
+          </Box>
+        ) : (
+          <React.Fragment key={index}>{part}</React.Fragment>
+        ),
+      )}
+    </>
+  );
+};
+
+/** A matching excerpt: who said it, when, and the passage. Opens the side panel. */
+const Hit = ({ clip, query }: { clip: EvidenceClip; query: string }) => {
   const openExcerpt = useOpenExcerpt();
   const open = () => openExcerpt(clip);
 
@@ -30,22 +56,31 @@ const Hit = ({ clip }: { clip: EvidenceClip }) => {
       }}
       sx={{
         cursor: 'pointer',
-        margin: '-6px -8px',
-        padding: '6px 8px',
-        borderRadius: '2px',
-        '&:hover': { background: t.wash },
-        '&:hover .hit-stamp': { textDecoration: 'underline' },
+        background: t.surface,
+        border: `1px solid ${t.rule}`,
+        borderRadius: '8px',
+        padding: '14px 16px',
+        transition: 'border-color 0.15s, box-shadow 0.15s',
+        '&:hover': { borderColor: t.fieldBorder, boxShadow: '0 2px 10px rgba(0,0,0,0.07)' },
+        '&:hover .hit-stamp': { color: t.accentHover },
       }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <Box component="span" sx={{ fontSize: '12px', fontWeight: 600 }}>
-          {clip.name}
-        </Box>
-        <Box component="span" className="hit-stamp" sx={{ ...monoPlain(10.5), color: t.accent }}>
-          ▶ {stamp(clip.start)}
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: '9px', mb: '10px' }}>
+        <SpeakerThumb
+          interviewTitle={clip.interview_title}
+          initials={clip.name.slice(0, 1)}
+          time={clip.start}
+          size={32}
+          radius="50%"
+        />
+        <Box sx={{ minWidth: 0 }}>
+          <Box sx={{ fontSize: '12.5px', fontWeight: 600, lineHeight: 1.25 }}>{clip.name}</Box>
+          <Box component="span" className="hit-stamp" sx={{ ...monoPlain(10), color: t.accent }}>
+            ▶ {stamp(clip.start)}
+          </Box>
         </Box>
       </Box>
-      <Box sx={{ ...serif(14.5, 1.55), color: t.ink2, mt: '5px', textWrap: 'pretty' }}>
-        “{shorten(clip.quote, 200)}”
+      <Box sx={{ ...serif(14.5, 1.55), color: t.ink2, textWrap: 'pretty' }}>
+        “<Highlight text={shorten(clip.quote, 260)} query={query} />”
       </Box>
     </Box>
   );
@@ -137,8 +172,8 @@ export const SearchView = ({ query, category }: { query: string; category: strin
               <Box
                 sx={{
                   display: 'grid',
-                  gridTemplateColumns: { xs: '1fr', md: '1fr 300px' },
-                  gap: { xs: '20px', md: '32px' },
+                  gridTemplateColumns: { xs: '1fr', md: '340px 1fr' },
+                  gap: { xs: '20px', md: '40px' },
                   alignItems: 'start',
                 }}>
                 <Box>
@@ -152,7 +187,6 @@ export const SearchView = ({ query, category }: { query: string; category: strin
                       color: t.ink,
                       textDecoration: 'none',
                       mt: '8px',
-                      maxWidth: '34ch',
                       textWrap: 'pretty',
                       '&:hover': { color: t.accent },
                     }}>
@@ -164,9 +198,15 @@ export const SearchView = ({ query, category }: { query: string; category: strin
                       : `${result.totalHits} ${result.totalHits === 1 ? 'excerpt matches' : 'excerpts match'} “${trimmed}”`}
                   </Box>
                 </Box>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+                    gap: '12px',
+                    alignItems: 'start',
+                  }}>
                   {result.hits.map((clip, index) => (
-                    <Hit key={`${clip.interview_title}-${clip.start}-${index}`} clip={clip} />
+                    <Hit key={`${clip.interview_title}-${clip.start}-${index}`} clip={clip} query={query} />
                   ))}
                 </Box>
               </Box>

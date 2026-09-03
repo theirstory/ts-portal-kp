@@ -301,6 +301,18 @@ docker compose restart
 docker compose logs nlp-processor | grep WEAVIATE
 ```
 
+### Site security
+
+```bash
+# If set, enables site-wide password protection.
+# If empty or missing, the site is public.
+SITE_PASSWORD=your_secure_password
+```
+
+Pages redirect to `/gatekeeper` until the password is entered; the API routes
+answer `401` until then. Access is remembered for 30 days in the `ts_site_access`
+cookie. Changing `SITE_PASSWORD` invalidates every existing session.
+
 ### Environment conflicts
 
 **Clear and rebuild:**

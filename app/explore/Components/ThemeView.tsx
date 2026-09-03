@@ -3,42 +3,97 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
-import { allClipsFor, questionClipCount, respondentCount, roster, rosterSize, voicesFor } from '@/lib/insights/evidenceBank';
+import {
+  allClipsFor,
+  collectionVoices,
+  questionClipCount,
+  respondentCount,
+  roster,
+  rosterSize,
+  voicesFor,
+} from '@/lib/insights/evidenceBank';
 import { plural } from '@/lib/insights/format';
 import { useExploreStore } from '@/app/stores/useExploreStore';
 import { useOpenExcerpt } from './useOpenExcerpt';
 import type { EvidenceClip, EvidenceQuestion, ThemeSummary } from '@/types/insights';
 import { mono, monoPlain, serif, t } from '../tokens';
-import { BackLink, ConfidenceChip, CoverageDots, Eyebrow, MonoButton, SegmentedToggle, Shell, TimestampPill } from './primitives';
+import { BackLink, ConfidenceChip, Eyebrow, MonoButton, SegmentedToggle, Shell, TimestampPill } from './primitives';
+import { FaceRow } from './PeopleBand';
+import { useInterviewRefs } from './useInterviewRefs';
+import { SpeakerThumb } from './SpeakerThumb';
 
-const VoicesRail = ({ theme }: { theme: ThemeSummary }) => (
+const VoicesRail = ({ theme }: { theme: ThemeSummary }) => {
+  const refs = useInterviewRefs();
+
+  return (
   <Box sx={{ borderLeft: `2px solid ${t.rail}`, pl: '18px' }}>
     <Eyebrow tracking={0.12} sx={{ mb: '10px' }}>
       Voices in this theme
     </Eyebrow>
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, gap: '7px 18px' }}>
       {voicesFor(theme).map((voice) => {
         const present = voice.clipCount > 0;
-        return (
+        const frame = collectionVoices.find((v) => v.interview_title === voice.interview_title)?.frameTime ?? 60;
+        const uuid = refs[voice.interview_title]?.storyUuid;
+        const body = (
+          <>
+            <SpeakerThumb
+              interviewTitle={voice.interview_title}
+              initials={voice.name.slice(0, 1)}
+              time={frame}
+              size={28}
+              radius="50%"
+              muted={!present}
+            />
+            <Box sx={{ minWidth: 0 }}>
+              <Box
+                className="voice-name"
+                sx={{
+                  fontSize: '12.5px',
+                  fontWeight: 600,
+                  color: present ? t.ink : t.muted4,
+                  lineHeight: 1.25,
+                  transition: 'color 0.12s',
+                }}>
+                {voice.name}
+              </Box>
+              <Box sx={{ ...monoPlain(9.5), color: t.muted3 }}>
+                {present ? plural(voice.clipCount, 'excerpt') : 'none'}
+              </Box>
+            </Box>
+          </>
+        );
+
+        const rowSx = {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          minWidth: 0,
+          opacity: present ? 1 : 0.5,
+          textDecoration: 'none',
+          color: 'inherit',
+        } as const;
+
+        // Each voice opens that person's full interview, once its uuid resolves.
+        return uuid ? (
           <Box
             key={voice.interview_title}
-            component="span"
-            sx={{
-              ...monoPlain(10.5),
-              padding: '4px 8px',
-              borderRadius: '2px',
-              border: `1px solid ${present ? t.rail : t.rule}`,
-              background: present ? t.wash : 'transparent',
-              color: present ? t.accentOnWash : t.muted4,
-            }}>
-            {voice.name}
-            {present ? `  ${voice.clipCount}` : ''}
+            component={Link}
+            href={`/story/${uuid}`}
+            title={`Open ${voice.name}'s interview`}
+            sx={{ ...rowSx, '&:hover .voice-name': { color: t.accent } }}>
+            {body}
+          </Box>
+        ) : (
+          <Box key={voice.interview_title} sx={rowSx}>
+            {body}
           </Box>
         );
       })}
     </Box>
   </Box>
-);
+  );
+};
 
 /** One excerpt card in All-excerpts mode; the whole card opens the drawer. */
 const ExcerptCard = ({ clip }: { clip: EvidenceClip }) => {
@@ -64,6 +119,13 @@ const ExcerptCard = ({ clip }: { clip: EvidenceClip }) => {
         '&:hover': { borderColor: t.accent },
       }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', mb: '12px', flexWrap: 'wrap' }}>
+        <SpeakerThumb
+          interviewTitle={clip.interview_title}
+          initials={clip.name.slice(0, 1)}
+          time={clip.start}
+          size={30}
+          radius="50%"
+        />
         <Box component="span" sx={{ fontSize: '13px', fontWeight: 600 }}>
           {clip.name}
         </Box>
@@ -165,7 +227,7 @@ const QuestionRows = ({ questions }: { questions: EvidenceQuestion[] }) => (
       mt: '26px',
     }}>
     {questions.map((question) => {
-      const answered = roster.map((interview) => (question.by_interview[interview.interview_title] ?? []).length > 0);
+      const answeredIn = (title: string) => (question.by_interview[title] ?? []).length > 0;
       return (
         <Box
           key={question.question_id}
@@ -196,7 +258,7 @@ const QuestionRows = ({ questions }: { questions: EvidenceQuestion[] }) => (
               gap: '5px',
               pt: '4px',
             }}>
-            <CoverageDots answered={answered} />
+            <FaceRow titles={roster.map((interview) => interview.interview_title)} present={answeredIn} />
             <Box component="span" sx={{ ...monoPlain(10.5), color: t.muted3 }}>
               {respondentCount(question)} of {rosterSize} leaders
             </Box>
@@ -230,7 +292,7 @@ export const ThemeView = ({ theme }: { theme: ThemeSummary }) => {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1fr 300px' },
+          gridTemplateColumns: { xs: '1fr', md: '1fr 400px' },
           gap: { xs: '28px', md: '48px' },
           alignItems: 'start',
           mt: '22px',

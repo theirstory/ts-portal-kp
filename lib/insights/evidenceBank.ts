@@ -125,6 +125,49 @@ export const voicesFor = (theme: ThemeSummary): Voice[] =>
     ),
   }));
 
+/** One interviewee across the whole collection — drives the people band. */
+export interface CollectionVoice {
+  interview_title: string;
+  name: string;
+  initials: string;
+  clipCount: number;
+  questionCount: number;
+  /** A moment they are speaking, for the thumbnail frame. */
+  frameTime: number;
+}
+
+/** Everyone in the archive, with how much of it they account for. */
+export const collectionVoices: CollectionVoice[] = roster.map((interview) => {
+  const title = interview.interview_title;
+  let clipCount = 0;
+  let questionCount = 0;
+  let frameTime = 60;
+  let earliest = Infinity;
+
+  for (const question of evidenceQuestions) {
+    const matches = question.by_interview[title] ?? [];
+    if (matches.length === 0) continue;
+    questionCount += 1;
+    clipCount += matches.length;
+    for (const match of matches) {
+      if (match.start < earliest) earliest = match.start;
+    }
+  }
+
+  // Their first indexed moment, rather than the top of the tape where the
+  // recording is usually still a slate or the interviewer talking.
+  if (Number.isFinite(earliest)) frameTime = earliest;
+
+  const name = displayName(title);
+  return { interview_title: title, name, initials: initials(name), clipCount, questionCount, frameTime };
+});
+
+/** Interviews with at least one excerpt in a theme, in roster order. */
+export const themeVoiceTitles = (theme: ThemeSummary): string[] =>
+  voicesFor(theme)
+    .filter((voice) => voice.clipCount > 0)
+    .map((voice) => voice.interview_title);
+
 /** Every clip on a question across all interviews, in roster order. */
 export const allClipsFor = (question: EvidenceQuestion): EvidenceClip[] =>
   roster.flatMap((interview) => clipsFor(question, interview.interview_title));
@@ -159,7 +202,9 @@ export const search = (query: string, category?: string): SearchResult[] => {
     });
   }
 
-  return results;
+  // Richest questions first — the ones with the most to say about the term.
+  // Ties keep the interview guide's order so the list is stable.
+  return results.sort((a, b) => b.totalHits - a.totalHits || a.question.question_id - b.question.question_id);
 };
 
 /** Themes present in a result set, for the search filter chips. */

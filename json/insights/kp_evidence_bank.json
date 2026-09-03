@@ -460,7 +460,7 @@
       "speaker": "Mary Wilson, MD",
       "chunk_id": 0,
       "start": 51.32,
-      "end": 67.15,
+      "end": 167.21,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      },
@@ -488,8 +488,8 @@
       "quote": "And, um, you know, from that I've, I've served as the, the chief financial officer and for the last decade as the chief operating officer on behalf of, of um, of permanente medical groups.",
       "speaker": "Chris Grant",
       "chunk_id": 5,
-      "start": 1210.9,
-      "end": 1436.8,
+      "start": 1471.86,
+      "end": 1486.1,
       "confidence": "high",
       "rationale": "States the final steps of his career progression to his senior leadership title."
      }
@@ -861,7 +861,7 @@
       "speaker": "Chris Grant",
       "chunk_id": 8,
       "start": 2155.74,
-      "end": 2166.23,
+      "end": 2191.75,
       "confidence": "high",
       "rationale": "Describes structural/payment-model differences that set PMGs apart."
      }
@@ -999,8 +999,8 @@
       "quote": "I said, I found my calling... I said, I'm in the right job. I'm in the right place. And it was because of this compassion and care that I saw in this nurse at two in the morning in the neonatal intensive care unit.",
       "speaker": "Chris Grant",
       "chunk_id": 11,
-      "start": 2825.5,
-      "end": 2979.4,
+      "start": 3000.16,
+      "end": 3022.56,
       "confidence": "high",
       "rationale": "Personal story showing how witnessing KP's mission in action redirected his commitment to his career there."
      }
@@ -1071,8 +1071,8 @@
       "quote": "To build trust ... You have to be really competent, so you have to deliver on some promises. ... the second part is just building the sense of your own personal integrity so that people can trust you as a person ... And then being visible. So all of those ... having the chiefs over to my house, things like that really matter.",
       "speaker": "Mary Wilson, MD",
       "chunk_id": 6,
-      "start": 1045,
-      "end": 1198.1,
+      "start": 1085.97,
+      "end": 1127.48,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      },
@@ -1238,8 +1238,8 @@
       "quote": "the leadership and that you learn from working with the Permanente doctors was about mission and purpose and our model of care and helping it work better, um, and being stewards of finite resources and calling that that's an ethical imperative as a professional",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 22,
-      "start": 4602.8,
-      "end": 4752.6,
+      "start": 4797.39,
+      "end": 4823.63,
       "confidence": "high",
       "rationale": "Names core values (stewardship of finite resources as an ethical imperative, mission and purpose) and how they inform his leadership."
      },
@@ -1347,7 +1347,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 13,
       "start": 2817.69,
-      "end": 2827.73,
+      "end": 3034.51,
       "confidence": "medium",
       "rationale": "Describes the creation of the KP Medical Foundation, a structural inflection point still shaping current regional practice."
      },
@@ -1395,8 +1395,8 @@
       "quote": "we agreed to become part of the Permanente Federation and Permanente Medical groups.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 15,
-      "start": 2939.5,
-      "end": 3137.9,
+      "start": 3178.45,
+      "end": 3182.61,
       "confidence": "high",
       "rationale": "Marks the acquisition by Kaiser Permanente as a pivotal moment that reshaped the medical group's structure and practices."
      }
@@ -1445,8 +1445,8 @@
       "quote": "Hi, Sidney. I'm not sure how we're meeting here and I'm not going to ask you but you are one of the geniuses that started Kaiser Permanente. But I'd be interested to know it would be helpful to understand this in the context of today. What do you think you did well in your period of leadership? And then as you near retirement and reflected back, what do you think you would have done differently and didn't do so well?",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 15,
-      "start": 3236.1,
-      "end": 3467.2,
+      "start": 3505.07,
+      "end": 3540.93,
       "confidence": "high",
       "rationale": "Directly answers what he would want to ask Sidney Garfield, in response to that exact question."
      }
@@ -1537,8 +1537,8 @@
       "quote": "So, Mr. Kaiser, nice to meet you. It's a surprise since you've been dead for a long time. But you are, again, one of the geniuses who started the organization. You probably believe you were the only genius but that's not necessarily true. That's not necessarily the case. But I would love to know what you had in mind originally when you started the organization. Was it just to take care of the individuals who came to Northern California and Washington and Fontana to build ships? Or was it something beyond that? What did you envision?",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 15,
-      "start": 3236.1,
-      "end": 3467.2,
+      "start": 3548.56,
+      "end": 3593.67,
       "confidence": "high",
       "rationale": "Directly answers what he would want to ask Henry Kaiser, in response to that exact question."
      },
@@ -1666,8 +1666,8 @@
       "quote": "Well, if Sid and Henry could suddenly reappear, I think they'd be, first of all, they'd be startled at the size and growth and influence of the organization that they created. They'd be very proud, of course. I think Sid particularly would be proud of what the doctors have created. He'd also be proud of the fact that he predicted decades earlier the central role of information technology in the development and improvement of health care. Henry would be proud as well. I think he'd be stunned at the scale of the organization, even though he worked at scale throughout his entire life.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 16,
-      "start": 3467.2,
-      "end": 3698.4,
+      "start": 3746.42,
+      "end": 3793.71,
       "confidence": "high",
       "rationale": "A second, fuller take on the same question about what the founders would think of Kaiser Permanente today."
      }
@@ -1836,8 +1836,8 @@
       "quote": "A third, the health plan and medical group had embarked on a hospital closure for many of the hospitals in California, northern and Southern, and couldn't get my hands around that. But I cooperated to try to figure out if we could do it, and the medical group was intensely concerned about that correctly.",
       "speaker": "Oliver Goldsmith, MD",
       "chunk_id": 6,
-      "start": 1130.9,
-      "end": 1279.3,
+      "start": 1300.57,
+      "end": 1323.73,
       "confidence": "high",
       "rationale": "Describes the hospital-closure controversy as a leadership challenge."
      },
@@ -1845,8 +1845,8 @@
       "quote": "Then the financial crisis came when we began to lose hundreds of millions of dollars and let history show that on a Saturday afternoon, I called the health plan second in command and said, I don't think we can make it with this.",
       "speaker": "Oliver Goldsmith, MD",
       "chunk_id": 6,
-      "start": 1130.9,
-      "end": 1279.3,
+      "start": 1340.75,
+      "end": 1356.11,
       "confidence": "high",
       "rationale": "Describes the financial crisis as one of the greatest challenges of his tenure."
      }
@@ -1921,8 +1921,8 @@
       "quote": "So that was also a really proud moment.",
       "speaker": "Chris Grant",
       "chunk_id": 13,
-      "start": 3199.7,
-      "end": 3383.7,
+      "start": 3450.55,
+      "end": 3453.83,
       "confidence": "high",
       "rationale": "Directly names the pandemic response as a proud moment of his tenure."
      }
@@ -1954,7 +1954,7 @@
       "speaker": "Jay Crosson, MD",
       "chunk_id": 8,
       "start": 1850.88,
-      "end": 1913.37,
+      "end": 1943.29,
       "confidence": "high",
       "rationale": "Directly answers what he is most proud of, describing a personal patient-care story rather than an administrative achievement."
      },
@@ -2040,8 +2040,8 @@
       "quote": "On the other hand, best practices bubble up from the medical groups more rapidly. ... that autonomy balanced against the centralization that the Permanente medical groups always fight. And sometimes it's sometimes it's good and sometimes it's a detriment.",
       "speaker": "Mary Wilson, MD",
       "chunk_id": 9,
-      "start": 1475.1,
-      "end": 1597.4,
+      "start": 1624.48,
+      "end": 1630.16,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      }
@@ -2111,8 +2111,8 @@
       "quote": "One of the things that I saw as I began to get closer to the health plan board of directors was that literally in every meeting... one or other medical group would come in and present some innovation in quality of care... One of the innovations that came out of the difficulties we had during that period of time was the creation of the Care Management Institute. The idea there was that all the medical groups, and health plan and hospitals as well, would share the creation of a capability whose purpose was to identify best practices wherever they were created throughout the organization, and not in a heavy-handed way, but in a supportive way, make those new ideas, new initiatives, new patient values available throughout the organization.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 11,
-      "start": 2311.5,
-      "end": 2542.6,
+      "start": 2577.1,
+      "end": 2671.51,
       "confidence": "medium",
       "rationale": "Describes the Care Management Institute as a mechanism for spreading innovations in care delivery across the organization, relevant to how KP fosters innovation."
      }
@@ -2328,8 +2328,8 @@
       "quote": "we had people of color. We had people of different sexual orientation, um, in major leadership positions across our system, both on the health plan side and in the medical group side. And, um, that made a difference.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 28,
-      "start": 6122.5,
-      "end": 6313.8,
+      "start": 6391.42,
+      "end": 6408.78,
       "confidence": "high",
       "rationale": "Concrete example of diversity in leadership as part of the equity effort."
      },
@@ -2337,8 +2337,8 @@
       "quote": "the only area where I think our model struggles in terms of diversity and equity is in the rural populations.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 29,
-      "start": 6313.8,
-      "end": 6505,
+      "start": 6578.9,
+      "end": 6586.94,
       "confidence": "high",
       "rationale": "Names a specific gap in the model's ability to address equity and access."
      },
@@ -2495,7 +2495,7 @@
       "speaker": "Mary Wilson, MD",
       "chunk_id": 6,
       "start": 1091.17,
-      "end": 1094.61,
+      "end": 1114.88,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      },
@@ -2584,7 +2584,7 @@
       "speaker": "Jay Crosson, MD",
       "chunk_id": 9,
       "start": 2016.7,
-      "end": 2041.13,
+      "end": 2123.91,
       "confidence": "high",
       "rationale": "Directly enumerates the leadership qualities he views as essential for success at Kaiser Permanente, answering the exact question."
      }
@@ -2634,8 +2634,8 @@
       "quote": "your team, your extension of you has to be authentic. They have to be trustworthy, and they have to be. They can make all kinds of mistakes and say, you know, but if they aren't authentic and credible and real and believable and trustworthy, hopefully you have a store of that.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 18,
-      "start": 3735.6,
-      "end": 3903.8,
+      "start": 3927.63,
+      "end": 3947.51,
       "confidence": "high",
       "rationale": "Names authenticity, credibility, and trustworthiness as essential leadership qualities."
      },
@@ -2719,8 +2719,8 @@
       "quote": "so successful was this program that that spread throughout Southern California and across all of Kaiser Permanente. It's not perfect, but compared to what we had before, um, it was a much more efficient, effective way for patients to make appointments.",
       "speaker": "Ed Ellison, MD",
       "chunk_id": 15,
-      "start": 2906.4,
-      "end": 3041.1,
+      "start": 3088.26,
+      "end": 3103.34,
       "confidence": "high",
       "rationale": "States the successful outcome of the call center project he helped lead."
      },
@@ -2751,7 +2751,7 @@
       "speaker": "Jay Crosson, MD",
       "chunk_id": 10,
       "start": 2330.2,
-      "end": 2358.65,
+      "end": 2461.9,
       "confidence": "high",
       "rationale": "Directly identifies the Permanente Federation as the successful project he led, answering the exact question."
      },
@@ -2846,8 +2846,8 @@
       "quote": "Access to care for sick people, hospital care, ICU beds ... our own workforce were scared back then very, very frightened ... So it was workforce safety and patient care, two biggest, biggest things.",
       "speaker": "Mary Wilson, MD",
       "chunk_id": 18,
-      "start": 2751.6,
-      "end": 2863.8,
+      "start": 2711.24,
+      "end": 2742.24,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      }
@@ -3024,8 +3024,8 @@
       "quote": "by having a capitated model, you have an incentive to provide wellness care, to provide, uh, prevention. So mammograms, pap smears, prostate exams, childhood immunizations, um, they matter immensely to the Permanente medical groups.",
       "speaker": "Chris Grant",
       "chunk_id": 8,
-      "start": 1962.5,
-      "end": 2139.5,
+      "start": 2203.63,
+      "end": 2223.23,
       "confidence": "high",
       "rationale": "Explains the patient benefit of the integrated, capitated model."
      }
@@ -3183,8 +3183,8 @@
       "quote": "I think the most beautiful example of this is what we call the Mary Gonzalez story... Mary came in to see the allergist because she was having some sniffles... She went to check in and the receptionist said, you know, Mrs. Gonzalez, I see that you're overdue for your mammogram. Let me book that for you. And Mary said, no, I'll do that. I'm here for my allergies... the receptionist... was pretty persistent... So Mary agreed. The receptionist booked the mammogram. And long story short, that mammogram found an early cancer. Uh, Mary was seen expeditiously, and her life was saved.",
       "speaker": "Ed Ellison, MD",
       "chunk_id": 17,
-      "start": 1844,
-      "end": 2113.4,
+      "start": 3402.22,
+      "end": 3455.1,
       "confidence": "medium",
       "rationale": "Manually identified cross-interview excerpt (from the earlier fallback-mapping pass) offered as evidence since Mary Wilson did not address this question."
      }
@@ -3206,7 +3206,7 @@
       "speaker": "Jay Crosson, MD",
       "chunk_id": 8,
       "start": 1850.88,
-      "end": 1883.19,
+      "end": 1928.17,
       "confidence": "high",
       "rationale": "A specific, personal patient story about arranging home hospice care for a dying infant, directly answering this question."
      },
@@ -3420,7 +3420,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 34,
       "start": 8018.52,
-      "end": 8048.75,
+      "end": 8056.07,
       "confidence": "high",
       "rationale": "Directly explains the intrinsic motivation and mission-driven passion that keeps Permanente physicians engaged."
      }
@@ -3539,8 +3539,8 @@
       "quote": "One of the innovations that came out of the difficulties we had during that period of time was the creation of the Care Management Institute. The idea there was that all the medical groups, and health plan and hospitals as well, would share the creation of a capability whose purpose was to identify best practices wherever they were created throughout the organization, and not in a heavy-handed way, but in a supportive way, make those new ideas, new initiatives, new patient values available throughout the organization.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 11,
-      "start": 2311.5,
-      "end": 2542.6,
+      "start": 2626.44,
+      "end": 2671.51,
       "confidence": "high",
       "rationale": "Directly answers, verbatim to this question, with the Care Management Institute as a key initiative to improve patient care."
      }
@@ -3721,8 +3721,8 @@
       "quote": "We had programs and we still do, I believe. But and I know that Kaiser Kaiser Permanente Federation does. I mean, that's where those pearls courses, that's where we had leadership development courses.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 22,
-      "start": 4602.8,
-      "end": 4752.6,
+      "start": 4773.28,
+      "end": 4783.4,
       "confidence": "high",
       "rationale": "Names specific leadership/professional development programs (PELS courses)."
      },
@@ -3768,8 +3768,8 @@
       "quote": "the medical groups taking a capitated payment, receiving payment to care for an individual across a month, across a year, across their lifetime. Um, not based upon the volume of of procedures that you can do, um, but based upon the actual cost to care for that patient.",
       "speaker": "Chris Grant",
       "chunk_id": 8,
-      "start": 1962.5,
-      "end": 2139.5,
+      "start": 2181.07,
+      "end": 2202.51,
       "confidence": "high",
       "rationale": "Explicitly contrasts KP's capitated payment model with volume-based (fee-for-service) reimbursement."
      }
@@ -3961,7 +3961,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 8,
       "start": 1631.74,
-      "end": 1648.12,
+      "end": 1871.09,
       "confidence": "high",
       "rationale": "Describes the financial turnaround undertaken to restore affordability and financial competitiveness."
      },
@@ -3970,7 +3970,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 33,
       "start": 7739.57,
-      "end": 7759.11,
+      "end": 7762.67,
       "confidence": "high",
       "rationale": "Directly describes the mechanism (reducing low-value care) used to keep care affordable."
      }
@@ -4038,8 +4038,8 @@
       "quote": "by having a capitated model, you have an incentive to provide wellness care, to provide, uh, prevention. So mammograms, pap smears, prostate exams, childhood immunizations, um, they matter immensely to the Permanente medical groups, and everybody understands the criticality of disease prevention.",
       "speaker": "Chris Grant",
       "chunk_id": 8,
-      "start": 1962.5,
-      "end": 2139.5,
+      "start": 2203.63,
+      "end": 2228.43,
       "confidence": "high",
       "rationale": "Directly describes how preventive care is built into KP's model."
      },
@@ -4058,8 +4058,8 @@
       "quote": "I remember well when we first started talking about preventative, uh, goals, and that was everyone's job to see that patients had their colonoscopies, their mammographies.",
       "speaker": "Ed Ellison, MD",
       "chunk_id": 17,
-      "start": 3280.1,
-      "end": 3486.4,
+      "start": 3529.38,
+      "end": 3540.86,
       "confidence": "high",
       "rationale": "Describes preventive-care goals being embedded as everyone's responsibility."
      },
@@ -4219,8 +4219,8 @@
       "quote": "One of the innovations that came out of the difficulties we had during that period of time was the creation of the Care Management Institute. The idea there was that all the medical groups, and health plan and hospitals as well, would share the creation of a capability whose purpose was to identify best practices wherever they were created throughout the organization.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 11,
-      "start": 2311.5,
-      "end": 2542.6,
+      "start": 2626.44,
+      "end": 2655.47,
       "confidence": "medium",
       "rationale": "Describes a cross-organization mechanism (Care Management Institute) for spreading quality best practices, relevant to ensuring consistent quality of care."
      }
@@ -4401,7 +4401,7 @@
       "speaker": "Mary Wilson, MD",
       "chunk_id": 16,
       "start": 2582.63,
-      "end": 2583.71,
+      "end": 2631.01,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      }
@@ -4466,8 +4466,8 @@
       "quote": "we created partnerships with them in terms of CME and other kinds of things.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 28,
-      "start": 6122.5,
-      "end": 6313.8,
+      "start": 6344.15,
+      "end": 6348.59,
       "confidence": "medium",
       "rationale": "Describes concrete community partnership activities (with community health clinics)."
      },
@@ -4475,8 +4475,8 @@
       "quote": "we worked with the public health department. Um, and, um, we're able to provide, you know, the intellectual and the medical evidence to support the decisions that were being made",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 30,
-      "start": 6505,
-      "end": 6845.8,
+      "start": 6895.52,
+      "end": 6908.92,
       "confidence": "high",
       "rationale": "Describes direct engagement with the local public health department during the pandemic."
      }
@@ -4606,8 +4606,8 @@
       "quote": "we were early adopters. Group health, um, adopted, uh, epic in 2001. I believe we were one of the very earlier groups",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 24,
-      "start": 5070.5,
-      "end": 5245.8,
+      "start": 5275.58,
+      "end": 5284.22,
       "confidence": "high",
       "rationale": "Concrete example of technology (electronic medical record) adoption enhancing care."
      },
@@ -4695,8 +4695,8 @@
       "quote": "It's been 48 years since I first joined Kaiser Permanente. A large part of its history, actually, it turns out. And we've done well... We tried to expand to Texas and our organization did not fit at all with the culture of that particular state and did not work. We expanded to Washington, D.C. and Atlanta and they were remarkably successful.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 14,
-      "start": 3236.1,
-      "end": 3467.2,
+      "start": 3182.12,
+      "end": 3351.85,
       "confidence": "medium",
       "rationale": "Describes how the organization has adapted and learned through expansion successes and failures over decades."
      }
@@ -4783,8 +4783,8 @@
       "quote": "There's great research institutions that do, you know, a lot of basic science. And Kaiser Permanente is among those great research institutions. But but our research is in the application of technology and the care of large populations.",
       "speaker": "Chris Grant",
       "chunk_id": 23,
-      "start": 5754.4,
-      "end": 5975.6,
+      "start": 6007.32,
+      "end": 6028.04,
       "confidence": "medium",
       "rationale": "Characterizes KP's role and focus in medical research."
      }
@@ -4857,8 +4857,8 @@
       "quote": "We have, you know, Care Management Institute. We have our own, um, group health and now Kaiser Permanente Washington Health Research Institute, where you can do, you know, research on care delivery science.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 24,
-      "start": 5070.5,
-      "end": 5245.8,
+      "start": 5292.18,
+      "end": 5307.66,
       "confidence": "high",
       "rationale": "Names a specific research institute supporting research and development."
      },
@@ -4894,8 +4894,8 @@
       "quote": "we've got lots of vehicles that exist from our venture work to our, um, new technology, uh, evaluation process, to our inter-regional chiefs groups, um, to, um, um, our information technology capabilities.",
       "speaker": "Chris Grant",
       "chunk_id": 14,
-      "start": 3383.7,
-      "end": 3739.4,
+      "start": 3834.37,
+      "end": 3852.53,
       "confidence": "high",
       "rationale": "Summarizes the range of strategies used to stay current on advancements."
      },
@@ -4968,8 +4968,8 @@
       "quote": "we were early adopters. Group health, um, adopted, uh, epic in 2001. I believe we were one of the very earlier groups",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 24,
-      "start": 5070.5,
-      "end": 5245.8,
+      "start": 5275.58,
+      "end": 5284.22,
       "confidence": "medium",
       "rationale": "Illustrates a strategy of being an early adopter of medical/informatics advancements."
      }
@@ -5080,8 +5080,8 @@
       "quote": "our vaccine rates were higher, our disease and our morbidity and mortality was lower than the average based on the interventions that we had. And we published that, that data.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 30,
-      "start": 6505,
-      "end": 6845.8,
+      "start": 6927,
+      "end": 6937.72,
       "confidence": "high",
       "rationale": "Gives a specific, measured example (Covid-19 outcomes) of improved patient outcomes through the organization's approach."
      },
@@ -5107,8 +5107,8 @@
       "quote": "The other big thing I did I mentioned is that Healthconnect merged into the same instance. And so that was a very big deal for folks. ... it's much less expensive to have one entity and we can import tools much more quickly.",
       "speaker": "Mary Wilson, MD",
       "chunk_id": 9,
-      "start": 1475.1,
-      "end": 1597.4,
+      "start": 903.7,
+      "end": 1509.71,
       "confidence": "high",
       "rationale": "Direct excerpt identified by manual review of the Mary Wilson interview."
      }
@@ -5229,8 +5229,8 @@
       "quote": "Group health, um, adopted, uh, epic in 2001. I believe we were one of the very earlier groups",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 24,
-      "start": 5070.5,
-      "end": 5245.8,
+      "start": 5276.74,
+      "end": 5284.22,
       "confidence": "high",
       "rationale": "Specifies the EHR system (Epic) and early adoption date, directly relevant to the EHR question."
      }
@@ -5438,8 +5438,8 @@
       "quote": "So if you find yourself throughout your career in Kaiser Permanente becoming a physician leader, the first thing to remember is that your job is to stick to the core values of the organization. Whatever decision you end up having to make, and there will be many hard ones, they have to be based first, does this issue improve the quality of care and service that we're delivering to our members? And does this issue improve the affordability of health care?... You have to be humble as a professional leader... You have to be honest with yourself and honest with them when you've made a mistake.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 12,
-      "start": 2542.6,
-      "end": 2773.8,
+      "start": 2804.13,
+      "end": 2912.43,
       "confidence": "high",
       "rationale": "Directly answers, verbatim to this question, with core lessons for new physician leaders."
      },
@@ -5468,7 +5468,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 10,
       "start": 2044.72,
-      "end": 2053.6,
+      "end": 2145.18,
       "confidence": "high",
       "rationale": "Additional concrete lessons drawn from her tenure meant to guide future leaders."
      }
@@ -5516,8 +5516,8 @@
       "quote": "if you aren't bold. I mean, if you are bold, you risk losing your footing. But if you are not bold, you risk losing your soul.",
       "speaker": "Stephen Tarnoff, MD",
       "chunk_id": 19,
-      "start": 3903.8,
-      "end": 4048.2,
+      "start": 4085.76,
+      "end": 4094.44,
       "confidence": "high",
       "rationale": "A lesson about boldness in leadership, offered via a paraphrased Kierkegaard quote he used with colleagues."
      }
@@ -5588,7 +5588,7 @@
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 24,
       "start": 5859.8,
-      "end": 5873.88,
+      "end": 5935.9,
       "confidence": "medium",
       "rationale": "Practical advice on getting involved and building visibility within a medical group, though framed around leadership aspirations rather than new physicians specifically."
      }
@@ -5708,8 +5708,8 @@
       "quote": "This history needs to be documented. And we need to see that we're growing innovators and, um, you know, people who are building AI tools on, on the weekend and people who are, um, rewriting how to be leaders. And they're in their 30s right now.",
       "speaker": "Margaret Ferguson, MD",
       "chunk_id": 34,
-      "start": 7835.8,
-      "end": 8015.1,
+      "start": 8126.37,
+      "end": 8149.53,
       "confidence": "medium",
       "rationale": "Points to the emerging generation of physician leaders as the ones shaping the future of care delivery."
      }
@@ -5795,8 +5795,8 @@
       "quote": "I found my calling... I said, I'm in the right job. I'm in the right place.",
       "speaker": "Chris Grant",
       "chunk_id": 11,
-      "start": 2825.5,
-      "end": 2979.4,
+      "start": 3001.12,
+      "end": 3013.28,
       "confidence": "high",
       "rationale": "Directly conveys the personal fulfillment he found in his work at KP."
      }
@@ -5837,8 +5837,8 @@
       "quote": "Being a Permanente physician is a fabulous career. It's an opportunity not offered to everyone. If I reflect on my 35 years with the organization, the first thing that comes to mind is collegiality. I would hate to be a physician practicing alone in a community... And you have a voice through your representatives in the directions of the organization.",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 13,
-      "start": 3004.9,
-      "end": 3236.1,
+      "start": 2962.91,
+      "end": 3147.85,
       "confidence": "high",
       "rationale": "Directly answers, verbatim to this question, listing collegiality, technology access, financial security, clinical autonomy, and voice in governance as rewarding aspects."
      }
@@ -5957,8 +5957,8 @@
       "quote": "That's a good question. It's been 48 years since I first joined Kaiser Permanente... And I suspect we will continue to do so because we have answers to the problems that the U.S. faces and that physicians face... So a lot of thought needs to go in, in the future, into this basic question. Do we have a mandate to expand? If so, how do we do that and when?",
       "speaker": "Jay Crosson, MD",
       "chunk_id": 14,
-      "start": 3236.1,
-      "end": 3467.2,
+      "start": 3179.16,
+      "end": 3366.29,
       "confidence": "high",
       "rationale": "Directly answers, verbatim to this question, discussing the open question of future expansion for the organization."
      }

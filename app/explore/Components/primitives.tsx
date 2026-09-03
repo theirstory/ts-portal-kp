@@ -160,25 +160,7 @@ export const BackLink = ({ href, children }: { href: string; children: React.Rea
   </Box>
 );
 
-/** Coverage dots: one per interview, filled when that interview answered. */
-export const CoverageDots = ({ answered }: { answered: boolean[] }) => (
-  <Box sx={{ display: 'flex', gap: '4px' }}>
-    {answered.map((on, index) => (
-      <Box
-        key={index}
-        sx={{
-          width: 9,
-          height: 9,
-          borderRadius: '50%',
-          background: on ? t.accent : 'transparent',
-          border: `1px solid ${on ? t.accent : t.dotEmpty}`,
-        }}
-      />
-    ))}
-  </Box>
-);
-
 /** The content column every Explore view sits in. */
 export const Shell = ({ children, sx }: { children: React.ReactNode; sx?: SxProps<Theme> }) => (
-  <Box sx={{ maxWidth: 1240, mx: 'auto', px: { xs: 3, md: 5 }, ...sx }}>{children}</Box>
+  <Box sx={{ maxWidth: 1600, mx: 'auto', px: { xs: 3, md: 5 }, ...sx }}>{children}</Box>
 );
