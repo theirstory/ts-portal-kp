@@ -41,6 +41,10 @@ config.json
 json/interviews/
 public/images/
 
+# portal-sync local state (see docs/PORTAL_SYNC.md)
+json/.portal-sync/
+
+
 # TypeScript build cache
 tsconfig.tsbuildinfo
 
