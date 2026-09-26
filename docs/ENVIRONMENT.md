@@ -39,6 +39,16 @@ WEAVIATE_SECURE=true
 DEBUG=true
 ```
 
+### Portal Sync (optional)
+
+```bash
+# Pull published recordings from Portal Publisher. Both required to enable; see docs/PORTAL_SYNC.md.
+PORTAL_PUBLISHER_URL=https://publisher.theirstory.io
+PORTAL_SYNC_TOKEN=pps_...
+PORTAL_SYNC_INTERVAL_MINUTES=15          # 0 = pings/startup only
+PORTAL_SYNC_POST_PROCESS_COMMAND=        # optional; gets STORY_ID, STORY_UUID, COLLECTION_ID
+```
+
 ## NLP Processor Environment (`nlp-processor/.env.local`)
 
 Located in `nlp-processor/` directory.

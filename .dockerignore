@@ -1,14 +1,23 @@
+# Secrets: containers get their env from env_file at runtime, never from the image.
+# (Nothing reads NEXT_PUBLIC_* at build time; if that changes, pass it as a build arg.)
+**/.env*
+!**/.env*.example
+
+# Runtime data, mounted into the containers as volumes
+json/interviews
+json/.portal-sync
+.entity-cache
+*.tar.gz
+
+# Build output, dependencies and VCS
+.git
 node_modules
 .next
 .yarn/cache
 .yarn/install-state.gz
 .yarn/unplugged
 .yarn/build-state.yml
-.git
 *.log
-.env*
-!.env.example
-!.env.production.example
-weaviate-data.tar.gz
-.DS_Store
 .vscode
+**/.DS_Store
+**/._*

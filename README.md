@@ -109,7 +109,11 @@ Default embedding model is `sentence-transformers/LaBSE`. NER uses `urchade/glin
 
 ### Getting Interview JSONs from TheirStory
 
-If you have interviews already uploaded to TheirStory, you can easily obtain the JSON files:
+For a deployed portal, the recommended way to publish recordings is **Portal Publisher**
+(https://publisher.theirstory.io): the portal pulls published recordings and processes them itself.
+See [docs/PORTAL_SYNC.md](./docs/PORTAL_SYNC.md).
+
+Otherwise, if you have interviews already uploaded to TheirStory, you can obtain the JSON files manually:
 
 1. Navigate to https://lab.theirstory.io/ts-api-core-demo/v028/
 2. Log in with your TheirStory username and password
@@ -226,6 +230,7 @@ Full guide (DigitalOcean example): **[docs/DEPLOY_PRODUCTION.md](./docs/DEPLOY_P
 - **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contribution guidelines and CLA signing via CLA Assistant
 - **[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)** - Container architecture and services
 - **[docs/IMPORTING_INTERVIEWS.md](./docs/IMPORTING_INTERVIEWS.md)** - JSON format and import process
+- **[docs/PORTAL_SYNC.md](./docs/PORTAL_SYNC.md)** - Publishing recordings from Portal Publisher, and operating the sync
 - **[docs/ENVIRONMENT.md](./docs/ENVIRONMENT.md)** - Environment variables and advanced configuration
 - **[docs/COMMANDS.md](./docs/COMMANDS.md)** - All available commands
 - **[docs/DEPLOY_PRODUCTION.md](./docs/DEPLOY_PRODUCTION.md)** - Production deployment guide (works on any Docker host, with DigitalOcean example)
