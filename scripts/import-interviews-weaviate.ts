@@ -3,6 +3,7 @@ import { request as httpRequest } from 'node:http';
 import { request as httpsRequest } from 'node:https';
 import { basename, dirname, join, relative, resolve } from 'node:path';
 import { URL } from 'node:url';
+import { humanizeCollectionName, normalizeCollectionId } from './lib/testimony-ids';
 
 function buildWeaviateUrl(): string {
   const host = process.env.WEAVIATE_HOST_URL ?? 'weaviate';
@@ -49,25 +50,6 @@ type InterviewImportJob = {
   filePath: string;
   collection: CollectionMetadata;
 };
-
-function normalizeCollectionId(input: string): string {
-  const normalized = input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9_-]+/g, '-')
-    .replace(/-{2,}/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-  return normalized || 'default';
-}
-
-function humanizeCollectionName(id: string): string {
-  return id
-    .replace(/[-_]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .replace(/\b\w/g, (char) => char.toUpperCase());
-}
 
 async function waitForReady(): Promise<void> {
   const url = `${WEAVIATE_URL}/v1/.well-known/ready`;
