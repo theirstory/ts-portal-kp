@@ -3,95 +3,89 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
-import {
-  allClipsFor,
-  collectionVoices,
-  questionClipCount,
-  respondentCount,
-  roster,
-  rosterSize,
-  voicesFor,
-} from '@/lib/insights/evidenceBank';
+import { questionClipCount, respondentCount } from '@/lib/insights/evidenceBank';
 import { plural } from '@/lib/insights/format';
 import { useExploreStore } from '@/app/stores/useExploreStore';
 import { useOpenExcerpt } from './useOpenExcerpt';
 import type { EvidenceClip, EvidenceQuestion, ThemeSummary } from '@/types/insights';
 import { mono, monoPlain, serif, t } from '../tokens';
 import { BackLink, ConfidenceChip, Eyebrow, MonoButton, SegmentedToggle, Shell, TimestampPill } from './primitives';
+import { useEvidence } from './EvidenceProvider';
 import { FaceRow } from './PeopleBand';
 import { useInterviewRefs } from './useInterviewRefs';
 import { SpeakerThumb } from './SpeakerThumb';
 
 const VoicesRail = ({ theme }: { theme: ThemeSummary }) => {
+  const { collectionVoices, voicesFor } = useEvidence();
   const refs = useInterviewRefs();
 
   return (
-  <Box sx={{ borderLeft: `2px solid ${t.rail}`, pl: '18px' }}>
-    <Eyebrow tracking={0.12} sx={{ mb: '10px' }}>
-      Voices in this theme
-    </Eyebrow>
-    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, gap: '7px 18px' }}>
-      {voicesFor(theme).map((voice) => {
-        const present = voice.clipCount > 0;
-        const frame = collectionVoices.find((v) => v.interview_title === voice.interview_title)?.frameTime ?? 60;
-        const uuid = refs[voice.interview_title]?.storyUuid;
-        const body = (
-          <>
-            <SpeakerThumb
-              interviewTitle={voice.interview_title}
-              initials={voice.name.slice(0, 1)}
-              time={frame}
-              size={28}
-              radius="50%"
-              muted={!present}
-            />
-            <Box sx={{ minWidth: 0 }}>
-              <Box
-                className="voice-name"
-                sx={{
-                  fontSize: '12.5px',
-                  fontWeight: 600,
-                  color: present ? t.ink : t.muted4,
-                  lineHeight: 1.25,
-                  transition: 'color 0.12s',
-                }}>
-                {voice.name}
+    <Box sx={{ borderLeft: `2px solid ${t.rail}`, pl: '18px' }}>
+      <Eyebrow tracking={0.12} sx={{ mb: '10px' }}>
+        Voices in this theme
+      </Eyebrow>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, gap: '7px 18px' }}>
+        {voicesFor(theme).map((voice) => {
+          const present = voice.clipCount > 0;
+          const frame = collectionVoices.find((v) => v.interview_title === voice.interview_title)?.frameTime ?? 60;
+          const uuid = refs[voice.interview_title]?.storyUuid;
+          const body = (
+            <>
+              <SpeakerThumb
+                interviewTitle={voice.interview_title}
+                initials={voice.name.slice(0, 1)}
+                time={frame}
+                size={28}
+                radius="50%"
+                muted={!present}
+              />
+              <Box sx={{ minWidth: 0 }}>
+                <Box
+                  className="voice-name"
+                  sx={{
+                    fontSize: '12.5px',
+                    fontWeight: 600,
+                    color: present ? t.ink : t.muted4,
+                    lineHeight: 1.25,
+                    transition: 'color 0.12s',
+                  }}>
+                  {voice.name}
+                </Box>
+                <Box sx={{ ...monoPlain(9.5), color: t.muted3 }}>
+                  {present ? plural(voice.clipCount, 'excerpt') : 'none'}
+                </Box>
               </Box>
-              <Box sx={{ ...monoPlain(9.5), color: t.muted3 }}>
-                {present ? plural(voice.clipCount, 'excerpt') : 'none'}
-              </Box>
+            </>
+          );
+
+          const rowSx = {
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            minWidth: 0,
+            opacity: present ? 1 : 0.5,
+            textDecoration: 'none',
+            color: 'inherit',
+          } as const;
+
+          // Each voice opens that person's full interview, once its uuid resolves.
+          return uuid ? (
+            <Box
+              key={voice.interview_title}
+              component={Link}
+              href={`/story/${uuid}`}
+              title={`Open ${voice.name}'s interview`}
+              sx={{ ...rowSx, '&:hover .voice-name': { color: t.accent } }}>
+              {body}
             </Box>
-          </>
-        );
-
-        const rowSx = {
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          minWidth: 0,
-          opacity: present ? 1 : 0.5,
-          textDecoration: 'none',
-          color: 'inherit',
-        } as const;
-
-        // Each voice opens that person's full interview, once its uuid resolves.
-        return uuid ? (
-          <Box
-            key={voice.interview_title}
-            component={Link}
-            href={`/story/${uuid}`}
-            title={`Open ${voice.name}'s interview`}
-            sx={{ ...rowSx, '&:hover .voice-name': { color: t.accent } }}>
-            {body}
-          </Box>
-        ) : (
-          <Box key={voice.interview_title} sx={rowSx}>
-            {body}
-          </Box>
-        );
-      })}
+          ) : (
+            <Box key={voice.interview_title} sx={rowSx}>
+              {body}
+            </Box>
+          );
+        })}
+      </Box>
     </Box>
-  </Box>
   );
 };
 
@@ -140,6 +134,7 @@ const ExcerptCard = ({ clip }: { clip: EvidenceClip }) => {
 
 /** All-excerpts mode: one collapsible group per question. */
 const ExcerptGroups = ({ theme }: { theme: ThemeSummary }) => {
+  const { allClipsFor } = useEvidence();
   const collapsed = useExploreStore((s) => s.collapsedQuestions);
   const toggle = useExploreStore((s) => s.toggleQuestionCollapsed);
   const collapseQuestions = useExploreStore((s) => s.collapseQuestions);
@@ -184,7 +179,9 @@ const ExcerptGroups = ({ theme }: { theme: ThemeSummary }) => {
                 <Box component="span" sx={{ ...monoPlain(12), color: t.muted4 }}>
                   Q{question.question_id}
                 </Box>
-                <Box component="span" sx={{ ...serif(20, 1.35), color: t.ink, flex: 1, maxWidth: '52ch', textWrap: 'pretty' }}>
+                <Box
+                  component="span"
+                  sx={{ ...serif(20, 1.35), color: t.ink, flex: 1, maxWidth: '52ch', textWrap: 'pretty' }}>
                   {question.question}
                 </Box>
                 <Box component="span" sx={{ ...monoPlain(10.5), color: t.muted3, whiteSpace: 'nowrap' }}>
@@ -215,73 +212,79 @@ const ExcerptGroups = ({ theme }: { theme: ThemeSummary }) => {
 };
 
 /** Questions mode: the theme's questions as a hairline list with coverage. */
-const QuestionRows = ({ questions }: { questions: EvidenceQuestion[] }) => (
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1px',
-      background: t.rule,
-      border: `1px solid ${t.rule}`,
-      borderTop: 'none',
-      mt: '26px',
-    }}>
-    {questions.map((question) => {
-      const answeredIn = (title: string) => (question.by_interview[title] ?? []).length > 0;
-      return (
-        <Box
-          key={question.question_id}
-          component={Link}
-          href={`/explore/q/${question.question_id}`}
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '40px 1fr', md: '54px 1fr 220px 90px' },
-            gap: { xs: '12px', md: '24px' },
-            alignItems: 'start',
-            background: t.surface,
-            padding: '22px 24px',
-            color: t.ink,
-            textDecoration: 'none',
-            '&:hover': { background: t.surfaceHover },
-          }}>
-          <Box component="span" sx={{ ...monoPlain(12), color: t.muted4, pt: '5px' }}>
-            Q{question.question_id}
-          </Box>
-          <Box component="span" sx={{ ...serif(19, 1.4), textWrap: 'pretty' }}>
-            {question.question}
-          </Box>
+const QuestionRows = ({ questions }: { questions: EvidenceQuestion[] }) => {
+  const { roster, rosterSize } = useEvidence();
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1px',
+        background: t.rule,
+        border: `1px solid ${t.rule}`,
+        borderTop: 'none',
+        mt: '26px',
+      }}>
+      {questions.map((question) => {
+        const answeredIn = (title: string) => (question.by_interview[title] ?? []).length > 0;
+        return (
           <Box
-            component="span"
+            key={question.question_id}
+            component={Link}
+            href={`/explore/q/${question.question_id}`}
             sx={{
-              display: { xs: 'none', md: 'flex' },
-              flexDirection: 'column',
-              gap: '5px',
-              pt: '4px',
+              display: 'grid',
+              gridTemplateColumns: { xs: '40px 1fr', md: '54px 1fr 220px 90px' },
+              gap: { xs: '12px', md: '24px' },
+              alignItems: 'start',
+              background: t.surface,
+              padding: '22px 24px',
+              color: t.ink,
+              textDecoration: 'none',
+              '&:hover': { background: t.surfaceHover },
             }}>
-            <FaceRow titles={roster.map((interview) => interview.interview_title)} present={answeredIn} />
-            <Box component="span" sx={{ ...monoPlain(10.5), color: t.muted3 }}>
-              {respondentCount(question)} of {rosterSize} leaders
+            <Box component="span" sx={{ ...monoPlain(12), color: t.muted4, pt: '5px' }}>
+              Q{question.question_id}
+            </Box>
+            <Box component="span" sx={{ ...serif(19, 1.4), textWrap: 'pretty' }}>
+              {question.question}
+            </Box>
+            <Box
+              component="span"
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                flexDirection: 'column',
+                gap: '5px',
+                pt: '4px',
+              }}>
+              <FaceRow titles={roster.map((interview) => interview.interview_title)} present={answeredIn} />
+              <Box component="span" sx={{ ...monoPlain(10.5), color: t.muted3 }}>
+                {respondentCount(question)} of {rosterSize} leaders
+              </Box>
+            </Box>
+            <Box
+              component="span"
+              sx={{
+                ...monoPlain(10.5),
+                color: t.muted3,
+                textAlign: { md: 'right' },
+                pt: '4px',
+                display: { xs: 'none', md: 'block' },
+              }}>
+              {plural(questionClipCount(question), 'excerpt')}
             </Box>
           </Box>
-          <Box
-            component="span"
-            sx={{
-              ...monoPlain(10.5),
-              color: t.muted3,
-              textAlign: { md: 'right' },
-              pt: '4px',
-              display: { xs: 'none', md: 'block' },
-            }}>
-            {plural(questionClipCount(question), 'excerpt')}
-          </Box>
-        </Box>
-      );
-    })}
-  </Box>
-);
+        );
+      })}
+    </Box>
+  );
+};
 
 /** A single theme: scan its questions, or read every excerpt in it. */
-export const ThemeView = ({ theme }: { theme: ThemeSummary }) => {
+export const ThemeView = ({ slug }: { slug: string }) => {
+  // The page checked it exists in this request's bank.
+  const theme = useEvidence().getThemeBySlug(slug)!;
   const mode = useExploreStore((s) => s.themeMode);
   const setMode = useExploreStore((s) => s.setThemeMode);
 

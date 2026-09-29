@@ -3,18 +3,11 @@
 import React, { useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
-import {
-  answersFor,
-  getThemeByCategory,
-  rosterFor,
-  rosterSize,
-  siblingsOf,
-  silentFor,
-} from '@/lib/insights/evidenceBank';
 import { joinNames, plural, shorten, stamp } from '@/lib/insights/format';
 import { useExploreStore } from '@/app/stores/useExploreStore';
 import type { EvidenceClip, EvidenceQuestion, QuestionAnswer } from '@/types/insights';
 import { CONFIDENCE, monoPlain, serif, t } from '../tokens';
+import { useEvidence } from './EvidenceProvider';
 import { BackLink, ConfidenceChip, Eyebrow, SegmentedToggle, Shell, TimestampPill } from './primitives';
 import { SpeakerThumb } from './SpeakerThumb';
 import { useInterviewRefs } from './useInterviewRefs';
@@ -147,6 +140,7 @@ const AnswerCard = ({ answer }: { answer: QuestionAnswer }) => {
  * who didn't, and a click to narrow the answers to one voice.
  */
 const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answers: QuestionAnswer[] }) => {
+  const { rosterFor } = useEvidence();
   const speakers = useExploreStore((s) => s.speakers);
   const toggleSpeaker = useExploreStore((s) => s.toggleSpeaker);
   const clearSpeakers = useExploreStore((s) => s.clearSpeakers);
@@ -239,7 +233,10 @@ const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answer
 };
 
 /** How every leader answered one question, side by side. */
-export const QuestionView = ({ question }: { question: EvidenceQuestion }) => {
+export const QuestionView = ({ questionId }: { questionId: number }) => {
+  const { answersFor, getQuestion, getThemeByCategory, rosterSize, siblingsOf, silentFor } = useEvidence();
+  // The page checked it exists in this request's bank.
+  const question = getQuestion(questionId)!;
   const layout = useExploreStore((s) => s.layout);
   const setLayout = useExploreStore((s) => s.setLayout);
   const speakers = useExploreStore((s) => s.speakers);
@@ -250,10 +247,10 @@ export const QuestionView = ({ question }: { question: EvidenceQuestion }) => {
     clearSpeakers();
   }, [question.question_id, clearSpeakers]);
 
-  const answers = useMemo(() => answersFor(question), [question]);
+  const answers = useMemo(() => answersFor(question), [answersFor, question]);
   const shown = speakers.length > 0 ? answers.filter((answer) => speakers.includes(answer.name)) : answers;
-  const silent = useMemo(() => silentFor(question), [question]);
-  const siblings = useMemo(() => siblingsOf(question), [question]);
+  const silent = useMemo(() => silentFor(question), [silentFor, question]);
+  const siblings = useMemo(() => siblingsOf(question), [siblingsOf, question]);
   const theme = getThemeByCategory(question.category);
 
   const shownClipCount = shown.reduce((sum, answer) => sum + answer.clips.length, 0);
@@ -329,8 +326,8 @@ export const QuestionView = ({ question }: { question: EvidenceQuestion }) => {
         <Box sx={{ mt: '32px', pt: '18px', borderTop: `1px solid ${t.rule}`, maxWidth: '70ch' }}>
           <Eyebrow tracking={0.12}>Not on the record here</Eyebrow>
           <Box sx={{ fontSize: '13.5px', lineHeight: 1.6, color: t.muted, mt: '8px' }}>
-            {joinNames(silent)} did not speak to this question. The interview guide was a starting point, not a script
-            — each conversation followed where the speaker went.
+            {joinNames(silent)} did not speak to this question. The interview guide was a starting point, not a script —
+            each conversation followed where the speaker went.
           </Box>
         </Box>
       )}

@@ -1,8 +1,9 @@
 /**
  * Self-test for portal-sync (no Weaviate / NLP / publisher needed):  yarn portal-sync:test
  * Covers HMAC verification, manifest diffing, run coalescing, the /trigger server, inventory
- * hashing/sending, manifest removals, the data version, and full runSync() runs against in-memory
- * fakes in a temp directory.
+ * hashing/sending, manifest removals, the data version, transcript/quote placement, LLM NER and
+ * excerpt extraction against a scripted LLM, and full runSync() runs against in-memory fakes in a
+ * temp directory.
  */
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
@@ -27,7 +28,12 @@ import {
 } from './inventory';
 import { CoalescingRunner } from './scheduler';
 import { createTriggerServer } from './server';
+import { extractExcerpts, loadAdditions, removeExcerpts } from './excerpts';
+import type { Llm } from './llm';
+import { parseJsonReply } from './llm';
+import { extractEntities } from './llm-ner';
 import { emptyState, loadState } from './state';
+import { locateQuote, paragraphsFromPayload, renderParagraph } from './transcript';
 import { runSync } from './sync';
 import type { SyncDeps } from './sync';
 import type { InventoryReport, ItemSnapshot, LocalState, Manifest, StatusReport } from './types';
@@ -291,6 +297,11 @@ function testConfig(dir: string): PortalSyncConfig {
     weaviateApiKey: '',
     nlpUrl: '',
     nlpTimeoutMs: 0,
+    nerMode: 'gliner',
+    excerpts: false,
+    evidenceBankFile: join(dir, 'bank.json'),
+    evidenceAdditionsFile: join(dir, '.portal-sync', 'evidence-additions.json'),
+    llmCacheDir: join(dir, '.portal-sync', 'llm-cache'),
     portalVersion: 'test',
   };
 }
@@ -724,6 +735,271 @@ test('runSync: manifest removals (managed skip, already gone, files), inventory,
     assert.deepEqual(deleted, [legacy1Uuid, legacy2Uuid]);
     assert.equal(await readDataVersion(config.dataVersionFile), 3);
     assert.equal(existsSync(config.lockFile), false, 'lock released after inventory failure');
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+// ---------------------------------------------------------------- LLM enrichment
+/** A transcript payload: [speaker, "text with words"] paragraphs, one second per word. */
+function transcriptPayload(storyId: string, paragraphs: [string, string][]): any {
+  const words: { start: number; end: number; text: string }[] = [];
+  const paras: { speaker: string; start: number; end: number }[] = [];
+  let t = 0;
+  for (const [speaker, text] of paragraphs) {
+    const start = t;
+    for (const w of text.split(' ')) {
+      words.push({ start: t, end: t + 0.8, text: w });
+      t += 1;
+    }
+    paras.push({ speaker, start, end: t - 0.2 });
+  }
+  return {
+    story: { _id: storyId, title: `Interview With ${storyId}` },
+    transcript: { storyId, words, paragraphs: paras },
+  };
+}
+
+const WHEELER = transcriptPayload('cw1', [
+  ['Interviewer', 'Where did you grow up?'],
+  ['Calvin Wheeler', 'I was born in Arkadelphia, Arkansas, uh, a small town. We moved to Little Rock later.'],
+  ['Interviewer', 'And what drew you to Kaiser Permanente?'],
+  [
+    'Calvin Wheeler',
+    'Honestly, um, it was the prevention focus. Kaiser Permanente put prevention first, and I loved that.',
+  ],
+]);
+
+/** Replies in order; records prompts. */
+function scriptedLlm(replies: (object | ((prompt: string) => object))[]): Llm & { prompts: string[] } {
+  const prompts: string[] = [];
+  let i = 0;
+  return {
+    id: 'test/model',
+    prompts,
+    async json<T>({ prompt }: { prompt: string }) {
+      prompts.push(prompt);
+      const reply = replies[Math.min(i++, replies.length - 1)];
+      return (typeof reply === 'function' ? reply(prompt) : reply) as T;
+    },
+  };
+}
+
+test('transcript: words land in their paragraphs; quotes place on word timings', () => {
+  const paragraphs = paragraphsFromPayload(WHEELER);
+  assert.equal(paragraphs.length, 4);
+  assert.equal(paragraphs[1].speaker, 'Calvin Wheeler');
+  assert.equal(paragraphs[1].words[0].text, 'I');
+  assert.match(renderParagraph(paragraphs[1]), /^\[1\] 0:00:0\d Calvin Wheeler: I was born/);
+
+  const words = paragraphs[1].words;
+  // Punctuation and case don't matter.
+  assert.deepEqual(locateQuote(words, 'born in arkadelphia arkansas'), { start: words[2].start, end: words[5].end });
+  // Elision: start from the first segment, end from the last.
+  const elided = locateQuote(words, 'I was born in Arkadelphia ... We moved to Little Rock later.');
+  assert.deepEqual(elided, { start: words[0].start, end: words[words.length - 1].end });
+  // A dropped filler inside a long segment still anchors on its head and tail.
+  const noFiller = locateQuote(
+    words,
+    'I was born in Arkadelphia, Arkansas, a small town. We moved to Little Rock later.',
+  );
+  assert.deepEqual(noFiller, { start: words[0].start, end: words[words.length - 1].end });
+  assert.equal(locateQuote(words, 'I grew up in Chicago'), null);
+});
+
+test('llm: JSON replies are parsed through fences and prose', () => {
+  assert.deepEqual(parseJsonReply('Here you go:\n```json\n{"a": [1]}\n```'), { a: [1] });
+  assert.deepEqual(parseJsonReply('{"a": {"b": 2}} trailing'), { a: { b: 2 } });
+  assert.throws(() => parseJsonReply('no json'));
+});
+
+test('llm ner: every occurrence in the cited paragraphs, timed; unknown labels dropped; cached', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'portal-sync-ner-'));
+  try {
+    const llm = scriptedLlm([
+      {
+        entities: [
+          { text: 'Kaiser Permanente', label: 'organization', paragraphs: [2, 3] },
+          { text: 'Arkadelphia, Arkansas', label: 'location', paragraphs: [1] },
+          { text: 'Little Rock', label: 'location' },
+          { text: 'prevention', label: 'not-a-label', paragraphs: [3] },
+          { text: 'Chicago', label: 'location', paragraphs: [1] },
+        ],
+      },
+    ]);
+    const paragraphs = paragraphsFromPayload(WHEELER);
+    const entities = await extractEntities(llm, 'cw1', paragraphs, dir);
+    assert.deepEqual(
+      entities.map((e) => `${e.label}:${e.text}`),
+      [
+        'location:Arkadelphia, Arkansas',
+        'location:Little Rock',
+        'organization:Kaiser Permanente',
+        'organization:Kaiser Permanente',
+      ],
+    );
+    const arkadelphia = paragraphs[1].words[4];
+    assert.equal(entities[0].start_time, arkadelphia.start);
+    assert.equal(entities[0].end_time, paragraphs[1].words[5].end);
+    assert.match(llm.prompts[0], /- medical-term: Medical Term/);
+
+    const again = await extractEntities(llm, 'cw1', paragraphs, dir);
+    assert.deepEqual(again, entities);
+    assert.equal(llm.prompts.length, 1, 'second run served from cache');
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, removable', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'portal-sync-excerpts-'));
+  try {
+    const additionsFile = join(dir, 'evidence-additions.json');
+    const bank = {
+      interviews: [{ interview_title: 'Reviewed', interview_id: 'reviewed1', source_file: '' }],
+      questions: [
+        { question_id: 1, category: 'Background', question: 'Where are you from?', by_interview: {} },
+        { question_id: 2, category: 'Values', question: 'Why Kaiser Permanente?', by_interview: {} },
+      ],
+    };
+    const llm = scriptedLlm([
+      (prompt) =>
+        prompt.includes('Theme: Background')
+          ? {
+              matches: [
+                {
+                  question_id: 1,
+                  paragraph: 1,
+                  quote: 'I was born in Arkadelphia, Arkansas',
+                  confidence: 'high',
+                  rationale: 'Birthplace.',
+                },
+                {
+                  question_id: 1,
+                  paragraph: 1,
+                  quote: 'I grew up in Chicago.',
+                  confidence: 'high',
+                  rationale: 'Invented.',
+                },
+                {
+                  question_id: 2,
+                  paragraph: 3,
+                  quote: 'wrong theme',
+                  confidence: 'high',
+                  rationale: 'Not asked here.',
+                },
+              ],
+            }
+          : {
+              matches: [
+                // Wrong paragraph number, but the quote is verbatim elsewhere: kept, re-anchored.
+                {
+                  question_id: 2,
+                  paragraph: 0,
+                  quote: 'it was the prevention focus.',
+                  confidence: 'bogus',
+                  rationale: 'Prevention.',
+                },
+              ],
+            },
+    ]);
+    const paragraphs = paragraphsFromPayload(WHEELER);
+    const run = () =>
+      extractExcerpts({ llm, storyId: 'cw1', title: 'Interview With cw1', paragraphs, bank, additionsFile });
+
+    assert.equal(await run(), 'generated');
+    const entry = (await loadAdditions(additionsFile)).interviews.cw1;
+    assert.equal(entry.interview_title, 'Interview With cw1');
+    assert.equal(entry.model, 'test/model');
+    assert.deepEqual(
+      entry.by_question['1'].map((m) => m.quote),
+      ['I was born in Arkadelphia, Arkansas'],
+    );
+    const q1 = entry.by_question['1'][0];
+    assert.equal(q1.speaker, 'Calvin Wheeler');
+    assert.equal(q1.start, paragraphs[1].words[0].start);
+    assert.equal(q1.end, paragraphs[1].words[5].end);
+    const q2 = entry.by_question['2'][0];
+    assert.equal(q2.chunk_id, 3);
+    assert.equal(q2.confidence, 'medium', 'unknown confidence falls back to medium');
+    assert.equal(llm.prompts.length, 2, 'one call per theme');
+    assert.match(llm.prompts[0], /\[3\] 0:00:\d\d Calvin Wheeler: Honestly/);
+
+    assert.equal(await run(), 'cached');
+    assert.equal(llm.prompts.length, 2);
+
+    const reviewed = await extractExcerpts({ llm, storyId: 'reviewed1', title: 'R', paragraphs, bank, additionsFile });
+    assert.equal(reviewed, 'skipped-reviewed');
+    assert.equal(llm.prompts.length, 2);
+
+    assert.equal(await removeExcerpts(additionsFile, 'cw1'), true);
+    assert.deepEqual((await loadAdditions(additionsFile)).interviews, {});
+    assert.equal(await removeExcerpts(additionsFile, 'cw1'), false);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('runSync: LLM entities go to the NLP step, excerpts run after it, removal forgets them', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'portal-sync-enrich-'));
+  try {
+    const config = testConfig(dir);
+    const coll = { id: 'coll-a', name: 'Coll A', description: 'A' };
+    const current: Manifest = { protocol: 1, portalId: 'p1', collections: [coll], items: [] };
+    const calls: string[] = [];
+    let failExcerpts = false;
+    const testimonies = new Map<string, FakeTestimony>();
+    const deps: SyncDeps = {
+      publisher: {
+        getManifest: async () => structuredClone(current),
+        getItem: async (id) => snapshot(id, 'v1', coll),
+        postStatus: async () => {},
+        postInventory: async () => {},
+      },
+      weaviate: fakeWeaviate(testimonies, []).weaviate,
+      nlp: {
+        waitUntilReady: async () => {},
+        processStory: async ({ payload, collection, entities, runNer }) => {
+          calls.push(`nlp:${payload.story._id}:${entities?.length ?? 'none'}:${runNer}`);
+          testimonies.set(testimonyUuid(collection.id, payload.story._id), {
+            collectionId: collection.id,
+            title: payload.story.title,
+            storyId: payload.story._id,
+          });
+          return { chunks: 1 };
+        },
+      },
+      enrich: {
+        entities: async (storyId) => {
+          calls.push(`ner:${storyId}`);
+          return [{ text: 'X', label: 'person', start_time: 1, end_time: 2 }];
+        },
+        excerpts: async (storyId) => {
+          calls.push(`excerpts:${storyId}`);
+          if (failExcerpts) throw new Error('LLM down');
+        },
+        forget: async (storyId) => void calls.push(`forget:${storyId}`),
+      },
+    };
+
+    current.items = [{ storyId: 's1', collectionId: 'coll-a', version: 'v1' }];
+    let summary = await runSync(config, deps, 'test');
+    assert.equal(summary.state, 'succeeded');
+    assert.deepEqual(calls, ['ner:s1', 'nlp:s1:1:true', 'excerpts:s1']);
+
+    // A failing enrichment step fails the item, so it is retried next run.
+    calls.length = 0;
+    failExcerpts = true;
+    current.items = [{ storyId: 's1', collectionId: 'coll-a', version: 'v2' }];
+    summary = await runSync(config, deps, 'test');
+    assert.equal(summary.items[0].state, 'failed');
+    assert.match(summary.items[0].error ?? '', /LLM down/);
+    assert.equal((await loadState(config.stateFile)).items.s1.version, 'v1');
+
+    calls.length = 0;
+    current.items = [];
+    summary = await runSync(config, deps, 'test');
+    assert.deepEqual(calls, ['forget:s1']);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

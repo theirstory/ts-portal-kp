@@ -4,9 +4,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Box } from '@mui/material';
-import { evidenceQuestions, roster, totalClipCount } from '@/lib/insights/evidenceBank';
 import { plural } from '@/lib/insights/format';
 import { monoPlain, serif, t } from '../tokens';
+import { useEvidence } from './EvidenceProvider';
 import { Shell } from './primitives';
 
 const SEARCH_DEBOUNCE_MS = 180;
@@ -17,6 +17,7 @@ const SEARCH_DEBOUNCE_MS = 180;
  * typing stays responsive and only the committed value hits the router.
  */
 export const ExploreHeader = () => {
+  const { evidenceQuestions, roster, totalClipCount } = useEvidence();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

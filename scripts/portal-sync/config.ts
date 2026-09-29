@@ -21,8 +21,35 @@ export type PortalSyncConfig = {
   weaviateApiKey: string;
   nlpUrl: string;
   nlpTimeoutMs: number;
+  /** Who finds entities: the portal's configured LLM (default), the NLP processor's GLiNER, or nobody. */
+  nerMode: NerMode;
+  /** Find Explore excerpts for new recordings with the configured LLM. */
+  excerpts: boolean;
+  /** The reviewed evidence bank: its questions are what excerpts are matched against. */
+  evidenceBankFile: string;
+  /** Generated excerpts, read by the frontend (lib/insights/loadEvidenceBank.ts); same env var on both sides. */
+  evidenceAdditionsFile: string;
+  /** Per-story LLM results, so a retry or a metadata-only change doesn't pay for the same calls again. */
+  llmCacheDir: string;
   portalVersion: string;
 };
+
+export type NerMode = 'llm' | 'gliner' | 'off';
+
+function nerModeEnv(): NerMode {
+  const raw = (process.env.PORTAL_SYNC_NER ?? '').trim().toLowerCase();
+  if (raw === '' || raw === 'llm') return 'llm';
+  if (raw === 'gliner' || raw === 'off') return raw;
+  throw new Error(`PORTAL_SYNC_NER must be llm, gliner or off (got "${raw}")`);
+}
+
+function boolEnv(name: string, fallback: boolean): boolean {
+  const raw = (process.env[name] ?? '').trim().toLowerCase();
+  if (raw === '') return fallback;
+  if (['1', 'true', 'on', 'yes'].includes(raw)) return true;
+  if (['0', 'false', 'off', 'no'].includes(raw)) return false;
+  throw new Error(`${name} must be on or off (got "${raw}")`);
+}
 
 function intEnv(name: string, fallback: number): number {
   const raw = process.env[name];
@@ -75,6 +102,13 @@ export function loadConfig(portalVersion: string): PortalSyncConfig {
     weaviateApiKey: (process.env.WEAVIATE_ADMIN_KEY ?? '').trim(),
     nlpUrl: buildNlpUrl(),
     nlpTimeoutMs: intEnv('PORTAL_SYNC_NLP_TIMEOUT_MINUTES', 30) * 60_000,
+    nerMode: nerModeEnv(),
+    excerpts: boolEnv('PORTAL_SYNC_EXCERPTS', true),
+    evidenceBankFile: resolve(process.env.EVIDENCE_BANK_FILE ?? './json/insights/kp_evidence_bank.json'),
+    evidenceAdditionsFile: resolve(
+      process.env.PORTAL_SYNC_EVIDENCE_ADDITIONS_FILE ?? './json/.portal-sync/evidence-additions.json',
+    ),
+    llmCacheDir: join(dirname(stateFile), 'llm-cache'),
     portalVersion: (process.env.PORTAL_VERSION ?? '').trim() || portalVersion,
   };
 }

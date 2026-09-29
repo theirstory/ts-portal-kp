@@ -15,7 +15,33 @@ const DISPLAY_NAMES: Record<string, string> = {
   'Dr Stephen Tarnoff': 'Stephen Tarnoff, MD',
 };
 
-export const displayName = (interviewTitle: string): string => DISPLAY_NAMES[interviewTitle] ?? interviewTitle;
+/**
+ * Label for a recording title nobody curated (one portal-sync added): drop the recording boilerplate
+ * ("TheirStory Interview With …", "Oral History Recording – Org (…)") and write "Dr X" as "X, MD",
+ * matching the curated names above.
+ */
+const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+
+export const cleanTitle = (title: string): string => {
+  let name = title.trim();
+  const parenthesized = name.match(/\(([^()]+)\)\s*$/);
+  if (parenthesized && /oral history|recording/i.test(name)) name = parenthesized[1];
+  name = name
+    .replace(/^theirstory\s+/i, '')
+    .replace(/^(oral history\s+)?(interview|recording)\s+with\s+/i, '')
+    .replace(/\s+theirstory(\s+interview)?$/i, '')
+    .replace(/\s+(oral history\s+)?interview$/i, '')
+    .trim();
+  const part = name.match(/^(.+?)\s*[-–—:]\s*part\s+(\d+)$/i);
+  if (part) name = part[1];
+  const doctor = name.match(/^dr\.?\s+(.+)$/i);
+  if (doctor && !/,/.test(doctor[1])) name = `${doctor[1]}, MD`;
+  if (part) name = `${name} · ${ROMAN[Number(part[2])] ?? part[2]}`;
+  return name || title;
+};
+
+export const displayName = (interviewTitle: string): string =>
+  DISPLAY_NAMES[interviewTitle] ?? cleanTitle(interviewTitle);
 
 /** First letters of the first two capitalised words, ignoring any suffix after a comma. */
 export const initials = (name: string): string =>

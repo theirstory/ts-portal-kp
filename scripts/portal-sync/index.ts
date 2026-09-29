@@ -11,6 +11,7 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NlpProcessor, Weaviate } from './backends';
 import { loadConfig } from './config';
+import { createEnricher } from './enrich';
 import { releaseHeldLocksSync } from './lock';
 import { formatError, log } from './log';
 import { runPostProcess } from './post-process';
@@ -47,13 +48,15 @@ async function main(): Promise<void> {
     }
   }
   log.info(
-    `weaviate=${config.weaviateUrl} nlp=${config.nlpUrl} postProcess=${config.postProcessCommand ? 'set' : 'none'}`,
+    `weaviate=${config.weaviateUrl} nlp=${config.nlpUrl} postProcess=${config.postProcessCommand ? 'set' : 'none'} ` +
+      `ner=${config.nerMode} excerpts=${config.excerpts ? 'on' : 'off'}`,
   );
 
   const deps: SyncDeps = {
     publisher: new PublisherClient(config.publisherUrl, config.token),
     weaviate: new Weaviate(config.weaviateUrl, config.weaviateApiKey),
     nlp: new NlpProcessor(config.nlpUrl, config.nlpTimeoutMs),
+    enrich: config.enabled ? await createEnricher(config) : undefined,
     postProcess: config.postProcessCommand
       ? (vars) => runPostProcess(config.postProcessCommand, vars, config.postProcessTimeoutMs)
       : undefined,

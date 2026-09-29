@@ -10,6 +10,8 @@ pydantic
 
 # NLP
 gliner-spacy
+# transformers 5 needs tiktoken to load the GLiNER tokenizer; without it NER silently finds nothing.
+tiktoken
 
 # Local Embeddings
 sentence-transformers>=2.2.0

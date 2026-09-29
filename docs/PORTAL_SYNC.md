@@ -42,8 +42,11 @@ Portal Publisher ◀── GET manifest / items, POST status ── portal-sync 
      later `weaviate:import` derives the same folder, plus
      `json/interviews/<collectionId>/collection.json` (`id`, `name`, `description`; any other
      keys you add, such as `image`, are kept)
-   - `POST /process-story?write_to_weaviate=true&run_ner=true` to the NLP processor, which
-     replaces that Testimony's chunks in place
+   - finds named entities with the portal's configured LLM (see [LLM enrichment](#llm-enrichment))
+   - `POST /process-story?write_to_weaviate=true` to the NLP processor with those entities, which
+     replaces that Testimony's chunks in place and attaches the entities to it and its chunks
+     (`run_ner=true` and no entities when `PORTAL_SYNC_NER=gliner`)
+   - finds Explore excerpts for the recording, unless it is already in the reviewed evidence bank
    - runs `PORTAL_SYNC_POST_PROCESS_COMMAND`, if set
    - records the new version only if all of that succeeded. Failed items are retried on the next run.
 6. **Data version.** If anything was synced or removed, it bumps
@@ -72,20 +75,24 @@ The Testimony UUID is the same one `weaviate:import` and the NLP processor use:
 
 Set these in `.env.production` (production compose) or `.env.local` (dev compose):
 
-| Variable                                   | Default                                 | Meaning                                                                                                                                                                   |
-| ------------------------------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PORTAL_PUBLISHER_URL`                     | (none)                                  | Base URL of Portal Publisher, e.g. `https://publisher.theirstory.io`. **Required.**                                                                                       |
-| `PORTAL_SYNC_TOKEN`                        | (none)                                  | The `pps_…` token shown once when the portal was created in Portal Publisher. **Required.** Keep it secret. It is never logged.                                           |
-| `PORTAL_SYNC_INTERVAL_MINUTES`             | `15`                                    | How often to poll. `0` turns polling off, so syncs happen only at startup and on pings.                                                                                   |
-| `PORTAL_SYNC_POST_PROCESS_COMMAND`         | (none)                                  | Shell command (`sh -c`) run after each recording is (re)processed. Gets `STORY_ID`, `STORY_UUID`, `COLLECTION_ID`, `STORY_FILE`. A non-zero exit marks the item `failed`. |
-| `PORTAL_SYNC_POST_PROCESS_TIMEOUT_MINUTES` | `60`                                    | Kill the post-process command after this long (`0` = no limit).                                                                                                           |
-| `PORTAL_SYNC_NLP_TIMEOUT_MINUTES`          | `30`                                    | Timeout for one `/process-story` call.                                                                                                                                    |
-| `PORTAL_SYNC_PORT`                         | `7171`                                  | Port of the service's internal HTTP server. It is not published to the host.                                                                                              |
-| `PORTAL_SYNC_HOST`                         | `portal-sync`                           | Used by the **frontend** to reach the service (`http://$PORTAL_SYNC_HOST:$PORTAL_SYNC_PORT/trigger`). Set it to `localhost` when you run both outside Docker.             |
-| `PORTAL_VERSION`                           | package version                         | Reported as `portalVersion` in status reports. A git SHA works well here.                                                                                                 |
-| `PORTAL_SYNC_STATE_FILE`                   | `./json/.portal-sync/state.json`        | Where sync state lives.                                                                                                                                                   |
-| `INTERVIEWS_DIR`                           | `./json/interviews`                     | Same meaning as for `weaviate:import`.                                                                                                                                    |
-| `PORTAL_SYNC_DATA_VERSION_FILE`            | `./json/.portal-sync/data-version.json` | Data version file, written by the service and read by the frontend (set it the same on both if you change it).                                                            |
+| Variable                                   | Default                                       | Meaning                                                                                                                                                                   |
+| ------------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PORTAL_PUBLISHER_URL`                     | (none)                                        | Base URL of Portal Publisher, e.g. `https://publisher.theirstory.io`. **Required.**                                                                                       |
+| `PORTAL_SYNC_TOKEN`                        | (none)                                        | The `pps_…` token shown once when the portal was created in Portal Publisher. **Required.** Keep it secret. It is never logged.                                           |
+| `PORTAL_SYNC_INTERVAL_MINUTES`             | `15`                                          | How often to poll. `0` turns polling off, so syncs happen only at startup and on pings.                                                                                   |
+| `PORTAL_SYNC_POST_PROCESS_COMMAND`         | (none)                                        | Shell command (`sh -c`) run after each recording is (re)processed. Gets `STORY_ID`, `STORY_UUID`, `COLLECTION_ID`, `STORY_FILE`. A non-zero exit marks the item `failed`. |
+| `PORTAL_SYNC_POST_PROCESS_TIMEOUT_MINUTES` | `60`                                          | Kill the post-process command after this long (`0` = no limit).                                                                                                           |
+| `PORTAL_SYNC_NLP_TIMEOUT_MINUTES`          | `30`                                          | Timeout for one `/process-story` call.                                                                                                                                    |
+| `PORTAL_SYNC_PORT`                         | `7171`                                        | Port of the service's internal HTTP server. It is not published to the host.                                                                                              |
+| `PORTAL_SYNC_HOST`                         | `portal-sync`                                 | Used by the **frontend** to reach the service (`http://$PORTAL_SYNC_HOST:$PORTAL_SYNC_PORT/trigger`). Set it to `localhost` when you run both outside Docker.             |
+| `PORTAL_VERSION`                           | package version                               | Reported as `portalVersion` in status reports. A git SHA works well here.                                                                                                 |
+| `PORTAL_SYNC_STATE_FILE`                   | `./json/.portal-sync/state.json`              | Where sync state lives.                                                                                                                                                   |
+| `INTERVIEWS_DIR`                           | `./json/interviews`                           | Same meaning as for `weaviate:import`.                                                                                                                                    |
+| `PORTAL_SYNC_DATA_VERSION_FILE`            | `./json/.portal-sync/data-version.json`       | Data version file, written by the service and read by the frontend (set it the same on both if you change it).                                                            |
+| `PORTAL_SYNC_NER`                          | `llm`                                         | Who finds entities: `llm` (the provider in `config.json` `features.chat`), `gliner` (the NLP processor's model), or `off`.                                                |
+| `PORTAL_SYNC_EXCERPTS`                     | `on`                                          | Find Explore excerpts for new recordings with the LLM. `off` leaves Explore to the reviewed bank.                                                                         |
+| `EVIDENCE_BANK_FILE`                       | `./json/insights/kp_evidence_bank.json`       | The reviewed bank whose questions excerpts are matched against. Missing file = excerpts off.                                                                              |
+| `PORTAL_SYNC_EVIDENCE_ADDITIONS_FILE`      | `./json/.portal-sync/evidence-additions.json` | Generated excerpts, written by the service and read by the frontend (set it the same on both if you change it).                                                           |
 
 Weaviate and NLP connection settings are the same ones the importer uses: `WEAVIATE_HOST_URL`,
 `WEAVIATE_PORT`, `WEAVIATE_SECURE`, `WEAVIATE_ADMIN_KEY` (optional), and `NLP_HOST`, `NLP_PORT`,
@@ -222,6 +229,41 @@ Other notes:
   missing from the manifest, because it doesn't know it ever had them.
 - The state file is keyed by story id and doesn't care which portal a token belongs to. If you point
   a portal at a different Portal Publisher portal, every story from the old one is removed.
+
+## LLM enrichment
+
+Both steps use the LLM the portal is already configured with for `/discover`: `config.json`
+`features.chat` (`provider`, `model`, `baseUrl`) and its key (`ANTHROPIC_API_KEY`, or
+`OPENAI_API_KEY` / `AI_API_KEY`). The portal-sync container reads both from `.env.production` and
+the mounted `config.json`. If the key is missing, items fail with the reason and are retried, the
+same as an NLP failure. Neither step is skipped silently.
+
+**Entities** (`scripts/portal-sync/llm-ner.ts`). The transcript is read in windows of about 2,500
+words. For each window, the LLM lists the distinct entities (exact text, a label id from
+`config.json` `ner.labels`, and the paragraphs they appear in). Each occurrence is then found in
+those paragraphs' word timings, so every entity has the `start_time`/`end_time` that the story page,
+progress bar and entity filters use. Entities the LLM names that aren't in the transcript
+word-for-word are dropped. They go to `/process-story` in the request body, and the processor
+attaches them to the Testimony and to each chunk they overlap, as it did with GLiNER.
+
+**Explore excerpts** (`scripts/portal-sync/excerpts.ts`). For a recording that isn't in the
+reviewed bank (`json/insights/kp_evidence_bank.json`, matched by story id), one LLM pass per theme
+reads the whole transcript against that theme's questions. It returns up to 3 verbatim quotes per
+question from the interviewee, with a confidence and a one-sentence rationale. Each quote is placed
+on the word timings. A quote that can't be found word-for-word is dropped (the log says how many).
+Results go to `json/.portal-sync/evidence-additions.json`, keyed by story id. The reviewed bank is
+never modified. The frontend (`lib/insights/loadEvidenceBank.ts`) merges the additions into the bank
+when the data version changes, so new interviews appear in Explore after the sync finishes, without
+a rebuild. Unpublishing a recording removes its excerpts.
+
+Both results are cached per transcript, model and prompt (`json/.portal-sync/llm-cache/`, and the
+`key` field of each additions entry). A retry, or a change that only touches metadata, doesn't pay
+for the same calls again. A transcript edit, a different model, or a new question list runs them
+again. A 90-minute interview is about 19 LLM calls (11 NER windows + 8 themes) and takes about 5
+minutes.
+
+To backfill, remove the stories from `json/.portal-sync/state.json` (or delete their cache files
+to force new LLM calls) and trigger a sync.
 
 ## Post-process hook (forks with extra enrichment)
 

@@ -3,15 +3,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
-import { collectionVoices } from '@/lib/insights/evidenceBank';
 import { displayName, plural } from '@/lib/insights/format';
 import { monoPlain, t } from '../tokens';
+import { useEvidence } from './EvidenceProvider';
 import { Eyebrow } from './primitives';
 import { SpeakerThumb } from './SpeakerThumb';
 import { useInterviewRefs } from './useInterviewRefs';
 
 /** Up to five overlapping faces — who speaks inside a theme, at a glance. */
 export const FaceStack = ({ titles, max = 5 }: { titles: string[]; max?: number }) => {
+  const { collectionVoices } = useEvidence();
   const shown = titles.slice(0, max);
   const overflow = titles.length - shown.length;
 
@@ -37,18 +38,17 @@ export const FaceStack = ({ titles, max = 5 }: { titles: string[]; max?: number 
           />
         </Box>
       ))}
-      {overflow > 0 && (
-        <Box sx={{ ...monoPlain(10), color: t.muted3, ml: '8px' }}>+{overflow}</Box>
-      )}
+      {overflow > 0 && <Box sx={{ ...monoPlain(10), color: t.muted3, ml: '8px' }}>+{overflow}</Box>}
     </Box>
   );
 };
 
 /**
- * The eight people, compact enough to sit beside the "start somewhere" rail so
+ * Everyone in the archive, compact enough to sit beside the "start somewhere" rail so
  * the whole landing page fits one screen. Each opens their full interview.
  */
 export const PeopleStrip = () => {
+  const { collectionVoices } = useEvidence();
   const refs = useInterviewRefs();
 
   return (
@@ -87,9 +87,7 @@ export const PeopleStrip = () => {
                   }}>
                   {voice.name}
                 </Box>
-                <Box sx={{ ...monoPlain(10), color: t.muted3, mt: '1px' }}>
-                  {plural(voice.clipCount, 'excerpt')}
-                </Box>
+                <Box sx={{ ...monoPlain(10), color: t.muted3, mt: '1px' }}>{plural(voice.clipCount, 'excerpt')}</Box>
               </Box>
             </>
           );
@@ -136,26 +134,30 @@ export const FaceRow = ({
   titles: string[];
   present: (title: string) => boolean;
   size?: number;
-}) => (
-  <Box sx={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-    {titles.map((title) => {
-      const here = present(title);
-      const voice = collectionVoices.find((v) => v.interview_title === title);
-      return (
-        <Box
-          key={title}
-          title={`${displayName(title)}${here ? '' : ' — did not answer'}`}
-          sx={{ display: 'flex', opacity: here ? 1 : 0.28 }}>
-          <SpeakerThumb
-            interviewTitle={title}
-            initials={displayName(title).slice(0, 1)}
-            time={voice?.frameTime ?? 60}
-            size={size}
-            radius="50%"
-            muted={!here}
-          />
-        </Box>
-      );
-    })}
-  </Box>
-);
+}) => {
+  const { collectionVoices } = useEvidence();
+
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+      {titles.map((title) => {
+        const here = present(title);
+        const voice = collectionVoices.find((v) => v.interview_title === title);
+        return (
+          <Box
+            key={title}
+            title={`${displayName(title)}${here ? '' : ' — did not answer'}`}
+            sx={{ display: 'flex', opacity: here ? 1 : 0.28 }}>
+            <SpeakerThumb
+              interviewTitle={title}
+              initials={displayName(title).slice(0, 1)}
+              time={voice?.frameTime ?? 60}
+              size={size}
+              radius="50%"
+              muted={!here}
+            />
+          </Box>
+        );
+      })}
+    </Box>
+  );
+};

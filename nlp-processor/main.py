@@ -55,6 +55,9 @@ class ProcessRequest(BaseModel):
     """Request model for story processing endpoint."""
     payload: Dict[str, Any]
     collection: Optional[Dict[str, str]] = None
+    # Entities computed by the caller (portal-sync's LLM NER). When present, GLiNER is skipped and
+    # these are used as-is: each needs text, label, start_time and end_time (seconds).
+    entities: Optional[List[Dict[str, Any]]] = None
 
 
 app = FastAPI(title="NLP Processor (Chunks + NER)")
@@ -275,6 +278,27 @@ def _append_batch_entities(
         ner_stats["errors"] += 1
 
 
+def _provided_entities(entities: List[Dict[str, Any]]) -> tuple[List[Dict[str, Any]], Dict[str, int]]:
+    print(f"\n🏷️  Using {len(entities)} caller-provided entities (GLiNER skipped)")
+    all_entities: List[Dict[str, Any]] = []
+    ner_stats = _empty_ner_stats()
+    for ent in entities:
+        text = str(ent.get("text") or "").strip()
+        label = str(ent.get("label") or "").strip()
+        try:
+            start_time = float(ent["start_time"])
+            end_time = float(ent["end_time"])
+        except (KeyError, TypeError, ValueError):
+            ner_stats["errors"] += 1
+            continue
+        if not text or not label:
+            ner_stats["errors"] += 1
+            continue
+        all_entities.append({"text": text, "label": label, "start_time": start_time, "end_time": end_time})
+    ner_stats["entities_found"] = len(all_entities)
+    return all_entities, ner_stats
+
+
 def _run_dynamic_ner(sections: List[Dict[str, Any]], run_ner: bool) -> tuple[List[Dict[str, Any]], Dict[str, int]]:
     print("\n🏷️  Running NER with dynamic batching...")
     all_entities: List[Dict[str, Any]] = []
@@ -454,7 +478,10 @@ async def process_story(
             collection_meta,
             speakers,
         )
-        all_entities, ner_stats = _run_dynamic_ner(sections, run_ner)
+        if req.entities is not None:
+            all_entities, ner_stats = _provided_entities(req.entities)
+        else:
+            all_entities, ner_stats = _run_dynamic_ner(sections, run_ner)
         
         # STEP 2: Process chunking by sections
         print(

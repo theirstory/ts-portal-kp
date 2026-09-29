@@ -2,6 +2,7 @@
 import http from 'node:http';
 import https from 'node:https';
 import { log } from './log';
+import type { TimedEntity } from './llm-ner';
 import type { CollectionRef, FolderRef } from './types';
 
 export type ListedTestimony = { uuid: string; collectionId: string; title: string };
@@ -208,15 +209,22 @@ export class NlpProcessor {
     return waitFor(`${this.baseUrl}/health`, 'NLP processor', maxSeconds);
   }
 
-  /** Same request the importer sends; the processor replaces the Testimony's chunks in place. */
+  /**
+   * Same request the importer sends; the processor replaces the Testimony's chunks in place.
+   * With `entities` (LLM NER), GLiNER is skipped and those are attached to the Testimony and chunks;
+   * with `runNer: false` and no entities, the story is stored without any.
+   */
   async processStory(body: {
     payload: any;
     collection: CollectionRef;
     folder: FolderRef;
+    entities?: TimedEntity[];
+    runNer?: boolean;
   }): Promise<{ chunks?: number }> {
+    const { runNer = true, ...request } = body;
     const res = await postJsonLongRunning(
-      `${this.baseUrl}/process-story?write_to_weaviate=true&run_ner=true`,
-      body,
+      `${this.baseUrl}/process-story?write_to_weaviate=true&run_ner=${runNer && !body.entities}`,
+      request,
       this.timeoutMs,
     );
     const text = res.text;

@@ -3,10 +3,10 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
-import { categoriesInResults, search } from '@/lib/insights/evidenceBank';
 import { plural, shorten, stamp } from '@/lib/insights/format';
 import type { EvidenceClip } from '@/types/insights';
 import { mono, monoPlain, serif, t } from '../tokens';
+import { useEvidence } from './EvidenceProvider';
 import { Shell } from './primitives';
 import { SpeakerThumb } from './SpeakerThumb';
 import { useOpenExcerpt } from './useOpenExcerpt';
@@ -92,15 +92,17 @@ const Hit = ({ clip, query }: { clip: EvidenceClip; query: string }) => {
  * question text and quotes.
  */
 export const SearchView = ({ query, category }: { query: string; category: string }) => {
+  const { categoriesInResults, search } = useEvidence();
   const activeCategory = category || ALL_THEMES;
 
-  const allResults = useMemo(() => search(query), [query]);
+  const allResults = useMemo(() => search(query), [search, query]);
   const results = useMemo(
-    () => (activeCategory === ALL_THEMES ? allResults : allResults.filter((r) => r.question.category === activeCategory)),
+    () =>
+      activeCategory === ALL_THEMES ? allResults : allResults.filter((r) => r.question.category === activeCategory),
     [allResults, activeCategory],
   );
 
-  const filters = useMemo(() => [ALL_THEMES, ...categoriesInResults(allResults)], [allResults]);
+  const filters = useMemo(() => [ALL_THEMES, ...categoriesInResults(allResults)], [categoriesInResults, allResults]);
 
   const shownHits = results.reduce((sum, result) => sum + result.totalHits, 0);
   const trimmed = query.trim();

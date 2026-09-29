@@ -5,6 +5,8 @@ import { normalizeCollectionId, testimonyUuid } from '../lib/testimony-ids';
 import type { ListedTestimony } from './backends';
 import type { PortalSyncConfig } from './config';
 import { bumpDataVersion } from './data-version';
+import type { Enricher } from './enrich';
+import type { TimedEntity } from './llm-ner';
 import { collectionMetaHash, planSync, resolveCollection, SAFE_STORY_ID, summarizeRun } from './diff';
 import type { PlannedRemoval, PlannedUpdate } from './diff';
 import { scanInterviewFiles } from './interview-files';
@@ -42,8 +44,16 @@ export type SyncDeps = {
   };
   nlp: {
     waitUntilReady(): Promise<void>;
-    processStory(body: { payload: any; collection: CollectionRef; folder: FolderRef }): Promise<{ chunks?: number }>;
+    processStory(body: {
+      payload: any;
+      collection: CollectionRef;
+      folder: FolderRef;
+      entities?: TimedEntity[];
+      runNer?: boolean;
+    }): Promise<{ chunks?: number }>;
   };
+  /** LLM entities and Explore excerpts (enrich.ts). Without it the NLP processor runs GLiNER. */
+  enrich?: Enricher;
   postProcess?: (vars: {
     STORY_ID: string;
     STORY_UUID: string;
@@ -154,6 +164,7 @@ class SyncRun {
     await this.ensureWeaviate();
     const { chunksDeleted } = await this.deps.weaviate.deleteTestimony(previous.uuid);
     await removeFileIfExists(this.abs(previous.file));
+    await this.deps.enrich?.forget(storyId);
     delete this.state.items[storyId];
     await this.persist();
     log.info(`Removed ${storyId} (uuid=${previous.uuid}, chunks deleted=${chunksDeleted}, file=${previous.file})`);
@@ -307,9 +318,25 @@ class SyncRun {
       if (kept && kept.file !== file) await removeFileIfExists(this.abs(kept.file));
     }
 
+    // LLM NER first, so the processor attaches the entities to the Testimony and its chunks.
+    const entities = this.deps.enrich?.entities
+      ? await this.deps.enrich.entities(storyId, snapshot.payload)
+      : undefined;
+
     await this.ensureNlp();
-    const { chunks } = await this.deps.nlp.processStory({ payload: snapshot.payload, collection, folder });
-    log.info(`${storyId}: NLP OK (uuid=${uuid}, chunks=${chunks ?? 'unknown'})`);
+    const { chunks } = await this.deps.nlp.processStory({
+      payload: snapshot.payload,
+      collection,
+      folder,
+      entities,
+      runNer: this.config.nerMode !== 'off',
+    });
+    log.info(
+      `${storyId}: NLP OK (uuid=${uuid}, chunks=${chunks ?? 'unknown'}` +
+        `${entities ? `, llm entities=${entities.length}` : ''})`,
+    );
+
+    if (this.deps.enrich?.excerpts) await this.deps.enrich.excerpts(storyId, snapshot.payload);
 
     if (this.deps.postProcess) {
       log.info(`${storyId}: running post-process command`);

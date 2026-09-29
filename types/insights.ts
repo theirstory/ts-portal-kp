@@ -24,6 +24,8 @@ export interface EvidenceInterview {
   /** TheirStory `_id`. NOT the uuid /story/[storyUuid] expects — see resolveStoryUuids. */
   interview_id: string;
   source_file: string;
+  /** Set on interviews merged in from evidence-additions.json. */
+  generated?: boolean;
 }
 
 export interface EvidenceQuestion {
@@ -38,6 +40,29 @@ export interface EvidenceBank {
   _schema_note?: string;
   interviews: EvidenceInterview[];
   questions: EvidenceQuestion[];
+}
+
+/**
+ * Excerpts portal-sync generated for recordings that aren't in the reviewed bank
+ * (json/.portal-sync/evidence-additions.json). Merged into the bank at request time.
+ */
+export interface EvidenceAdditions {
+  version: 1;
+  /** Keyed by TheirStory story id. */
+  interviews: Record<string, GeneratedInterview>;
+}
+
+export interface GeneratedInterview {
+  /** The Testimony's interview_title, so Explore can resolve it to a story like any other. */
+  interview_title: string;
+  interview_id: string;
+  /** "provider/model" that produced it. */
+  model: string;
+  /** Transcript + prompt + model fingerprint; unchanged means nothing to regenerate. */
+  key: string;
+  generated_at: string;
+  /** Keyed by question_id. */
+  by_question: Record<string, EvidenceMatch[]>;
 }
 
 /** A single match flattened together with the interview it came from. */
