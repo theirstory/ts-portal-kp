@@ -11,80 +11,37 @@ import type { EvidenceClip, EvidenceQuestion, ThemeSummary } from '@/types/insig
 import { mono, monoPlain, serif, t } from '../tokens';
 import { BackLink, ConfidenceChip, Eyebrow, MonoButton, SegmentedToggle, Shell, TimestampPill } from './primitives';
 import { useEvidence } from './EvidenceProvider';
-import { FaceRow } from './PeopleBand';
-import { useInterviewRefs } from './useInterviewRefs';
+import { FaceStack, VoiceList } from './PeopleBand';
 import { SpeakerThumb } from './SpeakerThumb';
 
+/** Who speaks in this theme, most excerpts first; those who don't are summed up in one line. */
 const VoicesRail = ({ theme }: { theme: ThemeSummary }) => {
   const { collectionVoices, voicesFor } = useEvidence();
-  const refs = useInterviewRefs();
+
+  const { present, absent } = useMemo(() => {
+    const frames = new Map(collectionVoices.map((v) => [v.interview_title, v]));
+    const all = voicesFor(theme).map((voice) => ({
+      ...voice,
+      initials: frames.get(voice.interview_title)?.initials ?? voice.name.slice(0, 1),
+      frameTime: frames.get(voice.interview_title)?.frameTime ?? 60,
+    }));
+    return {
+      present: all.filter((v) => v.clipCount > 0).sort((a, b) => b.clipCount - a.clipCount),
+      absent: all.filter((v) => v.clipCount === 0),
+    };
+  }, [collectionVoices, voicesFor, theme]);
 
   return (
-    <Box sx={{ borderLeft: `2px solid ${t.rail}`, pl: '18px' }}>
+    <Box sx={{ borderLeft: `2px solid ${t.rail}`, pl: '18px', minWidth: 0 }}>
       <Eyebrow tracking={0.12} sx={{ mb: '10px' }}>
-        Voices in this theme
+        Voices in this theme · {present.length}
       </Eyebrow>
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' }, gap: '7px 18px' }}>
-        {voicesFor(theme).map((voice) => {
-          const present = voice.clipCount > 0;
-          const frame = collectionVoices.find((v) => v.interview_title === voice.interview_title)?.frameTime ?? 60;
-          const uuid = refs[voice.interview_title]?.storyUuid;
-          const body = (
-            <>
-              <SpeakerThumb
-                interviewTitle={voice.interview_title}
-                initials={voice.name.slice(0, 1)}
-                time={frame}
-                size={28}
-                radius="50%"
-                muted={!present}
-              />
-              <Box sx={{ minWidth: 0 }}>
-                <Box
-                  className="voice-name"
-                  sx={{
-                    fontSize: '12.5px',
-                    fontWeight: 600,
-                    color: present ? t.ink : t.muted4,
-                    lineHeight: 1.25,
-                    transition: 'color 0.12s',
-                  }}>
-                  {voice.name}
-                </Box>
-                <Box sx={{ ...monoPlain(9.5), color: t.muted3 }}>
-                  {present ? plural(voice.clipCount, 'excerpt') : 'none'}
-                </Box>
-              </Box>
-            </>
-          );
-
-          const rowSx = {
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            minWidth: 0,
-            opacity: present ? 1 : 0.5,
-            textDecoration: 'none',
-            color: 'inherit',
-          } as const;
-
-          // Each voice opens that person's full interview, once its uuid resolves.
-          return uuid ? (
-            <Box
-              key={voice.interview_title}
-              component={Link}
-              href={`/story/${uuid}`}
-              title={`Open ${voice.name}'s interview`}
-              sx={{ ...rowSx, '&:hover .voice-name': { color: t.accent } }}>
-              {body}
-            </Box>
-          ) : (
-            <Box key={voice.interview_title} sx={rowSx}>
-              {body}
-            </Box>
-          );
-        })}
-      </Box>
+      <VoiceList voices={present} collapsedCount={10} minColumn={170} />
+      {absent.length > 0 && (
+        <Box title={absent.map((v) => v.name).join(', ')} sx={{ ...monoPlain(10.5), color: t.muted4, mt: '10px' }}>
+          {plural(absent.length, 'other')} not on the record here
+        </Box>
+      )}
     </Box>
   );
 };
@@ -258,7 +215,7 @@ const QuestionRows = ({ questions }: { questions: EvidenceQuestion[] }) => {
                 gap: '5px',
                 pt: '4px',
               }}>
-              <FaceRow titles={roster.map((interview) => interview.interview_title)} present={answeredIn} />
+              <FaceStack titles={roster.map((interview) => interview.interview_title).filter(answeredIn)} max={6} />
               <Box component="span" sx={{ ...monoPlain(10.5), color: t.muted3 }}>
                 {respondentCount(question)} of {rosterSize} leaders
               </Box>

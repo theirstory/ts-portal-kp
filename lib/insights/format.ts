@@ -21,6 +21,7 @@ const DISPLAY_NAMES: Record<string, string> = {
  * matching the curated names above.
  */
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+const PART_WORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six'];
 
 export const cleanTitle = (title: string): string => {
   let name = title.trim();
@@ -29,14 +30,17 @@ export const cleanTitle = (title: string): string => {
   name = name
     .replace(/^theirstory\s+/i, '')
     .replace(/^(oral history\s+)?(interview|recording)\s+with\s+/i, '')
-    .replace(/\s+theirstory(\s+interview)?$/i, '')
+    .replace(/\s+(for\s+)?theirstory(\s+interview)?$/i, '')
     .replace(/\s+(oral history\s+)?interview$/i, '')
     .trim();
-  const part = name.match(/^(.+?)\s*[-–—:]\s*part\s+(\d+)$/i);
-  if (part) name = part[1];
+  const part = name.match(/^(.+?)\s*[-–—:]\s*part\s+(\d+|\w+)$/i);
+  const partNumber = part ? Number(part[2]) || PART_WORDS.indexOf(part[2].toLowerCase()) : 0;
+  if (part && partNumber > 0) name = part[1];
   const doctor = name.match(/^dr\.?\s+(.+)$/i);
   if (doctor && !/,/.test(doctor[1])) name = `${doctor[1]}, MD`;
-  if (part) name = `${name} · ${ROMAN[Number(part[2])] ?? part[2]}`;
+  // "Mary Wilson MD" -> "Mary Wilson, MD"
+  name = name.replace(/([^,])\s+(MD|DO|RN|PhD)$/, '$1, $2');
+  if (part && partNumber > 0) name = `${name} · ${ROMAN[partNumber] ?? partNumber}`;
   return name || title;
 };
 

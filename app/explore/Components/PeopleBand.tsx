@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
 import { displayName, plural } from '@/lib/insights/format';
@@ -43,25 +43,44 @@ export const FaceStack = ({ titles, max = 5 }: { titles: string[]; max?: number 
   );
 };
 
+/** One person in a VoiceList. */
+export interface VoiceItem {
+  interview_title: string;
+  name: string;
+  initials: string;
+  frameTime: number;
+  clipCount: number;
+}
+
 /**
- * Everyone in the archive, compact enough to sit beside the "start somewhere" rail so
- * the whole landing page fits one screen. Each opens their full interview.
+ * A compact, wrapping list of people that stays a few rows tall however many
+ * recordings the archive grows to: columns fill the available width, and past
+ * `collapsedCount` the rest sit behind a "show all" toggle. Each opens their
+ * full interview once its story has resolved.
  */
-export const PeopleStrip = () => {
-  const { collectionVoices } = useEvidence();
+export const VoiceList = ({
+  voices,
+  collapsedCount = 12,
+  minColumn = 190,
+}: {
+  voices: VoiceItem[];
+  collapsedCount?: number;
+  minColumn?: number;
+}) => {
   const refs = useInterviewRefs();
+  const [expanded, setExpanded] = useState(false);
+  const collapsible = voices.length > collapsedCount;
+  const shown = collapsible && !expanded ? voices.slice(0, collapsedCount) : voices;
 
   return (
     <Box>
-      <Eyebrow sx={{ mb: '10px' }}>The voices in this archive</Eyebrow>
-
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
-          gap: '8px 20px',
+          gridTemplateColumns: `repeat(auto-fill, minmax(min(${minColumn}px, 100%), 1fr))`,
+          gap: '6px 18px',
         }}>
-        {collectionVoices.map((voice) => {
+        {shown.map((voice) => {
           const uuid = refs[voice.interview_title]?.storyUuid;
           const inner = (
             <>
@@ -69,37 +88,37 @@ export const PeopleStrip = () => {
                 interviewTitle={voice.interview_title}
                 initials={voice.initials}
                 time={voice.frameTime}
-                size={34}
+                size={28}
                 radius="50%"
               />
-              <Box sx={{ minWidth: 0 }}>
-                <Box
-                  className="voice-name"
-                  sx={{
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    color: t.ink,
-                    lineHeight: 1.25,
-                    transition: 'color 0.12s',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                  }}>
-                  {voice.name}
-                </Box>
-                <Box sx={{ ...monoPlain(10), color: t.muted3, mt: '1px' }}>{plural(voice.clipCount, 'excerpt')}</Box>
+              <Box
+                className="voice-name"
+                sx={{
+                  minWidth: 0,
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  color: t.ink,
+                  lineHeight: 1.25,
+                  transition: 'color 0.12s',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}>
+                {voice.name}
               </Box>
+              <Box sx={{ ...monoPlain(10), color: t.muted3, flex: 'none', ml: 'auto' }}>{voice.clipCount}</Box>
             </>
           );
 
           const sx = {
             display: 'flex',
             alignItems: 'center',
-            gap: '9px',
+            gap: '8px',
             minWidth: 0,
             textDecoration: 'none',
             color: 'inherit',
           } as const;
+          const title = `${voice.name} — ${plural(voice.clipCount, 'excerpt')}`;
 
           // Only a link once the story uuid has resolved; otherwise it would
           // point nowhere.
@@ -108,56 +127,49 @@ export const PeopleStrip = () => {
               key={voice.interview_title}
               component={Link}
               href={`/story/${uuid}`}
+              title={title}
               sx={{ ...sx, '&:hover .voice-name': { color: t.accent } }}>
               {inner}
             </Box>
           ) : (
-            <Box key={voice.interview_title} sx={sx}>
+            <Box key={voice.interview_title} title={title} sx={sx}>
               {inner}
             </Box>
           );
         })}
       </Box>
+
+      {collapsible && (
+        <Box
+          component="button"
+          type="button"
+          onClick={() => setExpanded((open) => !open)}
+          sx={{
+            ...monoPlain(10.5, 0.06),
+            mt: '10px',
+            p: 0,
+            border: 'none',
+            background: 'transparent',
+            color: t.accent,
+            cursor: 'pointer',
+            '&:hover': { textDecoration: 'underline' },
+          }}>
+          {expanded ? 'show fewer' : `show all ${voices.length}`}
+        </Box>
+      )}
     </Box>
   );
 };
 
-/**
- * The whole roster in fixed order, faces of those present and the rest greyed —
- * so a coverage row says *who* answered, not just how many.
- */
-export const FaceRow = ({
-  titles,
-  present,
-  size = 22,
-}: {
-  titles: string[];
-  present: (title: string) => boolean;
-  size?: number;
-}) => {
+/** Everyone in the archive, alphabetically, with how many excerpts each has. */
+export const PeopleStrip = () => {
   const { collectionVoices } = useEvidence();
+  const voices = useMemo(() => [...collectionVoices].sort((a, b) => a.name.localeCompare(b.name)), [collectionVoices]);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-      {titles.map((title) => {
-        const here = present(title);
-        const voice = collectionVoices.find((v) => v.interview_title === title);
-        return (
-          <Box
-            key={title}
-            title={`${displayName(title)}${here ? '' : ' — did not answer'}`}
-            sx={{ display: 'flex', opacity: here ? 1 : 0.28 }}>
-            <SpeakerThumb
-              interviewTitle={title}
-              initials={displayName(title).slice(0, 1)}
-              time={voice?.frameTime ?? 60}
-              size={size}
-              radius="50%"
-              muted={!here}
-            />
-          </Box>
-        );
-      })}
+    <Box>
+      <Eyebrow sx={{ mb: '10px' }}>The voices in this archive · {voices.length}</Eyebrow>
+      <VoiceList voices={voices} collapsedCount={12} />
     </Box>
   );
 };

@@ -53,20 +53,6 @@ export const BrowseView = () => {
 
   return (
     <Shell sx={{ pt: '24px', pb: '32px' }}>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1.05fr 1fr' },
-          gap: { xs: '24px', md: '48px' },
-          alignItems: 'start',
-          pb: '22px',
-          mb: '22px',
-          borderBottom: `1px solid ${t.rule}`,
-        }}>
-        <FeaturedRail />
-        <PeopleStrip />
-      </Box>
-
       {/* Compact tiles: the whole set is meant to be scannable without scrolling,
         so each theme shows only its name and counts — questions live one click
         in, on the theme page. */}
@@ -123,6 +109,20 @@ export const BrowseView = () => {
             </Box>
           </Box>
         ))}
+      </Box>
+      {/* Below the themes: a way in for the undecided, and who is in the archive.
+          The people list wraps into columns and collapses, so it stays a few rows
+          tall as recordings are added. */}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: 'minmax(280px, 0.8fr) 1.6fr' },
+          gap: { xs: '24px', md: '48px' },
+          alignItems: 'start',
+          mt: '28px',
+        }}>
+        <FeaturedRail />
+        <PeopleStrip />
       </Box>
     </Shell>
   );

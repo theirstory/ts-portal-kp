@@ -83,6 +83,12 @@
       "_comment": "Paths can be absolute (from /public) or full URLs.",
       "images": ["/images/carousel1.jpg", "/images/carousel2.jpg", "/images/carousel3.jpg"]
     },
+    "featuredInterviews": {
+      "_comment": "Featured interview carousel on the home page. storyUuids picks which recordings appear and in what order (the uuid at the end of /story/<uuid>); leave it empty to feature the first recordings. limit caps how many (0 = all).",
+      "enabled": true,
+      "storyUuids": [],
+      "limit": 6
+    },
     "portalHeaderOverlay": {
       "_comment": "Enable or disable overlay behind portal title/description.",
       "enabled": true

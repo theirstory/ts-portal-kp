@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Box } from '@mui/material';
 import { joinNames, plural, shorten, stamp } from '@/lib/insights/format';
@@ -135,9 +135,13 @@ const AnswerCard = ({ answer }: { answer: QuestionAnswer }) => {
   );
 };
 
+/** Speaker chips shown before "show all"; the rest wait behind the toggle. */
+const COLLAPSED_SPEAKERS = 12;
+
 /**
- * The people, as a row of faces directly under the question — who spoke to this,
- * who didn't, and a click to narrow the answers to one voice.
+ * The people who answered, as compact chips directly under the question — most
+ * excerpts first, a click narrows the answers to one voice. Those who didn't
+ * answer are summed up in one line, so the strip stays short as the archive grows.
  */
 const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answers: QuestionAnswer[] }) => {
   const { rosterFor } = useEvidence();
@@ -145,7 +149,17 @@ const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answer
   const toggleSpeaker = useExploreStore((s) => s.toggleSpeaker);
   const clearSpeakers = useExploreStore((s) => s.clearSpeakers);
 
-  const rows = rosterFor(question);
+  const [expanded, setExpanded] = useState(false);
+
+  const all = rosterFor(question);
+  const answeredRows = all.filter((row) => row.clipCount > 0).sort((a, b) => b.clipCount - a.clipCount);
+  const silentRows = all.filter((row) => row.clipCount === 0);
+  // Never hide a chip that is currently selected.
+  const rows =
+    expanded || answeredRows.length <= COLLAPSED_SPEAKERS
+      ? answeredRows
+      : answeredRows.filter((row, i) => i < COLLAPSED_SPEAKERS || speakers.includes(row.name));
+  const hidden = answeredRows.length - rows.length;
   const firstStartByTitle = new Map(answers.map((a) => [a.interview_title, a.clips[0].start]));
   const initialsByTitle = new Map(answers.map((a) => [a.interview_title, a.initials]));
 
@@ -153,15 +167,14 @@ const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answer
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'flex-start',
-        gap: '10px',
+        alignItems: 'center',
+        gap: '8px',
         flexWrap: 'wrap',
         py: '18px',
         borderTop: `1px solid ${t.rule}`,
         borderBottom: `1px solid ${t.rule}`,
       }}>
       {rows.map((row) => {
-        const answered = row.clipCount > 0;
         const on = speakers.includes(row.name);
         const dim = speakers.length > 0 && !on;
         const initials = initialsByTitle.get(row.interview_title) ?? row.name.slice(0, 2).toUpperCase();
@@ -171,44 +184,64 @@ const VoicesStrip = ({ question, answers }: { question: EvidenceQuestion; answer
             key={row.interview_title}
             component="button"
             type="button"
-            disabled={!answered}
             aria-pressed={on}
-            title={answered ? `${row.name} — ${plural(row.clipCount, 'excerpt')}` : `${row.name} — did not answer`}
-            onClick={() => answered && toggleSpeaker(row.name)}
+            title={`${row.name} — ${plural(row.clipCount, 'excerpt')}`}
+            onClick={() => toggleSpeaker(row.name)}
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: '9px',
-              padding: '6px 12px 6px 6px',
+              gap: '7px',
+              padding: '3px 11px 3px 3px',
               border: `1px solid ${on ? t.accent : t.rule}`,
               borderRadius: '999px',
               background: on ? t.wash : t.surface,
-              cursor: answered ? 'pointer' : 'default',
+              cursor: 'pointer',
               fontFamily: 'inherit',
               textAlign: 'left',
               opacity: dim ? 0.5 : 1,
               transition: 'border-color 0.15s, background-color 0.15s, opacity 0.15s',
-              '&:hover': answered ? { borderColor: t.accent } : {},
+              '&:hover': { borderColor: t.accent },
             }}>
             <SpeakerThumb
               interviewTitle={row.interview_title}
               initials={initials}
               time={firstStartByTitle.get(row.interview_title) ?? 60}
-              size={36}
+              size={24}
               radius="50%"
-              muted={!answered}
             />
-            <Box sx={{ minWidth: 0 }}>
-              <Box sx={{ fontSize: '13px', fontWeight: 600, color: answered ? t.ink : t.muted4, lineHeight: 1.25 }}>
-                {row.name}
-              </Box>
-              <Box sx={{ ...monoPlain(10), color: answered ? t.muted3 : t.muted4, mt: '1px' }}>
-                {answered ? plural(row.clipCount, 'excerpt') : 'no answer'}
-              </Box>
+            <Box sx={{ fontSize: '12.5px', fontWeight: 600, color: t.ink, lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+              {row.name}
             </Box>
+            <Box sx={{ ...monoPlain(10), color: t.muted3 }}>{row.clipCount}</Box>
           </Box>
         );
       })}
+
+      {(hidden > 0 || expanded) && answeredRows.length > COLLAPSED_SPEAKERS && (
+        <Box
+          component="button"
+          type="button"
+          onClick={() => setExpanded((open) => !open)}
+          sx={{
+            ...monoPlain(10.5, 0.06),
+            border: 'none',
+            background: 'transparent',
+            color: t.accent,
+            cursor: 'pointer',
+            padding: '6px 4px',
+            '&:hover': { textDecoration: 'underline' },
+          }}>
+          {expanded ? 'show fewer' : `+${hidden} more`}
+        </Box>
+      )}
+
+      {silentRows.length > 0 && (
+        <Box
+          title={silentRows.map((row) => row.name).join(', ')}
+          sx={{ ...monoPlain(10.5), color: t.muted4, padding: '6px 4px' }}>
+          {silentRows.length} didn&apos;t answer
+        </Box>
+      )}
 
       {speakers.length > 0 && (
         <Box

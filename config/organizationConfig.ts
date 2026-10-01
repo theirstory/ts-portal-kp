@@ -106,6 +106,22 @@ export interface AppConfig {
       images?: string[];
       intervalMs?: number;
     };
+    /**
+     * Pin a recording's thumbnail/poster to a specific second, overriding the
+     * frame /api/thumbnail would pick. Keyed by the recording's uuid, which is
+     * the last path segment of its /story/<uuid> URL.
+     */
+    thumbnailTimes?: Record<string, number>;
+    /**
+     * Featured interview carousel on the home view. `storyUuids` sets which
+     * recordings appear and in what order (uuids from /story/<uuid>); leave it
+     * empty to feature the first recordings. `limit` caps how many (default 6, 0 = all).
+     */
+    featuredInterviews?: {
+      enabled?: boolean;
+      storyUuids?: string[];
+      limit?: number;
+    };
     portalHeaderOverlay?: {
       enabled?: boolean;
     };
