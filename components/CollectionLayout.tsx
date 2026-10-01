@@ -19,7 +19,7 @@ import { colors } from '@/lib/theme';
 
 export default function CollectionLayout() {
   const { loading: semanticSearchLoading, stories, result, currentPage, hasSearched } = useSemanticSearchStore();
-  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid');
 
   const storiesTestimonies = stories as WeaviateReturn<Testimonies, any> | null;
   const results = result?.objects || [];
