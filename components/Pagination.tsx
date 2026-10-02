@@ -7,9 +7,9 @@ import { SchemaTypes } from '@/types/weaviate';
 import { PAGINATION_ITEMS_PER_PAGE } from '@/app/constants';
 
 export const Pagination = () => {
-  const { currentPage, hasNextStoriesPage, setCurrentPage, getAllStories } = useSemanticSearchStore();
+  const { currentPage, totalStories, setCurrentPage, getAllStories } = useSemanticSearchStore();
 
-  const totalPages = hasNextStoriesPage ? currentPage + 1 : currentPage;
+  const totalPages = Math.max(1, Math.ceil(totalStories / PAGINATION_ITEMS_PER_PAGE), currentPage);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, page: number) => {
     if (page === currentPage) return;
@@ -40,8 +40,9 @@ export const Pagination = () => {
         onChange={handlePageChange}
         color="primary"
         shape="rounded"
-        siblingCount={1}
-        boundaryCount={1}
+        // Every page number, so any page is one click away.
+        siblingCount={totalPages}
+        boundaryCount={totalPages}
       />
     </Box>
   );

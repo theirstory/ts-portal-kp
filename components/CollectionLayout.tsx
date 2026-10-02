@@ -30,7 +30,8 @@ export default function CollectionLayout() {
   // empty archive, or when the featured carousel is turned off in config).
   const homeStories = storiesTestimonies?.objects;
   const featuredCount = useMemo(() => selectFeaturedStories(homeStories ?? []).length, [homeStories]);
-  const showFeatured = !semanticSearchLoading && !hasSearched && featuredCount > 0;
+  // Page 1 only: the carousel is picked from the recordings on the current page.
+  const showFeatured = !semanticSearchLoading && !hasSearched && currentPage === 1 && featuredCount > 0;
 
   const handleViewChange = (_event: React.MouseEvent<HTMLElement>, newView: 'list' | 'grid') => {
     if (newView !== null) {

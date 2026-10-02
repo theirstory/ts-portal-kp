@@ -7,6 +7,7 @@ import {
   fetchStoryTranscriptByUuid,
   getAvailableCollections,
   getAllStoriesFromCollection,
+  countStoriesInCollection,
   getStoryByUuid,
   hybridSearch,
   hybridSearchForStoryId,
@@ -38,6 +39,8 @@ type SemanticSearchStore = {
   result: WeaviateReturn<Chunks | Testimonies, any> | null;
   currentPage: number;
   hasNextStoriesPage: boolean;
+  /** Recordings matching the current collection filter, across all pages. */
+  totalStories: number;
   nerFilters: string[];
   collections: CollectionFilterOption[];
   selectedCollectionIds: string[];
@@ -137,6 +140,7 @@ export const useSemanticSearchStore = create<SemanticSearchStore>()(
       selected_ner_labels: [],
       currentPage: 1,
       hasNextStoriesPage: false,
+      totalStories: 0,
       nerFilters: [],
       collections: [],
       selectedCollectionIds: [],
@@ -180,26 +184,13 @@ export const useSemanticSearchStore = create<SemanticSearchStore>()(
         const { selectedCollectionIds } = get();
         set({ loading: true }, false, 'getAllStories:start');
         try {
-          const stories = await getAllStoriesFromCollection(
-            collection,
-            returnProperties,
-            limit,
-            offset,
-            selectedCollectionIds,
-          );
-          let hasNextStoriesPage = false;
-          if ((stories?.objects?.length ?? 0) === limit) {
-            const nextPageProbe = await getAllStoriesFromCollection(
-              collection,
-              returnProperties,
-              1,
-              offset + limit,
-              selectedCollectionIds,
-            );
-            hasNextStoriesPage = (nextPageProbe?.objects?.length ?? 0) > 0;
-          }
+          const [stories, totalStories] = await Promise.all([
+            getAllStoriesFromCollection(collection, returnProperties, limit, offset, selectedCollectionIds),
+            countStoriesInCollection(collection, selectedCollectionIds),
+          ]);
+          const hasNextStoriesPage = offset + limit < totalStories;
 
-          set({ stories: stories, hasNextStoriesPage, loading: false }, false, 'getAllStories:success');
+          set({ stories: stories, hasNextStoriesPage, totalStories, loading: false }, false, 'getAllStories:success');
         } catch {
           set({ hasNextStoriesPage: false, loading: false }, false, 'getAllStories:error');
         }
@@ -571,6 +562,7 @@ export const useSemanticSearchStore = create<SemanticSearchStore>()(
             result: null,
             currentPage: 1,
             hasNextStoriesPage: false,
+            totalStories: 0,
             nerFilters: [],
             collections: [],
             selectedCollectionIds: [],

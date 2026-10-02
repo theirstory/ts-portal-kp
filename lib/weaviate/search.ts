@@ -165,6 +165,18 @@ export async function getAllStoriesFromCollection<T extends SchemaTypes>(
   return response;
 }
 
+/** How many objects match the same collection filters getAllStoriesFromCollection applies. */
+export async function countStoriesInCollection<T extends SchemaTypes>(
+  collection: T,
+  collectionFilters?: string[],
+): Promise<number> {
+  const client = await initWeaviateClient();
+  const myCollection = client.collections.get<SchemaMap[T]>(collection);
+  const combinedFilter = buildCombinedFilters(myCollection, undefined, collectionFilters);
+  const response = await myCollection.aggregate.overAll({ filters: combinedFilter });
+  return response.totalCount ?? 0;
+}
+
 export async function getAvailableCollections(limit = 5000): Promise<CollectionFilterOption[]> {
   const client = await initWeaviateClient();
   const myCollection = client.collections.get<Testimonies>('Testimonies');

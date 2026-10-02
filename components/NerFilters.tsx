@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   IconButton,
   Menu,
@@ -112,7 +112,12 @@ export const NerFilters = () => {
     }
   };
 
+  // Re-run only when the filters actually change. This component remounts with the search
+  // box (e.g. while the recordings list reloads), and running on mount reset the list to page 1.
+  const lastFilters = useRef(nerFilters);
   useEffect(() => {
+    if (lastFilters.current === nerFilters) return;
+    lastFilters.current = nerFilters;
     runSemanticSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nerFilters]);
