@@ -87,12 +87,13 @@ const Hit = ({ clip, query }: { clip: EvidenceClip; query: string }) => {
 };
 
 /**
- * Search results: one row per matching question, with up to three of its
- * matching excerpts alongside. Matching is case-insensitive substring over
- * question text and quotes.
+ * Search results: one row per matching question, with its matching excerpts
+ * alongside (up to three, or all of a matching narrator's own). Matches the
+ * question text, quotes, and narrator names; a name match lists that
+ * interviewee's excerpts first.
  */
 export const SearchView = ({ query, category }: { query: string; category: string }) => {
-  const { categoriesInResults, search } = useEvidence();
+  const { categoriesInResults, search, speakersMatching, collectionVoices } = useEvidence();
   const activeCategory = category || ALL_THEMES;
 
   const allResults = useMemo(() => search(query), [search, query]);
@@ -107,6 +108,38 @@ export const SearchView = ({ query, category }: { query: string; category: strin
   const shownHits = results.reduce((sum, result) => sum + result.totalHits, 0);
   const trimmed = query.trim();
 
+  // Narrators whose name matches, one entry per person (a narrator can have several recordings).
+  const speakers = useMemo(() => {
+    const titles = new Set(speakersMatching(query));
+    const people = new Map<string, { name: string; interviewTitle: string; frameTime: number; clipCount: number }>();
+    for (const voice of collectionVoices) {
+      if (!titles.has(voice.interview_title)) continue;
+      const name = voice.name.replace(/\s*·.*$/, '');
+      const person = people.get(name);
+      if (person) person.clipCount += voice.clipCount;
+      else
+        people.set(name, {
+          name,
+          interviewTitle: voice.interview_title,
+          frameTime: voice.frameTime,
+          clipCount: voice.clipCount,
+        });
+    }
+    return [...people.values()];
+  }, [speakersMatching, collectionVoices, query]);
+
+  const hitLabel = (result: (typeof results)[number]) => {
+    if (result.questionMatchedOnly) return `the question itself matches “${trimmed}”`;
+    const mentions = result.totalHits - result.speakerHits;
+    const parts = [];
+    if (result.speakerHits)
+      parts.push(
+        `${plural(result.speakerHits, 'excerpt')} by ${speakers.map((p) => p.name.replace(/,.*$/, '')).join(' or ')}`,
+      );
+    if (mentions) parts.push(`${mentions} ${mentions === 1 ? 'excerpt mentions' : 'excerpts mention'} “${trimmed}”`);
+    return parts.join(' · ');
+  };
+
   const resultLine =
     results.length === 0
       ? `No matches for “${trimmed}”`
@@ -117,6 +150,38 @@ export const SearchView = ({ query, category }: { query: string; category: strin
       <Box component="h2" sx={{ ...serif(24, 1.3), m: 0 }}>
         {resultLine}
       </Box>
+
+      {speakers.length > 0 && (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px', mt: '16px' }}>
+          {speakers.map((person) => (
+            <Box
+              key={person.name}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: t.surface,
+                border: `1px solid ${t.rule}`,
+                borderRadius: '8px',
+                padding: '8px 14px 8px 8px',
+              }}>
+              <SpeakerThumb
+                interviewTitle={person.interviewTitle}
+                initials={person.name.slice(0, 1)}
+                time={person.frameTime}
+                size={36}
+                radius="50%"
+              />
+              <Box>
+                <Box sx={{ fontSize: '13.5px', fontWeight: 600, lineHeight: 1.25 }}>{person.name}</Box>
+                <Box sx={{ ...monoPlain(10.5), color: t.muted2 }}>
+                  interviewee · {plural(person.clipCount, 'excerpt')} shown below
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      )}
 
       <Box
         sx={{
@@ -194,11 +259,7 @@ export const SearchView = ({ query, category }: { query: string; category: strin
                     }}>
                     {result.question.question}
                   </Box>
-                  <Box sx={{ fontSize: '12.5px', color: t.muted2, mt: '10px' }}>
-                    {result.questionMatchedOnly
-                      ? `the question itself matches “${trimmed}”`
-                      : `${result.totalHits} ${result.totalHits === 1 ? 'excerpt matches' : 'excerpts match'} “${trimmed}”`}
-                  </Box>
+                  <Box sx={{ fontSize: '12.5px', color: t.muted2, mt: '10px' }}>{hitLabel(result)}</Box>
                 </Box>
                 <Box
                   sx={{

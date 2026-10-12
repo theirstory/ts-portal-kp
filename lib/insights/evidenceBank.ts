@@ -171,27 +171,56 @@ export function indexEvidenceBank(bank: EvidenceBank) {
     (getThemeByCategory(question.category)?.questions ?? []).filter((q) => q.question_id !== question.question_id);
 
   /**
-   * Case-insensitive substring search over question text and excerpt quotes,
-   * optionally narrowed to one theme. A question is a result if any of its quotes
-   * match, or if the question text itself does.
+   * Interviews whose narrator's name matches the query, so a search for a person
+   * finds what they said, not just what others said about them. Matches whole
+   * name words from their start ("wheel", "calvin wheeler"), ignoring credentials
+   * after the comma, so "md" or "dr" don't match everyone.
+   */
+  const speakersMatching = (query: string): string[] => {
+    const needle = query.trim().toLowerCase().replace(/\s+/g, ' ');
+    if (needle.length < 3) return [];
+    return roster
+      .map((interview) => interview.interview_title)
+      .filter((title) => {
+        const name = displayName(title)
+          .replace(/[,·].*$/, '')
+          .toLowerCase()
+          .replace(/\s+/g, ' ')
+          .trim();
+        return name.split(' ').some((_, i, words) => words.slice(i).join(' ').startsWith(needle));
+      });
+  };
+
+  /**
+   * Case-insensitive search, optionally narrowed to one theme. An excerpt matches
+   * if its quote contains the query or its narrator's name matches it; a question
+   * is a result if any excerpt matches, or if the question text itself does. A
+   * matching narrator's own excerpts come first and are all shown.
    */
   const search = (query: string, category?: string): SearchResult[] => {
     const needle = query.trim().toLowerCase();
     if (!needle) return [];
 
+    const speakers = new Set(speakersMatching(query));
     const results: SearchResult[] = [];
 
     for (const question of evidenceQuestions) {
       if (category && question.category !== category) continue;
 
-      const hits = allClipsFor(question).filter((clip) => clip.quote.toLowerCase().includes(needle));
+      const clips = allClipsFor(question);
+      const spoken = clips.filter((clip) => speakers.has(clip.interview_title));
+      const mentioned = clips.filter(
+        (clip) => !speakers.has(clip.interview_title) && clip.quote.toLowerCase().includes(needle),
+      );
+      const hits = [...spoken, ...mentioned];
       const questionMatches = question.question.toLowerCase().includes(needle);
       if (hits.length === 0 && !questionMatches) continue;
 
       results.push({
         question,
-        hits: hits.slice(0, 3),
+        hits: hits.slice(0, Math.max(3, spoken.length)),
         totalHits: hits.length,
+        speakerHits: spoken.length,
         questionMatchedOnly: hits.length === 0,
       });
     }
@@ -242,6 +271,7 @@ export function indexEvidenceBank(bank: EvidenceBank) {
     themeVoiceTitles,
     allClipsFor,
     siblingsOf,
+    speakersMatching,
     search,
     categoriesInResults,
     excerptsForInterview,

@@ -103,6 +103,8 @@ export interface SearchResult {
   question: EvidenceQuestion;
   hits: EvidenceClip[];
   totalHits: number;
+  /** How many of the hits are by a narrator whose name matched the query. */
+  speakerHits: number;
   /** True when the question text itself matched but none of its quotes did. */
   questionMatchedOnly: boolean;
 }
