@@ -1,0 +1,393 @@
+{
+  "narrator": "Jeffrey Selevan, MD",
+  "slug": "selevan",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69f4069620d30677412a240d"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 8765,
+      "end": 8790,
+      "reason": "\"I'd like to take that out\" (2:26:22), after the tonsillectomy-cost aside. Scope of 'that' unclear. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 2812,
+      "end": 2846,
+      "reason": "Interviewer (not narrator) says \"this is off the record\" (46:52) while framing the MBA-training question and then restarts it. Excluded as a precaution; no claims affected."
+    },
+    {
+      "part": 1,
+      "start": 3658,
+      "end": 4735,
+      "reason": "Narrator: \"Uh, Kurt, I'd like to go off record now.\" (1:00:58), in response to the question on the KP Medical Foundation / Risant / Renown and non-exclusivity. The interviewer keeps asking follow-ups on that topic (Ramin advice, Reno branding) and says at 1:13:30 \"the last question related to this, and then we'll go back to the prearranged questions\"; the prearranged questions resume at 1:18:54 (Q15/fee-for-service). Scope read as the whole foundation/Reno block."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Southern California (SCPMG)",
+    "region_quote": "And, uh, that's how I ended up with SCPMG in San Diego.",
+    "era": "c.1975–c.2011 (joined SCPMG in San Diego as an associate c.1975; later Medical Director of Business Management; ~15 years consulting since, and senior advisor to SCPMG)",
+    "era_quote": "I was still an associate, I believe it must have been in 1975 or 1976"
+  },
+  "claims": [
+    {
+      "from": "capitation",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 580.93,
+      "part": 1,
+      "quote": "that's what introduced me clinically into, um, SCPMG and KP the pure joy of practicing medicine without having to be concerned that I was going to bankrupt my patient",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "This would have been an unusual career path in the very first years of emergency medicine as a specialty. What was it about SCPMG and KP that influenced your decision?",
+        "list_number": "Q2",
+        "type": "narrators_choice"
+      },
+      "end": 595.86
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 727.83,
+      "part": 1,
+      "quote": "none of my friends practicing in environments, even in academic environments, didn't have these sort of, um, self-governing protections that led for, at least for me, professional satisfaction",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Did SCPMG's self-governance play a role? And how much did you understand about it when you first joined?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 741.67
+    },
+    {
+      "from": "care coordination",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1112.63,
+      "part": 1,
+      "quote": "what it made, it improved the quality of the care that Kaiser members received in the non-planned hospital. Because they had the last EKG, they knew that a cath had been done last month.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So I thought you were a genius. I thought EPRP was like your genius that you would like developed over years of, you know, constant thinking.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1124.71
+    },
+    {
+      "from": "deductible products",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 2319.79,
+      "part": 1,
+      "quote": "if we don't have a deductible product, we're not going to get new, young, healthy members.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 2323.95
+    },
+    {
+      "from": "data & technology",
+      "to": "physician turnover",
+      "polarity": "+",
+      "t": 2415.76,
+      "part": 1,
+      "quote": "the first versions were not perfect, and we lost some really good doctors in the transition.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 2421.64
+    },
+    {
+      "from": "outside executives",
+      "to": "partnership with health plan",
+      "polarity": "-",
+      "t": 2080,
+      "part": 1,
+      "quote": "we lose that knowledge at times. We have new health plan executives or new hospital executives that come from the outside industry who are solving for the metric from their frame of reference",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in your career with Kaiser Permanente Southern California that shaped your understanding of what makes Kaiser Permanente unique?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 2091.99
+    },
+    {
+      "from": "candor",
+      "to": "physician buy-in",
+      "polarity": "+",
+      "t": 2735.83,
+      "part": 1,
+      "quote": "to present that to the partnership as a business case, asking what they would do. And invariably they come up with the right answer, even though we're in common agreement; this is awful.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are you most proud of during your tenure?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 2749.23
+    },
+    {
+      "from": "group practice",
+      "to": "member retention",
+      "polarity": "+",
+      "t": 3450.02,
+      "part": 1,
+      "quote": "the doctors are the reason the patients keep the members keep KP for generations.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "end": 3456.3
+    },
+    {
+      "from": "integrated care",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 4844.72,
+      "part": 1,
+      "quote": "Permanente with a fully integrated system and aligned incentives, this could not have been done in an IPA or a staff model. There would have been no incentive to do it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's approach to patient care differ from traditional fee for service models?",
+        "list_number": "Q30",
+        "type": "asked_directly"
+      },
+      "end": 4857.36
+    },
+    {
+      "from": "data & technology",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 4750.95,
+      "part": 1,
+      "quote": "Health Connect was monumental in taking us to the next level of this. It's a really integrating the care",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's approach to patient care differ from traditional fee for service models?",
+        "list_number": "Q30",
+        "type": "narrators_choice"
+      },
+      "end": 4759.63
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5199.68,
+      "part": 1,
+      "quote": "So we have an incentive to avoid expensive care, and we have no incentive to withhold care because we couldn't keep the money.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Tell us more about how a traditional fee for service model differs from a prepaid Kaiser Permanente model of care.",
+        "list_number": "Q30",
+        "type": "asked_directly"
+      },
+      "end": 5207.93
+    },
+    {
+      "from": "fee-for-service",
+      "to": "quality",
+      "polarity": "-",
+      "t": 5212.12,
+      "part": 1,
+      "quote": "It's units of production and comp and, and you end up with misaligned incentives; misaligned between the insurance company and the provider, misaligned between the provider and the patient.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Tell us more about how a traditional fee for service model differs from a prepaid Kaiser Permanente model of care.",
+        "list_number": "Q30",
+        "type": "asked_directly"
+      },
+      "end": 5222.08
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 5456.9,
+      "part": 1,
+      "quote": "if I had been a pure HMO or say a, um, a Knox, um, medical group ... that had no risk sharing arrangement with the insurance company. There was zero chance that that would have been",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's contractual relationship between KFHP and medical group incentivize quality and safety in patient care?",
+        "list_number": "Q33",
+        "type": "narrators_choice"
+      },
+      "end": 5477.47
+    },
+    {
+      "from": "competition",
+      "to": "membership growth",
+      "polarity": "-",
+      "t": 5903.95,
+      "part": 1,
+      "quote": "came to with deductible plans that undercut our premiums by a lot. And we lost a lot of members to that, and we had to adapt to it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How has Kaiser Permanente adapted to changes in healthcare over the years? How does our unique integrated system adapt to changes in healthcare?",
+        "list_number": "Q37",
+        "type": "narrators_choice"
+      },
+      "end": 5912.55
+    },
+    {
+      "from": "data & technology",
+      "to": "burnout",
+      "polarity": "+",
+      "t": 6213.06,
+      "part": 1,
+      "quote": "Health Connect profoundly changed clinical practice for primary physicians. Um, it made their day harder, um, that they feel like they're working much harder",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you think about talking about the impact of Kaiser Permanente using AI on patient care?",
+        "list_number": "Q36",
+        "type": "narrators_choice"
+      },
+      "end": 6226.46
+    },
+    {
+      "from": "group practice",
+      "to": "leadership development",
+      "polarity": "+",
+      "t": 6488.69,
+      "part": 1,
+      "quote": "it didn't come from within the department, it came from another department. But it was a skill set that, if we were in a community hospital and the patient was insured, that wouldn't happen.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe mentorship opportunities available for new physicians at Kaiser Permanente?",
+        "list_number": "Q42",
+        "type": "asked_directly"
+      },
+      "end": 6504.53
+    },
+    {
+      "from": "physician leadership",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 6997.46,
+      "part": 1,
+      "quote": "if we, um, don't drive that, we're going to regress, um, into what um, other systems look like now with misalignment",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do I, as a physician leader, play a role in shaping the future of health care at Kaiser Permanente?",
+        "list_number": "Q45",
+        "type": "asked_directly"
+      },
+      "end": 7007.3
+    },
+    {
+      "from": "deferred compensation",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 7522.35,
+      "part": 1,
+      "quote": "the way it is designed and the way it will work if the doctor doesn't mess it up, is that most of our physicians should be retiring after a full career with complete replacement income",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Is there a way you summarize the key points of the value of partnership?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7534.63
+    },
+    {
+      "from": "member retention",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 7783.01,
+      "part": 1,
+      "quote": "we knew that these members, because of mutual exclusivity, would likely be KP members ten years later. So a cancer avoided was an expense avoided a decade later.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So do you want to now do the same for Permanente medicine?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7794.41
+    },
+    {
+      "from": "membership growth",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 8967.46,
+      "part": 1,
+      "quote": "In 89, both the health plan and the medical group lost massive amounts of money um, because we went to market with a zero rate increase, we had a huge influx of members",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the biggest challenges facing health care in your time? How did Kaiser Permanente address them? Can you include how we almost went under?",
+        "list_number": "Q23",
+        "type": "asked_directly"
+      },
+      "end": 8979.34
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 9020.38,
+      "part": 1,
+      "quote": "The risk sharing arrangement got us through that. The Health Plan has assets and they were able to borrow and they had cash and they were able to do it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the biggest challenges facing health care in your time? How did Kaiser Permanente address them? Can you include how we almost went under?",
+        "list_number": "Q23",
+        "type": "asked_directly"
+      },
+      "end": 9028.1
+    },
+    {
+      "from": "data & technology",
+      "to": "trust",
+      "polarity": "+",
+      "t": 9193.07,
+      "part": 1,
+      "quote": "it also taught the health plan a lot because they learned to trust the EPRP data.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the biggest challenges facing health care in your time? How did Kaiser Permanente address them? Can you include how we almost went under?",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "end": 9198.12
+    },
+    {
+      "from": "nonprofit status",
+      "to": "community health",
+      "polarity": "+",
+      "t": 10471.19,
+      "part": 1,
+      "quote": "But the amount of indigent and unfunded and underfunded care that we provide, the community clinics that we provide. Um, you know, a lot of that would go away.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What do you think is going to happen to the nonprofit status in California, especially of the health plan? Are we going to maintain it?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 10482.77
+    }
+  ],
+  "new_factors": [
+    "care coordination",
+    "deductible products",
+    "outside executives",
+    "physician buy-in",
+    "member retention",
+    "fee-for-service",
+    "deferred compensation",
+    "nonprofit status"
+  ]
+}

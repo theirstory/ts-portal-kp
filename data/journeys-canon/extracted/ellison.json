@@ -1,0 +1,520 @@
+{
+  "narrator": "Ed Ellison, MD",
+  "slug": "ellison",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6914b61105ce13adfade828a"
+    },
+    {
+      "part": 2,
+      "story_id": "6938ac4ef69cceedb32051bd"
+    }
+  ],
+  "one_line": "Family physician who rose passively from QA rep to SCPMG executive medical director, leading through COVID and championing culture.",
+  "top_role": "Executive Medical Director, Southern California Permanente Medical Group",
+  "region": "Southern California",
+  "excluded_segments": [
+    {
+      "part": 2,
+      "start": 15,
+      "end": 32,
+      "reason": "\"I'm sorry. Let me start again.\" (0:15) False start of the Q42 answer, retaken immediately. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 1878,
+      "end": 1995,
+      "reason": "Sidney Garfield answer false starts: \"I'm sorry.\" / interviewer: \"I'll just cut that part, okay?\" / \"Sorry. I'm going to go start again. It'll be more politically correct.\" / \"I'm sorry, I keep. Okay. Take three.\" (31:18-33:15). Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2056,
+      "end": 2097,
+      "reason": "Narrator and interviewer ask the editor to snip a stumble: \"Section where he said where he thinks that what he thought? Yeah.\" / editor: \"I can clip it out.\" (34:16-34:57). Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2134,
+      "end": 2336,
+      "reason": "Henry Kaiser answer false starts the narrator rejected: \"And I don't like that, either.\" (36:22) and \"I don't know. That's not right either\" (37:00), followed by retake at 38:56. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2828,
+      "end": 2877,
+      "reason": "Culture answer first take the narrator rejected: \"I'm not liking this answer. ... Let me try one more time.\" (47:43); retaken at 47:57. Proposed."
+    }
+  ],
+  "journey": [
+    {
+      "t": 443.64,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Age five; no year given.",
+      "stage": "ordinary_world",
+      "label": "Rheumatic fever at age five",
+      "fortune": -2,
+      "fortune_basis": "It was really discouraging and kind of scary.",
+      "quote": "I became a physician because of an experience I had when I was five years old. I developed rheumatic fever, and at that time, there wasn't a lot that you could do.",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 453.52
+    },
+    {
+      "t": 465.16,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Childhood; no year given.",
+      "stage": "call",
+      "label": "House-call pediatrician inspires medicine",
+      "fortune": 2,
+      "fortune_basis": "I thought, that's what I want to do. I want to be like him.",
+      "quote": "We had a wonderful pediatrician who actually made house calls, and he was reassuring to my family and to me, and fortunately I did well.",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 473.2
+    },
+    {
+      "t": 663.72,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Joined directly from residency; year not stated.",
+      "stage": "threshold",
+      "label": "Joins SCPMG straight from residency",
+      "fortune": 2,
+      "fortune_basis": "it just it just fit. It just worked. It was a great place to practice.",
+      "quote": "So my faculty member made me aware of Kaiser Permanente, and I applied, and fortunately, that's where I began my career.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 670.36
+    },
+    {
+      "t": 966.75,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "On joining SCPMG; year not stated.",
+      "stage": "refusal",
+      "label": "Vows to avoid leadership roles",
+      "fortune": 0,
+      "fortune_basis": "I was really determined to be a physician, to be a clinician",
+      "quote": "had made this mental note to myself before I even joined the group, I was not going to take on any leadership roles.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 972.91
+    },
+    {
+      "t": 975.31,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "The day he arrived at SCPMG; year not stated.",
+      "stage": "call",
+      "label": "Made family medicine QA representative",
+      "fortune": 1,
+      "fortune_basis": "no one else in the department wanted that job.",
+      "quote": "the chief of the family medicine department took me aside and said, and you will be our new family medicine quality assurance representative.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 984.55
+    },
+    {
+      "t": 370.63,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"Early in my career as a physician\"; no year given.",
+      "stage": "trials",
+      "label": "Father's death; Ken Bell says stay",
+      "fortune": -1,
+      "fortune_basis": "my father passed away peacefully with my mother and my sister and I",
+      "quote": "And he said, \"no, you're not. You're staying right where you are. You're where you need to be, where you're supposed to be.",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 375.79
+    },
+    {
+      "t": 2944.38,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "While physician in charge in Orange County; year not stated.",
+      "stage": "ordeal",
+      "label": "Call center launch fails; summoned",
+      "fortune": -2,
+      "fortune_basis": "I got a page to Dr. Bell's office and I thought, uh-oh",
+      "quote": "I thought to myself, well, it's been a great but brief career here at Permanente and as a physician in charge",
+      "event_ref": "Centralized appointment call center",
+      "sensitive": false,
+      "end": 2950.38
+    },
+    {
+      "t": 2995.02,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Same period as the call center launch; year not stated.",
+      "stage": "mentor",
+      "label": "Ken Bell makes him special assistant",
+      "fortune": 2,
+      "fortune_basis": "And I was so impressed because I thought, here's a man who has a vision",
+      "quote": "Will you come on and be a special assistant to me to, uh, help us make this a success.",
+      "event_ref": "Centralized appointment call center",
+      "sensitive": false,
+      "end": 3002.26
+    },
+    {
+      "t": 3087.98,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "About a year and a half after launch; launch year not stated.",
+      "stage": "reward",
+      "label": "Call center fixed, spreads across KP",
+      "fortune": 2,
+      "fortune_basis": "you don't need to come back Ed, things are going great.",
+      "quote": "And so successful was this program that that spread throughout Southern California and across all of Kaiser Permanente.",
+      "event_ref": "Centralized appointment call center",
+      "sensitive": false,
+      "end": 3095.02
+    },
+    {
+      "t": 1310.87,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "trials",
+      "label": "Becomes Orange County area medical director",
+      "fortune": 1,
+      "fortune_basis": "so it was a chance to kind of broaden my view of my understanding",
+      "quote": "I became the assistant medical director over primary care services. We had primary care service lines, and then that led me ultimately to becoming the area medical director of Orange County.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1323.27
+    },
+    {
+      "t": 1486.75,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "When Jeff Weisz retired; year not stated.",
+      "stage": "threshold",
+      "label": "Decides to seek EMD role",
+      "fortune": 2,
+      "fortune_basis": "it was one of the great decision.",
+      "quote": "And so I ultimately decided to put my hat in the ring and, uh, uh, it was one of the great decision. But none of these roles come without great sacrifice.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1498.23
+    },
+    {
+      "t": 1970.99,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his EMD term; year not stated.",
+      "stage": "trials",
+      "label": "Plans for Affordable Care Act uncertainty",
+      "fortune": -1,
+      "fortune_basis": "the implementation of it was a great unknown.",
+      "quote": "One was the implementation of the Affordable Care Act. Um, absolutely it was something that we supported as an organization.",
+      "event_ref": "Affordable Care Act implementation",
+      "sensitive": false,
+      "end": 1978.87
+    },
+    {
+      "t": 3699.49,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "While executive medical director; year not stated.",
+      "stage": "reward",
+      "label": "Appoints early physician chief wellness officer",
+      "fortune": 2,
+      "fortune_basis": "I was very lucky and fortunate, Dr. Dawn Clark uh took on that role,",
+      "quote": "initiatives that I undertook when I was executive medical director was to appoint what turned out to be one of the first, uh, physician chief wellness officers in the country.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3709.17
+    },
+    {
+      "t": 1627.93,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "reward",
+      "label": "Leads affiliations with Georgia, Hawaii groups",
+      "fortune": 2,
+      "fortune_basis": "It was really my privilege",
+      "quote": "It was really my privilege to be leading with our colleagues in Southern California when we created affiliations with both the Southeast Permanente Medical Group in Georgia and the Hawaii Permanente Medical Group.",
+      "event_ref": "SCPMG affiliation with Georgia and Hawaii medical groups",
+      "sensitive": false,
+      "end": 1641.71
+    },
+    {
+      "t": 2083.27,
+      "part": 1,
+      "year": 2020,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Leads SCPMG through COVID-19",
+      "fortune": -2,
+      "fortune_basis": "the ACA changes on steroids.",
+      "quote": "The second great challenge was toward the end of my tenure, and that was when the Covid pandemic happened. So all of a sudden in March of 2020, um, the pandemic came along,",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 2095.4
+    },
+    {
+      "t": 411.9,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Told to new hires over his career; no year given.",
+      "stage": "return",
+      "label": "Tells new physicians his father story",
+      "fortune": 2,
+      "fortune_basis": "that's always been my experience as a Permanente physician.",
+      "quote": "I told that story to new physicians that we hired, and I said, you step up and help out your colleagues when they need you, and they'll be there for you when you need them.",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 421.26
+    }
+  ],
+  "events": [
+    {
+      "name": "Tahoe agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw it, though he was not part of it, as the pivotal settlement that secured a physician-led, self-governing medical group alongside the nonprofit health plan.",
+      "t": 1870.27,
+      "part": 1,
+      "quote": "that's the what's known as the Tahoe agreement. That's where the simmering tensions between, uh, the medical group and the health plan came to",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1880.23
+    },
+    {
+      "name": "Centralized appointment call center",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw Ken Bell's Orange County call center as a risky innovation that failed badly at launch, was fixed by listening to the front lines, then spread across KP.",
+      "t": 2819.62,
+      "part": 1,
+      "quote": "But Dr. Bell and Judy White, his administrative partner, had an idea about what if we could put centralized call centers into, uh, our appointment making.",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2829.94
+    },
+    {
+      "name": "Affordable Care Act implementation",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw it as a policy the organization supported but whose growth and legal survival were so uncertain that it demanded extensive contingency planning.",
+      "t": 1970.99,
+      "part": 1,
+      "quote": "One was the implementation of the Affordable Care Act. Um, absolutely it was something that we supported as an organization.",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1978.87
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": 2020,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw it as the greatest challenge of his tenure, met through transparency, frontline listening and moving staff across the region as waves hit.",
+      "t": 2089.75,
+      "part": 1,
+      "quote": "So all of a sudden in March of 2020, um, the pandemic came along, and this was obviously, you know, the ACA changes on steroids.",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2099.76
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the electronic health record as a major benefit for patients and population health that also added an administrative burden feeding physician burnout.",
+      "t": 3642.77,
+      "part": 1,
+      "quote": "especially with the implementation of the electronic health record, which has so many benefits for our patients and our ability to to understand populations on a global scale",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3651.77
+    },
+    {
+      "name": "Kaiser Permanente School of Medicine founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He counted serving as executive sponsor and founding board member of the school among the projects he was proud of.",
+      "t": 3150.74,
+      "part": 1,
+      "quote": "being an executive sponsor, founding board member for the Bernard J. Tyson Kaiser Permanente School of Medicine.",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3155.95
+    },
+    {
+      "name": "SCPMG affiliation with Georgia and Hawaii medical groups",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the affiliations as mutually beneficial, sharing learnings and scale while giving Permanente Medicine a larger voice.",
+      "t": 1634.65,
+      "part": 2,
+      "quote": "when we created affiliations with both the Southeast Permanente Medical Group in Georgia and the Hawaii Permanente Medical Group.",
+      "prompt": {
+        "question": "How does SCP cmg's affiliation with PMG and PMG benefit these smaller medical groups along with SCP mg?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1641.71
+    },
+    {
+      "name": "Mutual exclusivity agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw mutual exclusivity between Kaiser and Permanente as central work of his tenure and the basis of trust in the partnership.",
+      "t": 2654.98,
+      "part": 2,
+      "quote": "One of the areas that we spent so much time in my tenure working on, this idea of mutual exclusivity.",
+      "prompt": {
+        "question": "if Sidney Garfield was alive today, what would he say about the formation of the foundation and having physicians work again directly for the health plan instead of that doctor led organization",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 2661.48
+    },
+    {
+      "name": "Kaiser Permanente founded in WWII shipyards",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw Henry Kaiser's decision to bring in Sidney Garfield for the shipyard workforce as an ethical, people-centered act that created the model.",
+      "t": 2367.58,
+      "part": 2,
+      "quote": "he remembered that when it came time to build cargo ships in World War II,",
+      "prompt": {
+        "question": "If you could talk to Henry Kaiser, what would you want to know from him?",
+        "list_number": "Q14",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2372.95
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Coming back every month until told not to",
+      "summary": "When Orange County's new centralized appointment call center collapsed at launch, Ken Bell asked Ellison to help fix it. He and administrator Priscilla Daniel visited every office monthly to listen until things improved over about a year and a half, and the model spread across KP.",
+      "t": 3060.18,
+      "part": 1,
+      "quote": "I will come back next month, and the month after that, and the month after that, and the month after that, until you tell me, I don't need to come here anymore.",
+      "why": "A concrete lesson in change management and listening to the front lines.",
+      "sensitive": false,
+      "end": 3066.86
+    },
+    {
+      "title": "The receptionist who saves lives",
+      "summary": "A receptionist persuaded Mary Gonzalez, in for allergies, to book an overdue mammogram, which found an early cancer. Ellison uses it to show that every point of contact in an integrated system can close care gaps.",
+      "t": 3501.9,
+      "part": 1,
+      "quote": "She could say, my job is not just to check in patients, my job is to save lives.",
+      "why": "Shows integrated care and prevention through one patient's experience.",
+      "sensitive": true,
+      "end": 3506.26
+    },
+    {
+      "title": "Ken Bell tells him to stay",
+      "summary": "Early in his career, as his father was dying back east, Ellison planned to return to work. His area medical director, Ken Bell, told him to stay, and he was with his father when he died while colleagues covered his patients.",
+      "t": 370.63,
+      "part": 2,
+      "quote": "And he said, \"no, you're not. You're staying right where you are. You're where you need to be, where you're supposed to be.",
+      "why": "Illustrates collegial support he called the family of the medical group.",
+      "sensitive": true,
+      "end": 375.79
+    },
+    {
+      "title": "Turning surgical drapes into COVID masks",
+      "summary": "Short of protective equipment early in COVID, SCPMG had a surplus of surgical drapes. Ellison and Greg Adams went to the Los Angeles garment district and found a sportswear maker to turn them into masks.",
+      "t": 2239.82,
+      "part": 1,
+      "quote": "Greg came to Southern Cal and he and I went down to the garment district in Los Angeles, and we found a sportswear manufacturer who was going to retool their equipment",
+      "why": "A vivid example of improvised, real-time crisis leadership.",
+      "sensitive": false,
+      "end": 2249.58
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1165.15,
+      "part": 1,
+      "question": "can you share your journey to becoming MD of SCP img.",
+      "source": "question_list",
+      "list_number": "Q4",
+      "why": "Drew his 'passively upwardly mobile' path, hesitation about the role, the Linus story and its sacrifices.",
+      "sensitive": false,
+      "end": 1168.83
+    },
+    {
+      "t": 2761.46,
+      "part": 1,
+      "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+      "source": "question_list",
+      "list_number": "Q22",
+      "why": "Drew the candid call center failure story, his fear of being fired and Ken Bell's mentorship.",
+      "sensitive": false,
+      "end": 2766.7
+    },
+    {
+      "t": 186.56,
+      "part": 2,
+      "question": "So what are some of the most rewarding aspects of working at Kaiser Permanente?",
+      "source": "question_list",
+      "list_number": "Q46",
+      "why": "Drew a personal story of his father's death and his colleagues' support.",
+      "sensitive": true,
+      "end": 190.04
+    }
+  ]
+}

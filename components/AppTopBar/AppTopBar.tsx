@@ -32,7 +32,7 @@ export const AppTopBar = () => {
   if (isEmbed) return null;
   const isStoryPage = pathname.startsWith('/story/');
   const isChatPage = pathname.startsWith('/discover');
-  const isExplorePage = pathname.startsWith('/explore');
+  const isExplorePage = pathname.startsWith('/explore') || pathname.startsWith('/memory-map') || pathname.startsWith('/system');
   const isFullScreenPage = isStoryPage || isChatPage || isExplorePage;
   const isHeaderOverlayEnabled = config?.ui?.portalHeaderOverlay?.enabled ?? true;
   const organizationLogoPath = config.organization.logo?.path?.trim();

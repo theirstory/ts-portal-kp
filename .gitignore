@@ -55,3 +55,6 @@ tsconfig.tsbuildinfo
 .yarn/install-state.gz
 .yarn/build-state.yml
 .pnp.*.env.cloud
+
+# Memory Map: normalized transcripts are derived from json/interviews
+data/transcripts/

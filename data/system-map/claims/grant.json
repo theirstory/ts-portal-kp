@@ -1,0 +1,356 @@
+{
+  "narrator": "Chris Grant",
+  "slug": "grant",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6917a33a289eff1b141a2fec"
+    }
+  ],
+  "excluded_segments": [],
+  "narrator_meta": {
+    "region": "National (Federation/Program)",
+    "region_quote": "joining Dr. Jay Crosson to help establish and form the Permanente Federation",
+    "era": "c. 1994–present (joined KP 31 years before the interview; Federation since its formation)",
+    "era_quote": "when I joined Kaiser Permanente 31 years ago"
+  },
+  "claims": [
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 682.04,
+      "part": 1,
+      "quote": "it was about using information and data in order to predict outcomes to develop new clinical protocols.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what was your first leadership position. How did your position come about. Was it offered. Did you seek it.",
+        "list_number": "Q3",
+        "type": "narrators_choice"
+      },
+      "end": 690.92
+    },
+    {
+      "from": "innovation",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 1088.71,
+      "part": 1,
+      "quote": "by extending and offering services that included things like refractive surgery or IVF ... it allowed us to recruit the best and brightest talent",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 1107.63
+    },
+    {
+      "from": "innovation",
+      "to": "access",
+      "polarity": "+",
+      "t": 1125.23,
+      "part": 1,
+      "quote": "all of the economic benefit that could come from those was put right back into Kaiser Permanente. It funded additional physicians and staff, um, additional investment. So it improved access and service.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 1140.63
+    },
+    {
+      "from": "group practice",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1534.86,
+      "part": 1,
+      "quote": "they looked at geographic expansions that were done in the Carolinas and Texas and, and New York as kind of flawed structures because they didn't bring the multi-specialty, um, Permanente Medical Group in.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 1550.98
+    },
+    {
+      "from": "leadership development",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 2299.51,
+      "part": 1,
+      "quote": "at the pinnacle of that is great leaders that are developed across a career with medical groups that stand behind them",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What sets the Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 2307.51
+    },
+    {
+      "from": "capitation",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 2203.63,
+      "part": 1,
+      "quote": "by having a capitated model, you have an incentive to provide wellness care, to provide, uh, prevention.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What sets the Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 2213.19
+    },
+    {
+      "from": "physician leadership",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2524.09,
+      "part": 1,
+      "quote": "this, um, insistence by the EMDs, the, the Executive Medical Directors, the quality leaders across Kaiser Permanente to never allow quality and safety to be compromised ... is key.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture, and how do you apply those values to your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 2553.25
+    },
+    {
+      "from": "prevention",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 2602.97,
+      "part": 1,
+      "quote": "If you can prevent cancer or a cardiovascular event, ... um, it's a whole lot more efficient than treating it as a full blown comorbid disease.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture, and how do you apply those values to your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 2623.89
+    },
+    {
+      "from": "financial pressure",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 3242.1,
+      "part": 1,
+      "quote": "health plan, uh, was down to days of cash, and the economic sustainability organization was still in question. And we needed an aligned strategy between the Permanente Medical Groups and hospital health plan.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 3256.58
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3258.5,
+      "part": 1,
+      "quote": "we needed to have a joint body in order to set strategic direction because alignment meant, um, better outcomes, alignment meant, uh, greater economic strength and sustainability",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 3272.7
+    },
+    {
+      "from": "physician leadership",
+      "to": "community health",
+      "polarity": "+",
+      "t": 3531.36,
+      "part": 1,
+      "quote": "playbooks that we developed and the templates and the tools got shared broadly with with all of the communities that we operated within and I believe helped the nation respond effectively",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 3544.32
+    },
+    {
+      "from": "data & technology",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 3863.62,
+      "part": 1,
+      "quote": "we can marry that up with enormous amount of data on, um, patient populations. ... in order to, to, to identify the really differentiated innovation and to adopt it quickly.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 3885.42
+    },
+    {
+      "from": "candor",
+      "to": "organizational performance",
+      "polarity": "+",
+      "t": 4218.44,
+      "part": 1,
+      "quote": "when we've hit points of, um, lower performance, whether it's access or service or economics, when we've addressed it holistically and directly, um, we've been able to solve it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What leadership qualities are essential for success at Kaiser Permanente?",
+        "list_number": "Q21",
+        "type": "narrators_choice"
+      },
+      "end": 4234.6
+    },
+    {
+      "from": "physician well-being",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4522.42,
+      "part": 1,
+      "quote": "if you don't have your own oxygen mask on, if you're not doing well, you're not going to be in a position to help the person next to you.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 4529.34
+    },
+    {
+      "from": "culture",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 4677.59,
+      "part": 1,
+      "quote": "within Kaiser Permanente having a culture in which there is support wrapped around our physicians, ... but I think that we're better equipped than most organizations, um, to, to put that in place.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 4725.39
+    },
+    {
+      "from": "community health",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5150.86,
+      "part": 1,
+      "quote": "caring for the community and helping to influence the community's evolution and health, um, ultimately affects those patients that we have responsibility for.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you discuss Kaiser Permanente's efforts in community health? Health equity and preventive care.",
+        "list_number": "Q34",
+        "type": "asked_directly"
+      },
+      "end": 5162.18
+    },
+    {
+      "from": "integrated care",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 5395,
+      "part": 1,
+      "quote": "So our ability to move from, um, um, treating heart disease with implantable stents to drug eluting stents, um, was relatively easy because we had a system",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How is Kaiser Permanente adapted to changes in healthcare over the years?",
+        "list_number": "Q37",
+        "type": "asked_directly"
+      },
+      "end": 5417
+    },
+    {
+      "from": "internal competition",
+      "to": "affordability",
+      "polarity": "-",
+      "t": 5578.33,
+      "part": 1,
+      "quote": "the competition isn't within Kaiser Permanente or between entities. That becomes often, um, wasted resource.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What lessons have you learned from your experiences at Kaiser Permanente that you wish to share with new leaders?",
+        "list_number": "Q43",
+        "type": "narrators_choice"
+      },
+      "end": 5587.57
+    },
+    {
+      "from": "membership growth",
+      "to": "quality",
+      "polarity": "-",
+      "t": 5864.75,
+      "part": 1,
+      "quote": "balancing that with this temptation to be everything everywhere, um, um, is probably the greatest risk that we face. Right. Um, um, trying to, um, be similar or everywhere makes us mediocre",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So where do you see Kaiser Permanente in 10 to 20 years?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "end": 5889.99
+    },
+    {
+      "from": "medical group affiliation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 6225.38,
+      "part": 1,
+      "quote": "I'm a big believer that the deeper the integration of the Permanente Medical Groups, the better, um, the care and the administrative efficiency.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do the California groups benefit the smaller, you know, areas in terms of how they provide care quality? Um, how how they can utilize California to help with some efficiencies",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 6236.98
+    },
+    {
+      "from": "medical group affiliation",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 6389.71,
+      "part": 1,
+      "quote": "it's in combining some of the administrative functions so that we don't need to duplicate them, that we can do them more centrally",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do the California groups benefit the smaller, you know, areas in terms of how they provide care quality? Um, how how they can utilize California to help with some efficiencies",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 6398.95
+    },
+    {
+      "from": "physician turnover",
+      "to": "culture",
+      "polarity": "-",
+      "t": 6914.26,
+      "part": 1,
+      "quote": "We do have, um, that long breadth of knowledge, which means there's intrinsic in each person within the Permanente Medical Groups, uh, an understanding and a belief in the culture",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How do you see our KP history influencing future leaders?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 6927.3
+    }
+  ],
+  "new_factors": [
+    "physician recruitment",
+    "access",
+    "organizational performance",
+    "internal competition",
+    "medical group affiliation"
+  ]
+}

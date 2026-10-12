@@ -1,0 +1,526 @@
+{
+  "narrator": "Jeffrey Weisz, MD",
+  "slug": "weisz",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69f406aa20d30677412a2468"
+    }
+  ],
+  "one_line": "Detroit-trained hematologist-oncologist who rose from section head to lead SCPMG, then Northwest Permanente, as a self-described change agent.",
+  "top_role": "Executive Medical Director, Southern California Permanente Medical Group (later Northwest Permanente)",
+  "region": "Southern California; Northwest",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 1765,
+      "end": 1795,
+      "reason": "\"you don't put that down ... You can't put this in\" (29:25), about leaders he removed. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 1535,
+      "end": 1562,
+      "reason": "\"You know, this is not going anywhere, but minority gave in. This is disgusting.\" ... \"He's minority sold us out.\" (25:35) Off-record aside about the foundation decision; interviewer replies \"we're not recording this\". Proposed."
+    },
+    {
+      "part": 1,
+      "start": 2488,
+      "end": 2560,
+      "reason": "\"Off the cuff. A lot of things we put in our leaders, they got rid of.\" ... \"Everyone says it between you and me.\" (41:28) Off-the-cuff aside about successor leaders. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 5146,
+      "end": 5374,
+      "reason": "\"I frankly, off the cuff, I think we're we're struggling. But don't don't put this in the interview that we're struggling.\" (1:25:46) and \"between you and me\" (1:26:37); aside continues through panel-management and Reno chatter until the next question. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 6200,
+      "end": 6256,
+      "reason": "\"You know, off the cuff, all this new stuff with guys that are rising.\" ... \"But don't tell minority. He's at fault.\" (1:43:20) Off-the-cuff aside. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 7227,
+      "end": 7255,
+      "reason": "\"You know, between you and this doesn't leave.\" (2:00:33) then \"Is this off the cuff?\" Aside about the current Federation co-lead. Proposed."
+    }
+  ],
+  "journey": [
+    {
+      "t": 30.16,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "He was about 12 or 13; no year given.",
+      "stage": "call",
+      "label": "Father urges him to become doctor",
+      "fortune": 1,
+      "fortune_basis": "decided being a physician would be the right career for me. I'd do it again.",
+      "quote": "I said, I think I'll become a dentist. He said, yeah, that sounds all right, but I think you should become a doctor. And I said, okay, I think you're right, dad.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 38.48
+    },
+    {
+      "t": 458.25,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for joining.",
+      "stage": "threshold",
+      "label": "Hired as hematologist-oncologist at Panorama City",
+      "fortune": 1,
+      "fortune_basis": "They liked me and they hired me.",
+      "quote": "They liked me and they hired me. I didn't really know a lot about Kaiser Permanente when I joined. Um, that came along as I, my career evolved.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 469.75
+    },
+    {
+      "t": 540,
+      "part": 1,
+      "year": 1986,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says the Woodland Hills Medical Center opened in 1986 and he became section head when it opened.",
+      "stage": "call",
+      "label": "Section head at new Woodland Hills",
+      "fortune": 2,
+      "fortune_basis": "And I said, yes, for sure.",
+      "quote": "the medical director then Joseph Ruderman, asked me if I wanted to become section head when we open up the medical center in Woodland Hills. And I said, yes, for sure.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 549.28
+    },
+    {
+      "t": 585.9,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given; he later says he 'might have been on the board' in 1997.",
+      "stage": "threshold",
+      "label": "Elected to Board of Directors",
+      "fortune": 2,
+      "fortune_basis": "I was elected to the Board of Directors and um, I really enjoyed that",
+      "quote": "I said one day, you know what? I think I'm going to put my name in and run for the board. And, um, I became, I was elected to the Board of Directors",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 595.83
+    },
+    {
+      "t": 2696.39,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "He mentions four years as Woodland Hills medical director but gives no dates.",
+      "stage": "trials",
+      "label": "Medical director at Woodland Hills",
+      "fortune": 1,
+      "fortune_basis": "I knew all the physicians by name of Woodland Hills.",
+      "quote": "I interviewed every physician as the medical director of Woodland Hills. No matter who they were, I had the chief see them, and then I met them as the medical director of my medical center.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2708.91
+    },
+    {
+      "t": 711.1,
+      "part": 1,
+      "year": 2004,
+      "year_basis": "stated",
+      "year_note": "Year from his later remark 'when I took over in 2004' (t 4513).",
+      "stage": "threshold",
+      "label": "Elected SCPMG executive medical director",
+      "fortune": 2,
+      "fortune_basis": "luckily enough, I was selected as Medical Director",
+      "quote": "I ran against many of the medical directors from different medical centers opposed me, but luckily enough, I was selected as Medical Director, and, um, it was a big, big career change.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 727.74
+    },
+    {
+      "t": 764,
+      "part": 1,
+      "year": 2004,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Describes his agenda on taking over SCPMG, which he dates to 2004.",
+      "stage": "transformation",
+      "label": "Drives Good to Great change agenda",
+      "fortune": 1,
+      "fortune_basis": "I rallied my medical directors to support me, and we move forward.",
+      "quote": "I was a change agent. There's no doubt about it. I was a change agent, and I decided we were going to change for the better. I put a stake in the ground.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 773.28
+    },
+    {
+      "t": 1723.21,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his SCPMG tenure; no year given.",
+      "stage": "ordeal",
+      "label": "Replaces medical directors despite pushback",
+      "fortune": -1,
+      "fortune_basis": "I faced a lot of pushback on that",
+      "quote": "I had 12 medical directors reported to me, and I believe that some of them, um, were not in the right role. And, um, I changed some of them",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 1735.21
+    },
+    {
+      "t": 1250.78,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his SCPMG tenure; no year given.",
+      "stage": "trials",
+      "label": "Pushes electronic medical record on physicians",
+      "fortune": -1,
+      "fortune_basis": "took me out of the room and told me to get lost.",
+      "quote": "I remember when I told our physicians and the board that we're bringing electronic medical record, they almost, you know, took me out of the room and told me to get lost.",
+      "event_ref": "Electronic health record rollout",
+      "sensitive": false,
+      "end": 1260.78
+    },
+    {
+      "t": 3028.2,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his SCPMG tenure; no year given.",
+      "stage": "reward",
+      "label": "Prevention and wellness lifts quality",
+      "fortune": 2,
+      "fortune_basis": "And that helped our quality take off. I was really proud about that",
+      "quote": "I think, um, prevention and wellness was the one, the cornerstone of my who I was.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3037.86
+    },
+    {
+      "t": 5510.74,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Approached while leading Southern California; no year given.",
+      "stage": "return",
+      "label": "Co-writes book on SCPMG transformation",
+      "fortune": 2,
+      "fortune_basis": "she said, you have an extraordinary leadership team.",
+      "quote": "Why don't we, have you ever considered writing a book about this? I said, all right, let's do it.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 5515.82
+    },
+    {
+      "t": 3614.83,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "He says 'when I retired in 2006' once (t 6003), which conflicts with taking over SCPMG in 2004 and four-year terms; left unknown.",
+      "stage": "reward",
+      "label": "Wellness symposium named for him",
+      "fortune": 2,
+      "fortune_basis": "They loved that.",
+      "quote": "when I retired, they named a health wellness symposium after me. Okay. I think I was the first person who brought prevention and wellness to the table in Southern California",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3625.08
+    },
+    {
+      "t": 802.68,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Moved at SCPMG's retirement age of 65; no year given.",
+      "stage": "call",
+      "label": "Recruited to lead Northwest Permanente",
+      "fortune": 1,
+      "fortune_basis": "I was young, I was still inspired to improve health care.",
+      "quote": "Southern California has a retirement age of 65. Um, I thought at 65, I still had a great deal of knowledge. Um, I was young, I was still inspired to improve health care.",
+      "event_ref": "SCPMG mandatory retirement age",
+      "sensitive": false,
+      "end": 818.41
+    },
+    {
+      "t": 882.43,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "After four years leading Northwest Permanente; no year given.",
+      "stage": "reward",
+      "label": "Cuts Northwest outside medical expense",
+      "fortune": 2,
+      "fortune_basis": "And, um, we were quite successful.",
+      "quote": "when I finished leading the Northwest Permanente after four years outside medical was 25 million. And we internalized many outside services that were being sent to community physicians, we brought them inside.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 898.83
+    },
+    {
+      "t": 7673.46,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "In retirement, at the time of the interview; no year given.",
+      "stage": "return",
+      "label": "Offers knowledge current leaders don't seek",
+      "fortune": -1,
+      "fortune_basis": "I think it's a mistake we're not tapping into the knowledge of our previous leaders.",
+      "quote": "Why don't they take someone who's got it? I'll go. I'd be willing to help them, frankly, to go out there and share my knowledge.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 7679.82
+    }
+  ],
+  "events": [
+    {
+      "name": "Tahoe agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the agreement that physicians lead care delivery while partnering with the Health Plan as a defining moment.",
+      "t": 1177.08,
+      "part": 1,
+      "quote": "we negotiated with the Kaiser Foundation Health Plan and told them that, look, we're going to partner with you, but we're we're in charge of delivery of medical care.",
+      "prompt": {
+        "question": "So let's talk about a pivotal moment in our past... in other words, like the Tahoe agreement, you know, or something that just shaped, you know, the fact that we're physician led.",
+        "list_number": "Q12",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1189.08
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He introduced it over strong physician resistance and credits it with changing practice and lifting quality.",
+      "t": 1275.14,
+      "part": 1,
+      "quote": "the electronic medical record is pivotal, is pivotal on how the practice of medicine changed in KP. It allowed sharing of medical information as it enhanced integration and teamwork.",
+      "prompt": {
+        "question": "So let's talk about a pivotal moment in our past... and then a pivotal moment moment in your career that kind of shaped it.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1292.16
+    },
+    {
+      "name": "Colorado and Washington medical groups join foundation model",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He considers the move into a foundation model a mistake that gives the Health Plan too much say over care.",
+      "t": 1380.38,
+      "part": 1,
+      "quote": "the Colorado Medical Group and the Medical Group in Washington state became part of this foundation um, that I feel that that was not the right direction to take.",
+      "prompt": {
+        "question": "How do you think the new Kaiser Foundation, you know, led where the physicians report to health plan. Where do you see that going in the future?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1394.7
+    },
+    {
+      "name": "Proactive Office Encounter",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He describes it as an innovation that had every department close care gaps at every visit.",
+      "t": 2628.22,
+      "part": 1,
+      "quote": "we put in the proactive office and counter, okay. Meaning that no matter what physician you saw",
+      "prompt": {
+        "question": "So how do we foster innovation and how do we foster innovation during your career?",
+        "list_number": "Q18",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2635.3
+    },
+    {
+      "name": "Mailed FIT colon cancer screening",
+      "year_start": 2004,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He presents bringing in and mailing FIT tests as an innovation that raised screening and saved lives.",
+      "t": 4570.73,
+      "part": 1,
+      "quote": "We started mailing fit tests to our patients and our colorectal cancer scores took off.",
+      "prompt": {
+        "question": "can you share an example of how Kaiser Permanente has improved patient outcomes through innovation?",
+        "list_number": "Q40",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 4576.73
+    },
+    {
+      "name": "Kaiser Permanente School of Medicine founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He says he and Health Plan leader Ben Chu had the first idea for a medical school before he moved north.",
+      "t": 6728.41,
+      "part": 1,
+      "quote": "And we started talking about a medical school, how we should, you know, start thinking about building a medical school. So Ben and I had that idea early on",
+      "prompt": {
+        "question": "what was your involvement in the school of in the founding of the School of Medicine?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 6738.97
+    },
+    {
+      "name": "Union contract negotiations",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He held the line against union demands he judged excessive, with backing from CEO George Halvorson.",
+      "t": 6940.68,
+      "part": 1,
+      "quote": "the unions were coming up for a new contract and the union demands were excessive, and I wouldn't give in to him. And I said, we can't afford this.",
+      "prompt": {
+        "question": "Anything about relationship with CEO or just leave that.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 6954
+    },
+    {
+      "name": "Permanente Federation founded",
+      "year_start": 1997,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"You were around during the 1997 founding of the Federation.\"",
+      "view": "He says the Federation predated his leadership and was strong under Jay Crosson, giving the groups clout.",
+      "t": 7140.09,
+      "part": 1,
+      "quote": "the Federation was strong back then, and that gave us clout dealing with the health plan.",
+      "prompt": {
+        "question": "You were around during the 1997 founding of the Federation. What are your what do you remember about.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 7145.29
+    },
+    {
+      "name": "SCPMG mandatory retirement age",
+      "year_start": 1953,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"mandatory retirement age at CPMG started in 1953\"",
+      "view": "He calls the retirement age a flawed policy that drives skilled physicians out and should be reversed.",
+      "t": 7326.63,
+      "part": 1,
+      "quote": "it needs to be reversed because what's happening is physicians are retiring early, who are skilled, who are savvy, who know Permanente Medicine",
+      "prompt": {
+        "question": "But I thought we would get your opinion on mandatory retirement age at CPMG started in 1953. That maybe it's time, you know, to change that. What do you think?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 7339.23
+    },
+    {
+      "name": "Expansion into new markets",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He believes expansions failed because they lacked Permanente physician leaders and relied on outside care.",
+      "t": 6392.58,
+      "part": 1,
+      "quote": "Kaiser Permanente has tried to expand in regions. And they failed over and over and over.",
+      "prompt": {
+        "question": "how do you see understanding KP history affecting future leaders?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6398.78
+    }
+  ],
+  "retellable": [
+    {
+      "title": "A doctor, not a dentist",
+      "summary": "At about 12 or 13, walking to the mailbox, his father steered him from dentistry to medicine. He says he would choose the career again.",
+      "t": 22.16,
+      "part": 1,
+      "quote": "I remember walking out to the mailbox with my dad when I was about 12 or 13 years old. He said, so what do you want to do with yourself? I said, I think I'll become a dentist.",
+      "why": "A vivid, human origin story for a physician career.",
+      "sensitive": false,
+      "end": 32.2
+    },
+    {
+      "title": "Why are you at Kaiser?",
+      "summary": "Early in his career, patients asked why such a caring doctor wasn't in private practice. He describes how SCPMG's reputation later changed, until UCLA residents wanted to join.",
+      "t": 2060.23,
+      "part": 1,
+      "quote": "patients would walk in and say to me, why are you at Kaiser Permanente? You seem so personable. You seem so caring. How come you're not out in private practice?",
+      "why": "Shows how KP's public image shifted over decades.",
+      "sensitive": false,
+      "end": 2071.19
+    },
+    {
+      "title": "Told to get lost over EMR",
+      "summary": "When he announced the electronic medical record, physicians and the board nearly threw him out of the room. He phased it in one medical center at a time and credits it with transforming care.",
+      "t": 1251.66,
+      "part": 1,
+      "quote": "I told our physicians and the board that we're bringing electronic medical record, they almost, you know, took me out of the room and told me to get lost. Okay. You're out of here.",
+      "why": "Captures resistance to a now-essential change.",
+      "sensitive": false,
+      "end": 1261.9
+    },
+    {
+      "title": "Someone from the major leagues",
+      "summary": "Past SCPMG's retirement age, he was recruited to Northwest Permanente, which had no age limit. He cut its outside medical expense from $55 million to $25 million in four years.",
+      "t": 847.93,
+      "part": 1,
+      "quote": "I remember they said, hey, do you want someone from the minor leagues or do you want someone from the major leagues, who played major league ball? That was me.",
+      "why": "A memorable second act after mandatory retirement.",
+      "sensitive": false,
+      "end": 855.37
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1325.56,
+      "part": 1,
+      "question": "I'm going to ask a question you can like, refuse to answer. ... Where do you see that going in the future?",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew a blunt critique of the foundation model and its departure from Tahoe.",
+      "sensitive": false,
+      "end": 1349.58
+    },
+    {
+      "t": 7259.45,
+      "part": 1,
+      "question": "But I thought we would get your opinion on mandatory retirement age at CPMG started in 1953. That maybe it's time, you know, to change that. What do you think?",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew a forceful argument that the retirement policy is losing skilled physicians.",
+      "sensitive": false,
+      "end": 7274.61
+    },
+    {
+      "t": 7521.86,
+      "part": 1,
+      "question": "what would you recommend to our existing leadership that would allow them to use past leadership in a way that's not threatening",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Opened his frustration that former leaders' knowledge goes untapped, and his offer to help.",
+      "sensitive": false,
+      "end": 7530.54
+    }
+  ]
+}

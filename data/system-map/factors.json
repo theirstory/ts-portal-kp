@@ -1,0 +1,453 @@
+{
+  "_comment": "Canonical factors for the system map. Claims use the names in `name`; any claim factor listed in `aliases` is merged into that factor when the model is built. column is an editorial framing (pressure, structure, people, outcome): causes generally sit left and results right. valence -1 marks factors that are bad when they grow (used to flag mixed effects). Edit freely; then run `yarn system-map:build`.",
+  "columns": [
+    "pressure",
+    "structure",
+    "people",
+    "outcome"
+  ],
+  "factors": [
+    {
+      "name": "financial pressure",
+      "column": "pressure",
+      "definition": "Cost, cash and margin strain on the organization.",
+      "valence": -1,
+      "aliases": [
+        "operating margin"
+      ]
+    },
+    {
+      "name": "competition",
+      "column": "pressure",
+      "definition": "Rival plans, systems and models competing for members and physicians.",
+      "valence": -1,
+      "aliases": [
+        "internal competition"
+      ]
+    },
+    {
+      "name": "rapid change",
+      "column": "pressure",
+      "definition": "Fast-moving shifts in health care, technology or organization that outpace adjustment.",
+      "valence": -1,
+      "aliases": []
+    },
+    {
+      "name": "secrecy",
+      "column": "pressure",
+      "definition": "Decisions made or announced without consulting those affected.",
+      "valence": -1,
+      "aliases": []
+    },
+    {
+      "name": "data & technology",
+      "column": "pressure",
+      "definition": "Electronic records, data systems, analytics, virtual care and AI.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "physician turnover",
+      "column": "pressure",
+      "definition": "Physicians leaving, retiring early or not staying.",
+      "valence": -1,
+      "aliases": []
+    },
+    {
+      "name": "fee-for-service",
+      "column": "pressure",
+      "definition": "Payment by volume of services, and the incentives it creates.",
+      "valence": -1,
+      "aliases": [
+        "fee-for-service incentives"
+      ]
+    },
+    {
+      "name": "mandatory retirement",
+      "column": "pressure",
+      "definition": "Required retirement at a set age.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "network expansion",
+      "column": "pressure",
+      "definition": "Growth through contracted networks, the KP Medical Foundation, Risant and new markets rather than Permanente groups.",
+      "valence": 0,
+      "aliases": [
+        "network model expansion",
+        "national expansion",
+        "geographic expansion",
+        "risant affiliation",
+        "foundation model"
+      ]
+    },
+    {
+      "name": "contracted hospitals & providers",
+      "column": "pressure",
+      "definition": "Relying on community hospitals and outside providers instead of KP-owned facilities and Permanente physicians.",
+      "valence": 0,
+      "aliases": [
+        "hospital partnership",
+        "hospital partnerships",
+        "contracted local providers"
+      ]
+    },
+    {
+      "name": "choice products",
+      "column": "pressure",
+      "definition": "Benefit designs such as point-of-service, choice and high-deductible products.",
+      "valence": 0,
+      "aliases": [
+        "deductible products"
+      ]
+    },
+    {
+      "name": "outside executives",
+      "column": "pressure",
+      "definition": "Leaders recruited from outside KP who bring other industries' frames.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "health policy",
+      "column": "pressure",
+      "definition": "Public policy and regulation such as the Affordable Care Act.",
+      "valence": 0,
+      "aliases": [
+        "affordable care act"
+      ]
+    },
+    {
+      "name": "labor support",
+      "column": "pressure",
+      "definition": "Support from unions and employer groups that brought members.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "low pricing",
+      "column": "pressure",
+      "definition": "Pricing premiums below cost to win or hold members.",
+      "valence": 0,
+      "aliases": [
+        "underpricing"
+      ]
+    },
+    {
+      "name": "hospital divestiture",
+      "column": "pressure",
+      "definition": "Selling or giving up owned hospitals.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "partnership with health plan",
+      "column": "structure",
+      "definition": "The mutual, exclusive partnership between the Permanente Medical Groups and the Health Plan and Hospitals.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "group practice",
+      "column": "structure",
+      "definition": "Multispecialty physicians practicing together as one salaried group.",
+      "valence": 0,
+      "aliases": [
+        "salaried practice"
+      ]
+    },
+    {
+      "name": "integrated care",
+      "column": "structure",
+      "definition": "Coverage, care and facilities joined in one system with shared incentives.",
+      "valence": 0,
+      "aliases": [
+        "care coordination",
+        "care management"
+      ]
+    },
+    {
+      "name": "physician leadership",
+      "column": "structure",
+      "definition": "Physicians leading the care system, including dyad partnerships with administrators.",
+      "valence": 0,
+      "aliases": [
+        "service area dyads"
+      ]
+    },
+    {
+      "name": "medical group autonomy",
+      "column": "structure",
+      "definition": "Each Permanente Medical Group governing itself independently.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "permanente federation",
+      "column": "structure",
+      "definition": "The national Federation that lets the medical groups act together, and its agreements with the Health Plan (e.g. Tahoe).",
+      "valence": 0,
+      "aliases": [
+        "federation strength",
+        "tahoe agreement"
+      ]
+    },
+    {
+      "name": "medical group affiliation",
+      "column": "structure",
+      "definition": "Affiliations between Permanente groups, such as TPMG supporting Mid-Atlantic.",
+      "valence": 0,
+      "aliases": [
+        "regional affiliation"
+      ]
+    },
+    {
+      "name": "capitation",
+      "column": "structure",
+      "definition": "Prepaid, per-member payment that rewards keeping people healthy.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "physician compensation",
+      "column": "structure",
+      "definition": "How physicians are paid: incentives, bonuses, deferred compensation.",
+      "valence": 0,
+      "aliases": [
+        "physician incentives",
+        "profit incentives",
+        "pay for performance",
+        "deferred compensation"
+      ]
+    },
+    {
+      "name": "succession",
+      "column": "structure",
+      "definition": "Planned transfer of leadership to the next generation.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "best practice spread",
+      "column": "structure",
+      "definition": "Sharing proven practices across regions, e.g. through the Care Management Institute or shared services.",
+      "valence": 0,
+      "aliases": [
+        "shared services"
+      ]
+    },
+    {
+      "name": "research & education",
+      "column": "structure",
+      "definition": "Research units, teaching and medical education.",
+      "valence": 0,
+      "aliases": [
+        "research",
+        "research & teaching",
+        "medical education"
+      ]
+    },
+    {
+      "name": "nonprofit status",
+      "column": "structure",
+      "definition": "KP's nonprofit structure.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "decision-making",
+      "column": "structure",
+      "definition": "How quickly and clearly decisions get made, including role clarity.",
+      "valence": 0,
+      "aliases": [
+        "decision speed",
+        "decision quality",
+        "role clarity"
+      ]
+    },
+    {
+      "name": "culture",
+      "column": "people",
+      "definition": "Shared values, mission and ways of working, and the history behind them.",
+      "valence": 0,
+      "aliases": [
+        "mission",
+        "collegiality",
+        "shared credit",
+        "accountability",
+        "institutional memory",
+        "stewardship",
+        "relationships"
+      ]
+    },
+    {
+      "name": "trust",
+      "column": "people",
+      "definition": "Confidence between physicians, leaders, the plan and patients.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "candor",
+      "column": "people",
+      "definition": "Open, transparent communication, including admitting what isn't known.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "leadership development",
+      "column": "people",
+      "definition": "Mentoring, training and growing physician leaders.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "physician well-being",
+      "column": "people",
+      "definition": "Physicians' satisfaction, morale and sustainable workload.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "burnout",
+      "column": "people",
+      "definition": "Physician exhaustion and overload.",
+      "valence": -1,
+      "aliases": [
+        "administrative burden"
+      ]
+    },
+    {
+      "name": "physician engagement",
+      "column": "people",
+      "definition": "Physicians' buy-in to and involvement in organizational change.",
+      "valence": 0,
+      "aliases": [
+        "physician buy-in"
+      ]
+    },
+    {
+      "name": "physician recruitment",
+      "column": "people",
+      "definition": "Attracting and hiring physicians.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "clinical excellence",
+      "column": "people",
+      "definition": "Physicians' clinical skill and credibility.",
+      "valence": 0,
+      "aliases": [
+        "clinical credibility"
+      ]
+    },
+    {
+      "name": "equity",
+      "column": "people",
+      "definition": "Fair care and outcomes across populations; addressing disparities.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "workforce diversity",
+      "column": "people",
+      "definition": "Diversity of physicians and leaders.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "community health",
+      "column": "people",
+      "definition": "Health of the wider community, including volunteering and pandemic response.",
+      "valence": 0,
+      "aliases": [
+        "volunteerism",
+        "pandemic response"
+      ]
+    },
+    {
+      "name": "quality",
+      "column": "outcome",
+      "definition": "Clinical quality, safety and outcomes of care.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "affordability",
+      "column": "outcome",
+      "definition": "Cost of care to members, employers and the organization.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "prevention",
+      "column": "outcome",
+      "definition": "Preventive care and keeping members healthy.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "patient experience",
+      "column": "outcome",
+      "definition": "Patients' and members' experience of care and service.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "access",
+      "column": "outcome",
+      "definition": "Members' ability to get care when they need it.",
+      "valence": 0,
+      "aliases": []
+    },
+    {
+      "name": "membership growth",
+      "column": "outcome",
+      "definition": "Gaining and keeping members.",
+      "valence": 0,
+      "aliases": [
+        "member retention"
+      ]
+    },
+    {
+      "name": "innovation",
+      "column": "outcome",
+      "definition": "New models, practices and the ability to adapt.",
+      "valence": 0,
+      "aliases": [
+        "adaptability",
+        "change readiness"
+      ]
+    },
+    {
+      "name": "organizational performance",
+      "column": "outcome",
+      "definition": "Overall success and performance of the organization or medical group.",
+      "valence": 0,
+      "aliases": [
+        "organizational success",
+        "medical group performance",
+        "operational excellence"
+      ]
+    },
+    {
+      "name": "brand & reputation",
+      "column": "outcome",
+      "definition": "How KP and Permanente are seen by the public and the market.",
+      "valence": 0,
+      "aliases": [
+        "brand",
+        "reputation"
+      ]
+    },
+    {
+      "name": "negotiating leverage",
+      "column": "outcome",
+      "definition": "Bargaining power in negotiations.",
+      "valence": 0,
+      "aliases": []
+    }
+  ]
+}

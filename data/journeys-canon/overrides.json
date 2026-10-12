@@ -1,0 +1,10 @@
+{
+  "_comment": "Human edits, applied last by `yarn journeys:build` and kept across re-extraction. Item ids (moments, event mentions, stories, questions) are shown in model.json: {narrator}-{m|e|s|q}-{part}-{rounded seconds}. Every item may set review_status: draft|reviewed|hidden (hidden items are left out). moments may also set label, year, stage, fortune. eventMentions may set event (move a mention to another canonical id: splits/merges one mention). events may set name, or mergeInto (merge a whole canonical event into another). bands: a list of event ids replacing the proposal. featuredStories: story ids to show first.",
+  "moments": {},
+  "eventMentions": {},
+  "events": {},
+  "stories": {},
+  "questions": {},
+  "bands": null,
+  "featuredStories": []
+}

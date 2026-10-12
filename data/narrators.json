@@ -1,0 +1,465 @@
+{
+  "_comment": "Narrator registry shared by every Memory Map section (system map, journeys, canon). One narrator can have several recordings (part 1, 2...). excluded_segments are spans the narrator asked to have cut (or said in confidence); claims inside them are dropped. regions and joined/cohort are editorial and drive the filters; edit them by hand. cohort is derived from joined (before 1980 / 1980s / 1990s or later / unknown) when the model is built.",
+  "narrators": [
+    {
+      "slug": "crosson",
+      "name": "Jay Crosson, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "68adfcf6e195190a6728b4e3"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 1352,
+          "end": 1395,
+          "reason": "\"We may have to cut that out\" (lost his place; 22:32). Proposed."
+        },
+        {
+          "part": 1,
+          "start": 4090,
+          "end": 4362,
+          "reason": "\"cut out that part about Kennedy and vaccines. I can't have that\" (1:12:42). Covers the vaccine answer; also covers the Star Trek close he asked to keep (4228-4362), kept excluded as in the prototype."
+        }
+      ],
+      "regions": [
+        "Northern California",
+        "National"
+      ],
+      "joined": 1977,
+      "cohort": "before 1980",
+      "tenure_note": "Joined TPMG in 1977; Federation executive director 1997–c.2007."
+    },
+    {
+      "slug": "ellison",
+      "name": "Ed Ellison, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6914b61105ce13adfade828a"
+        },
+        {
+          "part": 2,
+          "story_id": "6938ac4ef69cceedb32051bd"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 2,
+          "start": 15,
+          "end": 32,
+          "reason": "\"I'm sorry. Let me start again.\" (0:15) False start of the Q42 answer, retaken immediately. Proposed."
+        },
+        {
+          "part": 2,
+          "start": 1878,
+          "end": 1995,
+          "reason": "Sidney Garfield answer false starts: \"I'm sorry.\" / interviewer: \"I'll just cut that part, okay?\" / \"Sorry. I'm going to go start again. It'll be more politically correct.\" / \"I'm sorry, I keep. Okay. Take three.\" (31:18-33:15). Proposed."
+        },
+        {
+          "part": 2,
+          "start": 2056,
+          "end": 2097,
+          "reason": "Narrator and interviewer ask the editor to snip a stumble: \"Section where he said where he thinks that what he thought? Yeah.\" / editor: \"I can clip it out.\" (34:16-34:57). Proposed."
+        },
+        {
+          "part": 2,
+          "start": 2134,
+          "end": 2336,
+          "reason": "Henry Kaiser answer false starts the narrator rejected: \"And I don't like that, either.\" (36:22) and \"I don't know. That's not right either\" (37:00), followed by retake at 38:56. Proposed."
+        },
+        {
+          "part": 2,
+          "start": 2828,
+          "end": 2877,
+          "reason": "Culture answer first take the narrator rejected: \"I'm not liking this answer. ... Let me try one more time.\" (47:43); retaken at 47:57. Proposed."
+        }
+      ],
+      "regions": [
+        "Southern California"
+      ],
+      "joined": null,
+      "cohort": "unknown",
+      "tenure_note": "Joined SCPMG from residency (year not stated); EMD until the early 2020s."
+    },
+    {
+      "slug": "ferguson",
+      "name": "Margaret Ferguson, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "69819de4e12e409359b1cf4c"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 3108,
+          "end": 3474,
+          "reason": "Asked about the foundation/Federation specifics, she deferred: \"I think it would be, um, tough for me to weigh in, especially because I'm still kind of working with them. Okay, if I can just tell you...\" and \"I would ask that you have, you know, Paul will be a little bit tougher to tell the truth. But I think, Jeff, I've heard him describe it in a very balanced way, and I would feel better if he did it.\" (51:48-57:54). Proposed."
+        },
+        {
+          "part": 1,
+          "start": 3615,
+          "end": 3831,
+          "reason": "Interviewer: \"So just for my own knowledge...\"; she: \"So I'm just telling you this not for the right thing.\" (likely mis-transcribed \"not for the record\"; 1:00:15-1:03:51), covering the Federation suspension remarks. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 4610,
+          "end": 4642,
+          "reason": "\"I'm sorry, I'm being kind of clunky with this because it's a little bit of an odd question, but if they can edit that part out.\" (1:17:08). Proposed; span approximates the clunky passage before she restarts."
+        },
+        {
+          "part": 1,
+          "start": 5750,
+          "end": 5772,
+          "reason": "False start on the leadership-advice answer: \"Here, let me start over. Okay.\" (1:35:50). Proposed retake."
+        },
+        {
+          "part": 1,
+          "start": 7861,
+          "end": 7887,
+          "reason": "False start on the Permanente-history answer: \"Let me say this again okay.\" (2:11:01). Proposed retake."
+        },
+        {
+          "part": 1,
+          "start": 8690,
+          "end": 8750,
+          "reason": "\"And I'm just going to say this, and I know you're not going to record it, but it's almost a little bit like there's like seven billionaires who are running the world right now.\" (2:24:50), through the Elon Musk / 13 million members remark. Proposed."
+        }
+      ],
+      "regions": [
+        "Colorado",
+        "Washington"
+      ],
+      "joined": 2004,
+      "cohort": "1990s or later",
+      "tenure_note": "c.2004 (11 years before becoming CPMG EMD in 2015); EMD 2015–2021."
+    },
+    {
+      "slug": "goldsmith",
+      "name": "Oliver Goldsmith, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "69828d626a8a7b1eeb245d84"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 6028.76,
+          "end": 6045,
+          "reason": "Narrator asked to go off the record: \"another aspect this this is off the tape now isn't it, Paul. We're not I mean.\" (interviewer: \"We can stop the recording.\")"
+        }
+      ],
+      "regions": [
+        "Southern California"
+      ],
+      "joined": 1969,
+      "cohort": "before 1980",
+      "tenure_note": "Joined SCPMG July 1969; EMD 1994–2004; still practicing."
+    },
+    {
+      "slug": "grant",
+      "name": "Chris Grant",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6917a33a289eff1b141a2fec"
+        }
+      ],
+      "excluded_segments": [],
+      "regions": [
+        "National",
+        "Northern California"
+      ],
+      "joined": 1994,
+      "cohort": "1990s or later",
+      "tenure_note": "Joined KP 31 years before the interview; Permanente Federation since its formation."
+    },
+    {
+      "slug": "tarnoff",
+      "name": "Stephen Tarnoff, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6952d1175d2db97b9c242774"
+        }
+      ],
+      "excluded_segments": [],
+      "regions": [
+        "Washington"
+      ],
+      "joined": 1981,
+      "cohort": "1980s",
+      "tenure_note": "38 years at Group Health / Washington Permanente; retired 2019."
+    },
+    {
+      "slug": "wilson",
+      "name": "Mary Wilson, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "698248dce12e409359b38973"
+        },
+        {
+          "part": 2,
+          "story_id": "69e13e94117c81e5e310776c"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 2,
+          "start": 2371,
+          "end": 2400,
+          "reason": "\"Off the record, it's the one person...\" (39:31), about removing a leader from her team. Proposed."
+        },
+        {
+          "part": 2,
+          "start": 6460,
+          "end": 6479.5,
+          "reason": "\"You'll have to cut that part out.\" (1:47:58), about her 'best friend at work' survey joke on how women and men answer."
+        },
+        {
+          "part": 2,
+          "start": 6508,
+          "end": 6520,
+          "reason": "Continuation of the same 'best friend at work' joke she asked to have cut (\"You'll have to cut that part out.\")."
+        },
+        {
+          "part": 2,
+          "start": 6944,
+          "end": 7010,
+          "reason": "\"No, I don't want to address it. I was trying to avoid it in that answer.\" (1:55:52), on the foundation model (Risant); she then gives off-hand opinions."
+        },
+        {
+          "part": 2,
+          "start": 7290,
+          "end": 7325,
+          "reason": "\"This is not recorded, right? No. Yeah.\" ... \"No it's no no we can't.\" (2:01:43), after her remarks on California membership predictions sabotaging Georgia ('dysfunction junction')."
+        }
+      ],
+      "regions": [
+        "Georgia",
+        "Southern California"
+      ],
+      "joined": null,
+      "cohort": "unknown",
+      "tenure_note": "Joined SCPMG (Panorama City) '30, 40 years ago' (year not stated); retired as Southeast PMG EMD in 2021."
+    },
+    {
+      "slug": "wheeler",
+      "name": "Calvin Wheeler, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6a3042d23539199dd70d850c"
+        }
+      ],
+      "excluded_segments": [],
+      "regions": [
+        "Northern California"
+      ],
+      "joined": 1984,
+      "cohort": "1980s",
+      "tenure_note": "Started 1984; PIC Fremont/Greater Southern Alameda 1998–c.2016."
+    },
+    {
+      "slug": "chu",
+      "name": "Ben Chu, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6a455fe3cad237110b2dad37"
+        }
+      ],
+      "excluded_segments": [],
+      "regions": [
+        "Southern California"
+      ],
+      "joined": 2005,
+      "cohort": "1990s or later",
+      "tenure_note": "KFHP/H regional president for Southern California 2005–2016 (health plan side)."
+    },
+    {
+      "slug": "pearl",
+      "name": "Robert Pearl, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "697ba5228e33219f48128248"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 5502.41,
+          "end": 5515.89,
+          "reason": "Narrator marks a remark as off camera: \"Now, I'll tell you off camera, you know, we put it in place in three years at PMG. I'm not sure it has yet to do it. So, uh, it does talk about culture or something like that, but that's another story.\""
+        },
+        {
+          "part": 1,
+          "start": 5588.25,
+          "end": 5596.61,
+          "reason": "Narrator asks to cut a misstated statistic: \"400,000 people in the United States died today from preventable. Uh, please cut that out.\""
+        }
+      ],
+      "regions": [
+        "Northern California",
+        "Mid-Atlantic"
+      ],
+      "joined": null,
+      "cohort": "unknown",
+      "tenure_note": "Joined Kaiser Santa Clara as a Stanford chief resident (year not stated); TPMG CEO 1998/99–2017."
+    },
+    {
+      "slug": "selevan",
+      "name": "Jeffrey Selevan, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "69f4069620d30677412a240d"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 8765,
+          "end": 8790,
+          "reason": "\"I'd like to take that out\" (2:26:22), after the tonsillectomy-cost aside. Scope of 'that' unclear. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 2812,
+          "end": 2846,
+          "reason": "Interviewer (not narrator) says \"this is off the record\" (46:52) while framing the MBA-training question and then restarts it. Excluded as a precaution; no claims affected."
+        },
+        {
+          "part": 1,
+          "start": 3658,
+          "end": 4735,
+          "reason": "Narrator: \"Uh, Kurt, I'd like to go off record now.\" (1:00:58), in response to the question on the KP Medical Foundation / Risant / Renown and non-exclusivity. The interviewer keeps asking follow-ups on that topic (Ramin advice, Reno branding) and says at 1:13:30 \"the last question related to this, and then we'll go back to the prearranged questions\"; the prearranged questions resume at 1:18:54 (Q15/fee-for-service). Scope read as the whole foundation/Reno block."
+        }
+      ],
+      "regions": [
+        "Southern California"
+      ],
+      "joined": 1975,
+      "cohort": "before 1980",
+      "tenure_note": "Joined SCPMG San Diego c.1975; later Medical Director of Business Management."
+    },
+    {
+      "slug": "weisz",
+      "name": "Jeffrey Weisz, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "69f406aa20d30677412a2468"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 1765,
+          "end": 1795,
+          "reason": "\"you don't put that down ... You can't put this in\" (29:25), about leaders he removed. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 1535,
+          "end": 1562,
+          "reason": "\"You know, this is not going anywhere, but minority gave in. This is disgusting.\" ... \"He's minority sold us out.\" (25:35) Off-record aside about the foundation decision; interviewer replies \"we're not recording this\". Proposed."
+        },
+        {
+          "part": 1,
+          "start": 2488,
+          "end": 2560,
+          "reason": "\"Off the cuff. A lot of things we put in our leaders, they got rid of.\" ... \"Everyone says it between you and me.\" (41:28) Off-the-cuff aside about successor leaders. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 5146,
+          "end": 5374,
+          "reason": "\"I frankly, off the cuff, I think we're we're struggling. But don't don't put this in the interview that we're struggling.\" (1:25:46) and \"between you and me\" (1:26:37); aside continues through panel-management and Reno chatter until the next question. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 6200,
+          "end": 6256,
+          "reason": "\"You know, off the cuff, all this new stuff with guys that are rising.\" ... \"But don't tell minority. He's at fault.\" (1:43:20) Off-the-cuff aside. Proposed."
+        },
+        {
+          "part": 1,
+          "start": 7227,
+          "end": 7255,
+          "reason": "\"You know, between you and this doesn't leave.\" (2:00:33) then \"Is this off the cuff?\" Aside about the current Federation co-lead. Proposed."
+        }
+      ],
+      "regions": [
+        "Southern California",
+        "Northwest"
+      ],
+      "joined": 1980,
+      "cohort": "1980s",
+      "tenure_note": "c. early 1980s (inferred); SCPMG EMD from 2004; then Northwest Permanente."
+    },
+    {
+      "slug": "minardi",
+      "name": "Paul Minardi, MD",
+      "recordings": [
+        {
+          "part": 1,
+          "story_id": "6a4e8fb1f380697f178c53bd"
+        },
+        {
+          "part": 2,
+          "story_id": "6a833d75de9acdf7b9822488"
+        }
+      ],
+      "excluded_segments": [
+        {
+          "part": 1,
+          "start": 5291,
+          "end": 5466,
+          "reason": "\"between you and I, Paul, it wasn't it was not a it was a known process, but not an open process\" (1:28:11) and \"what I saw between you and I was the road to nowhere\" — confidential aside about declining the Federation CEO offer. Proposed (conservative; not an explicit cut request)."
+        },
+        {
+          "part": 1,
+          "start": 8740,
+          "end": 8819,
+          "reason": "\"So why why do not put that in. Okay. Do not put that in. Okay.\" (2:26:52), about the interviewer's Palomar/Bonaventure question just before it."
+        },
+        {
+          "part": 1,
+          "start": 10309,
+          "end": 10337,
+          "reason": "\"So that's why the balance sheet, quite frankly between you and me is a fortress balance sheet.\" (2:52:06) — confidential aside in post-answer banter. Proposed (conservative)."
+        },
+        {
+          "part": 2,
+          "start": 4135,
+          "end": 4291,
+          "reason": "\"I don't know if we want to put all that detail in there, but it's it's what actually happened\" (1:10:52) and \"I don't know if you want me to talk about all that stuff\" — candid account of the EMD vote and Federation suspension, which he then re-told formally from 4403."
+        },
+        {
+          "part": 2,
+          "start": 6857,
+          "end": 7190,
+          "reason": "\"I want to be I want to think about what I say for the common plan\" (1:54:34), \"between you and I is just about 11% all in\", then \"Um, let me think about how I say all this\" — candid common-plan/NCAL pension aside before his formal answer at 7193. Proposed."
+        }
+      ],
+      "regions": [
+        "Southern California",
+        "Washington",
+        "Colorado"
+      ],
+      "joined": 1985,
+      "cohort": "1980s",
+      "tenure_note": "Joined SCPMG 1985; Washington EMD and KP Medical Foundation thereafter."
+    }
+  ]
+}

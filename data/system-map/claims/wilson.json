@@ -1,0 +1,527 @@
+{
+  "narrator": "Mary Wilson, MD",
+  "slug": "wilson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "698248dce12e409359b38973"
+    },
+    {
+      "part": 2,
+      "story_id": "69e13e94117c81e5e310776c"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 2,
+      "start": 2371,
+      "end": 2400,
+      "reason": "\"Off the record, it's the one person...\" (39:31), about removing a leader from her team. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 6460,
+      "end": 6479.5,
+      "reason": "\"You'll have to cut that part out.\" (1:47:58), about her 'best friend at work' survey joke on how women and men answer."
+    },
+    {
+      "part": 2,
+      "start": 6508,
+      "end": 6520,
+      "reason": "Continuation of the same 'best friend at work' joke she asked to have cut (\"You'll have to cut that part out.\")."
+    },
+    {
+      "part": 2,
+      "start": 6944,
+      "end": 7010,
+      "reason": "\"No, I don't want to address it. I was trying to avoid it in that answer.\" (1:55:52), on the foundation model (Risant); she then gives off-hand opinions."
+    },
+    {
+      "part": 2,
+      "start": 7290,
+      "end": 7325,
+      "reason": "\"This is not recorded, right? No. Yeah.\" ... \"No it's no no we can't.\" (2:01:43), after her remarks on California membership predictions sabotaging Georgia ('dysfunction junction')."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Georgia (The Southeast Permanente Medical Group), EMD; earlier Southern California (SCPMG, Panorama City AMD)",
+    "region_quote": "my journey to become the EMD at, uh, in Georgia at the Southeast Permanente Medical Group",
+    "era": "c. 1980s–2021 (joined SCPMG at Panorama City roughly 30–40 years before part 2; retired as SEPMG EMD in 2021)",
+    "era_quote": "This was 30, 40 years ago or something."
+  },
+  "claims": [
+    {
+      "from": "leadership development",
+      "to": "culture",
+      "polarity": "+",
+      "t": 1001.75,
+      "part": 1,
+      "quote": "that's really how you change a culture. You get the leaders on board and then they can help change the people that report to them",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "When you brought those attributes over, was there a replacement of such systems or was it just putting something new in place?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1007.23
+    },
+    {
+      "from": "relationships",
+      "to": "trust",
+      "polarity": "+",
+      "t": 1080.01,
+      "part": 1,
+      "quote": "I did it with relationships. So, um, you know, I've I to build trust.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So how did you overcome these? Um, I guess you can call them challenges. Unexpected challenges that, um, emerge with the resistance and the culture shock.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1086.97
+    },
+    {
+      "from": "data & technology",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 1505.15,
+      "part": 1,
+      "quote": "it's much less expensive to have one entity and we can import tools much more quickly.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You mentioned briefly it's about bringing health connect alignment from Southern California to Georgia. Tell me more, um, what that meant.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1509.71
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "innovation",
+      "polarity": "-",
+      "t": 1520.42,
+      "part": 1,
+      "quote": "All the regions have their own little version, and it's been a nightmare to try to get the perms, to do anything national to to say, get access systems together,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You mentioned briefly it's about bringing health connect alignment from Southern California to Georgia. Tell me more, um, what that meant.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1529.66
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 1625.76,
+      "part": 1,
+      "quote": "best practices bubble up from the medical groups more rapidly. In a sense, a lot of people think that it may well be true because of the fact that we're not the same.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How would you describe when the autonomy of the medical group would be detrimental to progress.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1635.76
+    },
+    {
+      "from": "secrecy",
+      "to": "trust",
+      "polarity": "-",
+      "t": 1777.24,
+      "part": 1,
+      "quote": "a lot of people learned very late in the process, and it was already a done deal basically when they learned. And that leaves a very bad taste in your mouth, like you're not important.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Let's transition again to the 2018 Emory Healthcare System Partnership. What were the controversies surrounding this and what challenges you experienced, and how did you really overcome these?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 1787.04
+    },
+    {
+      "from": "hospital partnership",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 1847.3,
+      "part": 1,
+      "quote": "and we got an ability to, to do our care model in the hospital, which we had not been able to do.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Let's transition again to the 2018 Emory Healthcare System Partnership. What were the controversies surrounding this and what challenges you experienced, and how did you really overcome these?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 1852.1
+    },
+    {
+      "from": "equity",
+      "to": "trust",
+      "polarity": "+",
+      "t": 2328.58,
+      "part": 1,
+      "quote": "we heard from people, we they know that we share their values. We don't always act on it perfectly. We mess up. But they do trust that we are trying to do the right thing",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What role do you think SPMG and Kaiser Permanente has in this type of movement? Let's begin with the social justice movement.",
+        "list_number": "Q19",
+        "type": "asked_directly"
+      },
+      "end": 2338.97
+    },
+    {
+      "from": "physician leadership",
+      "to": "equity",
+      "polarity": "+",
+      "t": 765.97,
+      "part": 1,
+      "quote": "Kaiser Permanente in particular was such a wonderful, um, merit based system of leadership ... it's gender free kind of.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Have you experienced any obstacles or challenges being a woman physician or being a woman physician leader inside and outside of Kaiser Permanente, the medical groups?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 781.53
+    },
+    {
+      "from": "fee-for-service incentives",
+      "to": "quality",
+      "polarity": "-",
+      "t": 3899.42,
+      "part": 2,
+      "quote": "It's not unethical or wrong to do that, but it drives utilization instead of driving quality.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you want to talk a little bit about the incentive part, you know, of fee for service versus.",
+        "list_number": "Q30",
+        "type": "follow_up"
+      },
+      "end": 3904.86
+    },
+    {
+      "from": "group practice",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1536.58,
+      "part": 2,
+      "quote": "versus a machine that Permanente Medicine is that provides you with the information you need in a regularly scheduled basis, and then monitors if you're following evidence-based practices, that elevates your practice.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What sets the Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 1548.18
+    },
+    {
+      "from": "patient experience",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1668.89,
+      "part": 2,
+      "quote": "communication skills and the ease of making an appointment are profoundly quality measures.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How is Kaiser Permanente's mission influenced your career?",
+        "list_number": "Q10",
+        "type": "narrators_choice"
+      },
+      "end": 1675.01
+    },
+    {
+      "from": "culture",
+      "to": "burnout",
+      "polarity": "-",
+      "t": 1708.79,
+      "part": 2,
+      "quote": "one of the elements that fights burnout is feeling mission driven and also feeling like you have a collective reinforcement at your workplace.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How is Kaiser Permanente's mission influenced your career?",
+        "list_number": "Q10",
+        "type": "narrators_choice"
+      },
+      "end": 1717.95
+    },
+    {
+      "from": "collegiality",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 6481.11,
+      "part": 2,
+      "quote": "it is the perception that you have friends at work, um, needs to be encouraged because it makes a huge difference in your lifetime of happiness in your workplace.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente ensure that its physicians stay motivated and passionate about their work?",
+        "list_number": "Q27",
+        "type": "asked_directly"
+      },
+      "end": 6490.79
+    },
+    {
+      "from": "group practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 3632.43,
+      "part": 2,
+      "quote": "you're structured so that you can go home and not get phone calls a lot of the time. So you have enough colleagues so that you can get enough time off.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 3640.59
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4389.5,
+      "part": 2,
+      "quote": "Technology is a huge, um, helper in Kaiser Permanente. It's a huge part of our system and it drives a lot of our quality.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Speaking of data, what role does technology play in enhancing patient care at Kaiser Permanente?",
+        "list_number": "Q36",
+        "type": "asked_directly"
+      },
+      "end": 4397.14
+    },
+    {
+      "from": "data & technology",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 5141.81,
+      "part": 2,
+      "quote": "you can still capture them because you know what they need when they don't come in. You cannot escape us. Your prevention with Kaiser Permanente.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you discuss the impact of Kaiser Permanente's electronic health record on patient care?",
+        "list_number": "Q41",
+        "type": "asked_directly"
+      },
+      "end": 5148.89
+    },
+    {
+      "from": "data & technology",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 2644.62,
+      "part": 2,
+      "quote": "it allows each individual physician as well as teams of physician to work together on on innovations and projects.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 2652.3
+    },
+    {
+      "from": "group practice",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 2685.32,
+      "part": 2,
+      "quote": "the innovation of the collective Permanente minds that work together and the way we structure the clinical work",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 2690.64
+    },
+    {
+      "from": "innovation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4898.95,
+      "part": 2,
+      "quote": "So it's a great, um, triple aim innovation, meaning that it drives higher quality, it drives higher satisfaction",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of how Kaiser Permanente has improved patient outcomes through innovation?",
+        "list_number": "Q40",
+        "type": "asked_directly"
+      },
+      "end": 4907.75
+    },
+    {
+      "from": "prevention",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3707.37,
+      "part": 2,
+      "quote": "colon cancer screening over time reduces then the occurrence of colon cancer, or it catches it early so that you can treat it early. It reduces deaths from colon cancer",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "narrators_choice"
+      },
+      "end": 3717.08
+    },
+    {
+      "from": "integrated care",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 3559.9,
+      "part": 2,
+      "quote": "She never would have gotten her mammogram without that that allergy receptionist booking it for her.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Can you share a story where Kaiser Permanente's approach made a significant difference in a patient's life?",
+        "list_number": "Q25",
+        "type": "narrators_choice"
+      },
+      "end": 3566.38
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 7384.35,
+      "part": 2,
+      "quote": "being able to control the hospital environment, the er environment, the specialty environment, um that drives the best quality.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You had all your specialists around [Panorama] City and like you said, like 60% or 40% of your own in Georgia... Tell us about that.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7390.55
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 7176.17,
+      "part": 2,
+      "quote": "when you have your own hospitals, you don't hemorrhage money into the hospital space like you do when you don't have it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the advantages and disadvantages of having your own hospital like you did in Panorama City versus contracting only like you did in Georgia?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7181.97
+    },
+    {
+      "from": "hospital partnership",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 7188.09,
+      "part": 2,
+      "quote": "we were able to get a contract with Emory that stabilized the cost of hospitalized care",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the advantages and disadvantages of having your own hospital like you did in Panorama City versus contracting only like you did in Georgia?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7192.65
+    },
+    {
+      "from": "membership growth",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 1883.43,
+      "part": 2,
+      "quote": "when Kaiser Permanente almost went bankrupt. And part of what had happened was just too many patients too fast, some poor decision making",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "A pivotal moment in the history of Kaiser Permanente that has shaped its current practice.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1892.71
+    },
+    {
+      "from": "financial pressure",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 1895.83,
+      "part": 2,
+      "quote": "what happened then is that the medical group stepped up and partnered with the health plan, and together we worked to address some long-term issues",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "A pivotal moment in the history of Kaiser Permanente that has shaped its current practice.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1906.51
+    },
+    {
+      "from": "financial pressure",
+      "to": "change readiness",
+      "polarity": "+",
+      "t": 1179.53,
+      "part": 2,
+      "quote": "They knew that they were losing money and that they were in crisis. And so, um, you know, one thing that helps change is if you have a burning platform",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share your journey to becoming the MD of Southeast Permanente Medical Group?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 1188.73
+    },
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 837.77,
+      "part": 2,
+      "quote": "you need to share everything that someone needs to do their job and to build trust.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So why don't we first share your journey to becoming the area medical director of Panorama City.",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 842.93
+    },
+    {
+      "from": "clinical credibility",
+      "to": "trust",
+      "polarity": "+",
+      "t": 972.47,
+      "part": 2,
+      "quote": "I was a good doctor, so I had built a level of, as I was a known quantity ... That helped me a lot when times were difficult because I had trust in the bank",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does a leader balance wanting to be liked with wanting to get their physicians to perform?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 984.35
+    },
+    {
+      "from": "workforce diversity",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 6262.09,
+      "part": 2,
+      "quote": "it was, it was, uh, not as functional as it was when we got the three women. It was a huge help.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So tell me about your experience as the first female president, executive medical director of southeast, and of the program.",
+        "list_number": "Q5",
+        "type": "asked_directly"
+      },
+      "end": 6269.41
+    }
+  ],
+  "new_factors": [
+    "relationships",
+    "hospital partnership",
+    "fee-for-service incentives",
+    "collegiality",
+    "change readiness",
+    "clinical credibility"
+  ]
+}

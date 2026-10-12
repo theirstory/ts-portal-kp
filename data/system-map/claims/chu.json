@@ -1,0 +1,404 @@
+{
+  "narrator": "Ben Chu, MD",
+  "slug": "chu",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6a455fe3cad237110b2dad37"
+    }
+  ],
+  "excluded_segments": [],
+  "narrator_meta": {
+    "region": "Southern California (KFHP/H regional president, partnered with SCPMG)",
+    "region_quote": "In 2005, I got recruited to be, um, the regional president for Southern California for the Kaiser Foundation Health Plan and Hospitals, right, where it was a wonderful almost dozen years of working with the SCPMG.",
+    "era": "2005–2016",
+    "era_quote": "I left in 2016 to go to Texas"
+  },
+  "claims": [
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 7192.07,
+      "part": 1,
+      "quote": "our quality scores were better than everybody, everybody else. Right. And that was because the point system allowed us to close those gaps in care, in care.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Summarize what it was like working with George and an example of one of the big projects of the time, of course, was deciding on Epic versus Cerner, and then rolling it out.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7201.76
+    },
+    {
+      "from": "quality",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 5372.39,
+      "part": 1,
+      "quote": "our virtuous cycle was, you know, we started to demonstrate better quality, better facilities, better quality. Right? Um, word of mouth, you know, really helped us a little bit more, we started to grow more",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5387.15
+    },
+    {
+      "from": "membership growth",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5387.67,
+      "part": 1,
+      "quote": "the more we grew, the more quality we got, the more money we got to rebuild.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5392.83
+    },
+    {
+      "from": "quality",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 5395.67,
+      "part": 1,
+      "quote": "people just started seeing us as one of the go to places, and that was true for physician recruitment.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5401.75
+    },
+    {
+      "from": "financial pressure",
+      "to": "quality",
+      "polarity": "-",
+      "t": 5103.66,
+      "part": 1,
+      "quote": "needing to pinch pennies and, uh, and, you know, raising the premiums and, you know, and that kind of turmoil makes it hard for a system to optimize their performance.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5117.58
+    },
+    {
+      "from": "trust",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 5137.96,
+      "part": 1,
+      "quote": "there was a skittishness that may be born from mistrust of one another, right.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5144.37
+    },
+    {
+      "from": "physician leadership",
+      "to": "decision speed",
+      "polarity": "-",
+      "t": 5294.83,
+      "part": 1,
+      "quote": "because of the election and leadership on the Permanente Medical side, you have to, uh, you have to listen to the members; it slows you down sometimes.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the aspects of Permanente medicine that surprised you or you were unaware of until you experienced them firsthand? What was your preconception of Permanente medicine when you were in New York?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 5307.13
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "decision speed",
+      "polarity": "-",
+      "t": 8706.49,
+      "part": 1,
+      "quote": "one of the problems with the Federation, the way it was configured, is that everybody had a veto ... you couldn't get everyone to agree, right.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What do you see as the advantages and disadvantages of the new Medical Foundation model, with Washington, Colorado, versus the traditional integrated federation model that we've had traditionally at KP?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 8752.57
+    },
+    {
+      "from": "candor",
+      "to": "decision quality",
+      "polarity": "+",
+      "t": 8781.07,
+      "part": 1,
+      "quote": "And and that doesn't work, right. You need open dialogue in order to get to the best solutions.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you see as the advantages and disadvantages of the new Medical Foundation model, with Washington, Colorado, versus the traditional integrated federation model that we've had traditionally at KP?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 8787.87
+    },
+    {
+      "from": "capitation",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 8674.36,
+      "part": 1,
+      "quote": "one of the nice things about having Permanente, uh, the medical group separate is that and paying the medical group on a capitated model is that you stimulate an awful lot of innovation",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you see as the advantages and disadvantages of the new Medical Foundation model, with Washington, Colorado, versus the traditional integrated federation model that we've had traditionally at KP?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 8687.61
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 8817.97,
+      "part": 1,
+      "quote": "you potentially can give up a lot of innovation that comes with the, you know, giving, giving the Permanente Medical Group a lot of freedom to experiment",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you see as the advantages and disadvantages of the new Medical Foundation model, with Washington, Colorado, versus the traditional integrated federation model that we've had traditionally at KP?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 8827.73
+    },
+    {
+      "from": "capitation",
+      "to": "care management",
+      "polarity": "+",
+      "t": 3651.75,
+      "part": 1,
+      "quote": "until you you're capitated, until you know that it's a fixed dollar ... you're not going to develop the infrastructure to do that, right.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you assure equity of care and value based medicine when you have this mixed model? How do we do that when the individual physician's incentives are different than ours?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3667.36
+    },
+    {
+      "from": "capitation",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 6510.32,
+      "part": 1,
+      "quote": "the incentive is in the Medicare Advantage plan is to at least try to keep people from developing complications.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "The Wall Street Journal had this article basically saying your chances of getting your toe amputated were minimal in a Medicare Advantage plan versus a lot more likely in a Medicare fee for service plan.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 6518.92
+    },
+    {
+      "from": "membership growth",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 2680.3,
+      "part": 1,
+      "quote": "But who would give us the time of day when you don't have that many members? Um, and so we started bleeding. We, uh, we bled a lot of money",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "When KP expanded to New York, what was your role? Were you involved at all with KP's negotiation to move to New York? And why did it fail so quickly?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2690.19
+    },
+    {
+      "from": "shared credit",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1593.27,
+      "part": 1,
+      "quote": "we gave a lot of credit to a lot of different people. And guess what? Things got even better because people worked harder and they wanted to do things that really made a difference.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Did you make that decision during your residency, that you're going to go more in an administrative leadership track versus a clinical track? At what point in your career did you make that decision?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1603.91
+    },
+    {
+      "from": "quality",
+      "to": "trust",
+      "polarity": "+",
+      "t": 2476.09,
+      "part": 1,
+      "quote": "the trick with program office and the trick with, um, really everything is once you get start showing good results, people believe in you. And so they help you down the road",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Did you make that decision during your residency, that you're going to go more in an administrative leadership track versus a clinical track? At what point in your career did you make that decision?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2489.13
+    },
+    {
+      "from": "data & technology",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 2156.96,
+      "part": 1,
+      "quote": "I will tell you another story that that I think helped cement my relationship with the doctors in Permanente, the Permanente Medical Group.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Did you make that decision during your residency, that you're going to go more in an administrative leadership track versus a clinical track? At what point in your career did you make that decision?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2167.99
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "decision speed",
+      "polarity": "+",
+      "t": 7150.27,
+      "part": 1,
+      "quote": "we had such a good relationship with Jeff and the Permanente Medical Group. We got things done.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Summarize what it was like working with George and an example of one of the big projects of the time, of course, was deciding on Epic versus Cerner, and then rolling it out.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7156.11
+    },
+    {
+      "from": "membership growth",
+      "to": "patient experience",
+      "polarity": "-",
+      "t": 5714.49,
+      "part": 1,
+      "quote": "if we grew too fast and we didn't have the facilities and we didn't have the doctors ... Waiting times would go up",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Summarize what the Affordable Care Act was and how it affected Kaiser Permanente, and then briefly touch on how a single payer system versus Medicare for all might affect us.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5726.45
+    },
+    {
+      "from": "affordable care act",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 5632.3,
+      "part": 1,
+      "quote": "for us at Kaiser Permanente, it helped propel some of the growth for us in, in Southern California",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Summarize what the Affordable Care Act was and how it affected Kaiser Permanente, and then briefly touch on how a single payer system versus Medicare for all might affect us.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 5639.78
+    },
+    {
+      "from": "operating margin",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 9308.31,
+      "part": 1,
+      "quote": "the margin that we generated in Southern California allowed us to rebuild. It allowed us to recruit more people. It allowed us to grow and make investments in the infrastructure.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Why not have them stay the same in terms of their structure and just change their name to Kaiser Permanente? What reason is there for it, without calling these acquisitions that we're spending billions on Kaiser Permanente?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 9319.17
+    },
+    {
+      "from": "group practice",
+      "to": "quality",
+      "polarity": "+",
+      "t": 7763.86,
+      "part": 1,
+      "quote": "There's a unified governance that has a purpose in mind that are driving, you know, at Permanente, driving for best outcomes",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what concerns you the most about the future of American health care?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 7772.55
+    },
+    {
+      "from": "role clarity",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 6687.93,
+      "part": 1,
+      "quote": "very good partnerships between the Permanente Medical Group and the Kaiser Foundation health plans, partially because I think the Tahoe agreement made it clear whose responsibilities were what",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advantages do Kaiser Permanente's integrated partnership of health plan, hospitals and medical group, the traditional KP 1955 Tahoe agreement, have over organizations that don't have this unique physician-health plan partnership?",
+        "list_number": "Q9",
+        "type": "asked_directly"
+      },
+      "end": 6700.09
+    },
+    {
+      "from": "data & technology",
+      "to": "burnout",
+      "polarity": "-",
+      "t": 8205.26,
+      "part": 1,
+      "quote": "it can release a lot of the burdens that many doctors and clinicians feel right now, right, because it's too burdensome to take care of somebody with multiple chronic illnesses without some help.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Where do you see AI having the most significant impacts on Kaiser Permanente and medical groups in general? Where do you see the role of AI?",
+        "list_number": "Q36",
+        "type": "asked_directly"
+      },
+      "end": 8219.15
+    },
+    {
+      "from": "burnout",
+      "to": "quality",
+      "polarity": "-",
+      "t": 10512.15,
+      "part": 1,
+      "quote": "People are burning out. They stop caring and they they give up. And it only gets worse if we give up.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What message would you like to leave for future generations of Kaiser Permanente leaders?",
+        "list_number": "Q43",
+        "type": "narrators_choice"
+      },
+      "end": 10519.35
+    }
+  ],
+  "new_factors": [
+    "decision speed",
+    "decision quality",
+    "care management",
+    "physician recruitment",
+    "shared credit",
+    "affordable care act",
+    "operating margin",
+    "role clarity"
+  ]
+}

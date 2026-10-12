@@ -1,0 +1,537 @@
+{
+  "narrator": "Calvin Wheeler, MD",
+  "slug": "wheeler",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6a3042d23539199dd70d850c"
+    }
+  ],
+  "one_line": "Arkansas-born pediatric neurologist who built TPMG's peds neurology service, led Fremont/GSA as PIC 18 years, then medical education.",
+  "top_role": "Physician in Chief, Fremont and Greater Southern Alameda Area (TPMG); later Regional Medical Director for UME/GME",
+  "region": "Northern California",
+  "excluded_segments": [],
+  "journey": [
+    {
+      "t": 239.3,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Childhood in segregated Arkansas; no year given.",
+      "stage": "ordinary_world",
+      "label": "Grows up in Jim Crow Arkansas",
+      "fortune": -2,
+      "fortune_basis": "all of the segregation and oppression that we experienced",
+      "quote": "began to see beyond sort of the Jim Crow era that I had grown up with in Arkansas and all of the segregation and oppression that we experienced",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 249.58
+    },
+    {
+      "t": 231.85,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for pharmacy school.",
+      "stage": "threshold",
+      "label": "Pharmacy school at University of Michigan",
+      "fortune": 2,
+      "fortune_basis": "that really is where my world began to open",
+      "quote": "so attended the University of Michigan for pharmacy school. And that really is where my world began to open",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 238.22
+    },
+    {
+      "t": 471.07,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During pediatric residency in Boston; no year given.",
+      "stage": "mentor",
+      "label": "Rossman invites him into ped neurology",
+      "fortune": 1,
+      "fortune_basis": "asked if I was interested in pursuing ped neurology",
+      "quote": "he came to me after grand rounds one day and asked if I was interested in pursuing ped neurology.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 475.95
+    },
+    {
+      "t": 549.87,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Toward the end of his neurology training; no year given.",
+      "stage": "call",
+      "label": "Sharon Levine recruits him to TPMG",
+      "fortune": 1,
+      "fortune_basis": "wanted to talk to me about coming to interview for a job",
+      "quote": "I got a call from Dr. Sharon Levine, who was a physician at TPMG, Northern California, and wanted to talk to me about coming to interview for a job",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 560.99
+    },
+    {
+      "t": 1239.8,
+      "part": 1,
+      "year": 1984,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says the second pediatric neurologist was hired 'in 87, three years after I started'.",
+      "stage": "threshold",
+      "label": "Joins TPMG to start peds neurology",
+      "fortune": 2,
+      "fortune_basis": "wow, this would be a great opportunity",
+      "quote": "I felt like, wow, this would be a great opportunity, one that you don't normally get at that age of your career.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1245.64
+    },
+    {
+      "t": 973.54,
+      "part": 1,
+      "year": 1984,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "His first three years after starting (he started three years before 1987).",
+      "stage": "trials",
+      "label": "General pediatrics practice fills quickly",
+      "fortune": 2,
+      "fortune_basis": "my pediatric general peds practice grew to be full quickly",
+      "quote": "my pediatric general peds practice grew to be full quickly because there were no other African American pediatricians in the Hayward Oakland area of Northern California.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 983.94
+    },
+    {
+      "t": 1049.91,
+      "part": 1,
+      "year": 1987,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "After about three years of general peds, starting 1984 (second neurologist hired in 87, three years after he started).",
+      "stage": "trials",
+      "label": "Leaves general pediatrics for neurology",
+      "fortune": 1,
+      "fortune_basis": "So it was quite, quite a time to be a role model",
+      "quote": "I have eight patients from my three years of doing general peds that are now physicians, three from one family, three brothers.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1055.95
+    },
+    {
+      "t": 1532.94,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "He says 'about 5, 7 years into being here'; no single year.",
+      "stage": "call",
+      "label": "Selected assistant physician in charge, Fremont",
+      "fortune": 2,
+      "fortune_basis": "And I got selected",
+      "quote": "in charge job at Fremont, and there were several, probably about five people or so who applied. And I got selected",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1540.06
+    },
+    {
+      "t": 1610.66,
+      "part": 1,
+      "year": 1998,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Named Physician in Chief, Fremont",
+      "fortune": 2,
+      "fortune_basis": "selected me to become the PIC in 1998",
+      "quote": "selected me to become the PIC in 1998. Uh, so I served then as PIC for three terms, 18 years",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1620.7
+    },
+    {
+      "t": 3953.3,
+      "part": 1,
+      "year": 1998,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Feedback from Dr. Caulfield's PIC selection meetings; he says Caulfield selected him PIC in 1998 and Pearl ran the later terms.",
+      "stage": "trials",
+      "label": "Told he may be too nice",
+      "fortune": 0,
+      "fortune_basis": "So that was an interesting piece of feedback.",
+      "quote": "physicians, they said you were such a nice guy that they didn't know that you would be able to do the hard part or the hard stuff, uh, to provide leadership.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3961.18
+    },
+    {
+      "t": 4786.47,
+      "part": 1,
+      "year": 2002,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He places this challenge 'about four years into my being PIC' (selected 1998).",
+      "stage": "trials",
+      "label": "Fremont squeezed out of funding",
+      "fortune": -1,
+      "fortune_basis": "Whenever I would go up against them, they would almost always win",
+      "quote": "the smaller hospitals really were squeezed out of very often the potential for getting funding, for getting monies for new programs",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 4796.71
+    },
+    {
+      "t": 5094.01,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Dyad implementation; no year given.",
+      "stage": "ordeal",
+      "label": "Chiefs resist the dyad merger",
+      "fortune": -1,
+      "fortune_basis": "A couple departments really fought us to the end.",
+      "quote": "A couple departments really fought us to the end. In fact, one department where the chief where each department, both Fremont and Hayward were both one number one and two service record in the region.",
+      "event_ref": "GSA dyad formed",
+      "sensitive": true,
+      "end": 5108.57
+    },
+    {
+      "t": 5358.35,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Looking back on the dyad; no year given.",
+      "stage": "reward",
+      "label": "Proudest achievement: the GSA dyad",
+      "fortune": 3,
+      "fortune_basis": "right up there at the top was the pride of creating the, the GSAA dyad",
+      "quote": "I would say right up there at the top was the pride of creating the, the GSAA dyad.",
+      "event_ref": "GSA dyad formed",
+      "sensitive": false,
+      "end": 5364.75
+    },
+    {
+      "t": 1739.19,
+      "part": 1,
+      "year": 2016,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Moved to this role 'after about 18.5 years of PIC', having become PIC in 1998.",
+      "stage": "return",
+      "label": "Becomes regional director for UME/GME",
+      "fortune": 2,
+      "fortune_basis": "Education has always been one of my, you know, sort of sweet spots.",
+      "quote": "so they asked me if I would be interested in taking on the role. So I, subsequently, I told them I'd be excited to.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1749.19
+    },
+    {
+      "t": 2215.54,
+      "part": 1,
+      "year": 2023,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "return",
+      "label": "Prepares KP medical students for match",
+      "fortune": 2,
+      "fortune_basis": "we've had 100% match of every student that's graduated",
+      "quote": "And so I took that on, and I've done that from since 23 for the first class that graduated",
+      "event_ref": "KP Bernard J. Tyson School of Medicine opens",
+      "sensitive": false,
+      "end": 2221.98
+    },
+    {
+      "t": 9288.24,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Retrospective reflection.",
+      "stage": "transformation",
+      "label": "Reflects on an unexpected career",
+      "fortune": 3,
+      "fortune_basis": "this incredible career",
+      "quote": "share my journey, uh, and how that Kaiser Permanente has allowed me to have this incredible career, uh, with opportunities and exposures and experiences that I never thought were possible.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 9304.44
+    }
+  ],
+  "events": [
+    {
+      "name": "Permanente Federation founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the Federation as an umbrella over the medical groups that improved alignment with Health Plan and Hospitals.",
+      "t": 2771.18,
+      "part": 1,
+      "quote": "So I saw the formation of the Permanente Federation as a way of creating an umbrella over all the medical groups.",
+      "prompt": {
+        "question": "You know what sets Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2779.3
+    },
+    {
+      "name": "TPMG partnership with Mid-Atlantic Permanente",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He described TPMG taking on the struggling Mid-Atlantic group as a model that worked well and was later copied.",
+      "t": 2968.39,
+      "part": 1,
+      "quote": "And of course, that all ended up being that TPMG took on Mid-Atlantic, um, you know, as, uh, as the lead and Robbie would become the CEO over the",
+      "prompt": {
+        "question": "You know what sets Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2980.75
+    },
+    {
+      "name": "1990s expansion into new markets",
+      "year_start": 1990,
+      "year_end": 1999,
+      "year_basis": "inferred_from_transcript",
+      "view": "He saw the 1990s expansions relying on local physicians as failures the medical groups had predicted.",
+      "t": 3018.16,
+      "part": 1,
+      "quote": "in the 90s, as you alluded, there were several attempts by Health Plan Hospital to expand Kaiser Permanente in a way that the medical groups didn't think would be successful",
+      "prompt": {
+        "question": "You know what sets Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3032.88,
+      "year_note": "He says \"in the 90s\"; a decade, not a stated year."
+    },
+    {
+      "name": "Robert Pearl named TPMG executive medical director",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He named this selection the pivotal moment shaping KP's current practice, crediting Pearl's clarity and execution.",
+      "t": 3662.92,
+      "part": 1,
+      "quote": "which was the selection of Dr. Ravi Patel as the executive medical director for TPMG.",
+      "prompt": {
+        "question": "if you had to pick one pivotal moment in our history dating back to, let's say, 1945, um, what do you think has shaped our current practice?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3667.6
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He credited earlier access work and video and telephone visits for KP doing well at the start of the pandemic.",
+      "t": 3585.43,
+      "part": 1,
+      "quote": "that was one of the reasons why we actually did so well at the onset of the pandemic, because we had developed, you know, video visits and telephone visits",
+      "prompt": {
+        "question": "what are the core values that guide Kaiser Permanente's operations and culture? And how did you apply these core values in your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3593.71
+    },
+    {
+      "name": "GSA dyad formed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He proposed combining Hayward and Fremont into one service area so the smaller center could grow.",
+      "t": 4914.88,
+      "part": 1,
+      "quote": "So I said, you know, if we could create a dyad and, you know, we didn't know what we were going to call it at that point, but Hayward, Fremont",
+      "prompt": {
+        "question": "Did you find any difference in terms of performance, style, engagement, having a few assistants and you doing the most of the management versus a lot of assistants and you being kind of a layer up?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 4924.04
+    },
+    {
+      "name": "Fremont Hospital opens",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He said the finished but unopened Fremont hospital opened alongside the dyad, letting them grow new services.",
+      "t": 5277.9,
+      "part": 1,
+      "quote": "So the Fremont Hospital opened a few years later in concert with creating the dyad, and so we then were able to grow new services",
+      "prompt": {
+        "question": "Did you find any difference in terms of performance, style, engagement, having a few assistants and you doing the most of the management versus a lot of assistants and you being kind of a layer up?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 5286.79
+    },
+    {
+      "name": "San Leandro Medical Center built",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He counted the decision to replace the aging Hayward hospital with a San Leandro medical center among his proudest.",
+      "t": 5440.95,
+      "part": 1,
+      "quote": "And that whole process ended up with our decision to build a new hospital and medical center in San Leandro.",
+      "prompt": {
+        "question": "So what are you most proud of during your tenure?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 5447.47
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He said the documentation demands of the EHR led some mid- or late-career physicians to burn out or leave.",
+      "t": 6319.25,
+      "part": 1,
+      "quote": "after we implemented the electronic medical record, uh, there were some physicians mid or later career who with the rigor required for electronic medical records and documentation",
+      "prompt": {
+        "question": "how did you personally, um, support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6331.04
+    },
+    {
+      "name": "Sepsis early-detection program",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He named sepsis early detection as the first of KP's major quality and safety initiatives.",
+      "t": 6431.18,
+      "part": 1,
+      "quote": "The first one that comes to mind is our emphasis and work and commitment to sepsis. Sepsis management. Early sepsis detection.",
+      "prompt": {
+        "question": "just name like 2 or 3 key initiatives during your time that KP has undertaken to improve patient quality, safety and care.",
+        "list_number": "Q28",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6442.58
+    },
+    {
+      "name": "Ohio region closed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He mentioned the Ohio closure mainly as the occasion that brought Ron Copeland to the national equity role.",
+      "t": 7535.77,
+      "part": 1,
+      "quote": "and then when we decided to close the Ohio region, he was the executive medical director, he then got recruited from Ohio",
+      "prompt": {
+        "question": "So you've led or been involved with equity inclusion and diversity efforts for many years. Um can you tell us, you know, how that has changed over the years, how you've led that initiative over the years?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 7543.17
+    },
+    {
+      "name": "KP Bernard J. Tyson School of Medicine opens",
+      "year_start": 2020,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He helped write the equity chapter of the school's application and later prepared its students for the residency match.",
+      "t": 2139.98,
+      "part": 1,
+      "quote": "yes, I was part of the group that wrote the equity, inclusion, diversity chapter for the application that went to the Kaiser Permanente board for the med school.",
+      "prompt": {
+        "question": "were you involved in the creation of the Cape Bernard Tyson School of Medicine during its early stages? Do you have any involvement now?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2150.14
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Secret dinners that built a dyad",
+      "summary": "To keep smaller Fremont from losing out on funding, Wheeler secretly met Hayward PIC Annabel Anderson-Imbert in a faraway restaurant to plan merging the two into one service area. After months with a consultant they announced the dyad, merged chief roles, and opened the long-idle Fremont hospital.",
+      "t": 4928.92,
+      "part": 1,
+      "quote": "So I approached her confidentially to present the idea, and we met in the evening restaurant far away so that we wouldn't be discovered, etc. etc.",
+      "why": "Shows how a major structural change was quietly planned before going public.",
+      "sensitive": false,
+      "end": 4939.52
+    },
+    {
+      "title": "Eight former patients became physicians",
+      "summary": "As the only African American pediatrician in the Hayward-Oakland area, Wheeler's general pediatrics practice filled quickly. Eight of the children he cared for in those three years became physicians, including three brothers.",
+      "t": 1049.91,
+      "part": 1,
+      "quote": "I have eight patients from my three years of doing general peds that are now physicians, three from one family, three brothers. So it was quite, quite a time to be a role model",
+      "why": "A concrete picture of representation and role modeling in care.",
+      "sensitive": false,
+      "end": 1060.03
+    },
+    {
+      "title": "Too nice to lead?",
+      "summary": "During his PIC selection, Dr. Caulfield relayed that physicians feared Wheeler was too nice to do the hard parts of leadership. Wheeler answered that leaders need not be mean-spirited and kept that question in mind when choosing other leaders.",
+      "t": 3953.3,
+      "part": 1,
+      "quote": "physicians, they said you were such a nice guy that they didn't know that you would be able to do the hard part or the hard stuff, uh, to provide leadership.",
+      "why": "A memorable leadership lesson on kindness and accountability.",
+      "sensitive": false,
+      "end": 3961.18
+    },
+    {
+      "title": "Learning not to shake hands",
+      "summary": "At Fremont, community representatives were invited to teach staff how their communities preferred to receive care. Wheeler learned that as a male physician he should not touch Muslim mothers, changing his usual exam-room greeting.",
+      "t": 7309.03,
+      "part": 1,
+      "quote": "my normal thing was to walk into an exam room and shake hands with the parents, say hello and then, you know, touch or interact with the child. But for Muslim women, I couldn't touch her",
+      "why": "A simple, teachable example of culturally responsive care.",
+      "sensitive": false,
+      "end": 7319.28
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1382.53,
+      "part": 1,
+      "question": "can you go into what was your first leadership position and how did it come about whether you actually went after it? Did you seek it or was it offered to you?",
+      "source": "question_list",
+      "list_number": "Q3",
+      "why": "Drew a step-by-step account of his rise from EEG lab director to PIC and medical education leader.",
+      "sensitive": false,
+      "end": 1392.85
+    },
+    {
+      "t": 3825.65,
+      "part": 1,
+      "question": "how do you avoid not being 100% liked, But, you know, at the same time, being respected and being a leader that can get people to perform",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew the 'too nice' feedback story and a candid account of holding physicians accountable.",
+      "sensitive": false,
+      "end": 3837.57
+    },
+    {
+      "t": 4668.7,
+      "part": 1,
+      "question": "Did you find any difference in terms of performance, style, engagement, having a few assistants and you doing the most of the management versus a lot of assistants and you being kind of a layer up?",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Opened the detailed, candid story of secretly planning the Hayward-Fremont dyad and the chief fights.",
+      "sensitive": false,
+      "end": 4683.02
+    }
+  ]
+}

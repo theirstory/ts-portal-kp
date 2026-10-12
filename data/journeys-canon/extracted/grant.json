@@ -1,0 +1,468 @@
+{
+  "narrator": "Chris Grant",
+  "slug": "grant",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6917a33a289eff1b141a2fec"
+    }
+  ],
+  "one_line": "Economist who joined KP for the EMR business case, co-founded the Federation and became its COO.",
+  "top_role": "Executive Vice President and Chief Operating Officer, The Permanente Federation",
+  "region": "National",
+  "excluded_segments": [],
+  "journey": [
+    {
+      "t": 31.04,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordinary_world",
+      "label": "Grows up in a D.C. service family",
+      "fortune": 1,
+      "fortune_basis": "I grew up in a family that valued kind of service orientation.",
+      "quote": "my father was a photojournalist. He was part of the White House press corps and my mom was a school teacher.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 38.24
+    },
+    {
+      "t": 389.82,
+      "part": 1,
+      "year": 1995,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says he joined Kaiser Permanente '31 years ago'; interview recorded January 2026 (approximate).",
+      "stage": "threshold",
+      "label": "Joins KP for EMR benefit analysis",
+      "fortune": 2,
+      "fortune_basis": "this is the potential to transform healthcare in this organization",
+      "quote": "So I joined, um, KP because I had friends that were part of Accenture, Andersen Consulting that were consulting to, uh, Kaiser Permanente, and they needed, um, support on on benefit realization analysis.",
+      "event_ref": "Electronic health record rollout",
+      "sensitive": false,
+      "end": 405.62
+    },
+    {
+      "t": 580.56,
+      "part": 1,
+      "year": 1995,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "His first role on joining KP '31 years ago' (2026 minus 31, approximate).",
+      "stage": "call",
+      "label": "Heads clinical information systems analysis",
+      "fortune": 1,
+      "fortune_basis": "I was just, uh, committed to to being a part of that transformation.",
+      "quote": "So my first leadership position was heading up the the analysis for the potential benefits of the migration from an electronic from a paper record to an electronic medical record",
+      "event_ref": "Electronic health record rollout",
+      "sensitive": false,
+      "end": 592.88
+    },
+    {
+      "t": 2961.72,
+      "part": 1,
+      "year": 1996,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He had been at KP 11 months, having joined '31 years ago' (about 1995); approximate.",
+      "stage": "transformation",
+      "label": "Finds his calling in the NICU",
+      "fortune": 3,
+      "fortune_basis": "And I said, I found my calling.",
+      "quote": "I looked around a little bit more and I saw a nurse rocking in a rocking chair. Um, and as I leaned closer, I could see that she had our son in her arms",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 2973.92
+    },
+    {
+      "t": 897.62,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Co-founds KP venture investment program",
+      "fortune": 2,
+      "fortune_basis": "But what I'm most proud of is some of the greatest technological breakthroughs",
+      "quote": "So jointly with a gentleman named Chris Stenzel, who, um, uh, is a dear friend and longtime colleague, we co-founded a venture investment program, and we started out with $10 million dollars",
+      "event_ref": "Venture investment program founded",
+      "sensitive": false,
+      "end": 911.98
+    },
+    {
+      "t": 1147.59,
+      "part": 1,
+      "year": 1998,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says '28 years ago, I joined Dr. Jay Crosson in forming the Federation'; interview January 2026.",
+      "stage": "threshold",
+      "label": "Joins Crosson forming the Federation",
+      "fortune": 1,
+      "fortune_basis": "my, my journey has been really quite rewarding and, and and fascinating.",
+      "quote": "28 years ago, I joined Dr. Jay Crosson in forming the Federation, and I oversaw initially that venture work, new products and services across all of the regions and geographies.",
+      "event_ref": "Permanente Federation founded",
+      "sensitive": false,
+      "end": 1161.55
+    },
+    {
+      "t": 1189.4,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Builds M&A capacity for medical groups",
+      "fortune": 1,
+      "fortune_basis": "I've had the privilege of, of, um, helping to acquire Moreno Valley Community Hospital",
+      "quote": "the medical directors asked me years ago to develop a corporate development or, um, an M&A capacity within the organization where we could evaluate, um, hospitals, small health plans, physician groups",
+      "event_ref": "Moreno Valley Community Hospital acquisition",
+      "sensitive": false,
+      "end": 1205.76
+    },
+    {
+      "t": 1445.93,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Builds a Federation strategy capability",
+      "fortune": 1,
+      "fortune_basis": "that became a new capability of the Permanente medical groups through the Permanente Federation.",
+      "quote": "so they asked if I could help develop a strategy capability for the organization. And, um, we built a strategy team and partnered with Health Plan on developing a three year operating plan",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1460.81
+    },
+    {
+      "t": 1569.14,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says he has been COO 'for the last decade' and that the Federation was transformed '11 years ago'; approximate.",
+      "stage": "call",
+      "label": "Asked as COO to strengthen Federation",
+      "fortune": 1,
+      "fortune_basis": "we'd like you to help us create that and design it.",
+      "quote": "when I was asked to step in as the Chief Operating Officer of the Permanente Federation, the medical directors came to me and they said, um, we want to have a greater impact",
+      "event_ref": "Permanente Federation restructured",
+      "sensitive": false,
+      "end": 1584.27
+    },
+    {
+      "t": 1851.84,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says '11 years ago, um, we transformed the federation'; interview January 2026.",
+      "stage": "reward",
+      "label": "Federation draws leaders from medical groups",
+      "fortune": 2,
+      "fortune_basis": "we could tap into all of them in order to define strategy",
+      "quote": "11 years ago, um, we transformed the federation that the core leadership of the federation came from the Permanente Medical groups.",
+      "event_ref": "Permanente Federation restructured",
+      "sensitive": false,
+      "end": 1863.64
+    },
+    {
+      "t": 2834.47,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "mentor",
+      "label": "Rob Shriner's caution about loving KP",
+      "fortune": 0,
+      "fortune_basis": "remember that you can love an organization, but an organization can never love you back.",
+      "quote": "Rob Shriner, um, who is the Medical Director in Georgia, he, he he once said to me, Chris, you care too much about Kaiser Permanente.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2844.31
+    },
+    {
+      "t": 3322.26,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Works nonstop through the pandemic response",
+      "fortune": 2,
+      "fortune_basis": "but it was also the most purposeful time",
+      "quote": "I don't think I took a single day off, uh, from, um, early March through July 4th, including Saturdays and Sundays, where everybody was working, you know, day and night",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 3337.3
+    },
+    {
+      "t": 6587.88,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "return",
+      "label": "Urges future leaders to learn history",
+      "fortune": 1,
+      "fortune_basis": "So I'm a big believer in history",
+      "quote": "having been part of Kaiser Permanente for over three decades, um, I've seen I've been on the ground in every geography I've seen us, you know, geographically expand and then contract.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 6600.84
+    }
+  ],
+  "events": [
+    {
+      "name": "Electronic health record rollout",
+      "year_start": 1995,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He joined '31 years ago' 'at the advent of moving from paper medical records to electronic'.",
+      "view": "He saw the move from paper to electronic records as a chance to transform care, not just cut storage costs.",
+      "t": 408.74,
+      "part": 1,
+      "quote": "this is a whole lot more than this migration from paper to electronic, this is the potential to transform healthcare in this organization, but also in many organizations.",
+      "prompt": {
+        "question": "what can you tell us about yourself? ... What influenced you to join Kaiser Permanente? Where were you educated?",
+        "list_number": "Q1",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 420.59
+    },
+    {
+      "name": "Venture investment program founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He describes the venture program he co-founded as a lasting success that backed major medical technology breakthroughs.",
+      "t": 942.02,
+      "part": 1,
+      "quote": "that program over the years has funded over 90 emerging medical technology companies. It's stood the test of time. We've invested about 770 million of capital.",
+      "prompt": {
+        "question": "So, Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 955.82
+    },
+    {
+      "name": "Buena Ventura Medical Group joins SCPMG",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the integration as a natural fit after years of contracting, requiring careful blending of cultures.",
+      "t": 1234.16,
+      "part": 1,
+      "quote": "the Buena Ventura medical Group in, um, Southern California, uh, in Ventura, was a migration from Kaiser Permanente from Simi Valley all the way to the Santa Barbara County line.",
+      "prompt": {
+        "question": "So, Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1248.4
+    },
+    {
+      "name": "Moreno Valley Community Hospital acquisition",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw acquiring the struggling district hospital as serving growing membership and the community.",
+      "t": 1296.81,
+      "part": 1,
+      "quote": "I've had the privilege of, of, um, helping to acquire Moreno Valley Community Hospital in Southern California, which was part of a three, um, hospital district, uh, public hospital",
+      "prompt": {
+        "question": "So, Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1311.53
+    },
+    {
+      "name": "Manteca Community Hospital acquisition",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the under-invested Catholic Healthcare West hospital as a fit for KP's rapid Northern California growth.",
+      "t": 1368.49,
+      "part": 1,
+      "quote": "Manteca, uh Community Hospital, which was part of the dignity, um, Catholic Healthcare West uh, at the time system um, which um, also was struggling",
+      "prompt": {
+        "question": "So, Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1381.29
+    },
+    {
+      "name": "Permanente Federation founded",
+      "year_start": 1998,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says '28 years ago, I joined Dr. Jay Crosson in forming the Federation'.",
+      "view": "He sees the Federation's formation as pivotal, giving the medical groups an equal voice and stabilizing KP in a crisis.",
+      "t": 3221.1,
+      "part": 1,
+      "quote": "I would say that the formation of the Federation, um, and its evolution. Uh, from, from my perspective, is, uh, pivotal and really essential to who we are today.",
+      "prompt": {
+        "question": "Oh, so this answer has to be the Federation. I'll give you the answer. Okay. Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 3233.58
+    },
+    {
+      "name": "1990s financial crisis",
+      "year_start": 1998,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He places the crisis at the Federation's formation, which he dates '28 years ago'.",
+      "view": "He recalls health plan being down to days of cash, which made medical group and health plan alignment essential.",
+      "t": 3240.22,
+      "part": 1,
+      "quote": "Kaiser Permanente, uh, health plan, uh, was down to days of cash, and the economic sustainability organization was still in question.",
+      "prompt": {
+        "question": "Oh, so this answer has to be the Federation. I'll give you the answer. Okay. Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3250.7
+    },
+    {
+      "name": "Permanente Federation restructured",
+      "year_start": 2015,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says '11 years ago, um, we transformed the federation'.",
+      "view": "He describes rebuilding the Federation around national domain leaders drawn from every medical group as a major strengthening.",
+      "t": 1707.51,
+      "part": 1,
+      "quote": "the design was to stand up leaders in each of the medical groups, um, in a kind of key domain area that would become a national leader",
+      "prompt": {
+        "question": "So, Chris, can you share your journey to becoming executive vice president and chief operating officer of the Permanente Federation?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1720.47
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He recalls an exhausting but purposeful time when the Federation helped coordinate a national response without turf wars.",
+      "t": 3376.38,
+      "part": 1,
+      "quote": "We collectively stood up a national command center. We brought the infectious disease doctors from across all of the medical groups together",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3385.9
+    },
+    {
+      "name": "KPPG formed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He sees the joint Kaiser Permanente Program Group as a success whose strength varied with the administration in place.",
+      "t": 4290.69,
+      "part": 1,
+      "quote": "the KPPG was the first body that was established in the history of Kaiser Permanente, where we brought physician medical group leadership, um, in partnership with Hospital Health Plan",
+      "prompt": {
+        "question": "So I think to look at, Um, a project you talked about. You know, a few. Do you want to add any new ones, or do you think.",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 4306.57
+    },
+    {
+      "name": "Medical group affiliations with SCPMG",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He supports the affiliations as a way to share best practices and administrative functions while keeping local culture.",
+      "t": 6378.59,
+      "part": 1,
+      "quote": "the Hawaii Permanente Medical Group with SCPMG is an important step in sharing capabilities. Its in spreading best practices.",
+      "prompt": {
+        "question": "How do the California groups benefit the smaller, you know, areas in terms of how they provide care quality?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 6388.39
+    }
+  ],
+  "retellable": [
+    {
+      "title": "The NICU nurse at two a.m.",
+      "summary": "Less than a year into his job, after working until 2 a.m. on the EMR business case, Grant stopped at the Geary Street NICU and found a nurse rocking, feeding and singing to his premature son. He told his wife that night he had found his calling.",
+      "t": 2969.4,
+      "part": 1,
+      "quote": "as I leaned closer, I could see that she had our son in her arms, and, um, she was feeding him, and she was rocking him, and she was actually singing to him.",
+      "why": "A personal origin story of KP's culture of compassion.",
+      "sensitive": true,
+      "end": 2980.28
+    },
+    {
+      "title": "Hiring the medical groups' right hands",
+      "summary": "Asked to strengthen the Federation, Grant asked to hire the medical groups' best people, and the medical directors agreed until they heard the names. The tension led to a design where leaders kept regional roles while serving nationally.",
+      "t": 1644.91,
+      "part": 1,
+      "quote": "when I started to name the individuals that I thought would be great in these roles, all of a sudden, I think one by one they realized that these are our right hands.",
+      "why": "Shows how the Federation's distributed leadership model was born.",
+      "sensitive": false,
+      "end": 1655.35
+    },
+    {
+      "title": "No day off from March to July",
+      "summary": "During the pandemic Grant worked every day, including weekends, from early March through July 4th as KP planned to triple hospital capacity. He calls it exhausting but the most purposeful time, with turf wars set aside.",
+      "t": 3469.39,
+      "part": 1,
+      "quote": "it was also the most purposeful time because, um, nobody second guessed each other. There was, um, unbelievable alignment.",
+      "why": "Captures how crisis aligned KP's parts around one goal.",
+      "sensitive": false,
+      "end": 3479.31
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 2640.1,
+      "part": 1,
+      "question": "Now how does this influence your leadership styles? How did you take these different foundations of KP that you just discussed, and how did that influence you as a leader?",
+      "source": "question_list",
+      "list_number": "Q11",
+      "why": "Drew his sense that KP is part of his identity and the NICU calling story.",
+      "sensitive": false,
+      "end": 2651.58
+    },
+    {
+      "t": 3208.73,
+      "part": 1,
+      "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices.",
+      "source": "question_list",
+      "list_number": "Q12",
+      "why": "Drew the Federation's crisis origins and a vivid account of the pandemic response.",
+      "sensitive": false,
+      "end": 3214.78
+    },
+    {
+      "t": 6553.52,
+      "part": 1,
+      "question": "how do you see our KP history influencing future leaders?",
+      "source": "question_list",
+      "list_number": "Q48",
+      "why": "Drew reflective advice on longevity, culture and learning from past successes and failures.",
+      "sensitive": false,
+      "end": 6557.44
+    }
+  ]
+}

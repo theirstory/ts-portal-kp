@@ -1,0 +1,533 @@
+{
+  "narrator": "Robert Pearl, MD",
+  "slug": "pearl",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "697ba5228e33219f48128248"
+    }
+  ],
+  "one_line": "Plastic surgeon who led TPMG and Mid-Atlantic from near-bankruptcy to a quality-and-brand leader, then became a national author",
+  "top_role": "Executive Director and CEO, The Permanente Medical Group (and CEO of Mid-Atlantic Permanente Medical Group)",
+  "region": "Northern California; Mid-Atlantic",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 5502.41,
+      "end": 5515.89,
+      "reason": "Narrator marks a remark as off camera: \"Now, I'll tell you off camera, you know, we put it in place in three years at PMG. I'm not sure it has yet to do it. So, uh, it does talk about culture or something like that, but that's another story.\""
+    },
+    {
+      "part": 1,
+      "start": 5588.25,
+      "end": 5596.61,
+      "reason": "Narrator asks to cut a misstated statistic: \"400,000 people in the United States died today from preventable. Uh, please cut that out.\""
+    }
+  ],
+  "journey": [
+    {
+      "t": 136.84,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Age 17, freshman year of college; no year given.",
+      "stage": "ordinary_world",
+      "label": "Chooses medicine to avoid politics",
+      "fortune": 0,
+      "fortune_basis": "I decided that I never wanted to be someplace",
+      "quote": "And I decided then, as a naive 17 year old, that that would be medicine, because this was about life and death. How could it be political? I couldn't imagine that.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 148.4
+    },
+    {
+      "t": 258.6,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During Stanford residency; no year given.",
+      "stage": "call",
+      "label": "Falls in love with plastic surgery",
+      "fortune": 2,
+      "fortune_basis": "I fell in love with the specialty.",
+      "quote": "But I think the deciding moment came when the chairman invited me to go with him to Mexico to help fix kids with cleft lip and cleft palate.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 269.88
+    },
+    {
+      "t": 879.65,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Joined Kaiser Santa Clara at the start of his chief resident year; no year given.",
+      "stage": "threshold",
+      "label": "Joins Kaiser Santa Clara as plastic surgeon",
+      "fortune": 2,
+      "fortune_basis": "I found myself suddenly being at home in an environment that I had been seeking",
+      "quote": "And when I got there, I was amazed. I loved it. I could have couldn't imagine the culture.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 886.41
+    },
+    {
+      "t": 685.77,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "After his first year at Kaiser Santa Clara; no year given.",
+      "stage": "trials",
+      "label": "Chairs the Operating Room Committee",
+      "fortune": 1,
+      "fortune_basis": "I was the only one foolish enough to say yes.",
+      "quote": "What I later learned was no. Everyone else had turned down the job. I was the last person standing, and I was the only one foolish enough to say yes.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 697.57
+    },
+    {
+      "t": 1336.21,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "About two and a half years after joining; no year given.",
+      "stage": "trials",
+      "label": "Becomes Assistant Physician in Chief",
+      "fortune": 1,
+      "fortune_basis": "It was a test by fire, but I enjoyed it very much",
+      "quote": "I hesitated. I loved my clinical medicine and I said, I will take this job on under one criterion, and that is that I'll be able to maintain a full time practice.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1348.97
+    },
+    {
+      "t": 1552.81,
+      "part": 1,
+      "year": 1998,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "call",
+      "label": "Chosen TPMG CEO amid financial crisis",
+      "fortune": -1,
+      "fortune_basis": "an organization that was literally on the edge of bankruptcy",
+      "quote": "This was 1998, when I was first chosen to be the CEO of the Permanente Medical Group. Kaiser Permanente had just lost money for the previous two years",
+      "event_ref": "1990s KP financial crisis",
+      "sensitive": false,
+      "end": 1567.57
+    },
+    {
+      "t": 2631.5,
+      "part": 1,
+      "year": 1998,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Faces down health plan's contract threat",
+      "fortune": -2,
+      "fortune_basis": "This was the battle that I walked into on day one.",
+      "quote": "I can remember a meeting with the Head of Health Plan at that particular time, where he basically threatened the medical group and threatened to break our contracts, etc.",
+      "event_ref": "1990s health plan-medical group conflict",
+      "sensitive": true,
+      "end": 2642.3
+    },
+    {
+      "t": 2675.02,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"Soon after\" he became CEO; no year given.",
+      "stage": "reward",
+      "label": "Partners with new CEO George Halvorson",
+      "fortune": 2,
+      "fortune_basis": "George was a tremendous partner, a great leader",
+      "quote": "And George was a tremendous partner, a great leader, and we were able to effectively implement the strategy and many, many, many of the other things that helped Kaiser Permanente",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2686.18
+    },
+    {
+      "t": 4708.52,
+      "part": 1,
+      "year": 2000,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Launches the Epic electronic health record",
+      "fortune": 2,
+      "fortune_basis": "the fact that we could implement it in the year 2000 was a remarkable achievement",
+      "quote": "I took the job as CEO in 1998, I began in 1999, and 2000 I worked with George Halvorson to create the Electronic Health Record.",
+      "event_ref": "Electronic health record rollout",
+      "sensitive": false,
+      "end": 4720.64
+    },
+    {
+      "t": 2762.15,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for the affiliation.",
+      "stage": "threshold",
+      "label": "Forges the TPMG-MAPMG affiliation",
+      "fortune": 1,
+      "fortune_basis": "I think this was a major transitional role.",
+      "quote": "the, uh, first question I posed to them was, who do you work for? And to a person, they said, we work for Kaiser Health Plan. I said, no, you don't.",
+      "event_ref": "TPMG-MAPMG affiliation",
+      "sensitive": false,
+      "end": 2775.35
+    },
+    {
+      "t": 3185.11,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"Within five years\" of the affiliation; affiliation year not given.",
+      "stage": "reward",
+      "label": "Mid-Atlantic rises to number one",
+      "fortune": 2,
+      "fortune_basis": "I'm very proud of the fact that the Mid-Atlantic was able to accomplish",
+      "quote": "Within five years, the Mid-Atlantic had actually replaced TPMG as number one, and they were able to do it while growing their market share",
+      "event_ref": "TPMG-MAPMG affiliation",
+      "sensitive": false,
+      "end": 3194.59
+    },
+    {
+      "t": 6949.98,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his CEO tenure; no year given.",
+      "stage": "return",
+      "label": "Trains 2,000 physicians in leadership",
+      "fortune": 2,
+      "fortune_basis": "that investment was probably the best investment that we ever made.",
+      "quote": "We had 12,000 physicians in total, and over 2,000 of them went through leadership training. And I don't mean, you know, a lunchtime session. I'm talking about a two-year program",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 6961.86
+    },
+    {
+      "t": 6414.3,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"When President Obama got elected\"; no year given.",
+      "stage": "trials",
+      "label": "Advises on Obama-era health reform",
+      "fortune": 0,
+      "fortune_basis": "the vision of President Obama at the time, he just couldn't make it happen.",
+      "quote": "When President Obama got elected, I was very involved, along with George Halvorson, in trying to help the US government to move forward in implementing a comprehensive health care system",
+      "event_ref": "Obama-era health reform",
+      "sensitive": false,
+      "end": 6427.63
+    },
+    {
+      "t": 8317.92,
+      "part": 1,
+      "year": 2017,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "\"By the time I left\": he began as CEO in 1999 and served 18 years.",
+      "stage": "reward",
+      "label": "Leaves with Kaiser's brand transformed",
+      "fortune": 3,
+      "fortune_basis": "is the legacy that I will be most proud of.",
+      "quote": "By the time I left, I'd say to people, look left and look right. And one of those two people is a Kaiser Permanente member, because we almost had a 50% market share.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 8325.68
+    },
+    {
+      "t": 7734.47,
+      "part": 1,
+      "year": 2017,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "After 18 years as CEO, which he began in 1999.",
+      "stage": "transformation",
+      "label": "Turns to books, podcast and Forbes",
+      "fortune": 2,
+      "fortune_basis": "by the end of my time as the CEO, I was proud",
+      "quote": "And after doing the CEO role for 18 years, I wanted to be able to change health care for 300 million Americans. And there's no way to reach people except through the media.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 7748.75
+    },
+    {
+      "t": 7567.39,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Ongoing teaching at Stanford; no start year given.",
+      "stage": "return",
+      "label": "Teaches at Stanford medical and business schools",
+      "fortune": 2,
+      "fortune_basis": "it's why I continue to enjoy it with great, uh, fervor",
+      "quote": "I teach both in the medical school at Stanford and the business school at Stanford, and I try to bring both of these perspectives together",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 7573.95
+    }
+  ],
+  "events": [
+    {
+      "name": "1990s KP financial crisis",
+      "year_start": 1998,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw the organization near bankruptcy in 1998, with the medical group lending the health plan money to pay bills.",
+      "t": 1568.73,
+      "part": 1,
+      "quote": "the organization was down to two days of cash. We had to borrow a day of cash in order to stay in business.",
+      "prompt": {
+        "question": "What were the defining responsibilities of serving as Executive Director and CEO of TPMG?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1577.69
+    },
+    {
+      "name": "1990s health plan-medical group conflict",
+      "year_start": 1998,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw health plan leaders treating the medical group as just another supplier and resisted their plan to contract outside.",
+      "t": 2564.06,
+      "part": 1,
+      "quote": "They didn't value, they didn't recognize, they didn't realize the incredible power that Permanente Medicine provides. To us we were just another supplier.",
+      "prompt": {
+        "question": "Can you talk a little bit about how you you pushed back and helped to bring us back to the Garfield and Kaiser's original model",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 2574.7
+    },
+    {
+      "name": "Shift to quality and service differentiation strategy",
+      "year_start": 1998,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He led the move away from being 15% cheaper toward quality and service differentiation at a competitive price, and calls it his hardest decision.",
+      "t": 7984.47,
+      "part": 1,
+      "quote": "The hardest decision to make was shifting strategy for Kaiser Permanente. To be able to move from being an organization that was known for its low prices.",
+      "prompt": {
+        "question": "What decisions were the hardest to make?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 7998.07
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": 2000,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He credits the Epic record with making KP number one in quality, while faulting how the Epic contract was negotiated.",
+      "t": 5044.93,
+      "part": 1,
+      "quote": "The electronic health record changed how Kaiser Permanente provides clinical care. It is what allowed us to become number one in the nation in quality, based upon the NCQA data.",
+      "prompt": {
+        "question": "What role did electronic health records data and analytics play in transforming care delivery?",
+        "list_number": "Q41",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 5061.97
+    },
+    {
+      "name": "TPMG-MAPMG affiliation",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the permanent affiliation as the only way a struggling smaller region could succeed against competitors and the health plan.",
+      "t": 2706.3,
+      "part": 1,
+      "quote": "The affiliation between the Permanente Medical Group and the Mid-Atlantic Permanente Medical Group came about by happenstance.",
+      "prompt": {
+        "question": "how did the Tpmg map M.G. affiliation come about?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2715.06
+    },
+    {
+      "name": "Tahoe Agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He holds it up as a model challenge period future leaders should study, when Garfield refused Kaiser's separate facility plan.",
+      "t": 8761.96,
+      "part": 1,
+      "quote": "The Tahoe Agreement is a great one. Sidney Garfield and Mr. Kaiser battled.",
+      "prompt": {
+        "question": "what parts of Kaiser Permanente's history should future leaders study most closely?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 8767.6
+    },
+    {
+      "name": "Obama-era health reform",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He helped push for KP-style integrated care nationally and regrets that court rulings and later changes kept it from happening.",
+      "t": 6414.3,
+      "part": 1,
+      "quote": "When President Obama got elected, I was very involved, along with George Halvorson, in trying to help the US government to move forward",
+      "prompt": {
+        "question": "what role did permanent medicine play in national conversations about delivery system reform?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6423.7
+    },
+    {
+      "name": "Risant Health acquisition of Geisinger",
+      "year_start": 2026,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He predicted in Forbes that care without a Permanente Medical Group will be no better than the community and will erode KP's brand.",
+      "t": 9067.52,
+      "part": 1,
+      "quote": "I've written in Forbes that I predict it's going to fail. Not fail terribly, just won't be any different than the community around it",
+      "prompt": {
+        "question": "Can you answer your thoughts on what's going on now?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 9075.32,
+      "year_note": "Year from the interviewer: \"So right now in 2026, Health Plan has decided to, um, repeat what was done in 98 and 55.\""
+    },
+    {
+      "name": "Labor Management Partnership",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He regrets that the partnership has faded, seeing it as the right way for management and unions to maximize patient outcomes.",
+      "t": 10383.34,
+      "part": 1,
+      "quote": "I was very sorry that the Labor Management Partnership and Kaiser Permanente has sort of petered away because I think that it is the right way to go.",
+      "prompt": {
+        "question": "How do you address the concerns of nurses, and especially in the recent strike, that AI is going to have a negative impact, you know, on healthcare.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 10391.42
+    },
+    {
+      "name": "Nurses' strike over AI concerns",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He sees change from generative AI as inevitable and argues it can augment nurses rather than replace them.",
+      "t": 10170.89,
+      "part": 1,
+      "quote": "And we've recently finished a strike over that, uh, part of that being part of the issue. I think it's inevitable that change will happen.",
+      "prompt": {
+        "question": "How do you address the concerns of nurses, and especially in the recent strike, that AI is going to have a negative impact, you know, on healthcare.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 10180.93
+    },
+    {
+      "name": "Generative AI in medicine",
+      "year_start": 2026,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He sees generative AI as a game changer that capitated, integrated KP is best positioned to use, if it has the courage.",
+      "t": 4912.69,
+      "part": 1,
+      "quote": "And then most currently and recording this in 2026, it's generative AI. It's going to have the same ability to transform medicine",
+      "prompt": {
+        "question": "You've been a national voice on health care innovation. What opportunities did you see early that others were slower to embrace?",
+        "list_number": "Q18",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 4924.37
+    }
+  ],
+  "retellable": [
+    {
+      "title": "The man behind the mask",
+      "summary": "On a trip to Mexico with Stanford's plastic surgery chairman, Pearl operated on an adult who had hidden his cleft lip behind a mask all his life. The 90-minute operation changed the man's life and turned Pearl toward plastic surgery.",
+      "t": 271.24,
+      "part": 1,
+      "quote": "I can still remember the first patient, an individual, an adult, actually, who had spent his whole life with a mask over his face. He didn't want anyone to see the cleft lip",
+      "why": "Shows how one patient encounter set a career's direction.",
+      "sensitive": false,
+      "end": 282.56
+    },
+    {
+      "title": "Facing down the health plan in 1998",
+      "summary": "On taking the CEO role, Pearl met a health plan head who threatened to break the medical group's contracts. Pearl warned that every emergency room would close and the plan would go bankrupt, and the plan backed down.",
+      "t": 2642.3,
+      "part": 1,
+      "quote": "And I said, I don't think you're going to do that, because as soon as you do that, every emergency room is going to close and the costs are going to be so great that you're going to go bankrupt.",
+      "why": "A vivid moment in the medical group-health plan partnership's history.",
+      "sensitive": true,
+      "end": 2653.5
+    },
+    {
+      "title": "From Motel6 to Johns Hopkins recruits",
+      "summary": "Mid-Atlantic physician recruitment had been held on Sunday afternoons at a Motel6 with chips and salsa. Pearl's team moved it to a fine Baltimore restaurant, drawing 80 Johns Hopkins attendees and 20 new physicians.",
+      "t": 2975.87,
+      "part": 1,
+      "quote": "the way they did physician recruitment was on a Sunday afternoon at a Motel6 where they'd have some chips and salsa, and the first thing we did is we went to Baltimore",
+      "why": "Concrete, memorable illustration of brand-building in a struggling region.",
+      "sensitive": false,
+      "end": 2985.43
+    },
+    {
+      "title": "The paper that predicted failure",
+      "summary": "A friend at Berkeley's business school wrote an A-graded strategy paper concluding KP's shift to quality and service differentiation would fail. Pearl says the outcome not only matched but greatly exceeded the community.",
+      "t": 8053.63,
+      "part": 1,
+      "quote": "And the paper was an analysis of our decision to shift the strategy. And this paper she got an A on, concluded that we would not be successful.",
+      "why": "Captures the risk and doubt behind the 1998 strategy shift.",
+      "sensitive": false,
+      "end": 8062.51
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 2389.06,
+      "part": 1,
+      "question": "Can you talk a little bit about how you you pushed back and helped to bring us back to the Garfield and Kaiser's original model that had been successful",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew his candid account of the 1998 confrontation with health plan leadership and its threats.",
+      "sensitive": false,
+      "end": 2398.38
+    },
+    {
+      "t": 8979.84,
+      "part": 1,
+      "question": "So right now in 2026, Health Plan has decided to, um, repeat what was done in 98 and 55.",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew a frank prediction that the current health plan acquisition strategy will fail and erode the brand.",
+      "sensitive": false,
+      "end": 8989.04
+    },
+    {
+      "t": 7977.71,
+      "part": 1,
+      "question": "What decisions were the number 37? What decisions were the hardest to make?",
+      "source": "written_for_narrator",
+      "list_number": "Q16",
+      "why": "Drew the story of the doubted 1998 strategy shift and the Berkeley paper predicting failure.",
+      "sensitive": false,
+      "end": 7982.87
+    }
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "narrator": "Jeffrey Weisz, MD",
+  "slug": "weisz",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69f406aa20d30677412a2468"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 1765,
+      "end": 1795,
+      "reason": "\"you don't put that down ... You can't put this in\" (29:25), about leaders he removed. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 1535,
+      "end": 1562,
+      "reason": "\"You know, this is not going anywhere, but minority gave in. This is disgusting.\" ... \"He's minority sold us out.\" (25:35) Off-record aside about the foundation decision; interviewer replies \"we're not recording this\". Proposed."
+    },
+    {
+      "part": 1,
+      "start": 2488,
+      "end": 2560,
+      "reason": "\"Off the cuff. A lot of things we put in our leaders, they got rid of.\" ... \"Everyone says it between you and me.\" (41:28) Off-the-cuff aside about successor leaders. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 5146,
+      "end": 5374,
+      "reason": "\"I frankly, off the cuff, I think we're we're struggling. But don't don't put this in the interview that we're struggling.\" (1:25:46) and \"between you and me\" (1:26:37); aside continues through panel-management and Reno chatter until the next question. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 6200,
+      "end": 6256,
+      "reason": "\"You know, off the cuff, all this new stuff with guys that are rising.\" ... \"But don't tell minority. He's at fault.\" (1:43:20) Off-the-cuff aside. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 7227,
+      "end": 7255,
+      "reason": "\"You know, between you and this doesn't leave.\" (2:00:33) then \"Is this off the cuff?\" Aside about the current Federation co-lead. Proposed."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Southern California (SCPMG); later Northwest Permanente",
+    "region_quote": "My journey to becoming the Executive Medical Director of SCPMG started when I ran for the Board of Directors in Woodland Hills.",
+    "era": "c. early 1980s–c. 2020 (practiced at Granada Hills before Woodland Hills opened in 1986; SCPMG executive medical director from 2004; then Northwest Permanente for four years)",
+    "era_quote": "when I took over in 2004, uh, Southern California region"
+  },
+  "claims": [
+    {
+      "from": "foundation model",
+      "to": "medical group autonomy",
+      "polarity": "-",
+      "t": 1400.68,
+      "part": 1,
+      "quote": "we're not making all the decisions with medical care. The health plan, who there are partners, but they have more say and more influence on how we practice medicine.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you think the new Kaiser Foundation, you know, led where the physicians report to health plan. Where do you see that going in the future?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1411.28
+    },
+    {
+      "from": "affordability",
+      "to": "medical group autonomy",
+      "polarity": "+",
+      "t": 1469.56,
+      "part": 1,
+      "quote": "And to be strong, you need to be affordable, and you need to deliver a high-quality access and service day in, day out.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you think the new Kaiser Foundation, you know, led where the physicians report to health plan. Where do you see that going in the future?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1479.73
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1304.8,
+      "part": 1,
+      "quote": "it enhanced and enhanced delivery of care, and our quality took off by using the electronic medical record.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Let's talk about a pivotal moment in our past ... and then a pivotal moment in your career that kind of shaped it.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1314.67
+    },
+    {
+      "from": "data & technology",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 3237.52,
+      "part": 1,
+      "quote": "the electronic medical record helped us enhance integration because we're all looking at the same data",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model benefit patients and providers?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 3243.56
+    },
+    {
+      "from": "accountability",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1645.27,
+      "part": 1,
+      "quote": "with the driving accountability, we're going to get better quality. We're going to become cost effective.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "When you're MD, what were your greatest what was the greatest challenges you faced?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1651.31
+    },
+    {
+      "from": "affordability",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1651.31,
+      "part": 1,
+      "quote": "We were able to save a lot of money within our system, and I put that money back into the care delivery system. We hired more physicians. We paid them more. We grew more members.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "When you're MD, what were your greatest what was the greatest challenges you faced?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1661.27
+    },
+    {
+      "from": "prevention",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1851.56,
+      "part": 1,
+      "quote": "And I pushed to prevention and wellness agenda, and it took off. Um, we, um, excelled. We were the leader, nationwide leader, in many health care initiatives, quality initiatives",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you want to say what you're most proud of?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 1866.74
+    },
+    {
+      "from": "patient experience",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1921.98,
+      "part": 1,
+      "quote": "I believe the patient care experience drives health care. It drives membership",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you want to say what you're most proud of?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 1926.4
+    },
+    {
+      "from": "patient experience",
+      "to": "reputation",
+      "polarity": "+",
+      "t": 2197.75,
+      "part": 1,
+      "quote": "to keep your reputation at a high level, you have to have a great patient care experience.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did the community perception of Kaiser Permanente change during your tenure at Kaiser Permanente?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2203.71
+    },
+    {
+      "from": "reputation",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 2161.95,
+      "part": 1,
+      "quote": "The reason why they want to join is our reputation took off, we knew that we were leading in quality, and we were recruiting the best physicians.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did the community perception of Kaiser Permanente change during your tenure at Kaiser Permanente?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2171.47
+    },
+    {
+      "from": "pay for performance",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 3112.88,
+      "part": 1,
+      "quote": "I think that more and more physicians wanted to join us because of this pay for performance system we put in",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What successful project or program are you more proud of than any other during your tenure?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "end": 3119.41
+    },
+    {
+      "from": "innovation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3059.5,
+      "part": 1,
+      "quote": "this proactive office encounter where every department was involved in closing the care gaps, not just primary care, every department. And that helped our quality take off.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What successful project or program are you more proud of than any other during your tenure?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "end": 3073.14
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 3393.65,
+      "part": 1,
+      "quote": "And I realized we had to bring that care inside to our hospitals. Okay. We could control quality better, cost better.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Your opinion of when we're integrated with a hospital system such as Southern Cal, versus when we're integrated with a contract hospital system as a northwest.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3401.01
+    },
+    {
+      "from": "quality",
+      "to": "burnout",
+      "polarity": "-",
+      "t": 3714.3,
+      "part": 1,
+      "quote": "I think if physicians are getting good results day in, day out, and their qualities they're providing to their patients is better, they feel better, and that helps burnout.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What other things did you do to prevent burnout in addition to well-being?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 3724.98
+    },
+    {
+      "from": "integrated care",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 4260.96,
+      "part": 1,
+      "quote": "a system like Kaiser Permanente it's easy to adapt to changes in health care, okay, because first of all, we're integrated, meaning all our physicians will share the change.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How has Kaiser Permanente adapted to changes in health care? ... what's unique about Kaiser Permanente that allows us to adapt to changes in care compared to the outside community physician.",
+        "list_number": "Q37",
+        "type": "asked_directly"
+      },
+      "end": 4275.04
+    },
+    {
+      "from": "physician leadership",
+      "to": "geographic expansion",
+      "polarity": "+",
+      "t": 4388.16,
+      "part": 1,
+      "quote": "you can't go in another area with leaders who never practice Permanente Medicine. It's not going to work, it hasn't worked.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If Kaiser Permanente is the model for health care in America, why haven't we spread beyond 8 or 9 market areas?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 4394.8
+    },
+    {
+      "from": "prevention",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 4578.33,
+      "part": 1,
+      "quote": "we started diagnosing colon cancer at an early stage, preventing metastatic disease, um, saving patients' lives, taking money that we used to use on chemotherapy for advanced colon cancer, keeping it within the system",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of how Kaiser Permanente has improved patient outcomes through innovation?",
+        "list_number": "Q40",
+        "type": "narrators_choice"
+      },
+      "end": 4593.09
+    },
+    {
+      "from": "candor",
+      "to": "physician engagement",
+      "polarity": "+",
+      "t": 5742.06,
+      "part": 1,
+      "quote": "The more you listen to them, the more you communicate to them, the more on board they'll be.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If you see that either a group of physician or a particular physician needs to feel more motivated and more passionate about their work, what advice would you give them?",
+        "list_number": "Q27",
+        "type": "asked_directly"
+      },
+      "end": 5746.5
+    },
+    {
+      "from": "quality",
+      "to": "medical group autonomy",
+      "polarity": "+",
+      "t": 6329.12,
+      "part": 1,
+      "quote": "If you're a high performing organization, the health plan is not going to come to you and say, we're taking you over.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you see understanding KP history affecting future leaders?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 6334.72
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "quality",
+      "polarity": "+",
+      "t": 6821.34,
+      "part": 1,
+      "quote": "We knew if we worked closely together, we'd be successful. We'd better get better quality and lower costs.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How important it is for the executive medical director and the senior vice president, Health Plan to have that close working relationship that you two had?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 6827.88
+    },
+    {
+      "from": "federation strength",
+      "to": "medical group autonomy",
+      "polarity": "+",
+      "t": 7140.09,
+      "part": 1,
+      "quote": "the Federation was strong back then, and that gave us clout dealing with the health plan. ... the Federation has not been as strong. And this allowed health plan to take some power away from us.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You were around during the 1997 founding of the Federation. What do you remember about that?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7161.57
+    },
+    {
+      "from": "mandatory retirement",
+      "to": "physician turnover",
+      "polarity": "+",
+      "t": 7326.63,
+      "part": 1,
+      "quote": "it needs to be reversed because what's happening is physicians are retiring early, who are skilled, who are savvy, who know Permanente Medicine, and they're leaving",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Mandatory retirement age at SCPMG started in 1953. That maybe it's time, you know, to change that. What do you think?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7341.95
+    }
+  ],
+  "new_factors": [
+    "foundation model",
+    "accountability",
+    "reputation",
+    "physician recruitment",
+    "pay for performance",
+    "geographic expansion",
+    "physician engagement",
+    "federation strength",
+    "mandatory retirement"
+  ]
+}

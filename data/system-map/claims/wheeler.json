@@ -1,0 +1,374 @@
+{
+  "narrator": "Calvin Wheeler, MD",
+  "slug": "wheeler",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6a3042d23539199dd70d850c"
+    }
+  ],
+  "excluded_segments": [],
+  "narrator_meta": {
+    "region": "Northern California (TPMG)",
+    "region_quote": "Dr. Caulfield, who had become the executive medical director for Northern California TPMG, uh, selected me to become the PIC in 1998.",
+    "era": "1984–c. 2023 (started 1984; PIC Fremont/GSA 1998–c. 2016; regional director UME/GME about seven years after)",
+    "era_quote": "we hired our second pediatric neurologist in, uh, in 87, three years after I started"
+  },
+  "claims": [
+    {
+      "from": "culture",
+      "to": "leadership development",
+      "polarity": "+",
+      "t": 1338.77,
+      "part": 1,
+      "quote": "and what I saw in retrospect over the years is all of that is really what led to my eventually, uh, getting asked to apply for the assistant physician in chief job",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So at the time, did the social mission of Kaiser Permanente appeal to you? Is that something that seemed different than other job offers that you had at the time you were looking around?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1352.53
+    },
+    {
+      "from": "workforce diversity",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 973.54,
+      "part": 1,
+      "quote": "my pediatric general peds practice grew to be full quickly because there were no other African American pediatricians in the Hayward Oakland area of Northern California.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "So when Fred was medical director for West LA. Where where were you? You were up in Hayward at that time. How were your careers aligned?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 983.94
+    },
+    {
+      "from": "physician leadership",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 2771.5,
+      "part": 1,
+      "quote": "I saw the formation of the Permanente Federation as a way of creating an umbrella over all the medical groups. ... that would then provide leadership and partnership with the Health Plan Hospital leaders",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what's unique about Permanente medical groups? That sets them apart from other medical groups. ... related to what happened back in the 90s when the federation was formed",
+        "list_number": "Q9",
+        "type": "asked_directly"
+      },
+      "end": 2787.18
+    },
+    {
+      "from": "contracted local providers",
+      "to": "membership growth",
+      "polarity": "-",
+      "t": 3041.48,
+      "part": 1,
+      "quote": "part of that was why we failed, say, in Atlanta, I'm sorry, failed in Dallas and Kansas City places where we had to rely on local medical providers in those communities.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what's unique about Permanente medical groups? That sets them apart from other medical groups. ... related to what happened back in the 90s when the federation was formed",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 3052.8
+    },
+    {
+      "from": "membership growth",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 3067.76,
+      "part": 1,
+      "quote": "you can't run an organization responsible for all those areas of specialty and care when you've got a small number of members and it takes time to grow members",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what's unique about Permanente medical groups? That sets them apart from other medical groups. ... related to what happened back in the 90s when the federation was formed",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 3079.08
+    },
+    {
+      "from": "integrated care",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 3442.94,
+      "part": 1,
+      "quote": "the issues and the lack of coordination that they are confronting is so different and challenging compared to if they were at Kaiser Permanente.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture? And how did you apply these core values in your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 3454.02
+    },
+    {
+      "from": "access",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 3535.27,
+      "part": 1,
+      "quote": "if we did this and we spent the money to invest in it, would people notice? Would the members notice? ... we finally decided that yes, um, they would.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture? And how did you apply these core values in your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 3548.96
+    },
+    {
+      "from": "data & technology",
+      "to": "pandemic response",
+      "polarity": "+",
+      "t": 3585.43,
+      "part": 1,
+      "quote": "that was one of the reasons why we actually did so well at the onset of the pandemic, because we had developed, you know, video visits and telephone visits",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture? And how did you apply these core values in your leadership style?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 3593.71
+    },
+    {
+      "from": "candor",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 4183.99,
+      "part": 1,
+      "quote": "To have people know that their leaders were approachable, were visible ... because sometimes recommendations would come from the front line for ways to improve certain processes and procedures.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What was kind of your leadership style? ... how do you avoid not being 100% liked, but, you know, at the same time, being respected and being a leader that can get people to perform",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 4206.75
+    },
+    {
+      "from": "service area dyads",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 5277.9,
+      "part": 1,
+      "quote": "So the Fremont Hospital opened a few years later in concert with creating the dyad, and so we then were able to grow new services, we started a bariatric surgery program in Fremont.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Did you find any difference in terms of performance, style, engagement, having a few assistants and you doing the most of the management versus a lot of assistants and you being kind of a layer up?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5289.7
+    },
+    {
+      "from": "physician leadership",
+      "to": "physician turnover",
+      "polarity": "-",
+      "t": 5308.42,
+      "part": 1,
+      "quote": "it required a lot of leadership on, uh, Annabelle on my part. ... because we didn't want to have, we didn't want to lose physicians as a result of that.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Did you find any difference in terms of performance, style, engagement, having a few assistants and you doing the most of the management versus a lot of assistants and you being kind of a layer up?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5328.58
+    },
+    {
+      "from": "culture",
+      "to": "data & technology",
+      "polarity": "+",
+      "t": 5574.15,
+      "part": 1,
+      "quote": "So when Electronic Medical record came along, you know, we had a culture already, we already had an APIC of IT at our location",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in health care?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 5583.04
+    },
+    {
+      "from": "innovation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5595.8,
+      "part": 1,
+      "quote": "the changes that have happened around pre and post surgical management, uh, has made a world of difference in terms of patient comfort, but also the quality of outcome of the patient's procedure.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in health care?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 5609.88
+    },
+    {
+      "from": "clinical excellence",
+      "to": "leadership development",
+      "polarity": "+",
+      "t": 5921.99,
+      "part": 1,
+      "quote": "it's from having had that base core clinical practice and excelling there, that you become a potential for being looked at or tapped for a leadership role.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Did you continue some degree a few hours a week of clinical practice while you were a PIC? ... do you think it's important for a leader like a PIC to continue some degree of clinical care?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5935.51
+    },
+    {
+      "from": "volunteerism",
+      "to": "burnout",
+      "polarity": "-",
+      "t": 6172.72,
+      "part": 1,
+      "quote": "we find that volunteerism is a very important part of creating, uh, or preventing burnout.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "During your time and how did you personally, um, support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 6179.4
+    },
+    {
+      "from": "data & technology",
+      "to": "burnout",
+      "polarity": "+",
+      "t": 6317.33,
+      "part": 1,
+      "quote": "a bit of that came at the, after we implemented the electronic medical record, uh, there were some physicians mid or later career who with the rigor required for electronic medical records and documentation",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "During your time and how did you personally, um, support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 6331.04
+    },
+    {
+      "from": "burnout",
+      "to": "physician turnover",
+      "polarity": "+",
+      "t": 6311.53,
+      "part": 1,
+      "quote": "And burnout has actually shortened some people's careers as well.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "During your time and how did you personally, um, support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 6315.09
+    },
+    {
+      "from": "integrated care",
+      "to": "medical education",
+      "polarity": "+",
+      "t": 6690.43,
+      "part": 1,
+      "quote": "So KP, because of our volume, because of the way we're set up for delivering care, and we can provide surveillance and supervision for the people who are, you know, learning the various techniques",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the Permanente model enhance medical education for students and residents compared to other training environments?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 6704.99
+    },
+    {
+      "from": "workforce diversity",
+      "to": "quality",
+      "polarity": "+",
+      "t": 7799.55,
+      "part": 1,
+      "quote": "patients that are cared for by physicians of their ethnic group, their quality and their health care outcomes are better",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you see the greatest inequities today in medicine? ... where are the disparities that KP and inequities that we should be focusing on today based on your experience.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7809.99
+    },
+    {
+      "from": "data & technology",
+      "to": "equity",
+      "polarity": "+",
+      "t": 7995.44,
+      "part": 1,
+      "quote": "we can help physicians understand how they perform compared to their colleagues, because of data and research.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How do you energize physicians to address disparities and really focus on improving patient care?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 8003.48
+    },
+    {
+      "from": "membership growth",
+      "to": "research",
+      "polarity": "+",
+      "t": 8510.27,
+      "part": 1,
+      "quote": "research has come along because we realize with the number of members that Kaiser Permanente has, particularly in Northern California and Southern California, that is a huge part of the research agenda",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support research and development? ... how we're able to implement at Kaiser Permanente evidence based medicine quickly",
+        "list_number": "Q38",
+        "type": "asked_directly"
+      },
+      "end": 8526.99
+    },
+    {
+      "from": "research",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 8747.17,
+      "part": 1,
+      "quote": "much of the work that's come about around screening for colorectal cancer comes out of the GI research unit at KP, Northern California and the DOR.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support research and development? ... how we're able to implement at Kaiser Permanente evidence based medicine quickly",
+        "list_number": "Q38",
+        "type": "asked_directly"
+      },
+      "end": 8759.12
+    },
+    {
+      "from": "group practice",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 8903.5,
+      "part": 1,
+      "quote": "you're joining a med group that is a multi-specialty physician run and physician owned group ... Um, and with that comes the openness for innovation.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the rewarding aspects of working at Kaiser Permanente that you mentioned as you talk to them?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "end": 8930.06
+    }
+  ],
+  "new_factors": [
+    "contracted local providers",
+    "access",
+    "pandemic response",
+    "service area dyads",
+    "clinical excellence",
+    "volunteerism",
+    "medical education",
+    "research"
+  ]
+}

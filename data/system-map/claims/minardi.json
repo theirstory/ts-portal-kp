@@ -1,0 +1,499 @@
+{
+  "narrator": "Paul Minardi, MD",
+  "slug": "minardi",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6a4e8fb1f380697f178c53bd"
+    },
+    {
+      "part": 2,
+      "story_id": "6a833d75de9acdf7b9822488"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 5291,
+      "end": 5466,
+      "reason": "\"between you and I, Paul, it wasn't it was not a it was a known process, but not an open process\" (1:28:11) and \"what I saw between you and I was the road to nowhere\" — confidential aside about declining the Federation CEO offer. Proposed (conservative; not an explicit cut request)."
+    },
+    {
+      "part": 1,
+      "start": 8740,
+      "end": 8819,
+      "reason": "\"So why why do not put that in. Okay. Do not put that in. Okay.\" (2:26:52), about the interviewer's Palomar/Bonaventure question just before it."
+    },
+    {
+      "part": 1,
+      "start": 10309,
+      "end": 10337,
+      "reason": "\"So that's why the balance sheet, quite frankly between you and me is a fortress balance sheet.\" (2:52:06) — confidential aside in post-answer banter. Proposed (conservative)."
+    },
+    {
+      "part": 2,
+      "start": 4135,
+      "end": 4291,
+      "reason": "\"I don't know if we want to put all that detail in there, but it's it's what actually happened\" (1:10:52) and \"I don't know if you want me to talk about all that stuff\" — candid account of the EMD vote and Federation suspension, which he then re-told formally from 4403."
+    },
+    {
+      "part": 2,
+      "start": 6857,
+      "end": 7190,
+      "reason": "\"I want to be I want to think about what I say for the common plan\" (1:54:34), \"between you and I is just about 11% all in\", then \"Um, let me think about how I say all this\" — candid common-plan/NCAL pension aside before his formal answer at 7193. Proposed."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Southern California (SCPMG); later Washington Permanente Medical Group EMD and KP Medical Foundation (Colorado/Washington)",
+    "region_quote": "but at the end of the day, my love was Permanente Medical Group in Southern California",
+    "era": "1985–2026 (SCPMG 1985–2019; Washington EMD and KPMF CEO thereafter)",
+    "era_quote": "So I joined the organization in 1985"
+  },
+  "claims": [
+    {
+      "from": "medical group autonomy",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2717.24,
+      "part": 1,
+      "quote": "mission critical is that the autonomy that a Permanente physician has in the office to be able to persistently do the right thing for a patient",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So, um, what makes the Permanente model unique compared to other physician organizations? Physician led organizations.",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 2727.56
+    },
+    {
+      "from": "integrated care",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 3469.85,
+      "part": 1,
+      "quote": "there is a distinctive difference in the way in which people experience us, patients experience us ... because we work differently, we work in a collaborative, uh, connected, coordinated fashion.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you think are the most misunderstood aspects of Kaiser Permanente from the outside?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3492.64
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3543.52,
+      "part": 1,
+      "quote": "KP Health Connect but the way in which we've driven both people, process and systems together to really create that integrated impact for superlative outcomes for patients.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you think are the most misunderstood aspects of Kaiser Permanente from the outside?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3554.23
+    },
+    {
+      "from": "stewardship",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 3415.91,
+      "part": 1,
+      "quote": "what we're able to do is take that stewardship and manage it in a really effective, efficient, and efficacious way so that we can deliver the highest quality of care and to create affordability",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you think are the most misunderstood aspects of Kaiser Permanente from the outside?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3429.23
+    },
+    {
+      "from": "data & technology",
+      "to": "rapid change",
+      "polarity": "+",
+      "t": 4679.04,
+      "part": 1,
+      "quote": "as we rolled out the EHR as an example, and how that turned upside down Kaiser Permanente from a workflow perspective, it took us a number of years to recover",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does each role build on the prior role? And how does it help you become a better leader by doing multiple things?",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "end": 4688.2
+    },
+    {
+      "from": "competition",
+      "to": "membership growth",
+      "polarity": "-",
+      "t": 5840.56,
+      "part": 1,
+      "quote": "it was difficult to take our fully integrated model and plop it down in a area in the country that 50% of the accounts were sold by Blue Cross Blue Shield",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice would you give to not only the person who's seeking to be the next CEO, but the federation itself, in terms of what role it should play to be more effective nationally?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5854.04
+    },
+    {
+      "from": "risant affiliation",
+      "to": "permanente federation",
+      "polarity": "-",
+      "t": 6480.45,
+      "part": 1,
+      "quote": "But once Risant got announced, Geisinger got announced, it had a tremendous impact on the Permanente organizations and created a suspension of Colorado and Washington from the Federation.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice would you give to not only the person who's seeking to be the next CEO, but the federation itself, in terms of what role it should play to be more effective nationally?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 6493.65
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 7012.68,
+      "part": 1,
+      "quote": "those concepts were sorely lacking in the MSAs in both Colorado and Washington. Um, as a result, there was an uneven partnership, if you will, with our Healthline colleagues, in both regions",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the how the foundation structure of physician medical and administrative partnership works?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7028.96
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "operational excellence",
+      "polarity": "+",
+      "t": 7061.79,
+      "part": 1,
+      "quote": "worked directly for the medical groups, which enabled them the influence and impact and role clarity and operating excellence that we know is true in the California market.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the how the foundation structure of physician medical and administrative partnership works?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7073.31
+    },
+    {
+      "from": "physician leadership",
+      "to": "quality",
+      "polarity": "+",
+      "t": 7242.75,
+      "part": 1,
+      "quote": "The minority, um, members of the board of directors is from the health plan. And we did that intentionally so that our extreme focus would be on clinical care, outcomes, quality",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the how the foundation structure of physician medical and administrative partnership works?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7258.03
+    },
+    {
+      "from": "physician leadership",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 7946.3,
+      "part": 1,
+      "quote": "we've gotten very positive financial results for the first time, uh, in a decade ... the KPMF construct of governance, leadership and operating model have changed dramatically. That's why we've gotten the impact",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You're using the word influence versus partnership. Was that just a term or did you specifically use the word that the medical groups now have influence versus partnership directly?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 7971.2
+    },
+    {
+      "from": "network model expansion",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 9642.21,
+      "part": 1,
+      "quote": "We could not recreate integrated care and coverage with a network model ... So as a direct result, in the 1990s, um, we, uh, basically burned through the balance sheet",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Risant is about expanding Kaiser Permanente, yet nobody knows that Risant is Kaiser Permanente. Why not change the name of Risant to Kaiser Permanente Light or something that actually gives us name recognition?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 9682.48
+    },
+    {
+      "from": "capitation",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 9745.58,
+      "part": 1,
+      "quote": "The economic success of Kaiser Permanente is built off of prevention, population care, and prepayment; critical to our success.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Risant is about expanding Kaiser Permanente, yet nobody knows that Risant is Kaiser Permanente. Why not change the name of Risant to Kaiser Permanente Light or something that actually gives us name recognition?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 9754.86
+    },
+    {
+      "from": "risant affiliation",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 9965.53,
+      "part": 1,
+      "quote": "Risant is a distant cousin of Kaiser Permanente allows us to grow the business because of the member substitution model that this enables",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Risant is about expanding Kaiser Permanente, yet nobody knows that Risant is Kaiser Permanente. Why not change the name of Risant to Kaiser Permanente Light or something that actually gives us name recognition?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 9977.29
+    },
+    {
+      "from": "physician incentives",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 447.04,
+      "part": 2,
+      "quote": "the value based incentive programs that exist in Colorado and Washington ... to create greater efficiency and therefore lower cost of care for our members and patients.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "[question not captured: part 2 begins mid-answer; the answer reviews what he is proud of and lessons learned]",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 476.1
+    },
+    {
+      "from": "affordability",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1079.55,
+      "part": 2,
+      "quote": "price is by far in a way one of the most important elements in selecting a health plan or insurance in general ... but affordability reigns.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Talk about the financial challenges Kaiser Permanente faced in the 1990s and what was driving them.",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "end": 1094.87
+    },
+    {
+      "from": "membership growth",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 1846.62,
+      "part": 2,
+      "quote": "the decisions around pricing back in the 90s were really made around, can we just get growth at any cost? And we did, and we suffered for it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did the lessons specifically shape the organization's approach to growth? What did we learn in the 90s about growth that specifically shaped our approach to growth now?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1854.54
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 1765.96,
+      "part": 2,
+      "quote": "we've created the systems of care to be able to support us in a very different way that enable us to be much more effective and efficient ... that's enabled us to have pricing that's relevant",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did the lessons specifically shape the organization's approach to growth? What did we learn in the 90s about growth that specifically shaped our approach to growth now?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1781.2
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 3478.14,
+      "part": 2,
+      "quote": "could not agree with what the best approach would be ... Therefore, an opportunity for us to take Kaiser Permanente out to the East Coast in an important way was was a failure.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What led to [the Foundation's] creation? What problem was it designed to solve? How did it change the way Colorado and Washington partnered with the health plan and with the Federation?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3492.52
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 3909.74,
+      "part": 2,
+      "quote": "operating as one, leading as one model the ability to create substantially similar outcomes. Um, affordability, unlike we had before, uh, because now we're working completely together",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What led to [the Foundation's] creation? What problem was it designed to solve? How did it change the way Colorado and Washington partnered with the health plan and with the Federation?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 3922.92
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "best practice spread",
+      "polarity": "-",
+      "t": 4992.46,
+      "part": 2,
+      "quote": "To operate each one of their respective markets in the way in which they believe ... many times what that resulted in though, were eight different ways of managing the hospital",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What should the person that leads the federation, what skills, what should they look for in terms of trying to take the federation and make it a group that is accomplishing what it was set out for?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 5010.81
+    },
+    {
+      "from": "physician leadership",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 5599.18,
+      "part": 2,
+      "quote": "the time between knowing and doing is really truncated in Kaiser Permanente because of our doctors, because of our clinicians, because of our people.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role should physician leaders play in shaping the future of healthcare?",
+        "list_number": "Q45",
+        "type": "asked_directly"
+      },
+      "end": 5606.7
+    },
+    {
+      "from": "integrated care",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 6011.94,
+      "part": 2,
+      "quote": "We'll lead the way because of our integration. We'll lead the way because of care in coverage.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Looking in your crystal ball, where do you think Kaiser Permanente will be in 10 to 20 years?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "end": 6016.95
+    },
+    {
+      "from": "group practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 6558.54,
+      "part": 2,
+      "quote": "if we work together, um, we can create this space and time for our people to really have enough time off, to have enough rest, to have enough well-being",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice would you give a new physician just beginning their career in the Permanente Medical group?",
+        "list_number": "Q20",
+        "type": "narrators_choice"
+      },
+      "end": 6570.38
+    },
+    {
+      "from": "physician leadership",
+      "to": "trust",
+      "polarity": "+",
+      "t": 8006.57,
+      "part": 2,
+      "quote": "physician leadership was critical to the organization and to create trust amongst our patients",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What moments in Kaiser Permanente history do you think every physician should understand?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 8014.13
+    },
+    {
+      "from": "data & technology",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 8044.35,
+      "part": 2,
+      "quote": "And we do it, I think, in a much more elegant way now, because we've got systems of care to be able to help us.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What moments in Kaiser Permanente history do you think every physician should understand?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 8050.15
+    },
+    {
+      "from": "administrative burden",
+      "to": "affordability",
+      "polarity": "-",
+      "t": 9003.27,
+      "part": 2,
+      "quote": "we'd be astonished by the number of regulatory requirements ... things that have created inordinate expense on top of the expense that is part of health care.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If [Garfield and Kaiser] were able to come back to life and look at KP today, what part of KP or what we're doing would most surprise them?",
+        "list_number": "Q15",
+        "type": "narrators_choice"
+      },
+      "end": 9042.64
+    },
+    {
+      "from": "administrative burden",
+      "to": "quality",
+      "polarity": "-",
+      "t": 9123.54,
+      "part": 2,
+      "quote": "even at the modicum of prior authorization that we have today, I think they'd be astonished because it gets in the way. It creates a huge friction and a huge blocker",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If [Garfield and Kaiser] were able to come back to life and look at KP today, what part of KP or what we're doing would most surprise them?",
+        "list_number": "Q15",
+        "type": "narrators_choice"
+      },
+      "end": 9134.58
+    },
+    {
+      "from": "data & technology",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 9477.61,
+      "part": 2,
+      "quote": "health care to become simpler to consume for people by enabling our digital platform, by creating e-visits by creating ease of navigation in our system.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Would Henry be proud of what he sees today at Kaiser Permanente? And when Sidney Garfield, Mr. Innovator of all time, looks back, would he be proud of the innovations of today?",
+        "list_number": "Q15",
+        "type": "narrators_choice"
+      },
+      "end": 9488.58
+    }
+  ],
+  "new_factors": [
+    "stewardship",
+    "operational excellence",
+    "risant affiliation",
+    "permanente federation",
+    "network model expansion",
+    "physician incentives",
+    "best practice spread",
+    "administrative burden"
+  ]
+}

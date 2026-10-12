@@ -1,0 +1,411 @@
+{
+  "narrator": "Robert Pearl, MD",
+  "slug": "pearl",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "697ba5228e33219f48128248"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 5502.41,
+      "end": 5515.89,
+      "reason": "Narrator marks a remark as off camera: \"Now, I'll tell you off camera, you know, we put it in place in three years at PMG. I'm not sure it has yet to do it. So, uh, it does talk about culture or something like that, but that's another story.\""
+    },
+    {
+      "part": 1,
+      "start": 5588.25,
+      "end": 5596.61,
+      "reason": "Narrator asks to cut a misstated statistic: \"400,000 people in the United States died today from preventable. Uh, please cut that out.\""
+    }
+  ],
+  "narrator_meta": {
+    "region": "Northern California (TPMG); also CEO of Mid-Atlantic (MAPMG) via the affiliation",
+    "region_quote": "This was 1998, when I was first chosen to be the CEO of the Permanente Medical Group.",
+    "era": "Joined Kaiser Santa Clara as a Stanford chief resident (start year not stated); TPMG CEO from 1998/1999 for 18 years (~1999–2017)",
+    "era_quote": "after doing the CEO role for 18 years"
+  },
+  "claims": [
+    {
+      "from": "group practice",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1197.57,
+      "part": 1,
+      "quote": "The ability to have peers, actually judging performance, providing the feedback and then together working to improve outcomes. This was the way to achieve the best outcomes for the patients.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did Permanente Medicine differ from other health care models you had encountered? And what convinced you that this was a place where physicians could truly lead?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 1211.21
+    },
+    {
+      "from": "physician leadership",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 1604.09,
+      "part": 1,
+      "quote": "I realized that we were not going to succeed unless the process was being led by the clinicians providing the care.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the defining responsibilities of serving as Executive Director and CEO of TPMG?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 1613.05
+    },
+    {
+      "from": "culture",
+      "to": "patient experience",
+      "polarity": "-",
+      "t": 2181.38,
+      "part": 1,
+      "quote": "They didn't pay attention to it because it didn't align with the physician culture.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk about the specific challenges that the group was facing in 98 and how you guys managed to turn it around?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2185.46
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 2575.34,
+      "part": 1,
+      "quote": "They couldn't see how by integration and collaboration cooperation, we could care for problems in fewer visits.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk a little bit about how you pushed back and helped to bring us back to the Garfield and Kaiser's original model, and how trying to break that model was driving us to bankruptcy?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2583.86
+    },
+    {
+      "from": "quality",
+      "to": "medical group autonomy",
+      "polarity": "+",
+      "t": 3430.27,
+      "part": 1,
+      "quote": "The reason that TPMG and MAPMG could be such effective, independent organizations was because of the ability of both to achieve superior outcomes that are there.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Together TPMG and MAPMG care for millions of members. How do you think about scale while preserving physician voice and local accountability?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 3443.83
+    },
+    {
+      "from": "trust",
+      "to": "medical group autonomy",
+      "polarity": "+",
+      "t": 3543.07,
+      "part": 1,
+      "quote": "as long as people trusted that process, ... then they were willing to see it not as abrogating authority, but as being able to claim independence.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Together TPMG and MAPMG care for millions of members. How do you think about scale while preserving physician voice and local accountability?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 3561.71
+    },
+    {
+      "from": "capitation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3696.23,
+      "part": 1,
+      "quote": "capitation was essential if you want to be able to focus on achieving the best quality outcomes, not just the highest revenue and greatest profits.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "From your perspective, what fundamentally distinguishes Permanente medical groups from other large medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 3709.19
+    },
+    {
+      "from": "capitation",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 3713.47,
+      "part": 1,
+      "quote": "when you are capitated and when you have excellent leadership, now you start to look at problems differently. You don't just ask, how do we reverse heart attacks? You say, how do I control diabetes",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "From your perspective, what fundamentally distinguishes Permanente medical groups from other large medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 3725.87
+    },
+    {
+      "from": "physician leadership",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3817.27,
+      "part": 1,
+      "quote": "It doesn't come at all from the insurance side of it. It comes from the physician leaders and their willingness to make sure that this remains the high priority.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "From your perspective, what fundamentally distinguishes Permanente medical groups from other large medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 3830.16
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4006.8,
+      "part": 1,
+      "quote": "Our care works best when it's done by an integrated medical group, one that shares common information is able to coordinate and collaborate on providing care.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How important is the partnership between the medical group, the health plan and hospitals to the success of Kaiser Permanente?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 4020.48
+    },
+    {
+      "from": "quality",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 4269.16,
+      "part": 1,
+      "quote": "Quality and cost are not battling each other. The way you lower costs is by raising quality.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Why do you believe physician collaboration rather than competition is central to quality and affordability?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 4276.68
+    },
+    {
+      "from": "brand",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 4666.32,
+      "part": 1,
+      "quote": "with that brand, you're able to have a lot of advantages; recruiting clinicians, retaining clinicians, attracting patients",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You've been a national voice on health care innovation. What opportunities did you see early that others were slower to embrace?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 4674.76
+    },
+    {
+      "from": "data & technology",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 4804.68,
+      "part": 1,
+      "quote": "But to go with the system made total sense. And the reason is that we could now do prevention better than anyone else.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You've been a national voice on health care innovation. What opportunities did you see early that others were slower to embrace?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 4814.48
+    },
+    {
+      "from": "prevention",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4841.76,
+      "part": 1,
+      "quote": "to number one in the nation, because in every visit, everyone understood their job was to make sure that all the preventive services that a patient needed got done.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "You've been a national voice on health care innovation. What opportunities did you see early that others were slower to embrace?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 4851.32
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5044.93,
+      "part": 1,
+      "quote": "The electronic health record changed how Kaiser Permanente provides clinical care. It is what allowed us to become number one in the nation in quality, based upon the NCQA data.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role did electronic health records, data and analytics play in transforming care delivery?",
+        "list_number": "Q41",
+        "type": "asked_directly"
+      },
+      "end": 5061.97
+    },
+    {
+      "from": "integrated care",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 6523.26,
+      "part": 1,
+      "quote": "Inside Kaiser Permanente, we can make things happen; we can put in place an electronic health record system, we can embrace a generative AI technology",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What role did Permanente Medicine play in national conversations about delivery system reform? And why do you believe integrated prepaid systems are particularly well positioned to shape the future of health care?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 6532.58
+    },
+    {
+      "from": "leadership development",
+      "to": "quality",
+      "polarity": "+",
+      "t": 6989.14,
+      "part": 1,
+      "quote": "When you don't make the investment leadership, you flounder around, you waste far more dollars. You compromise your brand, you undermine your quality",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you develop and mentor the next generation of physician leaders?",
+        "list_number": "Q42",
+        "type": "asked_directly"
+      },
+      "end": 6999.26
+    },
+    {
+      "from": "leadership development",
+      "to": "physician turnover",
+      "polarity": "-",
+      "t": 6989.14,
+      "part": 1,
+      "quote": "When you don't make the investment leadership, you flounder around, ... essentially, at some particular point, you lose your doctors because they don't want to be part of an organization that's floundering.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you develop and mentor the next generation of physician leaders?",
+        "list_number": "Q42",
+        "type": "asked_directly"
+      },
+      "end": 7007.22
+    },
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 7240.27,
+      "part": 1,
+      "quote": "So I think trust is built through authenticity, is built through transparency, it's built by providing the information.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What cultural norms were essential to sustaining trust across such large medical groups?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 7247.63
+    },
+    {
+      "from": "trust",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 7256.51,
+      "part": 1,
+      "quote": "when leaders tell the truth and people come to trust the fact, ... That's when I think that people are willing to take the risks and make the changes that need to occur.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What cultural norms were essential to sustaining trust across such large medical groups?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 7269.39
+    },
+    {
+      "from": "brand",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 7921.83,
+      "part": 1,
+      "quote": "we were able to move our market share from 34% to 46%, because that tells you that the brand that you have achieved is one that people want to accomplish.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Looking back, what accomplishments are you most proud of?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 7933.59
+    },
+    {
+      "from": "affordability",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 8208.04,
+      "part": 1,
+      "quote": "lower cost because you want to be able to continue to grow. And the way you attract new members is with a slight cost advantage.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What do you hope future Permanente leaders understand about the role of physicians in leading systems?",
+        "list_number": "Q45",
+        "type": "narrators_choice"
+      },
+      "end": 8214.36
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 8807.68,
+      "part": 1,
+      "quote": "And this battle I think we saw again in the 1990s between the medical group and the health plan, and that's how we, our organization, got down to two days of cash.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What parts of Kaiser Permanente's history should future leaders study most closely?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 8819.48
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "brand",
+      "polarity": "+",
+      "t": 8863.28,
+      "part": 1,
+      "quote": "we always should do that in partnership. We always should do that under the leadership of the medical group. And when that doesn't happen, my observation is we soil our name. We erode our brand.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What parts of Kaiser Permanente's history should future leaders study most closely?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 8873.76
+    },
+    {
+      "from": "capitation",
+      "to": "data & technology",
+      "polarity": "+",
+      "t": 10567.38,
+      "part": 1,
+      "quote": "generative AI requires that you be capitated. Because when you avoid 30% to 50% of heart attacks and strokes and kidney failures by better managing chronic disease, and you're not capitated, you lose money.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do we still maintain a unique quality advantage using AI with our evidence based integrated medical system?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 10587.26
+    }
+  ],
+  "new_factors": [
+    "brand",
+    "physician recruitment"
+  ]
+}

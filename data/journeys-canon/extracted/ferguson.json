@@ -1,0 +1,475 @@
+{
+  "narrator": "Margaret Ferguson, MD",
+  "slug": "ferguson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69819de4e12e409359b1cf4c"
+    }
+  ],
+  "one_line": "Former PICU nurse and pediatric intensivist who became Colorado Permanente's first female EMD, then interim EMD in Washington.",
+  "top_role": "Executive Medical Director, Colorado Permanente Medical Group (2015-2021)",
+  "region": "Colorado",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 3108,
+      "end": 3474,
+      "reason": "Asked about the foundation/Federation specifics, she deferred: \"I think it would be, um, tough for me to weigh in, especially because I'm still kind of working with them. Okay, if I can just tell you...\" and \"I would ask that you have, you know, Paul will be a little bit tougher to tell the truth. But I think, Jeff, I've heard him describe it in a very balanced way, and I would feel better if he did it.\" (51:48-57:54). Proposed."
+    },
+    {
+      "part": 1,
+      "start": 3615,
+      "end": 3831,
+      "reason": "Interviewer: \"So just for my own knowledge...\"; she: \"So I'm just telling you this not for the right thing.\" (likely mis-transcribed \"not for the record\"; 1:00:15-1:03:51), covering the Federation suspension remarks. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 4610,
+      "end": 4642,
+      "reason": "\"I'm sorry, I'm being kind of clunky with this because it's a little bit of an odd question, but if they can edit that part out.\" (1:17:08). Proposed; span approximates the clunky passage before she restarts."
+    },
+    {
+      "part": 1,
+      "start": 5750,
+      "end": 5772,
+      "reason": "False start on the leadership-advice answer: \"Here, let me start over. Okay.\" (1:35:50). Proposed retake."
+    },
+    {
+      "part": 1,
+      "start": 7861,
+      "end": 7887,
+      "reason": "False start on the Permanente-history answer: \"Let me say this again okay.\" (2:11:01). Proposed retake."
+    },
+    {
+      "part": 1,
+      "start": 8690,
+      "end": 8750,
+      "reason": "\"And I'm just going to say this, and I know you're not going to record it, but it's almost a little bit like there's like seven billionaires who are running the world right now.\" (2:24:50), through the Elon Musk / 13 million members remark. Proposed."
+    }
+  ],
+  "journey": [
+    {
+      "t": 9042.61,
+      "part": 1,
+      "year": 1973,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordinary_world",
+      "label": "Junior-high candy striper finds her calling",
+      "fortune": 2,
+      "fortune_basis": "I just absolutely fell in love with it",
+      "quote": "in junior high, you had to sign up for a volunteer, um, project. And the only thing left when I went to sign up was to be a candy striper",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 9055.53
+    },
+    {
+      "t": 62.66,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "call",
+      "label": "Pediatric ICU externship at Georgetown",
+      "fortune": 2,
+      "fortune_basis": "that really changed my whole life",
+      "quote": "the only uh, externship available was pediatrics, and so I did a peds ICU there in college. And that really changed my whole life,",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 71.34
+    },
+    {
+      "t": 5337.75,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "mentor",
+      "label": "Mentored by PICU unit secretary Wilma",
+      "fortune": 2,
+      "fortune_basis": "a really, really important part of my development",
+      "quote": "the first person who really mentored me was the unit secretary in the pediatric ICU called Wilma.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 5344.75
+    },
+    {
+      "t": 9153.74,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Rejected, waitlisted, finally enters medical school",
+      "fortune": 1,
+      "fortune_basis": "and then ended up, um, loving it",
+      "quote": "Got rejected. Waitlisted the first year. Wasn't going to reapply. Everybody yelled at me and said, you have to. Got waitlisted the second year, did get in like three days before school started",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 9167.22
+    },
+    {
+      "t": 9182.38,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Becomes medical director of Children's PICU",
+      "fortune": 2,
+      "fortune_basis": "go from that being my first new grad job to leading the unit",
+      "quote": "stayed and did pediatric ICU fellowship in the ICU that I had worked for so long. And then when I was done, I became the medical director of that peds ICU.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 9194.42
+    },
+    {
+      "t": 232.51,
+      "part": 1,
+      "year": 2004,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "She became EMD in 2015 'after 11 years of being in the group'.",
+      "stage": "threshold",
+      "label": "Talks her way into CPMG hospitalist role",
+      "fortune": 2,
+      "fortune_basis": "never looked back and wished I had done it ten years earlier",
+      "quote": "I called back the next day and said, my best advice is for you guys to hire me to do it. So they actually did make a spot for me.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 240.21
+    },
+    {
+      "t": 728.75,
+      "part": 1,
+      "year": 2008,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "'About four years in' after joining CPMG c.2004.",
+      "stage": "call",
+      "label": "Moves into utilization management",
+      "fortune": 2,
+      "fortune_basis": "And it was thrilling and I loved it.",
+      "quote": "about four years in, I noticed that there was a job open in utilization management, which I didn't even know what that was. I had to look it up.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 738.39
+    },
+    {
+      "t": 769.18,
+      "part": 1,
+      "year": 2011,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "The EMD retired 'about four years later' and she became EMD in 2015; she also says 'about eight years in', which would put it c.2011-2012.",
+      "stage": "reward",
+      "label": "Named first VP of Affordability",
+      "fortune": 2,
+      "fortune_basis": "I got to be part of the executive team, and I just loved it.",
+      "quote": "the Executive Medical Director came to me and wanted me to be the first VP of Affordability. And so I came on to the executive team",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 779.94
+    },
+    {
+      "t": 9335.77,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Applies for EMD despite discouragement",
+      "fortune": 0,
+      "fortune_basis": "that made me double down and want to apply even more",
+      "quote": "I decided I wanted to apply. And I didn't get anyone telling me I should. I got 100 people telling me I shouldn't. I had people say, this region isn't ready for a female EMD",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 9350.26
+    },
+    {
+      "t": 1085.61,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Becomes CPMG's first female EMD",
+      "fortune": 2,
+      "fortune_basis": "Yes, it was amazing and a great honor.",
+      "quote": "I was the fifth EMD and the first female, and, you know, that wasn't lost on certainly me or, um, many of the women in our organization.",
+      "event_ref": "Three women serve as EMDs together",
+      "sensitive": false,
+      "end": 1098.89
+    },
+    {
+      "t": 1620.46,
+      "part": 1,
+      "year": 2017,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "'Two years in' to her EMD tenure, which began in 2015.",
+      "stage": "ordeal",
+      "label": "$230 million loss forces financial turnaround",
+      "fortune": -2,
+      "fortune_basis": "were actually surprised that we had a big drop off in our, um, margin",
+      "quote": "We eventually, two years in, were actually surprised that we had a big drop off in our, um, margin. And we eventually lost about $230 million one year.",
+      "event_ref": "CPMG financial turnaround",
+      "sensitive": false,
+      "end": 1637.68
+    },
+    {
+      "t": 2187.56,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Reaches her limit, hires executive coach",
+      "fortune": -3,
+      "fortune_basis": "really did reach my limit",
+      "quote": "a couple of times really did reach my limit where I thought, I don't know that I can keep doing this.",
+      "event_ref": "CPMG financial turnaround",
+      "sensitive": true,
+      "end": 2193.72
+    },
+    {
+      "t": 1701.1,
+      "part": 1,
+      "year": 2019,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "The pandemic was 'my last two years of working'; she retired in June 2021.",
+      "stage": "reward",
+      "label": "Leads through the pandemic",
+      "fortune": 3,
+      "fortune_basis": "the best part of my whole career",
+      "quote": "the best part of my whole career was probably the pandemic, because that was my last two years of working and it gave us an opportunity to recover",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 1710.18
+    },
+    {
+      "t": 6051.35,
+      "part": 1,
+      "year": 2021,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "transformation",
+      "label": "Retires; MPH and health-news internship",
+      "fortune": 2,
+      "fortune_basis": "And so that was wonderful",
+      "quote": "particularly interested in health policy, so I did that, and did an internship with the Kaiser Health news",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 6061.01
+    },
+    {
+      "t": 6101.93,
+      "part": 1,
+      "year": 2023,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "call",
+      "label": "Interim EMD at Washington Permanente",
+      "fortune": 2,
+      "fortune_basis": "that was quite thrilling",
+      "quote": "asked me to come up to Washington Permanente Medical Group and be the interim EMD in 23, which I did",
+      "event_ref": "KP Medical Foundation formed",
+      "sensitive": false,
+      "end": 6108.77
+    },
+    {
+      "t": 6122.59,
+      "part": 1,
+      "year": 2025,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "return",
+      "label": "Executive coach and strategic consultant",
+      "fortune": 2,
+      "fortune_basis": "a skill set that makes me a better leader than I was when I retired",
+      "quote": "I did some training and certification in becoming an executive coach and then was asked to come back again here this past September in 25 to provide what I would call strategic consulting",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 6138.59
+    }
+  ],
+  "events": [
+    {
+      "name": "CPMG financial turnaround",
+      "year_start": 2017,
+      "year_end": 2019,
+      "year_basis": "inferred_from_transcript",
+      "view": "She saw the sudden margin collapse and consultant-led two-year turnaround as a painful surprise that succeeded financially but taught hard lessons about cuts, pace and communication.",
+      "t": 1770.96,
+      "part": 1,
+      "quote": "the financial transformation, which happened about two years in, was a surprise and it moved quickly and we had to make quick decisions.",
+      "prompt": {
+        "question": "what were the most difficult leadership challenges you faced, you know, during that period?",
+        "list_number": "Q16",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1782.15,
+      "year_note": "She became EMD in 2015 and says the financial transformation \"happened about two years in\"."
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": 2019,
+      "year_end": 2021,
+      "year_basis": "inferred_from_transcript",
+      "view": "She calls the pandemic, her last two years as EMD, the best part of her career because it let the group refocus on patients after the turnaround.",
+      "t": 1701.1,
+      "part": 1,
+      "quote": "the best part of my whole career was probably the pandemic, because that was my last two years of working and it gave us an opportunity to recover",
+      "prompt": {
+        "question": "During your tenure, Cpmg faced significant financial pressures. How would you describe the environment you stepped into as MD?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1710.18,
+      "year_note": "\"my last two years of working\", before she retired in June 2021."
+    },
+    {
+      "name": "KP Medical Foundation formed",
+      "year_start": 2023,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "She traces it to joint talks among the Colorado, Washington and Northwest EMDs and sees value in shared services, while noting added complexity and a poorly communicated rollout.",
+      "t": 2907.68,
+      "part": 1,
+      "quote": "So when after I retired, the work got done, it took about two years to pull together the idea of the KP Medical Foundation.",
+      "prompt": {
+        "question": "The transition of Cpmg into the foundation occurred shortly after your tenure. From your perspective, how did you view the transition as it unfolded?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2918.14
+    },
+    {
+      "name": "Permanente Federation and KPMF split",
+      "year_start": 2023,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "She valued the Federation highly and expects the separated Federation and KP Medical Foundation to come back together.",
+      "t": 3522.69,
+      "part": 1,
+      "quote": "when the KP Medical Foundation came along, there was a decision to separate those two out. And, um, I believe that is a relationship that is in progress",
+      "prompt": {
+        "question": "So the direction of the foundation of the Federation? Yeah. Where where do you see them in the future?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 3539.13,
+      "year_note": "\"between 23, when I first came upon the KP Medical Foundation to now 2026\"."
+    },
+    {
+      "name": "Three women serve as EMDs together",
+      "year_start": 2015,
+      "year_end": 2021,
+      "year_basis": "inferred_from_transcript",
+      "view": "She saw serving six years alongside two other women EMDs as excellent timing and a wonderful experience.",
+      "t": 1171.26,
+      "part": 1,
+      "quote": "So we each got to serve six years together. And so three of the eight EMDs were women, and it was um, it was a wonderful experience.",
+      "prompt": {
+        "question": "As one of the first women to serve as an executive medical director. What did that milestone mean to you personally and professionally?",
+        "list_number": "Q5",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1183.98,
+      "year_note": "She was EMD from 2015 to June 2021 and says \"we each got to serve six years together\"."
+    },
+    {
+      "name": "Lehman Brothers collapse",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She recalls it coinciding with the creation of the VP of Affordability role, sharpening interest in cost containment.",
+      "t": 9315.06,
+      "part": 1,
+      "quote": "That happened to coincide with sort of the Lehman Brothers collapse, and so everyone was super interested in cost containment.",
+      "prompt": {
+        "question": "And then just finish it on why you went to Kaiser like you mentioned in your previous answer, but do it all in one.",
+        "list_number": "Q1",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 9323.17
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Asked for advice, she hired herself",
+      "summary": "A CPMG pediatric leader called her for advice on setting up a hospitalist program. A day later she called back asking to apply for the job herself, and CPMG made a spot for her.",
+      "t": 9230.24,
+      "part": 1,
+      "quote": "So I gave her advice. And, you know, I got to thinking about it, and it took me one day and I called her back and said, please let me apply for the job that you're talking about.",
+      "why": "Shows initiative and how a career turn can start with one call.",
+      "sensitive": false,
+      "end": 9240.68
+    },
+    {
+      "title": "Thirty-one buildings at once",
+      "summary": "During the financial turnaround, leadership rolled a change out to all 31 buildings instead of piloting it at three. It took about six months to undo, and she counts it among her top lessons.",
+      "t": 2110.1,
+      "part": 1,
+      "quote": "instead of piloting it at 3 buildings, which we could have some control over, we decided to put it into 31 buildings at the same time, and that was really a mistake.",
+      "why": "A candid leadership lesson on piloting change before scaling it.",
+      "sensitive": false,
+      "end": 2124.46
+    },
+    {
+      "title": "Wilma, the unit secretary mentor",
+      "summary": "Her first real mentor was not a physician but Wilma, the unit secretary in the pediatric ICU. Wilma taught her how to deal with people and stay calm in chaos.",
+      "t": 5349.95,
+      "part": 1,
+      "quote": "she taught me about how to deal with people and interact and calm down when things were crazy. And she was affirming and, a really, really important part of my development.",
+      "why": "Mentorship can come from anyone on the team, not just bosses.",
+      "sensitive": false,
+      "end": 5364.7
+    },
+    {
+      "title": "Rounding fixed the printers",
+      "summary": "Leadership rounding surfaced how much broken printers frustrated clinicians. CPMG launched an initiative to replace printers everywhere.",
+      "t": 5105.9,
+      "part": 1,
+      "quote": "frankly, we've all had printer rounding, but it's sometimes your printer can ruin your whole life. And so we actually started a whole initiative to replace printers everywhere, and then that got fixed.",
+      "why": "Small frontline fixes build trust; listening surfaces them.",
+      "sensitive": false,
+      "end": 5118.46
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1895.29,
+      "part": 1,
+      "question": "Which is a great segue for what were the top ten things you would never do again? Is that a reasonable question?",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew five candid lessons from the turnaround, including moments she nearly stopped leading.",
+      "sensitive": false,
+      "end": 1902.29
+    },
+    {
+      "t": 535.09,
+      "part": 1,
+      "question": "Was leadership something you actively pursued or did others encourage you to step forward?",
+      "source": "question_list",
+      "list_number": "Q3",
+      "why": "Revealed no one encouraged her, even for EMD; she pushed herself as a reluctant leader.",
+      "sensitive": false,
+      "end": 540.73
+    },
+    {
+      "t": 8190.47,
+      "part": 1,
+      "question": "What are you most proud of? As for from your time as executive medical director and how would you like to be remembered?",
+      "source": "question_list",
+      "list_number": "Q17",
+      "why": "Drew a frank self-portrait: back-of-the-room leader, not defined by the financial transformation.",
+      "sensitive": false,
+      "end": 8196.71
+    }
+  ]
+}

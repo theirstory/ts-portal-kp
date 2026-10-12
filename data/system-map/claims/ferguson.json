@@ -1,0 +1,408 @@
+{
+  "narrator": "Margaret Ferguson, MD",
+  "slug": "ferguson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69819de4e12e409359b1cf4c"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 3108,
+      "end": 3474,
+      "reason": "Asked about the foundation/Federation specifics, she deferred: \"I think it would be, um, tough for me to weigh in, especially because I'm still kind of working with them. Okay, if I can just tell you...\" and \"I would ask that you have, you know, Paul will be a little bit tougher to tell the truth. But I think, Jeff, I've heard him describe it in a very balanced way, and I would feel better if he did it.\" (51:48-57:54). Proposed."
+    },
+    {
+      "part": 1,
+      "start": 3615,
+      "end": 3831,
+      "reason": "Interviewer: \"So just for my own knowledge...\"; she: \"So I'm just telling you this not for the right thing.\" (likely mis-transcribed \"not for the record\"; 1:00:15-1:03:51), covering the Federation suspension remarks. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 4610,
+      "end": 4642,
+      "reason": "\"I'm sorry, I'm being kind of clunky with this because it's a little bit of an odd question, but if they can edit that part out.\" (1:17:08). Proposed; span approximates the clunky passage before she restarts."
+    },
+    {
+      "part": 1,
+      "start": 5750,
+      "end": 5772,
+      "reason": "False start on the leadership-advice answer: \"Here, let me start over. Okay.\" (1:35:50). Proposed retake."
+    },
+    {
+      "part": 1,
+      "start": 7861,
+      "end": 7887,
+      "reason": "False start on the Permanente-history answer: \"Let me say this again okay.\" (2:11:01). Proposed retake."
+    },
+    {
+      "part": 1,
+      "start": 8690,
+      "end": 8750,
+      "reason": "\"And I'm just going to say this, and I know you're not going to record it, but it's almost a little bit like there's like seven billionaires who are running the world right now.\" (2:24:50), through the Elon Musk / 13 million members remark. Proposed."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Colorado (CPMG); later interim EMD in Washington (2023)",
+    "region_quote": "I was very, very lucky to get to move to Colorado Permanente Medical Group to help lead their pediatric hospitalist program",
+    "era": "c.2004–2021 (joined CPMG ~11 years before becoming EMD in 2015; EMD 2015–June 2021; interim EMD Washington Permanente 2023)",
+    "era_quote": "gotten that role in 2015. And then I served in the role until June of 21, when I retired."
+  },
+  "claims": [
+    {
+      "from": "membership growth",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 1676.52,
+      "part": 1,
+      "quote": "probably because of some decisions about growth and expansion, we were faced with a big challenge.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "During your tenure, Cpmg faced significant financial pressures. How would you describe the environment you stepped into as MD?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 1682.96
+    },
+    {
+      "from": "financial pressure",
+      "to": "patient experience",
+      "polarity": "-",
+      "t": 1707.63,
+      "part": 1,
+      "quote": "it gave us an opportunity to recover from the difficulties of the financial turnaround, where we were so focused on cost cutting and spreadsheets, and then we could get back to focusing on patients.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "During your tenure, Cpmg faced significant financial pressures. How would you describe the environment you stepped into as MD?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 1722.14
+    },
+    {
+      "from": "financial pressure",
+      "to": "rapid change",
+      "polarity": "+",
+      "t": 1827.67,
+      "part": 1,
+      "quote": "rapidity of the financial difficulties coming on ... and we had to rapidly change the culture over a short period of time.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the most difficult leadership challenges you faced ... as executive medical director.",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1848.91
+    },
+    {
+      "from": "quality",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 2493.64,
+      "part": 1,
+      "quote": "I would convey that low quality care is expensive care.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you balance financial realities with clinical quality, physician morale and patient care?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 2498.8
+    },
+    {
+      "from": "rapid change",
+      "to": "physician well-being",
+      "polarity": "-",
+      "t": 2505.08,
+      "part": 1,
+      "quote": "Morale really did suffer quite a bit. Engagement scores went way down during the financial transformation, and that was, um, when we analyzed it from the rapidity of the change.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you balance financial realities with clinical quality, physician morale and patient care?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 2521.82
+    },
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 2644.83,
+      "part": 1,
+      "quote": "I think more truthful communication about what's going on the more trust you get.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you communicate difficult realities to physicians and staff while maintaining trust?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 2654.55
+    },
+    {
+      "from": "shared services",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 2991.68,
+      "part": 1,
+      "quote": "a great value in having two regions that can share services and more efficiently take some cost out of each of their systems.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "The transition of Cpmg into the foundation occurred shortly after your tenure. From your perspective, how did you view the transition as it unfolded?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3002.28
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 3027.8,
+      "part": 1,
+      "quote": "have a more substantial and called out partnership between the EMD and the regional president, such that the EMD really is at the table a lot more",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "The transition of Cpmg into the foundation occurred shortly after your tenure. From your perspective, how did you view the transition as it unfolded?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 3037.79
+    },
+    {
+      "from": "mission",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 4067.33,
+      "part": 1,
+      "quote": "an organization like Kaiser Permanente with such a strong mission of, you know, high quality health care for the most people. And, um, it was almost like an algorithm for decisions every day",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did Kaiser Permanente's mission and values guide your decision making as an MD?",
+        "list_number": "Q10",
+        "type": "asked_directly"
+      },
+      "end": 4085.57
+    },
+    {
+      "from": "patient experience",
+      "to": "financial pressure",
+      "polarity": "-",
+      "t": 4136.64,
+      "part": 1,
+      "quote": "chaos that we felt when I was EMD during our financial downturn ... probably has a root cause of compromising on care experience, whether it's access to care or quality",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did Kaiser Permanente's mission and values guide your decision making as an MD?",
+        "list_number": "Q10",
+        "type": "narrators_choice"
+      },
+      "end": 4159.14
+    },
+    {
+      "from": "hospital partnerships",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 4654.96,
+      "part": 1,
+      "quote": "create strong partnerships with hospitals where we are often a majority of the patients in the hospital, which makes it feel integrated",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the integrated care model of Kaiser Permanente support both patients and physicians, especially during times of strain?",
+        "list_number": "Q24",
+        "type": "narrators_choice"
+      },
+      "end": 4667.58
+    },
+    {
+      "from": "data & technology",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 4669.78,
+      "part": 1,
+      "quote": "Epic functionality that allows us to have the flow of communication back and forth, even between affiliated partners and the hospital into our clinics. That really, truly is integrated.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the integrated care model of Kaiser Permanente support both patients and physicians, especially during times of strain?",
+        "list_number": "Q24",
+        "type": "narrators_choice"
+      },
+      "end": 4686.54
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4686.54,
+      "part": 1,
+      "quote": "And what it does is it reduces um, um, let's see, how about it increases patient safety",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the integrated care model of Kaiser Permanente support both patients and physicians, especially during times of strain?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 4700.41
+    },
+    {
+      "from": "integrated care",
+      "to": "physician recruitment",
+      "polarity": "+",
+      "t": 4724.85,
+      "part": 1,
+      "quote": "it certainly is something that is what attracts clinicians to come to Kaiser Permanente because of the fact that it is a relatively closed system",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the integrated care model of Kaiser Permanente support both patients and physicians, especially during times of strain?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 4736.33
+    },
+    {
+      "from": "integrated care",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 4763.41,
+      "part": 1,
+      "quote": "when things are really difficult, um, it's what keeps patients at KP.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does the integrated care model of Kaiser Permanente support both patients and physicians, especially during times of strain?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 4770.17
+    },
+    {
+      "from": "financial pressure",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 4921.15,
+      "part": 1,
+      "quote": "we had to create a an entire innovation process very quickly to make lots of changes during our financial turnaround.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you approach innovation or change?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 4931.19
+    },
+    {
+      "from": "physician turnover",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 5170.77,
+      "part": 1,
+      "quote": "to lose a physician in the KPCO region was about a $500,000 cost",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role did physician well-being play in your leadership priorities?",
+        "list_number": "Q26",
+        "type": "narrators_choice"
+      },
+      "end": 5178.41
+    },
+    {
+      "from": "physician well-being",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5251.29,
+      "part": 1,
+      "quote": "it is really everything because how the clinicians and the staff are doing is how well your patients are doing.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role did physician well-being play in your leadership priorities?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 5262.26
+    },
+    {
+      "from": "prevention",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 6911.97,
+      "part": 1,
+      "quote": "anticipating problems and trying to prevent them is so much more cost efficient and allows for a lot longer of being well.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What lessons from Permanente history do you find yourself returning to most often in your coaching work?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 6924.48
+    },
+    {
+      "from": "affordability",
+      "to": "equity",
+      "polarity": "+",
+      "t": 7817.09,
+      "part": 1,
+      "quote": "that doesn't bring as much value as if we increase the affordability and provide it to way more people, especially working class people, people who are underserved",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What must KP continue to protect? Even as healthcare continues to evolve?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 7829.73
+    },
+    {
+      "from": "culture",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 7887.36,
+      "part": 1,
+      "quote": "understanding Permanente history has very much impacted my leadership",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "As a leader, understanding Permanente history, how does that help shape you as a leader and future physician leaders?",
+        "list_number": "Q48",
+        "type": "asked_directly"
+      },
+      "end": 7895.32
+    },
+    {
+      "from": "salaried practice",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 8067.43,
+      "part": 1,
+      "quote": "a system that values that, and that will allow us to have a salary in exchange for preventing disease, for treating disease in an affordable way",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "As a leader, understanding Permanente history, how does that help shape you as a leader and future physician leaders?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "end": 8080.11
+    },
+    {
+      "from": "financial pressure",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 9315.06,
+      "part": 1,
+      "quote": "That happened to coincide with sort of the Lehman Brothers collapse, and so everyone was super interested in cost containment.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Tell us about your personal background ... do you feel comfortable just answering that again?",
+        "list_number": "Q1",
+        "type": "narrators_choice"
+      },
+      "end": 9323.17
+    }
+  ],
+  "new_factors": [
+    "mission",
+    "shared services",
+    "hospital partnerships",
+    "physician recruitment",
+    "salaried practice"
+  ]
+}

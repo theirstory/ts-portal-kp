@@ -1,0 +1,527 @@
+{
+  "narrator": "Stephen Tarnoff, MD",
+  "slug": "tarnoff",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6952d1175d2db97b9c242774"
+    }
+  ],
+  "one_line": "Seattle family physician who rose, fell and returned to lead Group Health's physicians into Kaiser Permanente.",
+  "top_role": "President and executive medical director, Group Health Permanente / Washington Permanente Medical Group",
+  "region": "Washington",
+  "excluded_segments": [],
+  "journey": [
+    {
+      "t": 89.91,
+      "part": 1,
+      "year": 1971,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Born in 1950 and says he never thought about being a doctor until he was 21; the Sweden year is when that changed.",
+      "stage": "call",
+      "label": "Swedish medical students turn him toward medicine",
+      "fortune": 2,
+      "fortune_basis": "they were incredibly generous and,",
+      "quote": "I spent a year in Sweden, uh, and just by happenstance or serendipity, I lived with three Swedish medical students, and, um, they were incredibly generous and,",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 102.75
+    },
+    {
+      "t": 337.51,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Locums after his UW family medicine residency; no year given.",
+      "stage": "trials",
+      "label": "Isolated doing locums in fee-for-service",
+      "fortune": -1,
+      "fortune_basis": "mostly I felt pretty isolated and alone.",
+      "quote": "there were certain things I liked, but mostly I felt pretty isolated and alone. Both, um, personally, but particularly medically, uh, in terms of what I needed help.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 347.19
+    },
+    {
+      "t": 381.25,
+      "part": 1,
+      "year": 1981,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Stayed 38 years and retired in summer 2019, giving about 1981; he also says he felt this 'back in 1982, when I was just starting out'.",
+      "stage": "threshold",
+      "label": "Joins Group Health on a locums job",
+      "fortune": 3,
+      "fortune_basis": "I really fell in love with the model of care and with my colleagues.",
+      "quote": "within the first two, 1 to 2 weeks of working there, I really fell in love with the model of care and with my colleagues.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 391.09
+    },
+    {
+      "t": 461.56,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"Fairly early\" in his career, after two and a half years at the Rainier clinic; no year given.",
+      "stage": "call",
+      "label": "Becomes Rainier clinic chief",
+      "fortune": 2,
+      "fortune_basis": "a great opportunity for me at a pretty young age",
+      "quote": "I, with my two and a half years there, had more seniority and so I was asked to be the, uh, clinic chief.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 468.47
+    },
+    {
+      "t": 487.59,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Same period as the Rainier clinic chief role; no year given.",
+      "stage": "mentor",
+      "label": "Learns from nurse operations partner",
+      "fortune": 2,
+      "fortune_basis": "she had a gift of working with the staff, and she taught me a lot.",
+      "quote": "a wonderful partner and operations partner, woman who had trained as a nurse, but she had a gift of working with the staff, and she taught me a lot.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 494.83
+    },
+    {
+      "t": 821.45,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Family docs were doing everything \"in the 80s and early 90s\"; no specific year.",
+      "stage": "trials",
+      "label": "Writes urgent care white paper",
+      "fortune": -1,
+      "fortune_basis": "there was a tremendous amount of stress.",
+      "quote": "one time, of all my complaining, my wife said to me, well, do something about it if you feel so strongly. So I wrote a white paper,",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 828.77
+    },
+    {
+      "t": 858.81,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "trials",
+      "label": "Medical director for consultative specialists",
+      "fortune": 1,
+      "fortune_basis": "I found that the surgeons had confidence in me and knew me,",
+      "quote": "I was asked to be the medical director for consultative specialists. And I was quite concerned. Well, as a family doctor, how would that work?",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 867.21
+    },
+    {
+      "t": 879.96,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Held the role \"for a number of years\" before the leadership change; no year given.",
+      "stage": "reward",
+      "label": "Dream job: medical director of operations",
+      "fortune": 3,
+      "fortune_basis": "my dream job, which happened twice in my career,",
+      "quote": "my, my dream job, which happened twice in my career, was to be medical director of operations. And that meant, you know, running the care delivery system",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 889.48
+    },
+    {
+      "t": 932.92,
+      "part": 1,
+      "year": 2006,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "About seven years outside leadership, then back in operations a year before becoming president in early 2014, giving roughly 2006.",
+      "stage": "ordeal",
+      "label": "Removed from operations leadership",
+      "fortune": -3,
+      "fortune_basis": "to my surprise and really dismay,",
+      "quote": "to my surprise and really dismay, I was, along with my operations partner, told that, you know, they were going in a different direction with leadership, and I could either go back to clinical practice",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 945.51
+    },
+    {
+      "t": 972.55,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During the roughly seven years outside leadership; no specific year.",
+      "stage": "transformation",
+      "label": "Health plan years turn into blessing",
+      "fortune": 1,
+      "fortune_basis": "that turned out to be a blessing.",
+      "quote": "I worked on the health plan side, and that turned out to be a blessing. I learned I was medical director for Medicare and Medicaid and public policy,",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 980.11
+    },
+    {
+      "t": 1005.34,
+      "part": 1,
+      "year": 2013,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Says he had been back in operations for a year when he became president in early 2014.",
+      "stage": "return",
+      "label": "Invited back to run operations",
+      "fortune": 2,
+      "fortune_basis": "I was invited back in to by the senior leadership",
+      "quote": "operations had were struggling, the delivery system were having problems, and I was invited back in to by the senior leadership to, um, first be the chief medical operations person.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1018.82
+    },
+    {
+      "t": 1029.58,
+      "part": 1,
+      "year": 2014,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Selected executive medical director",
+      "fortune": 3,
+      "fortune_basis": "it was a great gift at the end of my career",
+      "quote": "I was selected to be the executive medical director. So I guess that was it was really a 30 year journey,",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1037.94
+    },
+    {
+      "t": 2872.75,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Says in the late-2025 interview that the confidentiality agreements are \"now a decade out\"; approximate.",
+      "stage": "call",
+      "label": "Kaiser Permanente invites a partnership",
+      "fortune": 2,
+      "fortune_basis": "that was that was, um, wonderful news,",
+      "quote": "Kaiser Foundation Health Plan and the Medical Group are intending to come into Washington state, and we are exploring whether you would be interested in being our partner.",
+      "event_ref": "Kaiser Permanente acquisition of Group Health",
+      "sensitive": true,
+      "end": 2881.39
+    },
+    {
+      "t": 4157.15,
+      "part": 1,
+      "year": 2017,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Leads physicians into Kaiser Permanente",
+      "fortune": 3,
+      "fortune_basis": "it's something I'm most, you know, deeply proud of",
+      "quote": "being an independent medical group allowed us to do that. Um, and, uh, it's something I'm most, you know, deeply proud of to become part of the Kaiser Permanente family.",
+      "event_ref": "Kaiser Permanente acquisition of Group Health",
+      "sensitive": false,
+      "end": 4171.75
+    },
+    {
+      "t": 6747.63,
+      "part": 1,
+      "year": 2019,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "return",
+      "label": "Retires just before COVID",
+      "fortune": -1,
+      "fortune_basis": "I feel bad about the timing.",
+      "quote": "I myself had retired, as I said, in summer of 2019. I feel bad about the timing.",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 6755.03
+    },
+    {
+      "t": 5680.95,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "After retiring (2019), for two years; start year not given.",
+      "stage": "return",
+      "label": "Interim editor of Permanente journal",
+      "fortune": 2,
+      "fortune_basis": "every bit as important and as meaningful",
+      "quote": "I had an opportunity after I retired to be the interim editor of the KP Medical Journal, Permanente Medicine, um, uh, for, uh, two years.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 5693.63
+    }
+  ],
+  "events": [
+    {
+      "name": "Group Health Medical Group founded",
+      "year_start": 1947,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He sees the 1947 founders' aim of aligned patient and physician interests as the source of the culture he led.",
+      "t": 1196.06,
+      "part": 1,
+      "quote": "the medical group, uh, came into existence as the Group Health Medical Group back in January, January of 1947.",
+      "prompt": {
+        "question": "can you describe Ruth Health's medical group model and how it shaped your leadership philosophy.",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1204.1
+    },
+    {
+      "name": "Organized medicine's boycott of Group Health physicians",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He describes intense hostility from organized medicine that ended only through a Washington Supreme Court lawsuit.",
+      "t": 1382.83,
+      "part": 1,
+      "quote": "it took a lawsuit that went to the Washington State Supreme Court to, um, to end that discrimination against um Group Health physicians.",
+      "prompt": {
+        "question": "can you describe Ruth Health's medical group model and how it shaped your leadership philosophy.",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": true,
+      "end": 1391.63
+    },
+    {
+      "name": "HIV/AIDS epidemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He credits Group Health with early population-based HIV care in primary care clinics, which drew many HIV patients.",
+      "t": 6186.21,
+      "part": 1,
+      "quote": "we created some of the very earliest population-based approaches to HIV disease.",
+      "prompt": {
+        "question": "how does Kaiser Permanente address health equity and access to care and diverse communities?",
+        "list_number": "Q19",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6192.49
+    },
+    {
+      "name": "Group Health hospital closures",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He calls the health plan's decision to close its hospitals and buy community beds a damaging mistake for the medical group.",
+      "t": 1747.28,
+      "part": 1,
+      "quote": "so we closed our hospital at central, uh, in Seattle, and we went to Virginia Mason, which was a good medical group, but had an extremely different culture",
+      "prompt": {
+        "question": "Do you feel comfortable talking about the process of, you know, having the assets of your own hospital and then what it was like when you later sold them",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 1757.43
+    },
+    {
+      "name": "Group Health physicians separate from health plan",
+      "year_start": 1997,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw leaving the staff model to become an independent Permanente-named group as a proud step toward the Permanente family.",
+      "t": 2419.35,
+      "part": 1,
+      "quote": "the date was January 1st, 1997, 50 years to the day that we had come into being. We separated and we took the name Washington Permanente",
+      "prompt": {
+        "question": "before Group health officially became part of Kaiser Permanente, as you were just talking, how did group health physicians connect with the Permanente Federation?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2428.99
+    },
+    {
+      "name": "Late-1990s Kaiser–Group Health partnership",
+      "year_start": 1996,
+      "year_end": 2000,
+      "year_basis": "stated",
+      "view": "He recalls exploring a merger with Northwest Permanente that ended when both health plans ran out of money.",
+      "t": 2311.5,
+      "part": 1,
+      "quote": "we reached out to our nearest Permanente Medical Group, which was the Northwest Permanente Medical Group, based out of Portland,",
+      "prompt": {
+        "question": "before Group health officially became part of Kaiser Permanente, as you were just talking, how did group health physicians connect with the Permanente Federation?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2319.5
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": 2001,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He sees the electronic record as a struggle but essential to modern medicine, with Group Health an early adopter.",
+      "t": 5272.54,
+      "part": 1,
+      "quote": "you can only practice modern medicine with it, and we all were early adopters. Group Health, um, adopted, uh, Epic in 2001 I believe.",
+      "prompt": {
+        "question": "How did how did they and how do they foster innovation and health care delivery?",
+        "list_number": "Q18",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 5282.26
+    },
+    {
+      "name": "Patient-centered medical home",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He lists the patient-centered medical home as a major project during his tenure that he is proud of.",
+      "t": 5032.59,
+      "part": 1,
+      "quote": "how we do did the patient centered medical home, which was a big, big project during my tenure.",
+      "prompt": {
+        "question": "So what are you most proud of during your tenure as a leader?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 5038.79
+    },
+    {
+      "name": "Kaiser Permanente acquisition of Group Health",
+      "year_start": 2015,
+      "year_end": 2017,
+      "year_basis": "inferred_from_transcript",
+      "view": "He sees the acquisition as his proudest achievement, won by an independent medical group, but thinks the sale price was misdirected.",
+      "t": 3226.32,
+      "part": 1,
+      "quote": "what would the deal be worth without us? And it was literally 50% less.",
+      "prompt": {
+        "question": "what were some of the biggest challenges culturally, operationally or clinically during that transition period?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": true,
+      "end": 3232.04,
+      "year_note": "Year from the interviewer: \"guess we're talking about 2015 to 17 or whatever transition.\""
+    },
+    {
+      "name": "Group Health Foundation created from sale proceeds",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He believes sending the $2.3 billion to a private foundation instead of care delivery was a strategic error.",
+      "t": 3562.7,
+      "part": 1,
+      "quote": "It went to a foundation and initially was called the Group Health Foundation,",
+      "prompt": {
+        "question": "So where can you be more specific about where did the money go then?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 3572.34
+    },
+    {
+      "name": "Permanente foundation model",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He is skeptical of the foundation model, seeing it as making the medical group employees of a health plan again.",
+      "t": 2617.88,
+      "part": 1,
+      "quote": "a full understanding of the advantages, if there are any, of this foundation model. Um, I'm very skeptical of it.",
+      "prompt": {
+        "question": "how do you feel now about going back to the foundation, which is more like being employees again",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 2627.95
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "Retired before it, he credits WPMG colleagues and says organized systems like KP showed their public health value.",
+      "t": 6756.9,
+      "part": 1,
+      "quote": "that was where I think organized systems of care like KP and like WPMG, um, with our partners, really, um, could show the value",
+      "prompt": {
+        "question": "Let's talk about one that I know you're really proud of. And that's the pandemic, the Covid 19 pandemic",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 6768.87
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Three Swedish medical students",
+      "summary": "Planning a career in law or journalism, he spent a year in Sweden living with three medical students. Going on rounds and home visits with them convinced him medicine could best serve social justice.",
+      "t": 109.31,
+      "part": 1,
+      "quote": "I started going on rounds with them and especially making home visits. And, uh, I came to believe that, uh, my interest in social justice and in making the world a better place, could better be served by medicine",
+      "why": "Shows a chance encounter shaping a mission-driven physician career.",
+      "sensitive": false,
+      "end": 124.3
+    },
+    {
+      "title": "\"Do something about it\": the white paper",
+      "summary": "Overworked family doctors were covering clinic, hospital rounds and urgent care. When his wife told him to stop complaining and act, he wrote a white paper proposing an urgent care department.",
+      "t": 823.01,
+      "part": 1,
+      "quote": "my wife said to me, well, do something about it if you feel so strongly. So I wrote a white paper, I called it a white paper, about changing and changes in medicine,",
+      "why": "A plain lesson in turning frustration into leadership.",
+      "sensitive": false,
+      "end": 833.09
+    },
+    {
+      "title": "Worth half the deal: the \"naked doctors\"",
+      "summary": "During the Group Health sale, the medical group had its own investment banker ask United what its offer would be worth without the physicians. The answer was half, proving the group's value.",
+      "t": 3222.48,
+      "part": 1,
+      "quote": "Our instructor asked our investment banker to explore with United what would the deal be worth without us? And it was literally 50% less.",
+      "why": "Demonstrates the power of an independent medical group in negotiations.",
+      "sensitive": true,
+      "end": 3232.04
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 698.92,
+      "part": 1,
+      "question": "can you share your journey to becoming president and chief medical executive of group Health Physicians.",
+      "source": "question_list",
+      "list_number": "Q4",
+      "why": "Drew out his full arc, including being removed from leadership and later invited back.",
+      "sensitive": true,
+      "end": 704.43
+    },
+    {
+      "t": 1489.93,
+      "part": 1,
+      "question": "Do you feel comfortable talking about the process of, you know, having the assets of your own hospital and then what it was like when you later sold them",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Opened a candid critique of hospital closures, consultants and an internal health plan coup.",
+      "sensitive": false,
+      "end": 1498.73
+    },
+    {
+      "t": 2725.9,
+      "part": 1,
+      "question": "what were some of the biggest challenges culturally, operationally or clinically during that transition period?",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew a detailed inside account of the Kaiser acquisition negotiations and sale price.",
+      "sensitive": true,
+      "end": 2732.1
+    }
+  ]
+}

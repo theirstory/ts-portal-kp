@@ -24,7 +24,14 @@
     "type-check": "tsc --noEmit",
     "lint": "next lint",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "system-map:verify": "tsx scripts/system-map/verify.ts",
+    "system-map:build": "tsx scripts/system-map/build.ts",
+    "system-map:test": "tsx scripts/system-map/selftest.ts",
+    "narratives:normalize": "tsx scripts/lib/narratives/normalize.ts",
+    "journeys:verify": "tsx scripts/journeys-canon/verify.ts",
+    "journeys:build": "tsx scripts/journeys-canon/build.ts",
+    "journeys:test": "tsx scripts/journeys-canon/selftest.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",

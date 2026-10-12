@@ -1,0 +1,197 @@
+{
+  "_comment": "Canonical events. Any extracted event name (or journey event_ref) listed in `aliases` maps to that id; names not listed become their own single-narrator event. Keep genuinely different events apart. on_question_list marks events the 48-question interview guide names. bands: the shared events drawn as bands on the journey chart; null means use the build's proposal (the shared events with the most narrators and a year range). Set it to a list of event ids to choose.",
+  "bands": null,
+  "events": [
+    {
+      "id": "covid-19",
+      "name": "COVID-19 pandemic",
+      "aliases": [
+        "covid-19 pandemic"
+      ]
+    },
+    {
+      "id": "ehr-rollout",
+      "name": "Electronic health record rollout",
+      "aliases": [
+        "electronic health record rollout",
+        "kp healthconnect (epic ehr) rollout",
+        "healthconnect instance consolidation"
+      ],
+      "on_question_list": true,
+      "note": "Guide Q41 asks about the EHR."
+    },
+    {
+      "id": "tahoe-1",
+      "name": "Tahoe agreement (1955)",
+      "aliases": [
+        "tahoe agreement"
+      ]
+    },
+    {
+      "id": "tahoe-2",
+      "name": "Tahoe II agreement",
+      "aliases": [
+        "tahoe ii agreement"
+      ]
+    },
+    {
+      "id": "federation-founded",
+      "name": "Permanente Federation founded",
+      "aliases": [
+        "permanente federation founded"
+      ]
+    },
+    {
+      "id": "federation-restructured",
+      "name": "Permanente Federation restructured",
+      "aliases": [
+        "permanente federation restructured"
+      ]
+    },
+    {
+      "id": "federation-foundation-split",
+      "name": "Federation and KP Medical Foundation split",
+      "aliases": [
+        "permanente federation and kpmf split"
+      ]
+    },
+    {
+      "id": "financial-crisis-1990s",
+      "name": "1990s KP financial crisis",
+      "aliases": [
+        "1990s financial crisis",
+        "1990s kp financial crisis",
+        "1990s health plan-medical group conflict"
+      ],
+      "note": "Kept apart from the 2008 crash and from regional crises (Colorado 2017, Georgia). Includes Pearl's 1998 health plan–medical group standoff (two days of cash)."
+    },
+    {
+      "id": "financial-crisis-1989",
+      "name": "1989 financial crisis",
+      "aliases": [
+        "1989 financial crisis"
+      ]
+    },
+    {
+      "id": "financial-crisis-2008",
+      "name": "2008 financial crisis",
+      "aliases": [
+        "great financial crisis",
+        "lehman brothers collapse"
+      ]
+    },
+    {
+      "id": "expansion-1990s",
+      "name": "Expansion beyond California and its unwinding",
+      "aliases": [
+        "1990s kp national expansion",
+        "1990s expansion into new markets",
+        "expansion into new markets",
+        "closure of regions outside california",
+        "expansion regions outside california closed",
+        "ohio region closed",
+        "texas region expansion"
+      ]
+    },
+    {
+      "id": "kp-medical-foundation",
+      "name": "KP Medical Foundation formed",
+      "aliases": [
+        "kp medical foundation formed",
+        "colorado and washington medical groups join foundation model",
+        "permanente foundation model"
+      ]
+    },
+    {
+      "id": "risant",
+      "name": "Risant Health and Geisinger",
+      "aliases": [
+        "risant health acquisition of geisinger",
+        "risant health and geisinger announcement",
+        "risant health formed"
+      ]
+    },
+    {
+      "id": "kp-nevada",
+      "name": "KP Nevada / Reno expansion",
+      "aliases": [
+        "kp nevada joint venture",
+        "kp reno expansion"
+      ]
+    },
+    {
+      "id": "school-of-medicine",
+      "name": "KP Bernard J. Tyson School of Medicine",
+      "aliases": [
+        "kaiser permanente school of medicine founded",
+        "kaiser permanente school of medicine opened",
+        "kp bernard j. tyson school of medicine opens",
+        "kp school of medicine founded"
+      ]
+    },
+    {
+      "id": "aca",
+      "name": "Affordable Care Act",
+      "aliases": [
+        "affordable care act",
+        "affordable care act implementation",
+        "obama-era health reform"
+      ]
+    },
+    {
+      "id": "hiv-aids",
+      "name": "HIV/AIDS epidemic",
+      "aliases": [
+        "hiv/aids epidemic"
+      ]
+    },
+    {
+      "id": "proactive-office-encounter",
+      "name": "Proactive Office Encounter",
+      "aliases": [
+        "proactive office encounter"
+      ]
+    },
+    {
+      "id": "scpmg-affiliations",
+      "name": "SCPMG affiliations with other regions",
+      "aliases": [
+        "scpmg affiliation with georgia and hawaii medical groups",
+        "scpmg affiliation with southeast permanente",
+        "medical group affiliations with scpmg"
+      ]
+    },
+    {
+      "id": "tpmg-mapmg",
+      "name": "TPMG affiliation with Mid-Atlantic Permanente",
+      "aliases": [
+        "tpmg partnership with mid-atlantic permanente",
+        "tpmg-mapmg affiliation"
+      ]
+    },
+    {
+      "id": "group-health-acquisition",
+      "name": "KP acquisition of Group Health",
+      "aliases": [
+        "kaiser permanente acquisition of group health",
+        "group health acquisition (kp washington)"
+      ]
+    },
+    {
+      "id": "women-emds",
+      "name": "First women Permanente executive medical directors",
+      "aliases": [
+        "first women permanente executive medical directors",
+        "three women serve as emds together"
+      ]
+    },
+    {
+      "id": "colorectal-screening",
+      "name": "Colorectal cancer screening push",
+      "aliases": [
+        "colorectal cancer screening expansion",
+        "mailed fit colon cancer screening"
+      ]
+    }
+  ]
+}

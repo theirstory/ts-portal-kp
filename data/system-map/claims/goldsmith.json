@@ -1,0 +1,437 @@
+{
+  "narrator": "Oliver Goldsmith, MD",
+  "slug": "goldsmith",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69828d626a8a7b1eeb245d84"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 6028.76,
+      "end": 6045,
+      "reason": "Narrator asked to go off the record: \"another aspect this this is off the tape now isn't it, Paul. We're not I mean.\" (interviewer: \"We can stop the recording.\")"
+    }
+  ],
+  "narrator_meta": {
+    "region": "Southern California (SCPMG)",
+    "region_quote": "one of our doctors at SCPMG, Dr. Frenkel, and I was attracted to join the department.",
+    "era": "1969–present (joined July 1969; executive medical director 1994–2004; still practicing in 2025)",
+    "era_quote": "I'm the longest standing physician in Southern California. Permanente no one joined before July 1st, 1969 is still working."
+  },
+  "claims": [
+    {
+      "from": "labor support",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 858.33,
+      "part": 1,
+      "quote": "the labor support that we had to grow the plan in the beginnings, in the 50s and the 60s, must have been pivotal.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 865.69
+    },
+    {
+      "from": "integrated care",
+      "to": "organizational success",
+      "polarity": "+",
+      "t": 925.95,
+      "part": 1,
+      "quote": "So suddenly things change where integration would be the winner, and we were there already. We were the masters of integration.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 934.36
+    },
+    {
+      "from": "data & technology",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 935.2,
+      "part": 1,
+      "quote": "And then the medical record kind of like was the wires through it all that that set it to glow.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 941.6
+    },
+    {
+      "from": "competition",
+      "to": "membership growth",
+      "polarity": "-",
+      "t": 1290.21,
+      "part": 1,
+      "quote": "We were a laughingstock. That's managed care. And they were beginning to erode our membership.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1296.25
+    },
+    {
+      "from": "physician leadership",
+      "to": "competition",
+      "polarity": "-",
+      "t": 1957.54,
+      "part": 1,
+      "quote": "I took us to it through a turbulent time of managed care competition, and my tenacity and our tenacity of many and all the good things we were doing contributed to that, and we prevailed.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What were you most proud of during your tenure as MD?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 1973.1
+    },
+    {
+      "from": "physician leadership",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 1983.44,
+      "part": 1,
+      "quote": "the health plan was having second thoughts about their relationship with us, ... the Federation and the leadership of Jay Crosson and a number of us who supported that played a role in keeping us cohesive.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What were you most proud of during your tenure as MD?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "end": 1995.84
+    },
+    {
+      "from": "culture",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 1613.41,
+      "part": 1,
+      "quote": "Well I think we we have a culture of trying new things. Uh, we have lots of physicians coming up and we imbue the idea of speak up, let's try it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 1625.65
+    },
+    {
+      "from": "capitation",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 1651.99,
+      "part": 1,
+      "quote": "Physician assistants flourished, because we we have a different economic base not called fee for service. And so that takes on innovation to to improve care is enhanced by that.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 1666.71
+    },
+    {
+      "from": "physician well-being",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1766.9,
+      "part": 1,
+      "quote": "our group has a nice work life where you can enhance that so that you're a better physician,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice would you give to new physicians joining a Permanente Medical group?",
+        "list_number": "Q20",
+        "type": "narrators_choice"
+      },
+      "end": 1772.02
+    },
+    {
+      "from": "group practice",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2063.85,
+      "part": 1,
+      "quote": "Secondly, the group model where we're all supporting each other. Do our patients know that every single doctor practicing seeing them has available 50 specialty consultants they can call that day",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model benefit patients and providers?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 2077.01
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2104.55,
+      "part": 1,
+      "quote": "integrated care, integrated medical record, setting single stop, nonstop, you come into a clinic, you can get everything, ... All of that team approach is inherently beneficial for outcomes,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model benefit patients and providers?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 2122.07
+    },
+    {
+      "from": "administrative burden",
+      "to": "physician well-being",
+      "polarity": "-",
+      "t": 2154.76,
+      "part": 1,
+      "quote": "They're trying to take some of the administrative load off the physicians, so their life is more balanced.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 2160.76
+    },
+    {
+      "from": "data & technology",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 2199.6,
+      "part": 1,
+      "quote": "the key initiatives that I've seen over the last years to improve patient care is our outreach. Because of the, the the the data we now have, the outreach to our diabetics,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "asked_directly"
+      },
+      "end": 2210.94
+    },
+    {
+      "from": "prevention",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2241.9,
+      "part": 1,
+      "quote": "how benefited our patients are when a mammogram is ordered by a dermatologist ... Efforts like that are outstanding to raise the health of our patients.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "asked_directly"
+      },
+      "end": 2259.02
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2298.79,
+      "part": 1,
+      "quote": "We can bring to bear the measurements and the attention to errors that happen in any industry and correct them prophylactically, early, early on, because it's a unified system.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente ensure quality and safety. How do we ensure quality and safety in patient care?",
+        "list_number": "Q33",
+        "type": "asked_directly"
+      },
+      "end": 2311.79
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2447.96,
+      "part": 1,
+      "quote": "Technology brought us a third wheel, so to speak, a third chair, a third element, because technology pushed us to to demonstrate what we thought we were doing; measurement, goals, outcomes.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role does technology play in enhancing patient care at Kaiser Permanente.",
+        "list_number": "Q36",
+        "type": "asked_directly"
+      },
+      "end": 2468.52
+    },
+    {
+      "from": "data & technology",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 2822.57,
+      "part": 1,
+      "quote": "the computerized medical program serving all our members, 10 million members around the country I think, is the single tool that allowed us to do to expand our research and our technology for our patients.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of how Kaiser Permanente has improved patient outcomes through innovation?",
+        "list_number": "Q40",
+        "type": "asked_directly"
+      },
+      "end": 2836.95
+    },
+    {
+      "from": "data & technology",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 3005.21,
+      "part": 1,
+      "quote": "The Epic, or any model that a group purchases, is billions of dollars if you start on large scale efforts. ... one has the right to ask; how does how do we pay for that?",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Yeah, sure. So let's start. Give a little space and then say, you know, the challenge that no one has ever thought about.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3018.17
+    },
+    {
+      "from": "prevention",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 3121.05,
+      "part": 1,
+      "quote": "it's not a gag because it tries to convey the idea of the healthier they are, the less it should cost.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Yeah, sure. So let's start. Give a little space and then say, you know, the challenge that no one has ever thought about.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3127.81
+    },
+    {
+      "from": "leadership development",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 3190.46,
+      "part": 1,
+      "quote": "actually go out and outreach to people like they did with me, and we trained them because that's that's a skill set you can learn.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe the mentorship opportunities available for new physicians at Kaiser Permanente?",
+        "list_number": "Q42",
+        "type": "asked_directly"
+      },
+      "end": 3199.08
+    },
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 3755.25,
+      "part": 1,
+      "quote": "another characteristic of leadership is candor. I made the mistake. Stop there. I, Oliver, your leader, made this mistake. I have respect from that.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you talk a little bit about the leadership process of when you realize that your position has changed, how you communicate that and how you are open to change position",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3768.57
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "organizational success",
+      "polarity": "+",
+      "t": 4215.05,
+      "part": 1,
+      "quote": "It's this marriage which makes it so powerful to give me the two equals three.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What role do physician leaders play in shaping the future of healthcare? ... how does the unique medical management partnership of Tahoe one and two really help to shape the future of Kaiser Permanente.",
+        "list_number": "Q45",
+        "type": "asked_directly"
+      },
+      "end": 4222.3
+    },
+    {
+      "from": "quality",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 4487.33,
+      "part": 1,
+      "quote": "we saved dollars by not having the complication with the patient sent to the CCU at the time for monitoring and all of that because the potassium was low.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did you balance high quality patient care with affordability?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 4496.89
+    },
+    {
+      "from": "workforce diversity",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4537.31,
+      "part": 1,
+      "quote": "diversity to me meant a mixed workforce of everybody of different appearances, because that gives us better health.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What initiatives, um, did you do to promote diversity and inclusion within Kaiser Permanente?",
+        "list_number": "Q19",
+        "type": "asked_directly"
+      },
+      "end": 4546.55
+    },
+    {
+      "from": "quality",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 5047.79,
+      "part": 1,
+      "quote": "So I always felt if you're good, you expand and we continue to look for opportunities.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Where do you see Kaiser Permanente in 10 to 20 years? What do you think the future holds for Kaiser Permanente?",
+        "list_number": "Q47",
+        "type": "asked_directly"
+      },
+      "end": 5052.48
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 5160.66,
+      "part": 1,
+      "quote": "how could it be any other better than an integrated group working on these problems, ... But our model is so suitable to the current conflicts that healthcare has cost.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Where do you see Kaiser Permanente in 10 to 20 years? What do you think the future holds for Kaiser Permanente?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "end": 5185.79
+    },
+    {
+      "from": "profit incentives",
+      "to": "trust",
+      "polarity": "-",
+      "t": 5242.49,
+      "part": 1,
+      "quote": "If a leader understands our history, he understands the public wants to trust the financial infrastructure of Kaiser Permanente,",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Leaders that understand our history, how does that influence them to become better leaders?",
+        "list_number": "Q48",
+        "type": "asked_directly"
+      },
+      "end": 5253.81
+    }
+  ],
+  "new_factors": [
+    "labor support",
+    "organizational success",
+    "administrative burden",
+    "profit incentives"
+  ]
+}

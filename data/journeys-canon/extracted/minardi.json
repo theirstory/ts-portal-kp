@@ -1,0 +1,642 @@
+{
+  "narrator": "Paul Minardi, MD",
+  "slug": "minardi",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6a4e8fb1f380697f178c53bd"
+    },
+    {
+      "part": 2,
+      "story_id": "6a833d75de9acdf7b9822488"
+    }
+  ],
+  "one_line": "SCPMG family physician turned operations and business leader who led Washington through COVID and co-created the KP Medical Foundation.",
+  "top_role": "Executive medical director, Washington Permanente Medical Group; first CEO, KP Medical Foundation (per interviewer)",
+  "region": "Southern California; Washington",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 5291,
+      "end": 5466,
+      "reason": "\"between you and I, Paul, it wasn't it was not a it was a known process, but not an open process\" (1:28:11) and \"what I saw between you and I was the road to nowhere\" — confidential aside about declining the Federation CEO offer. Proposed (conservative; not an explicit cut request)."
+    },
+    {
+      "part": 1,
+      "start": 8740,
+      "end": 8819,
+      "reason": "\"So why why do not put that in. Okay. Do not put that in. Okay.\" (2:26:52), about the interviewer's Palomar/Bonaventure question just before it."
+    },
+    {
+      "part": 1,
+      "start": 10309,
+      "end": 10337,
+      "reason": "\"So that's why the balance sheet, quite frankly between you and me is a fortress balance sheet.\" (2:52:06) — confidential aside in post-answer banter. Proposed (conservative)."
+    },
+    {
+      "part": 2,
+      "start": 4135,
+      "end": 4291,
+      "reason": "\"I don't know if we want to put all that detail in there, but it's it's what actually happened\" (1:10:52) and \"I don't know if you want me to talk about all that stuff\" — candid account of the EMD vote and Federation suspension, which he then re-told formally from 4403."
+    },
+    {
+      "part": 2,
+      "start": 6857,
+      "end": 7190,
+      "reason": "\"I want to be I want to think about what I say for the common plan\" (1:54:34), \"between you and I is just about 11% all in\", then \"Um, let me think about how I say all this\" — candid common-plan/NCAL pension aside before his formal answer at 7193. Proposed."
+    }
+  ],
+  "journey": [
+    {
+      "t": 37.92,
+      "part": 1,
+      "year": 1955,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordinary_world",
+      "label": "Born at KP Los Angeles hospital",
+      "fortune": 1,
+      "fortune_basis": "because of the incredible care that she got while she was there",
+      "quote": "I was, um, delivered, as many of you may know and recognize, at a Kaiser Permanente, um, hospital in Los Angeles in 1955.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 46.68
+    },
+    {
+      "t": 217.08,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Childhood in Chatsworth; no year given.",
+      "stage": "mentor",
+      "label": "Watches father dispense polio vaccine",
+      "fortune": 2,
+      "fortune_basis": "his devotion to public service, his devotion to the community",
+      "quote": "I remember that day very, very vividly as he was dispensing polio vaccine, there was, um, just a line of kids a mile long to get it.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 226.08
+    },
+    {
+      "t": 734.87,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "He says only that he applied 'during the mid 70s'.",
+      "stage": "threshold",
+      "label": "Studies medicine in Guadalajara, Mexico",
+      "fortune": 1,
+      "fortune_basis": "what a remarkable opportunity that turned out to be for me",
+      "quote": "as those rejections came in from American medical schools, I elected to say, I'm going to do this, and I'll figure out a way to do it.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 742.11
+    },
+    {
+      "t": 1467.24,
+      "part": 1,
+      "year": 1985,
+      "year_basis": "stated",
+      "year_note": "He states he joined in 1985 (part 1, 1:00:21 and 1:08:52).",
+      "stage": "threshold",
+      "label": "Joins small Riverside medical group",
+      "fortune": 2,
+      "fortune_basis": "it was a marvelous time to join the organization to start something new",
+      "quote": "When I joined, um, the Riverside Medical Center, uh, there were seven physicians there, uh, about a population under 50,000, a very small medical office building.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1479.13
+    },
+    {
+      "t": 1516.2,
+      "part": 1,
+      "year": 1985,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "'Within the first few months' of joining in 1985; could have been early 1986.",
+      "stage": "call",
+      "label": "Asked to lead Van Buren office",
+      "fortune": 1,
+      "fortune_basis": "The opportunity set was there to do something novel and new",
+      "quote": "it was literally within the first few months that I joined the medical group in Riverside that I was asked to lead the Van Buren Medical Office building.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1525.68
+    },
+    {
+      "t": 4189.65,
+      "part": 1,
+      "year": 1989,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Riverside hospital opens",
+      "fortune": 2,
+      "fortune_basis": "in a brand new medical center was, um, life changing",
+      "quote": "The Riverside Medical Center, as it opened in 1989 when the hospital opened, um, uh, was about four years into my leadership journey.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 4199.99
+    },
+    {
+      "t": 2441.57,
+      "part": 1,
+      "year": 2003,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "call",
+      "label": "Volunteers for Medicare documentation challenge",
+      "fortune": 1,
+      "fortune_basis": "it's probably one of the biggest, um, um, things that we've been able to do",
+      "quote": "So that was one of the times that I stepped up and said, Oliver, I don't know a lot about it",
+      "event_ref": "Medicare risk adjustment documentation",
+      "sensitive": false,
+      "end": 2445.38
+    },
+    {
+      "t": 2002.08,
+      "part": 1,
+      "year": 2003,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "New position created by the Jeff Weisz team, which he says took over in 2003.",
+      "stage": "reward",
+      "label": "First SCPMG medical director of operations",
+      "fortune": 2,
+      "fortune_basis": "privileged to be the first ever medical director of operations for SCPMG",
+      "quote": "So fortunately, I was the first ever and privileged to be the first ever medical director of operations for SCPMG.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2009.01
+    },
+    {
+      "t": 4679.04,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "During his operations role after 2003; no year given.",
+      "stage": "trials",
+      "label": "Leads operations through EHR rollout",
+      "fortune": 0,
+      "fortune_basis": "but those were important learning years",
+      "quote": "as we rolled out the EHR as an example, and how that turned upside down Kaiser Permanente from a workflow perspective, it took us a number of years to recover",
+      "event_ref": "KP HealthConnect (Epic EHR) rollout",
+      "sensitive": false,
+      "end": 4688.2
+    },
+    {
+      "t": 4751.55,
+      "part": 1,
+      "year": 2007,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "refusal",
+      "label": "Declines Permanente Federation CEO role",
+      "fortune": 1,
+      "fortune_basis": "my love was Permanente Medical Group in Southern California",
+      "quote": "in spite of the opportunity to work with all the other Permanente's and to be able to have a much larger role in the organization, um, I, um, elected to stay behind",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 4762.67
+    },
+    {
+      "t": 5114.06,
+      "part": 1,
+      "year": 2019,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He left SCPMG in 2019 and says COVID hit six months after he started as EMD.",
+      "stage": "threshold",
+      "label": "Becomes Washington executive medical director",
+      "fortune": 2,
+      "fortune_basis": "something much more bigger than I had ever done before",
+      "quote": "to bring all of those experiences to the challenging market in Washington, to be able to make a meaningful impact and, uh, uh, try and create something really, really different and novel there.",
+      "event_ref": "Group Health acquisition (KP Washington)",
+      "sensitive": false,
+      "end": 5128.33
+    },
+    {
+      "t": 564.84,
+      "part": 2,
+      "year": 2020,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Six months after starting as Washington EMD in 2019.",
+      "stage": "ordeal",
+      "label": "Leads Washington through COVID ground zero",
+      "fortune": 2,
+      "fortune_basis": "Very, very proud of that.",
+      "quote": "as Washington was ground zero for the pandemic and led through all of that, I think in a really remarkable way, um, without any, um, deaths in the medical group",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 574.4
+    },
+    {
+      "t": 605.37,
+      "part": 2,
+      "year": 2022,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says the Foundation co-existed with the Federation 'during 2022' before the Risant announcement.",
+      "stage": "reward",
+      "label": "Co-creates KP Medical Foundation with Greg Adams",
+      "fortune": 3,
+      "fortune_basis": "can't resist talking about the pride that I have in creating the foundation",
+      "quote": "also, um, can't resist talking about the pride that I have in creating the foundation together with Greg making a meaningful difference in kind of setting the, the tone and tenor for the future",
+      "event_ref": "KP Medical Foundation formed",
+      "sensitive": false,
+      "end": 615.8
+    },
+    {
+      "t": 4585.27,
+      "part": 2,
+      "year": 2023,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says the Federation's evolution followed 'since this all occurred in 2023'.",
+      "stage": "ordeal",
+      "label": "Washington and Colorado suspended from Federation",
+      "fortune": -2,
+      "fortune_basis": "we spent several years in suspense",
+      "quote": "Once that announcement was made, it caused a a substantial eruption, if you will, amongst the Permanente's and both the Colorado and Washington Medical Groups were suspended from the Federation.",
+      "event_ref": "Risant Health and Geisinger announcement",
+      "sensitive": false,
+      "end": 4597.53
+    },
+    {
+      "t": 4623.13,
+      "part": 2,
+      "year": 2025,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "return",
+      "label": "KP Nevada joint venture announced",
+      "fortune": 2,
+      "fortune_basis": "I think is in a much, much better place",
+      "quote": "Once the announcement in September of 2025 was made for KP Nevada being a critical part of the organization in this joint venture and the foundation helping to lead care delivery",
+      "event_ref": "KP Nevada joint venture",
+      "sensitive": false,
+      "end": 4636.7
+    },
+    {
+      "t": 7944.86,
+      "part": 1,
+      "year": 2026,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "'Right now' in an interview recorded August 2026.",
+      "stage": "reward",
+      "label": "Washington posts first positive results in decade",
+      "fortune": 2,
+      "fortune_basis": "we've gotten very positive financial results for the first time",
+      "quote": "If you look at Washington right now, we've gotten very positive financial results for the first time, uh, in a decade",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 7952.42
+    }
+  ],
+  "events": [
+    {
+      "name": "Baby in the drawer",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the 1950s nursery drawer as an early example of KP building clinical innovation into facility design.",
+      "t": 384.2,
+      "part": 1,
+      "quote": "one of the important aspects of my mother's birthing experience, um, was the baby in the drawer. It was an innovation in the 1950s.",
+      "prompt": {
+        "question": "so I want to redo that whole thing because you left out the most important part of your birth being the baby in the box.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 393.32
+    },
+    {
+      "name": "SCPMG family medicine residency expansion",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He described building new primary care residencies, starting in Riverside, to grow the next generation of primary care physicians.",
+      "t": 1308.37,
+      "part": 1,
+      "quote": "So essentially what we're able to do is build out in Riverside, the next residency program for primary care.",
+      "prompt": {
+        "question": "So a follow up question then. So were you you weren't then part of the KP residency program, or it didn't exist at the time?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 1314.01
+    },
+    {
+      "name": "1990s financial crisis",
+      "year_start": 1997,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He attributed it to a zero price increase, rapid growth and exploding outside medical spend, which drained cash and forced physician pay cuts.",
+      "t": 1245.72,
+      "part": 2,
+      "quote": "close to about $600 million, which was huge at the time, and took our, um, days of cash on hand down to 15 days.",
+      "prompt": {
+        "question": "Okay, we're on to the 90s and the Federation talk about the financial challenges Kaiser Permanente faced in the 1990s and what was driving them.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1257
+    },
+    {
+      "name": "Closure of regions outside California",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the 1990s expansion regions as too complex to run without a hospital base and full integration, so they were wound down.",
+      "t": 1268.32,
+      "part": 2,
+      "quote": "The organization was in trouble, and so what we began to do was to eliminate, uh, these regions outside of California",
+      "prompt": {
+        "question": "Okay, we're on to the 90s and the Federation talk about the financial challenges Kaiser Permanente faced in the 1990s and what was driving them.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1277.8
+    },
+    {
+      "name": "Medical Service Areas in Southern California",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He regarded the 1990s grouping of medical centers into MSAs as a forced, fragmenting structure that failed and was later dissolved.",
+      "t": 2898.73,
+      "part": 2,
+      "quote": "Those organizations would come together and create a single budget, an MSA budget. Uh, and those ideas, um, unfortunately failed and failed in a big way.",
+      "prompt": {
+        "question": "can you talk to us a little bit about, you know, why that was done? Why do we create, you know, MSAs, McHugh's, you know, all this crazy stuff we did back in the 90s.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2910.63
+    },
+    {
+      "name": "California Division",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He described the California Division as a consolidation in Oakland that left Southern California without health plan leadership and was later reversed.",
+      "t": 3106.32,
+      "part": 2,
+      "quote": "the California division was basically where the health plan hospital was completely consolidated into Northern California and Oakland.",
+      "prompt": {
+        "question": "can you talk to us a little bit about, you know, why that was done? Why do we create, you know, MSAs, McHugh's, you know, all this crazy stuff we did back in the 90s.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 3117.12
+    },
+    {
+      "name": "Permanente Federation founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He said the Federation grew out of the 1990s crisis to give the medical groups a stronger joint voice with the health plan.",
+      "t": 5528.07,
+      "part": 1,
+      "quote": "So the formation of the Permanente Federation emanated from the financial crisis in the organization in the 1990s.",
+      "prompt": {
+        "question": "What advice would you give to not only the person who's seeking to be the next CEO, but the federation itself, in terms of what role it should play",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 5537.68
+    },
+    {
+      "name": "Medicare risk adjustment documentation",
+      "year_start": 2003,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He took on Medicare's demand for accurate documentation of patients' conditions and counts it among KP's biggest achievements.",
+      "t": 2420.75,
+      "part": 1,
+      "quote": "Medicare has asked us to ensure that we accurately and in a trustworthy way, document the health conditions of our patients",
+      "prompt": {
+        "question": "is it something you, you wanted to be a leader or you were kind of asked, you know,",
+        "list_number": "Q3",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2429.63
+    },
+    {
+      "name": "2003 SCPMG membership loss",
+      "year_start": 2003,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He described the 2003 membership loss as the last one in Southern California and the trigger for the Good to Great program.",
+      "t": 4614.01,
+      "part": 1,
+      "quote": "because many of us know we had just come off in 2003, a huge membership loss.",
+      "prompt": {
+        "question": "how does each role build on the next on the prior role rather? And how does it help you become a better leader by doing multiple things.",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 4619.45
+    },
+    {
+      "name": "KP HealthConnect (Epic EHR) rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the paper-to-Epic conversion as a massive change-management test that SCPMG delivered on time and under budget.",
+      "t": 2077.79,
+      "part": 1,
+      "quote": "we had the largest deployment outside of the Department of Defense of an EHR ever in the history of the country, and we did it exceptionally well",
+      "prompt": {
+        "question": "looking back over nearly four decades in medicine, what key experiences prepared you for leadership?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2087.43
+    },
+    {
+      "name": "Great financial crisis",
+      "year_start": 2006,
+      "year_end": 2008,
+      "year_basis": "stated",
+      "view": "He described SCPMG coming through the crisis without layoffs or membership loss and continuing to hire.",
+      "t": 2149.98,
+      "part": 1,
+      "quote": "We lived through the great financial crisis during 2006, seven and eight, and came out of that in a remarkable way. Never any layoffs",
+      "prompt": {
+        "question": "looking back over nearly four decades in medicine, what key experiences prepared you for leadership?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2159.24
+    },
+    {
+      "name": "Group Health acquisition (KP Washington)",
+      "year_start": 2015,
+      "year_end": 2016,
+      "year_basis": "stated",
+      "view": "He helped assess Group Health Permanente's finances before it joined KP and later saw the conversion as costly, heavy rework.",
+      "t": 5070.3,
+      "part": 1,
+      "quote": "Out of all that work became the amalgamation of Group Health Permanente, Group Health Cooperative with Kaiser Permanente",
+      "prompt": {
+        "question": "how does each role build on the next on the prior role rather? And how does it help you become a better leader by doing multiple things.",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 5075.53
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": 2020,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He saw Washington's early shutdown, shift to digital and mass vaccination as a model for KP and the country.",
+      "t": 8225.52,
+      "part": 2,
+      "quote": "We were one of the first organizations, for instance, in the country in Washington, um, where I was at the time that, um, closed down",
+      "prompt": {
+        "question": "What moments in Kaiser Permanente history do you think every physician should understand?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 8233.92,
+      "year_note": "He became Washington EMD in 2019 and says COVID hit about six months later."
+    },
+    {
+      "name": "KP Medical Foundation formed",
+      "year_start": 2022,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He described the Foundation as a new leadership, governance and operating model giving Washington and Colorado physicians real authority.",
+      "t": 3673.89,
+      "part": 2,
+      "quote": "we landed with the idea of a foundation model for purposes of being able to create new leadership, uh, new governance and a new operating model.",
+      "prompt": {
+        "question": "So you were selected to serve as first CEO of the Foundation, Isaac Asimov, the Foundation series. Um, what led to its creation?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 3682.9,
+      "year_note": "He says the groups worked together \"for a short period of time during 2022\" before the foundation model."
+    },
+    {
+      "name": "Risant Health and Geisinger announcement",
+      "year_start": 2023,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He said the Foundation had no advance insight into Risant and its announcement led to the suspension of Washington and Colorado from the Federation.",
+      "t": 4580.55,
+      "part": 2,
+      "quote": "we didn't have any insight into Risant until was announced with Geisinger.",
+      "prompt": {
+        "question": "focus this question on the foundation and federation relationship and where you see that going, you know, and why what happened initially, you know, in that room, that vote.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 4584.27,
+      "year_note": "\"The Federation in and of itself has gone through an evolution since this all occurred in 2023\"."
+    },
+    {
+      "name": "KP Nevada joint venture",
+      "year_start": 2025,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw the Hometown Health joint venture as a new way to take value-based care to Nevada and a spark for reuniting the medical groups.",
+      "t": 8314.84,
+      "part": 1,
+      "quote": "we made the announcement in September of 2025. That was the nidus that helped to ignite a new set of thought processes with the foundation,",
+      "prompt": {
+        "question": "So how do we what's the answer to that? That we can like show people as far as you know, from your unique perspective, knowing everybody",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 8327.52
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Delivered through the nursery drawer",
+      "summary": "Minardi was born in 1955 at KP's Los Angeles Medical Center, where newborns were passed to mothers through a wall drawer. His mother retold the story every birthday, including sending him back through the drawer so she could rest.",
+      "t": 440.06,
+      "part": 1,
+      "quote": "she would recollect the story of being delivered to her through the drawer by the nurses.",
+      "why": "A narrator's own birth illustrates a famous KP care-design innovation.",
+      "sensitive": false,
+      "end": 447.01
+    },
+    {
+      "title": "Delivering babies in Mexican hamlets",
+      "summary": "As a medical student in Guadalajara he helped deliver care in small villages with no health care, including home births. The families' gratitude, with no money exchanged, shaped his choice of a prepaid, mission-driven practice.",
+      "t": 938.1,
+      "part": 1,
+      "quote": "we delivered babies in patients homes, um, use whatever utility there was, uh, at the time, in addition to what we brought with us",
+      "why": "Shows how early service far from money shaped his values.",
+      "sensitive": false,
+      "end": 946.7
+    },
+    {
+      "title": "The dinner that dissolved the MSAs",
+      "summary": "At a dinner with Mr. Cordova and Greg Adams, Jeff Weisz had Minardi explain why Southern California's Medical Service Areas were dysfunctional. Shortly afterward the MSAs were dissolved.",
+      "t": 2996.76,
+      "part": 2,
+      "quote": "I remember their faces that night because I couldn't believe what we were suggesting, but shortly thereafter we did that. We dissolved the MSAs.",
+      "why": "A vivid moment when one argument changed regional structure.",
+      "sensitive": false,
+      "end": 3006.04
+    },
+    {
+      "title": "Don't go on your own, Greg",
+      "summary": "In a weekly call after the pandemic, KP CEO Greg Adams said the health plan might pursue national growth without Permanente. Minardi proposed doing it together, which led to the KP Medical Foundation.",
+      "t": 6046.79,
+      "part": 1,
+      "quote": "So Greg said, I'm going to go on my own. And I offered to him an opportunity that said, Greg, don't go on your own, but let's think about how we do this together",
+      "why": "Origin story of the KP Medical Foundation, told by its co-creator.",
+      "sensitive": false,
+      "end": 6060.35
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 2308.25,
+      "part": 1,
+      "question": "So when you first started getting involved and became the head of that building, and is it something you, you wanted to be a leader or you were kind of asked",
+      "source": "question_list",
+      "list_number": "Q3",
+      "why": "Drew his candid admission he never intended to lead and his habit of always raising his hand.",
+      "sensitive": false,
+      "end": 2318.77
+    },
+    {
+      "t": 3217.99,
+      "part": 2,
+      "question": "So you were selected to serve as first CEO of the Foundation, Isaac Asimov, the Foundation series. Um, what led to its creation? It's just kind of a three part. What problem was it designed to solve?",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew the full origin story: weak Washington agreement, failed East Coast deal, and the call with Greg Adams.",
+      "sensitive": false,
+      "end": 3232.27
+    },
+    {
+      "t": 9491.36,
+      "part": 1,
+      "question": "Why not change the name of risen to Kaiser Permanente Light or something that actually gives us name recognition",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew a frank account of the 1990s expansion failures and why Risant keeps distance from KP.",
+      "sensitive": false,
+      "end": 9500.6
+    }
+  ]
+}

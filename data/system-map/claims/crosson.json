@@ -1,0 +1,327 @@
+{
+  "narrator": "Jay Crosson, MD",
+  "slug": "crosson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "68adfcf6e195190a6728b4e3"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 1352,
+      "end": 1395,
+      "reason": "\"We may have to cut that out\" (lost his place; 22:32). Proposed."
+    },
+    {
+      "part": 1,
+      "start": 4090,
+      "end": 4362,
+      "reason": "\"cut out that part about Kennedy and vaccines. I can't have that\" (1:12:42). Covers the vaccine answer; also covers the Star Trek close he asked to keep (4228-4362), kept excluded as in the prototype."
+    }
+  ],
+  "narrator_meta": {
+    "region": "National (Federation/Program); clinical and medical group career in Northern California (TPMG)",
+    "region_quote": "I spent 35 years with Kaiser Permanente, with the Permanente Medical Group in Northern California, and then the Permanente Federation, and then back to the Permanente Medical Group.",
+    "era": "1977–c.2012 (joined 1977; 35 years; Federation executive director 1997–c.2007)",
+    "era_quote": "I came in 1977 with the idea of being a clinician for my entire professional life."
+  },
+  "claims": [
+    {
+      "from": "medical group autonomy",
+      "to": "quality",
+      "polarity": "+",
+      "t": 655.48,
+      "part": 1,
+      "quote": "delegated to the medical groups and so we enjoy the privilege of trying to take care of patients in the way that they need to be taken care of without someone looking over our shoulder.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What sets Permanente Medical Groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 668.29
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 704.43,
+      "part": 1,
+      "quote": "That doesn't exist in our medical groups. And to me, it's a major distinction. And it's one that promotes a quality career for Permanente physicians.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What sets Permanente Medical Groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 717.57
+    },
+    {
+      "from": "culture",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 888.02,
+      "part": 1,
+      "quote": "began a culture of caring for the resources that we had available so that, in the end, people could purchase health insurance at a level that they could afford.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture?",
+        "list_number": "Q11",
+        "type": "asked_directly"
+      },
+      "end": 899.9
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "culture",
+      "polarity": "+",
+      "t": 996.16,
+      "part": 1,
+      "quote": "We have to have a process by which the physicians essentially set their own rules and manage ourselves so that we adhere to the values that we espouse.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide the Permanente Medical Groups?",
+        "list_number": "Q11",
+        "type": "asked_directly"
+      },
+      "end": 1009.76
+    },
+    {
+      "from": "physician leadership",
+      "to": "culture",
+      "polarity": "+",
+      "t": 1017.52,
+      "part": 1,
+      "quote": "A successful medical group culture depends upon having excellent physician leaders.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide the Permanente Medical Groups?",
+        "list_number": "Q11",
+        "type": "asked_directly"
+      },
+      "end": 1023.88
+    },
+    {
+      "from": "leadership development",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 1042.57,
+      "part": 1,
+      "quote": "They try to identify early on physicians who have that predisposition, who have those capabilities, and develop training programs.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are the core values that guide the Permanente Medical Groups?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 1051.79
+    },
+    {
+      "from": "physician incentives",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1117.55,
+      "part": 1,
+      "quote": "balanced incentives. So physicians have incentives, both financial and non-financial, to provide excellent care within the medical group.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the core values that guide the Permanente Medical Groups?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 1128.25
+    },
+    {
+      "from": "underpricing",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 1204.84,
+      "part": 1,
+      "quote": "We had financial difficulties based on setting our rates too low",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1210.07
+    },
+    {
+      "from": "underpricing",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1208.78,
+      "part": 1,
+      "quote": "setting our rates too low, and ironically, that stimulated rather massive membership growth.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1215.51
+    },
+    {
+      "from": "permanente federation",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 1304.97,
+      "part": 1,
+      "quote": "presented a plan to form a federation so that the medical groups could speak with one voice and really take an equal standing in the organization with the health plan.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "end": 1318.42
+    },
+    {
+      "from": "membership growth",
+      "to": "physician recruitment",
+      "polarity": "-",
+      "t": 1684.04,
+      "part": 1,
+      "quote": "We had times when we had difficulty recruiting physicians because we were growing so quickly.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1690.96
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1730.66,
+      "part": 1,
+      "quote": "we needed to do whatever we needed to do to maintain high-quality care and service. And for the physicians, that meant we needed to own and operate our own hospitals,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 1742.16
+    },
+    {
+      "from": "culture",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 2203.16,
+      "part": 1,
+      "quote": "But by and large, they eventually get washed out and it's the individuals who have embedded deeply in them the values of the organization.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How do you differentiate as a senior leader between a physician with the qualities you just mentioned as a servant leader versus one that is more interested in getting out of clinical medicine?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2216.56
+    },
+    {
+      "from": "best practice spread",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2677.88,
+      "part": 1,
+      "quote": "it was great because it created valuable information that improved the care over years throughout the organization.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "asked_directly"
+      },
+      "end": 2686.34
+    },
+    {
+      "from": "group practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 2975.83,
+      "part": 1,
+      "quote": "the first thing that comes to mind is collegiality. I would hate to be a physician practicing alone in a community.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are some of the most rewarding aspects of working at Kaiser Permanente?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "end": 2983.33
+    },
+    {
+      "from": "data & technology",
+      "to": "physician well-being",
+      "polarity": "-",
+      "t": 3011.5,
+      "part": 1,
+      "quote": "It can be burdensome. Nobody thinks the electronic medical record has shortened the workday for physicians.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are some of the most rewarding aspects of working at Kaiser Permanente?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "end": 3017.49
+    },
+    {
+      "from": "salaried practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 3038.58,
+      "part": 1,
+      "quote": "There's relative financial security in a job with the Permanente Medical Group because Permanente physicians are on salary.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some of the most rewarding aspects of working at Kaiser Permanente?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "end": 3045.48
+    },
+    {
+      "from": "institutional memory",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 3454.05,
+      "part": 1,
+      "quote": "leaders need to understand, at a fairly detailed level, what has worked well in the past and what has not. Because otherwise, we may keep reliving the same problems",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you see our Kaiser Permanente history affecting future leaders? In other words, does our past help to create our future?",
+        "list_number": "Q48",
+        "type": "asked_directly"
+      },
+      "end": 3465.88
+    },
+    {
+      "from": "network model expansion",
+      "to": "partnership with health plan",
+      "polarity": "-",
+      "t": 3897.03,
+      "part": 1,
+      "quote": "The purchase of the HMO in New York, in the minds of the medical group leaders, was a violation of mutual exclusivity.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Can you describe the Tahoe II agreement?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3905.11
+    }
+  ],
+  "new_factors": [
+    "physician incentives",
+    "underpricing",
+    "permanente federation",
+    "physician recruitment",
+    "best practice spread",
+    "salaried practice",
+    "institutional memory",
+    "network model expansion"
+  ]
+}

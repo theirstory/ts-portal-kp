@@ -1,0 +1,489 @@
+{
+  "narrator": "Jay Crosson, MD",
+  "slug": "crosson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "68adfcf6e195190a6728b4e3"
+    }
+  ],
+  "one_line": "Hayward pediatrician who led The Permanente Federation as its first executive director for ten years.",
+  "top_role": "Executive Director (first), The Permanente Federation",
+  "region": "Northern California",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 1352,
+      "end": 1395,
+      "reason": "\"We may have to cut that out\" (lost his place; 22:32). Proposed."
+    },
+    {
+      "part": 1,
+      "start": 4090,
+      "end": 4362,
+      "reason": "\"cut out that part about Kennedy and vaccines. I can't have that\" (1:12:42). Covers the vaccine answer; also covers the Star Trek close he asked to keep (4228-4362), kept excluded as in the prototype."
+    }
+  ],
+  "journey": [
+    {
+      "t": 38.06,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Childhood; no year given.",
+      "stage": "ordinary_world",
+      "label": "Mother, a nurse, inspires medicine",
+      "fortune": 0,
+      "fortune_basis": "probably through the influence of my mother, who was a nurse",
+      "quote": "my family moved to Connecticut, and that's where I grew up. And I guess I became a doctor probably through the influence of my mother, who was a nurse.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 50.76
+    },
+    {
+      "t": 119.48,
+      "part": 1,
+      "year": 1977,
+      "year_basis": "stated",
+      "year_note": "He states \"I came in 1977\" at 6:45.",
+      "stage": "threshold",
+      "label": "Recruited to Kaiser Permanente with wife",
+      "fortune": 1,
+      "fortune_basis": "Never been there, didn't know anything, had no friends, no relatives, but good jobs.",
+      "quote": "We knew nothing about California, never been there, and within a month or two decided to take the jobs with Kaiser Permanente – brought along our six-month-old baby, and there we were.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 132.31
+    },
+    {
+      "t": 213.06,
+      "part": 1,
+      "year": 1978,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "The flu winter came \"right after we joined\" in 1977, i.e. winter 1977-78.",
+      "stage": "trials",
+      "label": "Hard flu winter; job becomes career",
+      "fortune": 1,
+      "fortune_basis": "we began to realize that it was more than a job, it was a career",
+      "quote": "There was a very difficult flu winter, right after we joined. And then we began to realize that it was more than a job, it was a career, we were going to stay there",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 228.53
+    },
+    {
+      "t": 377.66,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Early in his Hayward practice; no year given.",
+      "stage": "trials",
+      "label": "Wins evening clinic appointments",
+      "fortune": 1,
+      "fortune_basis": "I made so much noise that we changed the system.",
+      "quote": "I made so much noise that we changed the system. People got appointments. And indeed, we did get an increase because it was a better patient care experience.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 386.7
+    },
+    {
+      "t": 266.14,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "call",
+      "label": "Named assistant chief of pediatrics, Hayward",
+      "fortune": 1,
+      "fortune_basis": "from the first time that I made noise in the organization",
+      "quote": "So my first leadership position was, I was appointed as an assistant chief of the Department of Pediatrics in Hayward.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 275.27
+    },
+    {
+      "t": 446.64,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "trials",
+      "label": "Reorganizes the P&T committee",
+      "fortune": 1,
+      "fortune_basis": "I think I can take this on and solve it.",
+      "quote": "they made me chief of the department of the, I'm sorry, the P&T committee and I reorganized that, and then I reorganized it at the regional level",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 454.71
+    },
+    {
+      "t": 1850.98,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "While still a clinician and assistant physician-in-chief in Hayward; no year given.",
+      "stage": "trials",
+      "label": "Cares for dying infant at home",
+      "fortune": 3,
+      "fortune_basis": "the thing I'm most proud of",
+      "quote": "the thing I'm most proud of had nothing to do with any of those roles. When I was still a clinician and was assistant physician-in-chief in Hayward",
+      "event_ref": null,
+      "sensitive": true,
+      "end": 1863.42
+    },
+    {
+      "t": 527.36,
+      "part": 1,
+      "year": 1987,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Joined in 1977 and says \"I started as a clinician for 10 years\" before regional roles; approximate.",
+      "stage": "mentor",
+      "label": "Bruce Sams brings him to regional office",
+      "fortune": 1,
+      "fortune_basis": "It just happened. It wasn't planned.",
+      "quote": "he reached out suddenly and said, you know, I want you to come and join my staff. So I was this young guy, all of a sudden ripped out of my clinical background",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 539.06
+    },
+    {
+      "t": 1052.7,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"Earlier in my career\"; no year given.",
+      "stage": "return",
+      "label": "Leads the Chief's Program",
+      "fortune": 1,
+      "fortune_basis": "It wasn't left to chance.",
+      "quote": "When I was earlier in my career, I led something called the Chief's Program. So every time an individual became a department chief, they went through a weeks-long course about how to do that.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1065.5
+    },
+    {
+      "t": 1695.88,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "trials",
+      "label": "Year-long fight for Fresno hospital",
+      "fortune": -1,
+      "fortune_basis": "struggling with the health plan leader in Northern California",
+      "quote": "I had spent an entire year, myself, struggling with the health plan leader in Northern California to try to get a hospital built in Fresno",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1705.69
+    },
+    {
+      "t": 3818.37,
+      "part": 1,
+      "year": 1996,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Medical groups clash with Health Plan",
+      "fortune": -2,
+      "fortune_basis": "pretty serious disagreement over the structure and the management of the program",
+      "quote": "So during 1996, the Permanente Medical Groups and Kaiser Foundation Health Plan Hospitals found themselves in pretty serious disagreement over the structure and the management of the program.",
+      "event_ref": "Tahoe II agreement",
+      "sensitive": false,
+      "end": 3829.55
+    },
+    {
+      "t": 1290.84,
+      "part": 1,
+      "year": 1996,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Proposes federation at Palm Springs",
+      "fortune": 1,
+      "fortune_basis": "so that the medical groups could speak with one voice",
+      "quote": "In October of 1996, the medical directors met in Palm Springs, California, and I and Irwin Goldstein and Hal Weiland from Southern California and Northwest Permanente presented a plan to form a federation",
+      "event_ref": "Permanente Federation founded",
+      "sensitive": false,
+      "end": 1306.83
+    },
+    {
+      "t": 1326.08,
+      "part": 1,
+      "year": 1997,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Elected first Federation executive director",
+      "fortune": 2,
+      "fortune_basis": "That established that the doctors essentially were not going away.",
+      "quote": "It passed, and in January of 1997, the federation was approved, came into being, and I was elected as the first federation executive director, a job that I held for 10 years.",
+      "event_ref": "Permanente Federation founded",
+      "sensitive": false,
+      "end": 1343.24
+    },
+    {
+      "t": 3951.49,
+      "part": 1,
+      "year": 1997,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Talks began \"late in 1996\" and ran \"over a period of months\" before signing on February 5th, so 1997.",
+      "stage": "reward",
+      "label": "Negotiates the National Partnership Agreement",
+      "fortune": 1,
+      "fortune_basis": "The agreement reaffirmed the principle of national mutual exclusivity",
+      "quote": "And we created a plan, we called it the National Partnership Agreement. And eventually that was signed in San Francisco at the Mandarin Oriental Hotel on February 5th.",
+      "event_ref": "Tahoe II agreement",
+      "sensitive": false,
+      "end": 3963.17
+    },
+    {
+      "t": 234.32,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "\"In later years\"; no year given.",
+      "stage": "transformation",
+      "label": "Career becomes a mission",
+      "fortune": 2,
+      "fortune_basis": "We believed so strongly in the organization",
+      "quote": "And then in later years, the career morphed into a mission. We believed so strongly in the organization that we dedicated ourselves not just to our clinical practice but trying to improve the organization",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 247.57
+    },
+    {
+      "t": 2962.9,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Reflection at the interview on 35 years; no year given.",
+      "stage": "return",
+      "label": "Reflects on 35 years' collegiality",
+      "fortune": 3,
+      "fortune_basis": "Being a Permanente physician is a fabulous career.",
+      "quote": "Being a Permanente physician is a fabulous career. It's an opportunity not offered to everyone. If I reflect on my 35 years with the organization, the first thing that comes to mind is collegiality.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2979.08
+    }
+  ],
+  "events": [
+    {
+      "name": "Tahoe agreement",
+      "year_start": 1955,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw the Tahoe meeting as setting the lasting structure of separated clinical and insurance authority with mutual exclusivity.",
+      "t": 1525.04,
+      "part": 1,
+      "quote": "clinical authority resting with the physicians, insurance authority resting with the health plan, and mutual exclusivity were and still are the fundamental structural elements of the organization.",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1540.46
+    },
+    {
+      "name": "1990s financial crisis",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He described the mid-1990s as a difficult period of underpriced rates, rapid membership growth and medical group–health plan disagreement.",
+      "t": 1204.84,
+      "part": 1,
+      "quote": "We had financial difficulties based on setting our rates too low, and ironically, that stimulated rather massive membership growth.",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1215.51
+    },
+    {
+      "name": "Permanente Federation founded",
+      "year_start": 1996,
+      "year_end": 1997,
+      "year_basis": "stated",
+      "view": "He regarded founding the Federation, which he co-designed and then led, as his most successful project, letting the medical groups speak with one voice.",
+      "t": 2441.16,
+      "part": 1,
+      "quote": "But, when we dealt with collective issues with the Health Plan and Hospitals Organization, we spoke with one voice.",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2449.69
+    },
+    {
+      "name": "Northeast HMO acquisition",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the Health Plan's purchase of a Northeast network-model HMO as a breach of mutual exclusivity that led to Tahoe II.",
+      "t": 3897.03,
+      "part": 1,
+      "quote": "The purchase of the HMO in New York, in the minds of the medical group leaders, was a violation of mutual exclusivity.",
+      "prompt": {
+        "question": "Can you describe Can you describe the Tahoe II agreement?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 3905.11
+    },
+    {
+      "name": "Tahoe II agreement",
+      "year_start": 1997,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He described the National Partnership Agreement he helped negotiate as reaffirming mutual exclusivity and restoring regular joint leadership meetings.",
+      "t": 3966.34,
+      "part": 1,
+      "quote": "The agreement reaffirmed the principle of national mutual exclusivity which meant not just exclusivity in existing regions, but in any other expansion area that we might go into.",
+      "prompt": {
+        "question": "Can you describe Can you describe the Tahoe II agreement?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 3980.79,
+      "year_note": "Talks began \"late in 1996\"; the agreement was \"signed in San Francisco ... on February 5th\", so early 1997."
+    },
+    {
+      "name": "Care Management Institute formed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the Care Management Institute as an answer to the board's question of why good practices in one region were not spread everywhere.",
+      "t": 2625.25,
+      "part": 1,
+      "quote": "So one of the innovations that came out of the difficulties we had during that period of time was the creation of the Care Management Institute.",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2636
+    },
+    {
+      "name": "Division of Research founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He credited its founder with founding the Division of Research, part of a research enterprise he compared to university medical centers.",
+      "t": 2721.86,
+      "part": 1,
+      "quote": "He established in Northern California something called the Division of Research.",
+      "prompt": {
+        "question": "How does Kaiser Permanente support research and development in medical science?",
+        "list_number": "Q38",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2726.25
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the costly EHR purchase as giving physicians the best technology while admitting it has not shortened their workday.",
+      "t": 3013.86,
+      "part": 1,
+      "quote": "Nobody thinks the electronic medical record has shortened the workday for physicians. But we, years ago, decided on purchasing at great cost the very best electronic health communication material",
+      "prompt": {
+        "question": "What are some of the most rewarding aspects of working at Kaiser Permanente?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3030.38
+    },
+    {
+      "name": "Texas region expansion",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He cited the Texas expansion as a failure of cultural fit, contrasted with successful expansions to Washington, D.C. and Atlanta.",
+      "t": 3337.08,
+      "part": 1,
+      "quote": "We tried to expand to Texas and our organization did not fit at all with the culture of that particular state and did not work.",
+      "prompt": {
+        "question": "Where do you see Kaiser Permanente in 10 to 20 years?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 3345.77
+    }
+  ],
+  "retellable": [
+    {
+      "title": "Caring for a dying infant at home",
+      "summary": "As assistant physician-in-chief in Hayward, he arranged for an immigrant family's dying infant to go home on a respirator, though it was not a covered benefit. For two months he visited twice daily to draw blood and adjust the respirator until the baby died.",
+      "t": 1914.78,
+      "part": 1,
+      "quote": "She said at the time, that's not a benefit. And I said, yes, but that's what this family needs. So I went to respiratory therapy. I got the equipment.",
+      "why": "Physician-led care beyond the benefit rules; the act he is proudest of.",
+      "sensitive": true,
+      "end": 1931.09
+    },
+    {
+      "title": "The troublemaker who won evening appointments",
+      "summary": "As a young Hayward pediatrician he pushed for appointments at evening and weekend clinics, where families had waited over an hour. Colleagues called him naive, but the system changed and patient experience improved.",
+      "t": 359.18,
+      "part": 1,
+      "quote": "We have to give people appointments at night and on the weekends. And some of the rest of the department said, oh, no, you're just naive, you're stupid. That's ridiculous.",
+      "why": "Shows how making noise about service led to his first leadership role.",
+      "sensitive": false,
+      "end": 367.33
+    },
+    {
+      "title": "The Federation's Security Council model",
+      "summary": "To found the Permanente Federation, the large medical groups had to be reassured they would not be outvoted. The executive committee gave the two California groups seats alongside two at-large members from the smaller groups.",
+      "t": 2482.16,
+      "part": 1,
+      "quote": "It was what I'd like to sort of call the United Nations Security Council model. The large medical groups were worried that they would be outvoted by the small medical groups",
+      "why": "A vivid explanation of how the Federation balanced power among medical groups.",
+      "sensitive": false,
+      "end": 2494.83
+    },
+    {
+      "title": "Why isn't Colorado's success everywhere?",
+      "summary": "At Health Plan board meetings, medical groups regularly presented quality innovations, and the board asked why they were not spread across the program. That question helped lead to the Care Management Institute.",
+      "t": 2611.1,
+      "part": 1,
+      "quote": "If you're doing this so well in Colorado, and we applaud you, why is it not the same throughout the organization? Don't we owe all of our members the same standards of quality of care?",
+      "why": "Origin story for spreading best practices across regions.",
+      "sensitive": false,
+      "end": 2623.19
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1779.46,
+      "part": 1,
+      "question": "What are you most proud of during your tenure?",
+      "source": "question_list",
+      "list_number": "Q17",
+      "why": "Drew his most personal story, the home care of a dying infant, over any leadership role.",
+      "sensitive": true,
+      "end": 1781.77
+    },
+    {
+      "t": 257.34,
+      "part": 1,
+      "question": "What was your first leadership position? How did that position come about? Was it offered? Did you seek it?",
+      "source": "question_list",
+      "list_number": "Q3",
+      "why": "Drew the candid troublemaker story of fighting colleagues over clinic appointments.",
+      "sensitive": false,
+      "end": 263.75
+    }
+  ]
+}

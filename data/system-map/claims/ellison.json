@@ -1,0 +1,540 @@
+{
+  "narrator": "Ed Ellison, MD",
+  "slug": "ellison",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6914b61105ce13adfade828a"
+    },
+    {
+      "part": 2,
+      "story_id": "6938ac4ef69cceedb32051bd"
+    }
+  ],
+  "excluded_segments": [
+    {
+      "part": 2,
+      "start": 15,
+      "end": 32,
+      "reason": "\"I'm sorry. Let me start again.\" (0:15) False start of the Q42 answer, retaken immediately. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 1878,
+      "end": 1995,
+      "reason": "Sidney Garfield answer false starts: \"I'm sorry.\" / interviewer: \"I'll just cut that part, okay?\" / \"Sorry. I'm going to go start again. It'll be more politically correct.\" / \"I'm sorry, I keep. Okay. Take three.\" (31:18-33:15). Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2056,
+      "end": 2097,
+      "reason": "Narrator and interviewer ask the editor to snip a stumble: \"Section where he said where he thinks that what he thought? Yeah.\" / editor: \"I can clip it out.\" (34:16-34:57). Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2134,
+      "end": 2336,
+      "reason": "Henry Kaiser answer false starts the narrator rejected: \"And I don't like that, either.\" (36:22) and \"I don't know. That's not right either\" (37:00), followed by retake at 38:56. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 2828,
+      "end": 2877,
+      "reason": "Culture answer first take the narrator rejected: \"I'm not liking this answer. ... Let me try one more time.\" (47:43); retaken at 47:57. Proposed."
+    }
+  ],
+  "narrator_meta": {
+    "region": "Southern California (SCPMG)",
+    "region_quote": "the Southern California Permanente Medical Group from my residency.",
+    "era": "start year not stated (joined SCPMG directly from residency) – early 2020s (SCPMG Executive Medical Director, succeeding Jeff Weisz; tenure ended after the March 2020 Covid onset)",
+    "era_quote": "The second great challenge was toward the end of my tenure, and that was when the Covid pandemic happened. So all of a sudden in March of 2020"
+  },
+  "claims": [
+    {
+      "from": "physician leadership",
+      "to": "quality",
+      "polarity": "+",
+      "t": 1555.95,
+      "part": 1,
+      "quote": "Um, whoever you report to is always another physician. ... It's always about the clinical view of an organization, what's right, what's best for the patient.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What sets the Permanente medical groups apart from other medical groups?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 1568.31
+    },
+    {
+      "from": "physician leadership",
+      "to": "culture",
+      "polarity": "+",
+      "t": 1803.15,
+      "part": 1,
+      "quote": "if you're not nurturing a culture specific to the vision you have with that, you want that culture to be, you'll have a default culture, and default cultures are almost always negative ones.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are the core values that guide Kaiser Permanente's operations and culture, and how do you apply those values in your leadership style?",
+        "list_number": "Q11",
+        "type": "asked_directly"
+      },
+      "end": 1814.59
+    },
+    {
+      "from": "tahoe agreement",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 1909.95,
+      "part": 1,
+      "quote": "the agreements that came out of that allowed us to establish the model of Kaiser Permanente with the nonprofit Hospital Health Plan, working in tandem with a physician led, self-governing autonomous medical group",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "asked_directly"
+      },
+      "end": 1922.95
+    },
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 2123.51,
+      "part": 1,
+      "quote": "Transparency is key. People in the affirmation, it's natural, it's human nature. You make up things because you don't, you need to fill in the blanks.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader in this organization?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "end": 2133.07
+    },
+    {
+      "from": "integrated care",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 2466.86,
+      "part": 1,
+      "quote": "it helps us to be on the forefront of innovation because we are, again, a large, coordinated, integrated medical group",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente foster innovation in healthcare delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 2474.58
+    },
+    {
+      "from": "trust",
+      "to": "physician leadership",
+      "polarity": "+",
+      "t": 2549.54,
+      "part": 1,
+      "quote": "physicians respect those who we trust to be strong clinicians first. And you'll never see someone promoted, I think, to be a chief or another physician leader without having the respect",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice would you give to new physicians joining a Permanente Medical group?",
+        "list_number": "Q20",
+        "type": "narrators_choice"
+      },
+      "end": 2564.38
+    },
+    {
+      "from": "innovation",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 3095.98,
+      "part": 1,
+      "quote": "compared to what we had before, um, it was a much more efficient, effective way for patients to make appointments.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "end": 3103.34
+    },
+    {
+      "from": "integrated care",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 3558.06,
+      "part": 1,
+      "quote": "half of our patient encounters every year are with specialty. So if we don't capture those opportunities, we miss half the chance that we have of saving lives, of intervening.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model benefit patients and providers?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 3570.78
+    },
+    {
+      "from": "integrated care",
+      "to": "culture",
+      "polarity": "+",
+      "t": 3586.82,
+      "part": 1,
+      "quote": "we work together as a team and how we benefit our patients when we do so. And it created a tremendous amount of pride and collegiality and collaboration among the group",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model benefit patients and providers?",
+        "list_number": "Q24",
+        "type": "asked_directly"
+      },
+      "end": 3597.34
+    },
+    {
+      "from": "data & technology",
+      "to": "burnout",
+      "polarity": "+",
+      "t": 3659.57,
+      "part": 1,
+      "quote": "the amount of extra hours after seeing patients that it it imposed on our physicians was tremendous. And we began to see and hear more and more about burnout",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 3669.93
+    },
+    {
+      "from": "physician well-being",
+      "to": "quality",
+      "polarity": "+",
+      "t": 3777.89,
+      "part": 1,
+      "quote": "the more we learn about how we take care of ourselves, um, the better we can be as physicians",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support physician well-being and prevent burnout?",
+        "list_number": "Q26",
+        "type": "asked_directly"
+      },
+      "end": 3783.53
+    },
+    {
+      "from": "data & technology",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 3849.81,
+      "part": 1,
+      "quote": "the most dramatic breakthroughs we really had were with the implementation of electronic health record, in which we begin to aggregate information and really move forward in population health,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are some key initiatives Kaiser Permanente has undertaken to improve patient care?",
+        "list_number": "Q28",
+        "type": "narrators_choice"
+      },
+      "end": 3861.25
+    },
+    {
+      "from": "data & technology",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4012.61,
+      "part": 1,
+      "quote": "almost always with individuals, with professionals, you give them information and data and they'll self-correct.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente ensure quality and safety in patient care?",
+        "list_number": "Q33",
+        "type": "asked_directly"
+      },
+      "end": 4018.17
+    },
+    {
+      "from": "candor",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4040.01,
+      "part": 1,
+      "quote": "It's being open. It's sharing. ... That's where all so much of our safety initiatives and our quality initiatives have, have really sprung from that idea.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente ensure quality and safety in patient care?",
+        "list_number": "Q33",
+        "type": "asked_directly"
+      },
+      "end": 4055.81
+    },
+    {
+      "from": "equity",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4122.13,
+      "part": 1,
+      "quote": "teaching our physicians not only about, you know, language concordance, but culturally responsive care. Culturally sensitive care has helped us to improve care to populations.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you discuss Kaiser Permanente's efforts in community health? Health equity and preventive care.",
+        "list_number": "Q34",
+        "type": "asked_directly"
+      },
+      "end": 4134.05
+    },
+    {
+      "from": "integrated care",
+      "to": "adaptability",
+      "polarity": "+",
+      "t": 4262.57,
+      "part": 1,
+      "quote": "our response was to take that information and then to leverage the size and the coordinated ability to respond, uh, in Southern California.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you discuss Kaiser Permanente's response to the Covid 19 pandemic?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 4271.33
+    },
+    {
+      "from": "research & teaching",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4911.61,
+      "part": 1,
+      "quote": "Because when you teach, you learn and it makes us better.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente support research and development in medical science?",
+        "list_number": "Q38",
+        "type": "asked_directly"
+      },
+      "end": 4915.37
+    },
+    {
+      "from": "innovation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5116.56,
+      "part": 1,
+      "quote": "So that ability to, to expand the reach of our specialists, to take the care right where the patient is, um, has has just had countless lives saved as a result.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you share an example of how Kaiser Permanente has improved patient outcomes through innovation?",
+        "list_number": "Q40",
+        "type": "asked_directly"
+      },
+      "end": 5129.96
+    },
+    {
+      "from": "leadership development",
+      "to": "adaptability",
+      "polarity": "+",
+      "t": 5343.28,
+      "part": 1,
+      "quote": "we learned made us better because you can't wait for a crisis and then prepare. You prepare for a crisis you hope never comes, but when something comes, you're ready for it.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Can you describe the mentorship opportunities available for new physicians at Kaiser Permanente?",
+        "list_number": "Q42",
+        "type": "asked_directly"
+      },
+      "end": 5352.12
+    },
+    {
+      "from": "integrated care",
+      "to": "patient experience",
+      "polarity": "+",
+      "t": 85.79,
+      "part": 2,
+      "quote": "Kaiser Permanente's integrated care model delivers on the promise of patient satisfaction based on the fact that we are a coordinated, integrated care delivery model.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente's integrated care model influence patient satisfaction?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 94.96
+    },
+    {
+      "from": "group practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 415.5,
+      "part": 2,
+      "quote": "you step up and help out your colleagues when they need you, and they'll be there for you when you need them.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are some of the most rewarding aspects of working at Kaiser Permanente?",
+        "list_number": "Q46",
+        "type": "narrators_choice"
+      },
+      "end": 421.26
+    },
+    {
+      "from": "affordability",
+      "to": "equity",
+      "polarity": "+",
+      "t": 454.02,
+      "part": 2,
+      "quote": "if care is unaffordable, then there is no care for so many people.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What are the biggest challenges facing healthcare today and how is Kaiser Permanente addressing them?",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "end": 458.18
+    },
+    {
+      "from": "financial pressure",
+      "to": "physician well-being",
+      "polarity": "-",
+      "t": 468.9,
+      "part": 2,
+      "quote": "how do we do that while maintaining a vibrancy of our physicians and staff, because we can't achieve affordability on the backs of the well-being of our people.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "What are the biggest challenges facing healthcare today and how is Kaiser Permanente addressing them?",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "end": 478.6
+    },
+    {
+      "from": "integrated care",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 548.83,
+      "part": 2,
+      "quote": "Kaiser Permanente addresses high quality and affordability through leveraging our coordinated integrated care delivery model.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente balance high quality patient care with affordability?",
+        "list_number": "Q31",
+        "type": "asked_directly"
+      },
+      "end": 556.71
+    },
+    {
+      "from": "prevention",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 579.71,
+      "part": 2,
+      "quote": "since the average Kaiser Permanente member stays with the organization for the health care for 12 or more years, it's medically, morally, ethically and financially the right thing to do to invest in prevention.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How does Kaiser Permanente balance high quality patient care with affordability?",
+        "list_number": "Q31",
+        "type": "asked_directly"
+      },
+      "end": 592.85
+    },
+    {
+      "from": "workforce diversity",
+      "to": "quality",
+      "polarity": "+",
+      "t": 640.77,
+      "part": 2,
+      "quote": "We know that it makes us stronger. We know that we have higher quality outcomes, not just quality, but financial performance. When we embrace all the strengths of a talented and diverse team.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What initiatives are in place to promote diversity and inclusion within Kaiser Permanente?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 653.24
+    },
+    {
+      "from": "trust",
+      "to": "quality",
+      "polarity": "+",
+      "t": 781.93,
+      "part": 2,
+      "quote": "Because we know that that better care experience and that trusting relationships results in better clinical outcomes than actually, um, happier physicians as well.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente manage physician patient relationships to enhance care quality?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 791.93
+    },
+    {
+      "from": "physician leadership",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 1017.11,
+      "part": 2,
+      "quote": "being part of a medical group like Permanente it's pretty remarkable because the whole organization, every piece of it, is led by physicians. ... there's a place for you to pursue that passion.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente ensure that its physicians stay motivated and passionate about their work?",
+        "list_number": "Q27",
+        "type": "asked_directly"
+      },
+      "end": 1043.51
+    },
+    {
+      "from": "regional affiliation",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 1651.15,
+      "part": 2,
+      "quote": "There are certainly economies of scale that we could achieve, uh, utilizing technology and virtual care.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "How does SCPMG's affiliation with [Southeast] PMG and [Hawaii] PMG benefit these smaller medical groups along with SCPMG?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 1658.03
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "quality",
+      "polarity": "+",
+      "t": 2579.12,
+      "part": 2,
+      "quote": "The fact that the medical groups work with, not for the health plan, you don't always find that. But what that means is that we focus on clinical quality,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If Sidney Garfield was alive today, what would he say about the formation of the foundation and having physicians work again directly for the health plan instead of that doctor led organization?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 2591.84
+    },
+    {
+      "from": "partnership with health plan",
+      "to": "trust",
+      "polarity": "+",
+      "t": 2668.98,
+      "part": 2,
+      "quote": "Kaiser agrees to exclusively use Permanente for the care we provide, and Permanente agrees to exclusively work with Kaiser ... But that's what allows us to move forward with trust in each other",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "If Sidney Garfield was alive today, what would he say about the formation of the foundation and having physicians work again directly for the health plan instead of that doctor led organization?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 2701.17
+    },
+    {
+      "from": "culture",
+      "to": "adaptability",
+      "polarity": "+",
+      "t": 2989.01,
+      "part": 2,
+      "quote": "That will move you forward in a way that, uh, makes us resilient and ready for whatever comes our way to be able to embrace change and not be afraid of it,",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "So what's the most single element in the success of Permanente Medicine?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 3000.29
+    }
+  ],
+  "new_factors": [
+    "tahoe agreement",
+    "adaptability",
+    "research & teaching",
+    "regional affiliation"
+  ]
+}

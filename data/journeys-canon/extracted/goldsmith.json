@@ -1,0 +1,526 @@
+{
+  "narrator": "Oliver Goldsmith, MD",
+  "slug": "goldsmith",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69828d626a8a7b1eeb245d84"
+    }
+  ],
+  "one_line": "Gastroenterologist who joined SCPMG in 1969, led it as executive medical director for ten years, and still practices.",
+  "top_role": "Executive Medical Director, Southern California Permanente Medical Group",
+  "region": "Southern California",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 6028.76,
+      "end": 6045,
+      "reason": "Narrator asked to go off the record: \"another aspect this this is off the tape now isn't it, Paul. We're not I mean.\" (interviewer: \"We can stop the recording.\")"
+    }
+  ],
+  "journey": [
+    {
+      "t": 74.58,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "call",
+      "label": "Army medical unit sparks medicine",
+      "fortune": 2,
+      "fortune_basis": "I thought, gee, this being a doctor is a terrific idea",
+      "quote": "they took a fondness to me and would ask me, what do you want to do? And I thought, gee, this being a doctor is a terrific idea.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 80.02
+    },
+    {
+      "t": 96.22,
+      "part": 1,
+      "year": 1968,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says his UCLA/VA training ended 'about 1968' and he then briefly went to Cedars before joining KP in July 1969.",
+      "stage": "refusal",
+      "label": "Tries private practice, dislikes it",
+      "fortune": -1,
+      "fortune_basis": "didn't like anything about private practice",
+      "quote": "Uh, ending that in about 1968. I briefly went to Cedars to become a practicing gastroenterologist and didn't like anything about private practice.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 106.66
+    },
+    {
+      "t": 107.34,
+      "part": 1,
+      "year": 1969,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Joins SCPMG at Los Angeles",
+      "fortune": 1,
+      "fortune_basis": "invited me to join the department at Los Angeles Medical Center",
+      "quote": "friends at Kaiser Permanente who, uh, invited me to join the department at Los Angeles Medical Center in July 1969.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 116.1
+    },
+    {
+      "t": 253.74,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "call",
+      "label": "Speaks up, trains nurse practitioners",
+      "fortune": 2,
+      "fortune_basis": "Oliver, you were right on. We like you here.",
+      "quote": "The medical director said, Oliver, you were right on. We like you here. And that led to being offered an opportunity to train the nurse practitioners.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 262.7
+    },
+    {
+      "t": 300.56,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "mentor",
+      "label": "Physician liaison to leadership program",
+      "fortune": 1,
+      "fortune_basis": "learned a lot about physician management",
+      "quote": "asked to be, uh, the physician liaison to the Middle Management Leadership Development Program by Dr. Murray, our medical director.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 310.64
+    },
+    {
+      "t": 338.92,
+      "part": 1,
+      "year": 1979,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Runs for EMD, loses",
+      "fortune": 0,
+      "fortune_basis": "I won the popular vote, actually, but the board correctly decided Dr. Murray was preferred",
+      "quote": "in 1979, I was an elected member to the board, and I was the assistant medical director, assistant chief of medicine at our tertiary medical center. And I ran for a executive medical director",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 353.62
+    },
+    {
+      "t": 405.21,
+      "part": 1,
+      "year": 1979,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He turned down the regional post Dr. Murray offered 'at that time, 1979', then transferred to West LA.",
+      "stage": "threshold",
+      "label": "Becomes West LA chief of medicine",
+      "fortune": 0,
+      "fortune_basis": "The department was in trouble. Very unusual to transfer medical centers",
+      "quote": "And so I turned that down, transferred to West LA as Chief of Internal Medicine. The department was in trouble. Very unusual to transfer medical centers",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 414.67
+    },
+    {
+      "t": 435.87,
+      "part": 1,
+      "year": 1994,
+      "year_basis": "stated",
+      "year_note": "He says \"in 1994, I became the medical director\" (52:30) and \"1994 to 2004\" four more times. Once, at 7:08, just before this quote, he says \"10 years later, in 1989\"; the clip starts after that line.",
+      "stage": "reward",
+      "label": "Elected executive medical director",
+      "fortune": 2,
+      "fortune_basis": "I think well liked and well respected and quite, quite ambitious",
+      "quote": "I was by that time well known in the medical group and I think well liked and well respected and quite, quite ambitious.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 443.39
+    },
+    {
+      "t": 1255.6,
+      "part": 1,
+      "year": 1994,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He describes this as happening when he came into office as executive medical director, which he dates to 1994 elsewhere.",
+      "stage": "trials",
+      "label": "Rejects plan to merge management",
+      "fortune": -1,
+      "fortune_basis": "That was a personal challenge. Worked out okay.",
+      "quote": "This, this is off the table. I don't even know anything about this. Do you people realize I'm new? I'm the new executive. That was a personal challenge.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1263.04
+    },
+    {
+      "t": 1340.75,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Health plan loses hundreds of millions",
+      "fortune": -2,
+      "fortune_basis": "Those were all crises",
+      "quote": "Then the financial crisis came when we began to lose hundreds of millions of dollars",
+      "event_ref": "1990s financial crisis",
+      "sensitive": false,
+      "end": 1346.95
+    },
+    {
+      "t": 3714.36,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Backs failed cardiac surgery move",
+      "fortune": -2,
+      "fortune_basis": "I that was the mistake.",
+      "quote": "I endorsed it, I announced it, I publicly supported it. I that was the mistake. Okay. The whole thing was built on stilts. It was stupid, okay? And it failed immediately.",
+      "event_ref": "Hospital closure plan",
+      "sensitive": false,
+      "end": 3729.09
+    },
+    {
+      "t": 3526.91,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "transformation",
+      "label": "Re-elected despite admitted error",
+      "fortune": 2,
+      "fortune_basis": "Notwithstanding that error in my thinking process, I'm proud of that.",
+      "quote": "I made a mistake in supporting closing some Kaiser hospitals. It was a mistake. Error. I was reelected two years after that by the medical group.",
+      "event_ref": "Hospital closure plan",
+      "sensitive": false,
+      "end": 3541.07
+    },
+    {
+      "t": 5003.55,
+      "part": 1,
+      "year": 1997,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Pitches Las Vegas expansion, rebuffed",
+      "fortune": -1,
+      "fortune_basis": "So I went back to our health plan, they were not interested in it.",
+      "quote": "I remember going to Las Vegas in 1997, sitting in some dark restaurant Italian restaurant with a glass of wine with some fellow who owned the health plan there, and I said, we want it.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 5016.87
+    },
+    {
+      "t": 1921.3,
+      "part": 1,
+      "year": 1999,
+      "year_basis": "stated",
+      "year_note": "He says '1999, maybe 2000'.",
+      "stage": "reward",
+      "label": "Launches patient ratings of physicians",
+      "fortune": 2,
+      "fortune_basis": "Which I'm proud of. I'm very proud of that",
+      "quote": "Let's do maps. And since then, 1999, maybe 2000, we assess our physicians by membership, uh, assessments.",
+      "event_ref": "Member assessment of physician services (MAPS)",
+      "sensitive": false,
+      "end": 1931.42
+    },
+    {
+      "t": 1464.18,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Helps unite medical groups in Federation",
+      "fortune": 3,
+      "fortune_basis": "I was most proud of taking the lead on bringing the Permanente Medical Groups together",
+      "quote": "I was most proud of taking the lead on bringing the Permanente Medical Groups together in the Federation. Not the single leader but bringing us together as a more singular force.",
+      "event_ref": "Permanente Federation founded",
+      "sensitive": false,
+      "end": 1476.42
+    },
+    {
+      "t": 5469.11,
+      "part": 1,
+      "year": 2026,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says he is 87 and still working at the time of the interview, recorded 2026-02-04.",
+      "stage": "return",
+      "label": "Longest-tenured SCPMG physician, still practicing",
+      "fortune": 2,
+      "fortune_basis": "so I have the longest tenure now",
+      "quote": "I'm the longest standing physician in Southern California. Permanente no one joined before July 1st, 1969 is still working.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 5477.03
+    }
+  ],
+  "events": [
+    {
+      "name": "Permanente Federation founded",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He counts helping bring the Permanente Medical Groups together in the Federation as what he was most proud of.",
+      "t": 1464.18,
+      "part": 1,
+      "quote": "I was most proud of taking the lead on bringing the Permanente Medical Groups together in the Federation.",
+      "prompt": {
+        "question": "What were you most proud of during your tenure as MD?",
+        "list_number": "Q17",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1471.34
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He credits George Halvorson with steering KP to Epic after costly non-Epic efforts and calls the outcomes terrific, while noting its cost is not yet repaid.",
+      "t": 2921.96,
+      "part": 1,
+      "quote": "Along came George Halvorson, as the president of the health plan, chief executive out of Minnesota. And, uh, George, uh, his unique contribution was to expose all of us",
+      "prompt": {
+        "question": "Do you want to talk about, you know, because you were there when we decided you worked with Halvorson to decide on epic, right?",
+        "list_number": "Q41",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2937.44
+    },
+    {
+      "name": "Hospital closure plan",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He inherited a plan to close some Kaiser hospitals, cooperated while doubting it, and later called his support a mistake.",
+      "t": 3617.1,
+      "part": 1,
+      "quote": "I stepped into my position in leadership when the decision had been made to try to close some Kaiser hospitals. It sounded wrong, but it was already made.",
+      "prompt": {
+        "question": "Can you tell us your thinking process that allowed you to change your opinion on closing hospitals and keeping them?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 3629.06
+    },
+    {
+      "name": "1990s financial crisis",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the health plan's losses after a premium reduction as a crisis he had warned about, threatening physicians' incomes.",
+      "t": 1340.75,
+      "part": 1,
+      "quote": "Then the financial crisis came when we began to lose hundreds of millions of dollars",
+      "prompt": {
+        "question": "the question was the greatest challenges that you experienced as a leader. So what? What event?",
+        "list_number": "Q16",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1346.95
+    },
+    {
+      "name": "Managed care competition",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw managed care competitors as a threat to membership that SCPMG prevailed over during his tenure.",
+      "t": 1269.28,
+      "part": 1,
+      "quote": "Managed care said we're going to eat Kaiser Permanente's lunch.",
+      "prompt": {
+        "question": "the question was the greatest challenges that you experienced as a leader. So what? What event?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1272.92
+    },
+    {
+      "name": "Tahoe agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He named Tahoe I as a pivotal moment in which the health plan and medical group set direction together.",
+      "t": 837.89,
+      "part": 1,
+      "quote": "The pivotal issues between the health plan and medical group, we call it Tahoe I, uh, and setting the direction together and what we're going to do",
+      "prompt": {
+        "question": "can you describe a pivotal moment in the history of Kaiser Permanente that has shaped its current practices?",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 849.21
+    },
+    {
+      "name": "HIV/AIDS epidemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw KP's quick build-up of specialized HIV clinics and training as an example of the organization embracing a new disease.",
+      "t": 2555.43,
+      "part": 1,
+      "quote": "Let me give you an example of HIV. HIV disease was not understood at the beginning.",
+      "prompt": {
+        "question": "how did Kaiser Permanente during those years adapt to changes in healthcare, you know, like governmental rules, healthcare, different things that happen during your years.",
+        "list_number": "Q37",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2562.71
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "Practicing after his term, he was impressed by how fast KP set up vaccination centers and vaccinated patients.",
+      "t": 2619.88,
+      "part": 1,
+      "quote": "we embraced the idea of the immunization. Swiftly, new clinics arose, new Covid vaccination centers. It was astonishing how fast we got everybody who we could get vaccinated for Covid",
+      "prompt": {
+        "question": "how did Kaiser Permanente during those years adapt to changes in healthcare, you know, like governmental rules, healthcare, different things that happen during your years.",
+        "list_number": "Q37",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2633.17
+    },
+    {
+      "name": "Member assessment of physician services (MAPS)",
+      "year_start": 1999,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He pushed for patient ratings of physicians over pay-based arguments and is proud the measure he designed later rated him.",
+      "t": 1921.3,
+      "part": 1,
+      "quote": "Let's do maps. And since then, 1999, maybe 2000, we assess our physicians by membership, uh, assessments.",
+      "prompt": {
+        "question": "Can you share an example of a successful project or program you led at Kaiser Permanente?",
+        "list_number": "Q22",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1931.42
+    },
+    {
+      "name": "KP National Diversity program",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He was the first Permanente co-leader of the health plan's national diversity group and tied a diverse workforce to patient compliance.",
+      "t": 4575.55,
+      "part": 1,
+      "quote": "So I was the national Permanente representative, first one ever in our program, to the National Diversity Group that came out of the health plan.",
+      "prompt": {
+        "question": "What initiatives, um, did you do to promote diversity and inclusion within Kaiser Permanente?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 4586.95
+    },
+    {
+      "name": "Kaiser Permanente School of Medicine opened",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw his era's scholarships and research hires as preliminary steps toward the medical school KP eventually opened.",
+      "t": 2737.18,
+      "part": 1,
+      "quote": "Ultimately, we we we opened, as you know, the medical school to advance our science.",
+      "prompt": {
+        "question": "How does Kaiser Permanente support research and development in medical science?",
+        "list_number": "Q38",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2743.19
+    }
+  ],
+  "retellable": [
+    {
+      "title": "The pre-op potassium audit",
+      "summary": "As quality committee chair, he wrote an audit the anesthesiology chief said was unnecessary, checking potassium before every surgery. It found unnoticed low potassium causing arrhythmias, and pre-op potassium checks became routine.",
+      "t": 4465.11,
+      "part": 1,
+      "quote": "Let's do a pre-op potassium on every patient going to surgery. And lo and behold, we found that there were complications, arrhythmias in patients who had low K's and it wasn't being found.",
+      "why": "Simple quality audit that changed surgical practice and saved money",
+      "sensitive": false,
+      "end": 4477.25
+    },
+    {
+      "title": "Owning a public mistake",
+      "summary": "He publicly endorsed moving the cardiac surgery program from Kaiser Sunset, and the plan failed immediately. He told the medical group it was his mistake and was re-elected two years later.",
+      "t": 3747.65,
+      "part": 1,
+      "quote": "Success has many parents okay; this one was failure. Oliver's the parent. Well, another characteristic of leadership is candor. I made the mistake. Stop there. I, Oliver, your leader, made this mistake.",
+      "why": "A leader's candid account of admitting error and keeping trust",
+      "sensitive": false,
+      "end": 3765.45
+    },
+    {
+      "title": "Who designed this thing? It was me",
+      "summary": "He championed patient assessments of physicians (MAPS) against a board member who argued for paying doctors more. Back in practice later, he found himself rated by the system he had designed.",
+      "t": 1932.74,
+      "part": 1,
+      "quote": "it was humorous for me when I went back into practice, I began to get these assessments, and I made a lighthearted comment, who designed this thing? My patients are are evaluating me. It was me.",
+      "why": "Humorous origin story for patient-measured physician quality",
+      "sensitive": false,
+      "end": 1943.22
+    },
+    {
+      "title": "Edgar Kaiser and the bauxite",
+      "summary": "Called to treat Edgar Kaiser, he hospitalized him at Kaiser Sunset and waited while Kaiser finished a call to Jamaica. Not knowing what bauxite was, he offered to order it.",
+      "t": 5901.57,
+      "part": 1,
+      "quote": "I'm on the phone to Jamaica. I said, Jamaica. He said, you know, bauxite and I, I didn't know and I said, bauxite. I got mixed up. I said, well, I think I can order that if you need it.",
+      "why": "Warm, funny first-hand encounter with Edgar Kaiser as a patient",
+      "sensitive": true,
+      "end": 5916.13
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 3548.57,
+      "part": 1,
+      "question": "Can you tell us your thinking process that allowed you to change your opinion on closing hospitals and keeping them?",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew a candid account of his biggest public mistake and how he owned it",
+      "sensitive": false,
+      "end": 3555.49
+    },
+    {
+      "t": 4058.61,
+      "part": 1,
+      "question": "how does that how does the unique medical management partnership of Tahoe one and two. You know, really help to shape the future of Kaiser Permanente.",
+      "source": "question_list",
+      "list_number": "Q45",
+      "why": "Drew his passionate 'one and one equals three' partnership view and blunt criticism of outside consultants",
+      "sensitive": false,
+      "end": 4070.14
+    },
+    {
+      "t": 5334.86,
+      "part": 1,
+      "question": "Tell us the story of when you were called in to take care of Edgar Kaiser.",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew a vivid, humorous first-hand story of treating Edgar Kaiser",
+      "sensitive": true,
+      "end": 5339.74
+    }
+  ]
+}

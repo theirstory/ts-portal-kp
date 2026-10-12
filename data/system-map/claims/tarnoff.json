@@ -1,0 +1,432 @@
+{
+  "narrator": "Stephen Tarnoff, MD",
+  "slug": "tarnoff",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "6952d1175d2db97b9c242774"
+    }
+  ],
+  "excluded_segments": [],
+  "narrator_meta": {
+    "region": "Washington (Group Health Cooperative / Group Health Permanente / Washington Permanente Medical Group)",
+    "region_quote": "we were the Group Health Permanente Medical Group until 2017, when we became the Washington Permanente Medical Group",
+    "era": "c. 1981–2019",
+    "era_quote": "I never expected to stay and I ended up staying 38 years"
+  },
+  "claims": [
+    {
+      "from": "candor",
+      "to": "trust",
+      "polarity": "+",
+      "t": 636.61,
+      "part": 1,
+      "quote": "you're sort of free to, um, explore and admit that you don't know answers and ask for help. And as a leader, I think, um, well, one you can establish trust",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did your clinical background in family medicine influence the way you approached your leadership role?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 649.25
+    },
+    {
+      "from": "integrated care",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 1546.76,
+      "part": 1,
+      "quote": "we went down the I-5 corridor south to Tacoma and into Olympia. All of that happened in the 60s and 70s and early 80s. Um, and we did that by being a fully integrated model.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you feel comfortable talking about the process of having the assets of your own hospital and then what it was like when you later sold them in terms of contracting with hospitals instead of owning them?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1560.26
+    },
+    {
+      "from": "choice products",
+      "to": "integrated care",
+      "polarity": "-",
+      "t": 1647.9,
+      "part": 1,
+      "quote": "choice products, um, essentially PPO products, uh, were essential to grow further. ... what it did is began to undermine our core theory of our business and our business model.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you feel comfortable talking about the process of having the assets of your own hospital and then what it was like when you later sold them in terms of contracting with hospitals instead of owning them?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 1671.54
+    },
+    {
+      "from": "hospital divestiture",
+      "to": "partnership with health plan",
+      "polarity": "-",
+      "t": 1726.64,
+      "part": 1,
+      "quote": "we paid a real price as a medical group um, and it, it started the tension that previously hadn't been there between the medical group and the health plan side.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Do you feel comfortable talking about the process of having the assets of your own hospital and then what it was like when you later sold them in terms of contracting with hospitals instead of owning them?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "end": 1737.96
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "integrated care",
+      "polarity": "+",
+      "t": 2049.5,
+      "part": 1,
+      "quote": "the Permanente model and the Permanente Federation as, um, an example of how we could sort of build a firewall and stop the erosion of, uh, our model of care",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Not having an integrated model with your own hospitals creates all the problems that you guys later had with health plan... regions like Washington, Oregon, Colorado need their own hospitals.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2062.26
+    },
+    {
+      "from": "hospital divestiture",
+      "to": "affordability",
+      "polarity": "-",
+      "t": 2167.92,
+      "part": 1,
+      "quote": "utilization and and, um, you know, care management costs went up and we were not able to provide the same value proposition that we previously had done, particularly the affordability price point.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Before Group Health officially became part of Kaiser Permanente, how did Group Health physicians connect with the Permanente Federation?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 2181.48
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "culture",
+      "polarity": "+",
+      "t": 2580.32,
+      "part": 1,
+      "quote": "in terms of our culture, in terms of owning our problems and solving them, it gave us a more entrepreneurial feel and a more sense of accountability, as opposed to being just an employee",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you feel now about going back to the foundation, which is more like being employees again? Do you have any thoughts on the foundation versus group practice?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2592.2
+    },
+    {
+      "from": "candor",
+      "to": "physician buy-in",
+      "polarity": "+",
+      "t": 2706.5,
+      "part": 1,
+      "quote": "You have to make sure that your colleagues, your followers, understand the why you're doing what you're doing. If you want real buy in.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How do you feel now about going back to the foundation, which is more like being employees again? Do you have any thoughts on the foundation versus group practice?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 2715.34
+    },
+    {
+      "from": "medical group autonomy",
+      "to": "negotiating leverage",
+      "polarity": "+",
+      "t": 2816.12,
+      "part": 1,
+      "quote": "we threatened to go public with our co-op members about the problems. Um, we could do that as an independent medical group.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What were some of the biggest challenges culturally, operationally or clinically during that transition period to joining?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "end": 2823.68
+    },
+    {
+      "from": "medical group performance",
+      "to": "partnership with health plan",
+      "polarity": "+",
+      "t": 3830.53,
+      "part": 1,
+      "quote": "not take accountability for performance. You know, it gets you at the seat, at the table and it keeps you at the table, the better you perform.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What lessons from this transition would you want to share with leaders that are navigating this type of organizational change, today or in the future?",
+        "list_number": "Q43",
+        "type": "narrators_choice"
+      },
+      "end": 3838.85
+    },
+    {
+      "from": "trust",
+      "to": "physician buy-in",
+      "polarity": "+",
+      "t": 3939.59,
+      "part": 1,
+      "quote": "if they aren't authentic and credible and real and believable and trustworthy, hopefully you have a store of that, you've built that up over time. Um, then your narrative won't go.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What lessons from this transition would you want to share with leaders that are navigating this type of organizational change, today or in the future?",
+        "list_number": "Q43",
+        "type": "narrators_choice"
+      },
+      "end": 3951.03
+    },
+    {
+      "from": "capitation",
+      "to": "affordability",
+      "polarity": "+",
+      "t": 4336.64,
+      "part": 1,
+      "quote": "Kaiser Permanente model, creates natural constraints, and you get better outcomes for, um, for less cost when you when you work in an integrated system with a single payer and a capitated model.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What really sets Permanente medical groups apart from other medical groups? Why is Permanente Medicine important in your mind? The way we provide care?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 4352.36
+    },
+    {
+      "from": "capitation",
+      "to": "prevention",
+      "polarity": "+",
+      "t": 4386.75,
+      "part": 1,
+      "quote": "And when you have the capitated dollar, you can reach out and focus on prevention and health promotion.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What really sets Permanente medical groups apart from other medical groups? Why is Permanente Medicine important in your mind? The way we provide care?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 4392.75
+    },
+    {
+      "from": "integrated care",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4438.25,
+      "part": 1,
+      "quote": "best managed in a Kaiser Permanente environment? Um, because all of the benefits of the multi, you're not in silos and you're all working in alignment on behalf of the patient.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What really sets Permanente medical groups apart from other medical groups? Why is Permanente Medicine important in your mind? The way we provide care?",
+        "list_number": "Q9",
+        "type": "asked_directly"
+      },
+      "end": 4451.97
+    },
+    {
+      "from": "integrated care",
+      "to": "data & technology",
+      "polarity": "+",
+      "t": 4479.49,
+      "part": 1,
+      "quote": "information technologies work best over a single platform when they're fully integrated.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What really sets Permanente medical groups apart from other medical groups? Why is Permanente Medicine important in your mind? The way we provide care?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 4484.65
+    },
+    {
+      "from": "innovation",
+      "to": "quality",
+      "polarity": "+",
+      "t": 4499.14,
+      "part": 1,
+      "quote": "In a world where you're on salary and you're not tied to the volume and intensity of services for your payment, shared decision making tools create better clinical outcomes, empower patients, and save money.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What really sets Permanente medical groups apart from other medical groups? Why is Permanente Medicine important in your mind? The way we provide care?",
+        "list_number": "Q9",
+        "type": "narrators_choice"
+      },
+      "end": 4515.32
+    },
+    {
+      "from": "physician leadership",
+      "to": "culture",
+      "polarity": "+",
+      "t": 4705.53,
+      "part": 1,
+      "quote": "I think the leader's job is to help shape the culture.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did the core values of Kaiser Permanente influence you as a leader?",
+        "list_number": "Q11",
+        "type": "narrators_choice"
+      },
+      "end": 4710.21
+    },
+    {
+      "from": "candor",
+      "to": "quality",
+      "polarity": "+",
+      "t": 5345.86,
+      "part": 1,
+      "quote": "Doctors were so afraid of releasing their medical records, letting patients see their charts, ... And in the end, you get better outcomes when patients are informed and and are trusting of what you have.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did and how do Kaiser Permanente and Group Health foster innovation in health care delivery?",
+        "list_number": "Q18",
+        "type": "narrators_choice"
+      },
+      "end": 5363.09
+    },
+    {
+      "from": "capitation",
+      "to": "innovation",
+      "polarity": "+",
+      "t": 5384.4,
+      "part": 1,
+      "quote": "if you didn't have that constraint of a capitated environment and you didn't really buy into that, that that's an ethical imperative, then then you weren't going to be as innovative",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How did and how do Kaiser Permanente and Group Health foster innovation in health care delivery?",
+        "list_number": "Q18",
+        "type": "asked_directly"
+      },
+      "end": 5398.4
+    },
+    {
+      "from": "group practice",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 5517.5,
+      "part": 1,
+      "quote": "say yes to service, um, on behalf of your colleagues, ... the you will be rewarded in terms of the experiences, the relationships, um, the energy that comes from saying yes.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "What advice do you give to new physicians as they join a Permanente medical group?",
+        "list_number": "Q20",
+        "type": "narrators_choice"
+      },
+      "end": 5535.22
+    },
+    {
+      "from": "workforce diversity",
+      "to": "membership growth",
+      "polarity": "+",
+      "t": 6112.15,
+      "part": 1,
+      "quote": "the more that the providers look like the, um, patients, the more the patients are going to come.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente address health equity and access to care in diverse communities?",
+        "list_number": "Q19",
+        "type": "asked_directly"
+      },
+      "end": 6119.35
+    },
+    {
+      "from": "workforce diversity",
+      "to": "equity",
+      "polarity": "+",
+      "t": 6394.18,
+      "part": 1,
+      "quote": "people of different sexual orientation, um, in major leadership positions across our system, ... that signaled to people that we were open and inclusive and, um, and had commitments to health equity.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente address health equity and access to care in diverse communities?",
+        "list_number": "Q19",
+        "type": "asked_directly"
+      },
+      "end": 6418.62
+    },
+    {
+      "from": "affordability",
+      "to": "equity",
+      "polarity": "+",
+      "t": 6625.21,
+      "part": 1,
+      "quote": "affordability is a huge assistance if you're dealing with diversity, equity and inclusion.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "How does Kaiser Permanente address health equity and access to care in diverse communities?",
+        "list_number": "Q19",
+        "type": "asked_directly"
+      },
+      "end": 6633.45
+    },
+    {
+      "from": "integrated care",
+      "to": "community health",
+      "polarity": "+",
+      "t": 6758.71,
+      "part": 1,
+      "quote": "organized systems of care like KP and like WPMG, um, with our partners, really, um, could show the value because of the public health, um, component and the ability to mobilize people.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Let's talk about the Covid 19 pandemic and the unique research and how Washington Permanente basically led the way. Can you talk about that?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 6776.06
+    },
+    {
+      "from": "trust",
+      "to": "community health",
+      "polarity": "+",
+      "t": 6960.31,
+      "part": 1,
+      "quote": "clinician and physician leaders were visible and having established trust and credibility and authenticity believable, um, to, to to make a difference in behavior change.",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Let's talk about the Covid 19 pandemic and the unique research and how Washington Permanente basically led the way. Can you talk about that?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "end": 6973.99
+    },
+    {
+      "from": "national expansion",
+      "to": "financial pressure",
+      "polarity": "+",
+      "t": 7239.81,
+      "part": 1,
+      "quote": "there was an effort to expand, ... and it practically, I think, bankrupt the whole organization. And it certainly put the kibosh on the Kaiser Group Health Partnership",
+      "explicitness": "explicit",
+      "prompt": {
+        "question": "Sidney Garfield, what would you ask him?",
+        "list_number": "Q13",
+        "type": "narrators_choice"
+      },
+      "end": 7252.58
+    },
+    {
+      "from": "integrated care",
+      "to": "physician well-being",
+      "polarity": "+",
+      "t": 7580.88,
+      "part": 1,
+      "quote": "that can lead to despair. ... I do believe that KP is an antidote to that. It is a, um, it's the elixir. It's it does bring joy.",
+      "explicitness": "implied",
+      "prompt": {
+        "question": "Where do you see Kaiser Permanente in 10 to 20 years?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "end": 7595.35
+    }
+  ],
+  "new_factors": [
+    "choice products",
+    "hospital divestiture",
+    "physician buy-in",
+    "negotiating leverage",
+    "medical group performance",
+    "national expansion"
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "narrator": "Mary Wilson, MD",
+  "slug": "wilson",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "698248dce12e409359b38973"
+    },
+    {
+      "part": 2,
+      "story_id": "69e13e94117c81e5e310776c"
+    }
+  ],
+  "one_line": "Panorama City pediatrician and AMD who became Southeast Permanente's first woman EMD, steering Georgia through Emory and COVID.",
+  "top_role": "Executive Medical Director, Southeast Permanente Medical Group (Georgia)",
+  "region": "Southern California; Georgia",
+  "excluded_segments": [
+    {
+      "part": 2,
+      "start": 2371,
+      "end": 2400,
+      "reason": "\"Off the record, it's the one person...\" (39:31), about removing a leader from her team. Proposed."
+    },
+    {
+      "part": 2,
+      "start": 6460,
+      "end": 6479.5,
+      "reason": "\"You'll have to cut that part out.\" (1:47:58), about her 'best friend at work' survey joke on how women and men answer."
+    },
+    {
+      "part": 2,
+      "start": 6508,
+      "end": 6520,
+      "reason": "Continuation of the same 'best friend at work' joke she asked to have cut (\"You'll have to cut that part out.\")."
+    },
+    {
+      "part": 2,
+      "start": 6944,
+      "end": 7010,
+      "reason": "\"No, I don't want to address it. I was trying to avoid it in that answer.\" (1:55:52), on the foundation model (Risant); she then gives off-hand opinions."
+    },
+    {
+      "part": 2,
+      "start": 7290,
+      "end": 7325,
+      "reason": "\"This is not recorded, right? No. Yeah.\" ... \"No it's no no we can't.\" (2:01:43), after her remarks on California membership predictions sabotaging Georgia ('dysfunction junction')."
+    }
+  ],
+  "journey": [
+    {
+      "t": 72.13,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "First year of medical school; no year given.",
+      "stage": "ordinary_world",
+      "label": "Sees village care in Alaska",
+      "fortune": 1,
+      "fortune_basis": "And it was really, really interesting to me.",
+      "quote": "it was clear when we got out to the villages that one individual physician taking care of one individual patient made a big impact and was absolutely necessary.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 81.01
+    },
+    {
+      "t": 157.59,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "She says only '30, 40 years ago or something'.",
+      "stage": "threshold",
+      "label": "Moonlights at Panorama City, loves it",
+      "fortune": 2,
+      "fortune_basis": "I just loved it. I loved the colleagues.",
+      "quote": "in the meantime, I was like doing overnights at Kaiser. And, um, I just loved it. I loved the colleagues. I loved the people there.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 165.71
+    },
+    {
+      "t": 3031.6,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Early in her pediatric practice; no year given.",
+      "stage": "mentor",
+      "label": "Neighbor says fix it, don't complain",
+      "fortune": 1,
+      "fortune_basis": "So we just went through and did a little efficiencies and things like that.",
+      "quote": "Jamie Goldfarb, who was an older guy, said, look, just figure out a quit complaining basically he said, and he said it more nicely, but try to find a solution.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3039.76
+    },
+    {
+      "t": 496.08,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for her first leadership roles.",
+      "stage": "trials",
+      "label": "Volunteered into first leadership roles",
+      "fortune": 0,
+      "fortune_basis": "it turned out to be a thankless task in many ways.",
+      "quote": "I met every single person in the hospital because I had to go around and beg them to sponsor these kids, including in the OR.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 501.81
+    },
+    {
+      "t": 608.83,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given.",
+      "stage": "call",
+      "label": "Named assistant AMD under Ambrosini",
+      "fortune": 2,
+      "fortune_basis": "when I interviewed with her, we just hit it off and I got that position.",
+      "quote": "I had been appointed it was my first big leadership position as assistant medical director under Virginia Ambrosini.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 615.71
+    },
+    {
+      "t": 648.36,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for the regional access and service role.",
+      "stage": "trials",
+      "label": "Leads regional access and service push",
+      "fortune": -1,
+      "fortune_basis": "having everybody yell at me at all the medical centers",
+      "quote": "it was really a dog and pony show, going around and having everybody yell at me at all the medical centers",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 652.76
+    },
+    {
+      "t": 678.28,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "No year given for becoming AMD.",
+      "stage": "threshold",
+      "label": "Becomes Panorama City area medical director",
+      "fortune": 2,
+      "fortune_basis": "either way I'll be fine because I really loved what I was doing.",
+      "quote": "I threw my hat in the ring for that. And I, I'm sure people talked to me about it, but it was in my mind already.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 684.08
+    },
+    {
+      "t": 3389.61,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "End of her six-year AMD term; no year given.",
+      "stage": "reward",
+      "label": "Panorama City turns around",
+      "fortune": 3,
+      "fortune_basis": "I'm really proud of that shift in Panorama City.",
+      "quote": "after six years there, at the end of my term there, I would say Panorama City really turned around in terms of being excellent and having a great reputation around the region",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 3400.65
+    },
+    {
+      "t": 77.15,
+      "part": 1,
+      "year": 2015,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "She heard of the opening after the 2015 affiliation she dates, while finishing her AMD term.",
+      "stage": "call",
+      "label": "Seeks Southeast Permanente EMD job",
+      "fortune": 2,
+      "fortune_basis": "this seemed like a new thing and a big challenge",
+      "quote": "It was really a situation where I heard about it, and I thought that might be good for me.",
+      "event_ref": "SCPMG affiliation with Southeast Permanente",
+      "sensitive": false,
+      "end": 81.35
+    },
+    {
+      "t": 1271.18,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Her arrival in Georgia; no year given.",
+      "stage": "trials",
+      "label": "New kid on the block in Georgia",
+      "fortune": -1,
+      "fortune_basis": "people were very skeptical of me I would say, when I started.",
+      "quote": "In Georgia, I was brand new, nobody knew me, and some of them were resentful of Southern California coming in",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1277.59
+    },
+    {
+      "t": 2128.05,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "The interviewer dates the Emory partnership 2018; she does not.",
+      "stage": "ordeal",
+      "label": "Pushes Emory hospital move nearly alone",
+      "fortune": -2,
+      "fortune_basis": "So that was really challenging.",
+      "quote": "No one on my leadership team wanted to do it. Um, no one, I maybe had two early adopters from the chief's team. Um, and yet I knew it was a good idea.",
+      "event_ref": "Emory Healthcare hospital partnership",
+      "sensitive": false,
+      "end": 2139.21
+    },
+    {
+      "t": 2226.52,
+      "part": 2,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "Six to nine months into the Emory decision; no year given.",
+      "stage": "transformation",
+      "label": "Learns to bring her team along",
+      "fortune": 2,
+      "fortune_basis": "it was really a lesson to me in bringing folks along.",
+      "quote": "I would almost all of them were 100% on board with me as a leader. I could trust them.",
+      "event_ref": "Emory Healthcare hospital partnership",
+      "sensitive": false,
+      "end": 2234.16
+    },
+    {
+      "t": 1797,
+      "part": 1,
+      "year": 2018,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"So let's transition again to the 2018 Emory Healthcare System Partnership.\"",
+      "stage": "reward",
+      "label": "Emory transition goes smoothly",
+      "fortune": 2,
+      "fortune_basis": "It was pretty amazing.",
+      "quote": "once we went live, um, people were amazing. They may not have liked the idea, you know, they may not have wanted it, but people really jumped in. So the transition was amazingly smooth.",
+      "event_ref": "Emory Healthcare hospital partnership",
+      "sensitive": false,
+      "end": 1809.56
+    },
+    {
+      "t": 2776.94,
+      "part": 1,
+      "year": 2020,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"So, you know, as the pandemic started and was pushing through last year, in 2020, what were the top three challenges that had to be addressed for Spmg?\"",
+      "stage": "trials",
+      "label": "Leads Georgia through COVID's first months",
+      "fortune": -2,
+      "fortune_basis": "I was terrified that that someone was going to get sick and die.",
+      "quote": "I was terrified that that someone was going to get sick and die. Um, and so that was on everybody's mind, not just me.",
+      "event_ref": "COVID-19 pandemic",
+      "sensitive": false,
+      "end": 2784.3
+    },
+    {
+      "t": 984.64,
+      "part": 1,
+      "year": 2021,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "She is retiring at the time of this interview, recorded in 2021.",
+      "stage": "return",
+      "label": "Hands the medical group to Nkem",
+      "fortune": 2,
+      "fortune_basis": "I feel like we've built a great foundation for Nkem to step into.",
+      "quote": "I feel like we've built a great foundation for Nkem to step into.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 988.44
+    },
+    {
+      "t": 2423.56,
+      "part": 2,
+      "year": 2026,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "'Maybe even two weeks ago' in the 2026 interview.",
+      "stage": "return",
+      "label": "Still advising Georgia leaders",
+      "fortune": 3,
+      "fortune_basis": "I love doing that. Very proud of that.",
+      "quote": "one of the leaders in Georgia who I haven't taught, you know, I haven't seen them in or haven't been there in five years. But, um, she called to ask my advice about something",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 2433.12
+    }
+  ],
+  "events": [
+    {
+      "name": "SCPMG affiliation with Southeast Permanente",
+      "year_start": 2015,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "She saw the affiliation as Georgia's effort to share services and ideas and lift performance, though she underestimated local resistance to it.",
+      "t": 24.44,
+      "part": 1,
+      "quote": "So in 2015, the medical groups affiliated together with TSCpmg and SCpmg, and that was the result of some desire on the part of the region in Georgia",
+      "prompt": {
+        "question": "So let's begin with your transition to Georgia. Walk me through how you answered the search to be KPMG's next medical director.",
+        "list_number": "Q4",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 37.04
+    },
+    {
+      "name": "Emory Healthcare hospital partnership",
+      "year_start": 2018,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"So let's transition again to the 2018 Emory Healthcare System Partnership.\"",
+      "view": "She saw it as her biggest Georgia challenge: a needed hospital strategy, resisted and kept secret, that brought stable rates and the care model into hospitals.",
+      "t": 1656.47,
+      "part": 1,
+      "quote": "that's the biggest challenge I had here really for a long time because it was clearly we clearly needed a hospital strategy.",
+      "prompt": {
+        "question": "So let's transition again to the 2018 Emory Healthcare System Partnership. And I want to know more about you know, what were the controversies surrounding this and what challenges you know, you experienced",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 1663.95
+    },
+    {
+      "name": "Georgia region financial crisis",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She described Georgia as losing money on contracted hospital and specialty care, a burning platform that made physicians ready for change.",
+      "t": 2048.07,
+      "part": 2,
+      "quote": "they needed a new hospital strategy desperately, they were part of their financial problem was hemorrhaging money into the community environment because they don't own their own hospitals there",
+      "prompt": {
+        "question": "What were the greatest challenges you've experienced as a leader in this organization? Greatest challenges as a leader.",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2056.75
+    },
+    {
+      "name": "HealthConnect instance consolidation",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She thought merging Georgia into one HealthConnect instance cost local nimbleness but the benefit of shared, cheaper tools outweighed it.",
+      "t": 903.7,
+      "part": 1,
+      "quote": "the other big thing I did I mentioned is that Healthconnect merged into the same instance. And so that was a very big deal for folks.",
+      "prompt": {
+        "question": "was there a replacement of such systems or was it just putting something new in place?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 910.14
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She was there when the electronic record arrived and calls it a lasting game changer for panel care and population data.",
+      "t": 5037.54,
+      "part": 2,
+      "quote": "Kaiser's electronic health record, which came in so many years ago now was, I was there when it was first came in to the offices, was a game changer.",
+      "prompt": {
+        "question": "Can you discuss the impact of Kaiser Permanente's electronic health record on patient care?",
+        "list_number": "Q41",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 5045.94
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She credited prior video-visit certification and the Georgia team for a fast switch to virtual care, while fearing for staff safety.",
+      "t": 4605,
+      "part": 2,
+      "quote": "And then at some point in that spring of Covid, we flipped all our in-person appointments to video appointments, and everyone was able to do it.",
+      "prompt": {
+        "question": "Do you want to mention about Covid, how we were one of the first to the vaccines or.",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 4613.32
+    },
+    {
+      "name": "Black Lives Matter movement",
+      "year_start": 2020,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "Year from the interviewer: \"And then follow that mid year in 2020 which is the social justice awareness and the movement across that was more national even global arguably.\"",
+      "view": "She saw listening sessions, bias testing and chiefs' stories as making the medical group stronger and more aware of disparities.",
+      "t": 2295.82,
+      "part": 1,
+      "quote": "We're a better, stronger organization because we address that head on, got passionate about it, dealt with it.",
+      "prompt": {
+        "question": "how would you describe our role in moving forward in this type of, um, awareness and movement that people are having socially?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 2302.54
+    },
+    {
+      "name": "1990s KP financial crisis",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She recalled KP nearly going bankrupt from growing too fast, and the medical group partnering with the health plan on access and patient experience.",
+      "t": 1878.83,
+      "part": 2,
+      "quote": "There was a pivotal moment, and I can't remember exactly what year it was, but I was there, when Kaiser Permanente almost went bankrupt.",
+      "prompt": {
+        "question": "A. Pivotal moment in the history of Kaiser Permanente that has shaped its current practice.",
+        "list_number": "Q12",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 1886.51
+    },
+    {
+      "name": "First women Permanente executive medical directors",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "She was briefly the only woman among Permanente leaders, and found the group more functional once three women served together.",
+      "t": 6119.42,
+      "part": 2,
+      "quote": "one of my claims to fame is that I was the first female president and CEO of any of the Permanente regions, and that was the Georgia region.",
+      "prompt": {
+        "question": "So tell me about your experience as the first female president, executive medical director of southeast, and of the program.",
+        "list_number": "Q5",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 6128.86
+    }
+  ],
+  "retellable": [
+    {
+      "title": "The barbecue that wasn't barbecue",
+      "summary": "New to Georgia, she invited the chiefs to a rooftop 'barbecue' meaning only outdoor cooking. They expected Southern barbecue, and the mix-up became a shared laugh that helped build relationships.",
+      "t": 1385.26,
+      "part": 2,
+      "quote": "In California, you call anytime you cook outside a barbecue, in Georgia, barbecue means the food barbecue. Um, and so it was hilarious. They were very disappointed.",
+      "why": "A warm, funny picture of a new leader building trust across cultures.",
+      "sensitive": false,
+      "end": 1394.94
+    },
+    {
+      "title": "Allergy receptionist books a life-saving mammogram",
+      "summary": "At Panorama City an allergy receptionist booked a reluctant patient's overdue mammogram during her allergy visit. The mammogram found breast cancer the patient says she would otherwise have missed.",
+      "t": 3546,
+      "part": 2,
+      "quote": "she got her mammogram booked at her allergy appointment and it was within a couple of weeks she got it. She went to her mammogram appointment and she had breast cancer.",
+      "why": "Shows integrated care and proactive outreach saving a life.",
+      "sensitive": true,
+      "end": 3555.62
+    },
+    {
+      "title": "Interrupting as the only woman",
+      "summary": "A senior leader kindly told the young Wilson she interrupted too much in meetings. She answered that as the only woman there, she feared no one would listen otherwise.",
+      "t": 731.3,
+      "part": 1,
+      "quote": "I noticed you interrupt all the time in the meetings and I'm like, well, did you also notice that I'm the only woman in there? And I'm afraid nobody's going to listen to me if I don't interrupt.",
+      "why": "A candid, human view of gender dynamics in early physician leadership.",
+      "sensitive": true,
+      "end": 740.22
+    },
+    {
+      "title": "Leading from where you stand",
+      "summary": "Frustrated by wasted time getting patients roomed, the young pediatrician walked the clinic with her nurse to find delays. A senior colleague told her to stop complaining and find a solution, and she did.",
+      "t": 3039.76,
+      "part": 2,
+      "quote": "So we just went through and did a little efficiencies and things like that. And, um, so it's what they would later call leading from where you stand.",
+      "why": "Concrete model for new physicians on turning frustration into improvement.",
+      "sensitive": false,
+      "end": 3047.56
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1216.93,
+      "part": 2,
+      "question": "Do you want to, I think something unique is, and you mentioned it earlier, would be just to talk about what it's like to be the new kid on the block and be the leader.",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew a detailed account of building trust in Georgia: rounding, home gatherings, the barbecue story.",
+      "sensitive": false,
+      "end": 1226.95
+    },
+    {
+      "t": 907.1,
+      "part": 2,
+      "question": "something to the effect of how does a leader balance wanting to be liked with wanting to get their physicians to perform?",
+      "source": "improvised",
+      "list_number": null,
+      "why": "Drew her frank reflections on difficult conversations, overpromising and giving burnt-out physicians time.",
+      "sensitive": false,
+      "end": 916.86
+    },
+    {
+      "t": 672.28,
+      "part": 1,
+      "question": "So I want to know whether you've experienced any obstacles or challenges being a woman physician or being a woman physician leader inside and outside of, you know, Kaiser Permanente, the medical groups.",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew candid admissions of being unheard as the only woman and harassment in training.",
+      "sensitive": true,
+      "end": 683.72
+    }
+  ]
+}

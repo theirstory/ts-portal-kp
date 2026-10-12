@@ -1,0 +1,659 @@
+{
+  "narrator": "Jeffrey Selevan, MD",
+  "slug": "selevan",
+  "recordings": [
+    {
+      "part": 1,
+      "story_id": "69f4069620d30677412a240d"
+    }
+  ],
+  "one_line": "San Diego emergency physician whose accidental claims fix became EPRP, then SCPMG's Medical Director of Business Management.",
+  "top_role": "SCPMG Medical Director of Business Management",
+  "region": "Southern California",
+  "excluded_segments": [
+    {
+      "part": 1,
+      "start": 8765,
+      "end": 8790,
+      "reason": "\"I'd like to take that out\" (2:26:22), after the tonsillectomy-cost aside. Scope of 'that' unclear. Proposed."
+    },
+    {
+      "part": 1,
+      "start": 2812,
+      "end": 2846,
+      "reason": "Interviewer (not narrator) says \"this is off the record\" (46:52) while framing the MBA-training question and then restarts it. Excluded as a precaution; no claims affected."
+    },
+    {
+      "part": 1,
+      "start": 3658,
+      "end": 4735,
+      "reason": "Narrator: \"Uh, Kurt, I'd like to go off record now.\" (1:00:58), in response to the question on the KP Medical Foundation / Risant / Renown and non-exclusivity. The interviewer keeps asking follow-ups on that topic (Ramin advice, Reno branding) and says at 1:13:30 \"the last question related to this, and then we'll go back to the prearranged questions\"; the prearranged questions resume at 1:18:54 (Q15/fee-for-service). Scope read as the whole foundation/Reno block."
+    }
+  ],
+  "journey": [
+    {
+      "t": 475.89,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordinary_world",
+      "label": "Frustrated by payer-driven care in Philadelphia",
+      "fortune": -2,
+      "fortune_basis": "it used to break my heart",
+      "quote": "it used to break my heart to have patients that, um, you know, a child that was sick that needed an antibiotic, I'd write the prescription, but this predates Medicaid",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 485.73
+    },
+    {
+      "t": 232.06,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Takes SCPMG job on father's urging",
+      "fortune": 2,
+      "fortune_basis": "I wish I could tell my dad he was right.",
+      "quote": "I didn't read the benefit book, but I figured, you know what the heck, I would take the position with KP and, um, I am so grateful I did that.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 240.78
+    },
+    {
+      "t": 517.33,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "reward",
+      "label": "Finds joy of prepaid emergency practice",
+      "fortune": 3,
+      "fortune_basis": "the pure joy of practicing medicine",
+      "quote": "when I came to SCPMG, it was like landing in the, you know, like being the Wizard of Oz. Um, and everything is yellow brick road.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 526.81
+    },
+    {
+      "t": 10832.28,
+      "part": 1,
+      "year": 1975,
+      "year_basis": "stated",
+      "year_note": "He says 'it must have been in 1975 or 1976' (probably winter of 75); the visit was in San Diego Medical Center's first year, which he says opened September 1975.",
+      "stage": "ordinary_world",
+      "label": "Meets Sidney Garfield on overnight shift",
+      "fortune": 1,
+      "fortune_basis": "I'm thrilled that, uh, I had the opportunity to meet him.",
+      "quote": "then I saw him. He was standing by the nurses counter, and I recognized he was actually the same guy who was giving the keynote speech at the Beverly Hilton.",
+      "event_ref": "San Diego Medical Center opens",
+      "sensitive": false,
+      "end": 10839.64
+    },
+    {
+      "t": 858.56,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "call",
+      "label": "Backed into emergency department chief role",
+      "fortune": -1,
+      "fortune_basis": "It was not my intent. It was by omission, not commission.",
+      "quote": "And at that point, there really wasn't nobody else. And so I got backed into the position of being chief, only to discover why Hamish had gone to France.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 867.72
+    },
+    {
+      "t": 974.61,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "call",
+      "label": "Misdirected envelope draws him into claims",
+      "fortune": 0,
+      "fortune_basis": "it was all an accident",
+      "quote": "But it was all an accident. And, um, if I hadn't gotten the wrong mail, I don't think any of that would have happened.",
+      "event_ref": "Emergency Prospective Review Program (EPRP)",
+      "sensitive": false,
+      "end": 982.33
+    },
+    {
+      "t": 1184.76,
+      "part": 1,
+      "year": 1989,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "threshold",
+      "label": "Asked to take EPRP region-wide",
+      "fortune": 0,
+      "fortune_basis": "I felt like the dog that had caught the car",
+      "quote": "they asked if I could do it region wide, and it stupidly, I was still young, I don't think I was 40 then, I said, sure, no problem.",
+      "event_ref": "1989 financial crisis",
+      "sensitive": false,
+      "end": 1191.92
+    },
+    {
+      "t": 1345.37,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "ordeal",
+      "label": "Burnt out by daily regional commute",
+      "fortune": -2,
+      "fortune_basis": "but I was really burnt out",
+      "quote": "I was leaving the house at 4:30 in the morning, and I was either flying or train or drive whatever, but I was really burnt out.",
+      "event_ref": "Emergency Prospective Review Program (EPRP)",
+      "sensitive": true,
+      "end": 1352.45
+    },
+    {
+      "t": 1388.49,
+      "part": 1,
+      "year": 1995,
+      "year_basis": "stated",
+      "year_note": "He states 'In 1995' for the McKinsey engagement at 2:34:56.",
+      "stage": "trials",
+      "label": "Spends a year with McKinsey team",
+      "fortune": -1,
+      "fortune_basis": "It was a very hard year.",
+      "quote": "that was my first epiphany into the value of, um, Kaiser Permanente, the magic, the year I spent with them.",
+      "event_ref": "McKinsey cost study",
+      "sensitive": false,
+      "end": 1395.53
+    },
+    {
+      "t": 1419.82,
+      "part": 1,
+      "year": 1996,
+      "year_basis": "stated",
+      "year_note": "He says 'this is 95, 96'.",
+      "stage": "call",
+      "label": "Called back to run EPRP",
+      "fortune": 0,
+      "fortune_basis": "I'll come back, but I really need to relocate.",
+      "quote": "it had become too big to leave dormant. It was handling at that point, this is 95, 96, it was handling over $3 billion dollars a year in claims",
+      "event_ref": "Emergency Prospective Review Program (EPRP)",
+      "sensitive": false,
+      "end": 1431.26
+    },
+    {
+      "t": 1578.56,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Tests delegated IPA model in network expansion",
+      "fortune": 0,
+      "fortune_basis": "that was another element of my, um, education",
+      "quote": "IPA model was it was hollow. There was no substance to it.",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1582.8
+    },
+    {
+      "t": 1803.57,
+      "part": 1,
+      "year": 2004,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says Jeff split Irwin's role when he took over for Oliver, and elsewhere 'in 2004 when Jeff became, um, Medical Director'.",
+      "stage": "reward",
+      "label": "Becomes Medical Director of Business Management",
+      "fortune": 1,
+      "fortune_basis": "Jeff split the role, which was, I think, a smart move.",
+      "quote": "And he made operations, Paul Menordy, became the Medical Director of Operations, and I got all the business and finance stuff",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 1812.34
+    },
+    {
+      "t": 2273.91,
+      "part": 1,
+      "year": 2004,
+      "year_basis": "stated",
+      "year_note": "",
+      "stage": "trials",
+      "label": "Sells unpopular deductible product to partners",
+      "fortune": -1,
+      "fortune_basis": "I was a reluctant participant",
+      "quote": "So my first great challenge was going to the 11 or 12 medical centers, and I was in San Diego explaining to the partners",
+      "event_ref": "Deductible (DHMO) product introduced",
+      "sensitive": false,
+      "end": 2281.55
+    },
+    {
+      "t": 7760.05,
+      "part": 1,
+      "year": 2005,
+      "year_basis": "stated",
+      "year_note": "He says '2005 or 2006'.",
+      "stage": "reward",
+      "label": "Funds costly colonoscopy screening push",
+      "fortune": 2,
+      "fortune_basis": "it was the right thing to do",
+      "quote": "It was going to cost $60 or $70 million, um, to get the labs, hire the gastroenterologists over and above what we had budgeted for GI to be able to do it",
+      "event_ref": "Colorectal cancer screening expansion",
+      "sensitive": false,
+      "end": 7770.97
+    },
+    {
+      "t": 2415.76,
+      "part": 1,
+      "year": 2006,
+      "year_basis": "inferred_from_transcript",
+      "year_note": "He says 'now that we've been into Health Connect for 20 years' in a 2026 interview, and places it after the 2004 deductible product.",
+      "stage": "ordeal",
+      "label": "Deploys Health Connect through hard transition",
+      "fortune": -2,
+      "fortune_basis": "It was very hard emotionally and physically getting that deployed",
+      "quote": "the first versions were not perfect, and we lost some really good doctors in the transition.",
+      "event_ref": "Electronic health record rollout",
+      "sensitive": false,
+      "end": 2421.64
+    },
+    {
+      "t": 7128.59,
+      "part": 1,
+      "year": null,
+      "year_basis": "unknown",
+      "year_note": "",
+      "stage": "return",
+      "label": "Consulting shows KP's rare collaboration",
+      "fortune": 2,
+      "fortune_basis": "I'm so thrilled that I had that opportunity",
+      "quote": "my consulting post-retirement, um, my engagements with entities that were not at all concerned about the other parties and it was win-lose",
+      "event_ref": null,
+      "sensitive": false,
+      "end": 7141.04
+    }
+  ],
+  "events": [
+    {
+      "name": "Common plan (physician pension) created",
+      "year_start": 1966,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw the common plan as a post-Tahoe creation, filed for in 1966 after the original plan was disallowed.",
+      "t": 9975.88,
+      "part": 1,
+      "quote": "but we had filed for what is now the common plan, uh, with a private letter ruling in 66.",
+      "prompt": {
+        "question": "So tell us why you think Kaiser Permanente history is so important for future leaders to understand and to use in their decision making process?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 9982.44
+    },
+    {
+      "name": "Tahoe agreement",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw the Lake Tahoe meeting as resolving decades of health plan and medical group tension into the modern Medical Service Agreement.",
+      "t": 9910.51,
+      "part": 1,
+      "quote": "which all led to the Lake Tahoe meeting to bring what we see now is the Modern Medical Service Agreement.",
+      "prompt": {
+        "question": "So tell us why you think Kaiser Permanente history is so important for future leaders to understand and to use in their decision making process?",
+        "list_number": "Q48",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 9918.03
+    },
+    {
+      "name": "San Diego Medical Center opens",
+      "year_start": 1975,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He recalled it as the newest hospital in the system, where he worked overnight shifts as a young associate.",
+      "t": 10781.56,
+      "part": 1,
+      "quote": "Now, San Diego Medical Center opened in September of 1975, and it was the newest hospital in the system.",
+      "prompt": {
+        "question": "So take us through the whole thing. Take your time. Recount as much as you can. Relive the dialogue, the date, everything you can that you talked about.",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 10790.68
+    },
+    {
+      "name": "1989 financial crisis",
+      "year_start": 1989,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He called 1989 the program's worst economic year in Southern California, survived only through the risk sharing arrangement with the health plan.",
+      "t": 8909.85,
+      "part": 1,
+      "quote": "the worst economic year for the program in Southern California was 1989.",
+      "prompt": {
+        "question": "So the question is, what are the biggest challenges facing health care in your time? How did Kaiser Permanente address them? Can you include in that how we almost went, you know, under in the late 90s",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 8914.69
+    },
+    {
+      "name": "Emergency Prospective Review Program (EPRP)",
+      "year_start": 1989,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He described EPRP as simple in concept but years of work to align incentives across health plan, hospital and medical group.",
+      "t": 1028.1,
+      "part": 1,
+      "quote": "And we ended up with a crisis in 1989, and that's why Frank Murray and Irwin Goldstein asked me to, um, become to develop",
+      "prompt": {
+        "question": "So I thought you were a genius. I mean, now you just, like, deflated it. I thought Aebp was like your genius that you would like developed over years of, you know, constant thinking.",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 1038.17
+    },
+    {
+      "name": "McKinsey cost study",
+      "year_start": 1995,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He saw McKinsey's analysts as brilliant but measuring the wrong things; following their advice to divest hospitals would have been catastrophic.",
+      "t": 9296.62,
+      "part": 1,
+      "quote": "In 1995 um, Dave Lawrence had, uh, retained um, uh, McKinsey and Company to do a deep dive on our cost structure",
+      "prompt": {
+        "question": "Uh, can you start again? Just so we know what you're talking about? So say in 1997 or whatever year was it 97 or 96?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 9306.16
+    },
+    {
+      "name": "1990s financial crisis",
+      "year_start": 1995,
+      "year_end": 1996,
+      "year_basis": "stated",
+      "view": "He tied the 1995-96 losses to a zero rate increase and a failed claims-processing system change, again cushioned by risk sharing.",
+      "t": 9028.7,
+      "part": 1,
+      "quote": "The next two worst years were 95, 96, where we went negative again, again outside medical.",
+      "prompt": {
+        "question": "So the question is, what are the biggest challenges facing health care in your time? How did Kaiser Permanente address them? Can you include in that how we almost went, you know, under in the late 90s",
+        "list_number": "Q23",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 9037.06
+    },
+    {
+      "name": "Deductible (DHMO) product introduced",
+      "year_start": 2004,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He resisted the deductible product but became convinced it was necessary to compete and then made the case to the partners.",
+      "t": 2196.86,
+      "part": 1,
+      "quote": "the health plan had come to market with, if you remember, the DHMO product, the deductible product, and the physicians hated it. Actually, I hated it.",
+      "prompt": {
+        "question": "Um, what were the greatest challenges you've experienced as a leader? What were your greatest challenges?",
+        "list_number": "Q16",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 2210.1
+    },
+    {
+      "name": "Colorectal cancer screening expansion",
+      "year_start": 2005,
+      "year_end": null,
+      "year_basis": "stated",
+      "view": "He presented the costly colonoscopy push as Permanente Medicine: a decade-long payoff only an exclusive, long-tenure system would fund.",
+      "t": 7772.85,
+      "part": 1,
+      "quote": "The payoff on that was a decade. It took a decade for a polyp to become a malignancy. And we did it.",
+      "prompt": {
+        "question": "Wow. Fantastic. Um, so do you want to now do the same for Permanente medicine?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 7782.33
+    },
+    {
+      "name": "Electronic health record rollout",
+      "year_start": 2006,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He saw Health Connect as transformative and irreversible, but it made primary physicians' days harder in ways he had not foreseen.",
+      "t": 6213.06,
+      "part": 1,
+      "quote": "Health Connect profoundly changed clinical practice for primary physicians. Um, it made their day harder",
+      "prompt": {
+        "question": "So what do you think about talking about the impact of Kaiser Permanente using AI on patient care?",
+        "list_number": null,
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 6222.54,
+      "year_note": "\"now that we've been into Health Connect for 20 years\", in a 2026 interview."
+    },
+    {
+      "name": "HPV vaccine adoption",
+      "year_start": 2006,
+      "year_end": null,
+      "year_basis": "inferred_from_transcript",
+      "view": "He approved an unbudgeted $55 million to give Gardasil right away, knowing risk sharing would make the medical group whole.",
+      "t": 5374.1,
+      "part": 1,
+      "quote": "when Gardasil, I think it was Gardasil, the HPV vaccine first came available, must be 20 years ago now, time flies.",
+      "prompt": {
+        "question": "17 how does Kaiser Permanente's contractual relationship between K, F, K, F, h, P and medical group incentivize quality and safety?",
+        "list_number": "Q33",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 5383.71,
+      "year_note": "\"must be 20 years ago now\", in a 2026 interview."
+    },
+    {
+      "name": "Proactive Office Encounter",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He called it innovative and wildly unpopular with specialists, but credited it with saving lives and said only an integrated system could do it.",
+      "t": 4828.36,
+      "part": 1,
+      "quote": "the high-volume specialty services resisted this tremendously, but lives were saved. Breast cancers were captured; hypertension was diagnosed.",
+      "prompt": {
+        "question": "How does Kaiser Permanente's approach to patient care differ from traditional fee for service models?",
+        "list_number": "Q30",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 4838.08
+    },
+    {
+      "name": "Robotic surgery (da Vinci) adoption",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He approved the West LA da Vinci pilot on clinical and recruiting grounds, noting it did not save money.",
+      "t": 5572.31,
+      "part": 1,
+      "quote": "I was actually the one who signed off on Kurt Cameron's original pilot, uh, for West LA with, uh, the da Vinci.",
+      "prompt": {
+        "question": "18 is Kaiser Permanente receptive to deploying new technology? And if so, how does this differ from other health delivery systems we're talking about?",
+        "list_number": "Q36",
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 5578.87
+    },
+    {
+      "name": "Expansion regions outside California closed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He recalled the regions outside California failing one after another over time after long periods of losses.",
+      "t": 9663.05,
+      "part": 1,
+      "quote": "Texas went first Kansas shortly after, which didn't have very many members anyway. And then North Carolina was later",
+      "prompt": {
+        "question": "And then which year was it when all the basically regions outside like Kansas, Texas and North Carolina imploded?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 9671.33
+    },
+    {
+      "name": "Affordable Care Act",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He expected the ACA to be a catalyst for change, but losing the mandate fouled up the risk pools.",
+      "t": 8378.19,
+      "part": 1,
+      "quote": "I thought the Affordable Care Act, um, would be the catalyst and I was wrong on that.",
+      "prompt": {
+        "question": "So where do you see Kaiser Permanente in 10 to 20 years? What's the future in your in your crystal ball?",
+        "list_number": "Q47",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 8383.28
+    },
+    {
+      "name": "COVID-19 pandemic",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He saw pandemic-era enhanced subsidies as pushing the individual insurance market off the rails.",
+      "t": 8639.5,
+      "part": 1,
+      "quote": "the pandemic screwed that up with the silver loading",
+      "prompt": {
+        "question": "So what do you think is the best future for Kaiser Permanente in terms of a future payment system?",
+        "list_number": null,
+        "type": "follow_up"
+      },
+      "sensitive": false,
+      "end": 8642.26
+    },
+    {
+      "name": "KP Medical Foundation formed",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He wondered whether Garfield would be as alarmed as he expects about expansion through a non-exclusive model.",
+      "t": 10271.1,
+      "part": 1,
+      "quote": "geographic expansion as seen in the recent creation in the KP Medical Foundation creation and whether he is as is alarmed about it as I think he would be",
+      "prompt": {
+        "question": "So for but this is if if they were somehow you were, you know, came in a time machine and looked at 2026 Kaiser Permanente. What would Garfield and Kaiser say to you?",
+        "list_number": "Q15",
+        "type": "narrators_choice"
+      },
+      "sensitive": false,
+      "end": 10285.98
+    },
+    {
+      "name": "Nonprofit status challenged",
+      "year_start": null,
+      "year_end": null,
+      "year_basis": "unknown",
+      "view": "He sees labor-driven attacks on tax-exempt status as misunderstood leverage that would be catastrophic public policy.",
+      "t": 10351.23,
+      "part": 1,
+      "quote": "that's been, um, an agenda for the bargaining units for organized labor for a long time.",
+      "prompt": {
+        "question": "what do you think is going to happen to the nonprofit status in California, especially of the health plan? Are we going to maintain it?",
+        "list_number": null,
+        "type": "asked_directly"
+      },
+      "sensitive": false,
+      "end": 10357.75
+    }
+  ],
+  "retellable": [
+    {
+      "title": "The misdirected envelope that launched EPRP",
+      "summary": "As emergency chief he received a stack of outside emergency claims by mistake and wrote a critique of them. That led, over years, to the Emergency Prospective Review Program and the Case Coordination Center.",
+      "t": 912.37,
+      "part": 1,
+      "quote": "I got the wrong envelope. Um, it somehow it got delivered to the chief of emergency medicine and what it was, was a stack of claims",
+      "why": "A major regional program born from an accident and persistence.",
+      "sensitive": false,
+      "end": 921.65
+    },
+    {
+      "title": "Sidney Garfield's 2 a.m. emergency room visit",
+      "summary": "As a young associate on an overnight shift in San Diego, he was told a Dr. Garfield wanted to see the hospital. He showed the quiet visitor around and only later realized the significance.",
+      "t": 10821.72,
+      "part": 1,
+      "quote": "there's a Dr. Garfield here and he'd like to see the hospital in the emergency room.",
+      "why": "A rare first-hand encounter with KP's founder.",
+      "sensitive": false,
+      "end": 10826.4
+    },
+    {
+      "title": "A $1,000 pension that closed a deal",
+      "summary": "Negotiations to bring Buena Ventura Medical Group into SCPMG were stalled until he asked in passing about their retirement plan. Learning it was $1,000, he and Greg Adams created a partnership category instead of paying cash.",
+      "t": 2494.4,
+      "part": 1,
+      "quote": "so I asked what the retirement plan was for the shareholders, and Jim said, it's $1,000 dollars.",
+      "why": "Shows how partnership benefits, not cash, won an acquisition.",
+      "sensitive": false,
+      "end": 2499.05
+    },
+    {
+      "title": "Approving an unbudgeted $55 million vaccine",
+      "summary": "When the HPV vaccine was approved mid-year, physicians asked to start giving it at an unbudgeted cost of $55 million. He approved it on the spot because the risk sharing arrangement would return most of any shortfall.",
+      "t": 5423.62,
+      "part": 1,
+      "quote": "it was going to be a $55 million hit. And I think it was April, early in the year it was going to be, and we didn't think about it more than, I said, go ahead, do it.",
+      "why": "Concrete example of aligned incentives enabling quality decisions.",
+      "sensitive": false,
+      "end": 5435.1
+    }
+  ],
+  "questions_that_opened_things_up": [
+    {
+      "t": 1847.54,
+      "part": 1,
+      "question": "Then can you describe a pivotal moment in your career with Kaiser Permanente Southern California that shaped your understanding of what makes Kaiser Permanente unique?",
+      "source": "question_list",
+      "list_number": "Q12",
+      "why": "Drew his two epiphanies: the McKinsey year and seeing the IPA model was a facade.",
+      "sensitive": false,
+      "end": 1858.58
+    },
+    {
+      "t": 2164.34,
+      "part": 1,
+      "question": "Um, what were the greatest challenges you've experienced as a leader? What were your greatest challenges?",
+      "source": "question_list",
+      "list_number": "Q16",
+      "why": "Candid accounts of the deductible product, Health Connect losses and the Buena Ventura deal.",
+      "sensitive": false,
+      "end": 2169.82
+    },
+    {
+      "t": 10657.67,
+      "part": 1,
+      "question": "So take us through the whole thing. Take your time. Recount as much as you can. Relive the dialogue, the date, everything you can that you talked about.",
+      "source": "written_for_narrator",
+      "list_number": null,
+      "why": "Drew a detailed first-hand memory of meeting Sidney Garfield overnight in San Diego.",
+      "sensitive": false,
+      "end": 10667.63
+    }
+  ]
+}

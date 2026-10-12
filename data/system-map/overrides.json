@@ -1,0 +1,7 @@
+{
+  "_comment": "Human edits, applied last by `yarn system-map:build`, and kept across re-extraction. renameFactors: {old: new} renames a canonical factor. mergeFactors: {factor: into} merges one canonical factor into another. moveFactors: {factor: column}. claims: keyed by claim id (narrator-part-roundedSeconds, shown in model.json); each may set review_status (draft|reviewed|hidden), from, to, polarity, and a note. hidden claims are left out of the map.",
+  "renameFactors": {},
+  "mergeFactors": {},
+  "moveFactors": {},
+  "claims": {}
+}
