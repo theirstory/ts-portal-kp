@@ -57,7 +57,7 @@ const stillUrl = (story: FeaturedStory): string | null => {
  * Order/limit the featured set from config; an empty list means every recording, up to `limit`
  * (DEFAULT_LIMIT when unset, 0 for no limit).
  */
-export const selectFeaturedStories = (stories: FeaturedStory[]): FeaturedStory[] => {
+export const selectFeaturedStories = (stories: FeaturedStory[], { applyLimit = true } = {}): FeaturedStory[] => {
   const settings = config.ui?.featuredInterviews;
   if (settings?.enabled === false) return [];
 
@@ -69,11 +69,13 @@ export const selectFeaturedStories = (stories: FeaturedStory[]): FeaturedStory[]
         .filter((story): story is FeaturedStory => !!story)
     : stories;
 
-  const limit = settings?.limit ?? DEFAULT_LIMIT;
-  return limit > 0 ? selected.slice(0, limit) : selected;
+  const limit = featuredLimit();
+  return applyLimit && limit > 0 ? selected.slice(0, limit) : selected;
 };
 
-const Slide = ({ story, visible }: { story: FeaturedStory; visible: boolean }) => {
+const featuredLimit = (): number => config.ui?.featuredInterviews?.limit ?? DEFAULT_LIMIT;
+
+const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: boolean; onBroken: () => void }) => {
   // Recording titles here carry boilerplate ("TheirStory Interview With Dr …"); show the person.
   const title = story.properties.interview_title ? displayName(story.properties.interview_title) : 'Untitled';
   const description = truncate(story.properties.interview_description || '', DESCRIPTION_LIMIT);
@@ -102,6 +104,7 @@ const Slide = ({ story, visible }: { story: FeaturedStory; visible: boolean }) =
             component="img"
             src={still}
             alt=""
+            onError={onBroken}
             sx={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
           />
         )}
@@ -244,7 +247,20 @@ const navButtonSx = {
 } as const;
 
 export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => {
-  const slides = useMemo(() => selectFeaturedStories(stories), [stories]);
+  // A recording whose video is gone from Mux has no still and won't play, so its slide is dropped
+  // when the still fails to load and the next recording in line takes its place.
+  const [broken, setBroken] = useState<string[]>([]);
+  const markBroken = useCallback(
+    (uuid: string) => setBroken((current) => (current.includes(uuid) ? current : [...current, uuid])),
+    [],
+  );
+  const slides = useMemo(() => {
+    const usable = selectFeaturedStories(stories, { applyLimit: false }).filter(
+      (story) => !broken.includes(story.uuid),
+    );
+    const limit = featuredLimit();
+    return limit > 0 ? usable.slice(0, limit) : usable;
+  }, [stories, broken]);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -281,7 +297,12 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
         height: { xs: 520, sm: 540, md: 'clamp(320px, 42vh, 420px)' },
       }}>
       {slides.map((story, slideIndex) => (
-        <Slide key={story.uuid} story={story} visible={slideIndex === Math.min(index, slides.length - 1)} />
+        <Slide
+          key={story.uuid}
+          story={story}
+          visible={slideIndex === Math.min(index, slides.length - 1)}
+          onBroken={() => markBroken(story.uuid)}
+        />
       ))}
 
       {slides.length > 1 && (

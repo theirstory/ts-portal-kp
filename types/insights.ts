@@ -50,6 +50,11 @@ export interface EvidenceAdditions {
   version: 1;
   /** Keyed by TheirStory story id. */
   interviews: Record<string, GeneratedInterview>;
+  /**
+   * Story ids unpublished from this portal. Explore hides them, including any in the reviewed bank
+   * that ships with the app; a story leaves this list when it is synced again.
+   */
+  removed?: string[];
 }
 
 export interface GeneratedInterview {

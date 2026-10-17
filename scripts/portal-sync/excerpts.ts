@@ -61,11 +61,27 @@ async function saveAdditions(path: string, additions: EvidenceAdditions): Promis
   await writeFileAtomic(path, `${JSON.stringify(additions, null, 2)}\n`);
 }
 
-/** Drop a story's generated excerpts (it was unpublished or removed). No-op if it has none. */
+/**
+ * The story was unpublished or removed: drop its generated excerpts and list it as removed, so
+ * Explore also hides it if it is in the reviewed bank. Returns whether it had generated excerpts.
+ */
 export async function removeExcerpts(path: string, storyId: string): Promise<boolean> {
   const additions = await loadAdditions(path);
-  if (!additions.interviews[storyId]) return false;
+  const hadGenerated = !!additions.interviews[storyId];
+  const listed = additions.removed?.includes(storyId) ?? false;
+  if (!hadGenerated && listed) return false;
   delete additions.interviews[storyId];
+  if (!listed) additions.removed = [...(additions.removed ?? []), storyId];
+  await saveAdditions(path, additions);
+  return hadGenerated;
+}
+
+/** The story is published again: Explore may show it. No-op if it wasn't listed as removed. */
+export async function restoreExcerpts(path: string, storyId: string): Promise<boolean> {
+  const additions = await loadAdditions(path);
+  if (!additions.removed?.includes(storyId)) return false;
+  additions.removed = additions.removed.filter((id) => id !== storyId);
+  if (additions.removed.length === 0) delete additions.removed;
   await saveAdditions(path, additions);
   return true;
 }

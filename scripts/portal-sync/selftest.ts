@@ -28,7 +28,8 @@ import {
 } from './inventory';
 import { CoalescingRunner } from './scheduler';
 import { createTriggerServer } from './server';
-import { extractExcerpts, loadAdditions, removeExcerpts } from './excerpts';
+import { extractExcerpts, loadAdditions, removeExcerpts, restoreExcerpts } from './excerpts';
+import { mergeEvidence } from '../../lib/insights/loadEvidenceBank';
 import type { Llm } from './llm';
 import { parseJsonReply } from './llm';
 import { extractEntities } from './llm-ner';
@@ -934,7 +935,19 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
 
     assert.equal(await removeExcerpts(additionsFile, 'cw1'), true);
     assert.deepEqual((await loadAdditions(additionsFile)).interviews, {});
+    assert.deepEqual((await loadAdditions(additionsFile)).removed, ['cw1']);
     assert.equal(await removeExcerpts(additionsFile, 'cw1'), false);
+    assert.deepEqual((await loadAdditions(additionsFile)).removed, ['cw1'], 'listed once');
+
+    // Unpublishing a reviewed interview hides it on Explore, too; publishing it again shows it.
+    await removeExcerpts(additionsFile, 'reviewed1');
+    const hidden = mergeEvidence(bank, await loadAdditions(additionsFile));
+    assert.ok(!hidden.interviews.some((i) => i.interview_id === 'reviewed1'));
+    assert.ok(hidden.questions.every((q) => !Object.keys(q.by_interview).includes('Reviewed')));
+    assert.equal(await restoreExcerpts(additionsFile, 'reviewed1'), true);
+    assert.equal(await restoreExcerpts(additionsFile, 'reviewed1'), false);
+    const shown = mergeEvidence(bank, await loadAdditions(additionsFile));
+    assert.ok(shown.interviews.some((i) => i.interview_id === 'reviewed1'));
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
@@ -979,13 +992,14 @@ test('runSync: LLM entities go to the NLP step, excerpts run after it, removal f
           if (failExcerpts) throw new Error('LLM down');
         },
         forget: async (storyId) => void calls.push(`forget:${storyId}`),
+        restore: async (storyId) => void calls.push(`restore:${storyId}`),
       },
     };
 
     current.items = [{ storyId: 's1', collectionId: 'coll-a', version: 'v1' }];
     let summary = await runSync(config, deps, 'test');
     assert.equal(summary.state, 'succeeded');
-    assert.deepEqual(calls, ['ner:s1', 'nlp:s1:1:true', 'excerpts:s1']);
+    assert.deepEqual(calls, ['ner:s1', 'nlp:s1:1:true', 'excerpts:s1', 'restore:s1']);
 
     // A failing enrichment step fails the item, so it is retried next run.
     calls.length = 0;
@@ -996,10 +1010,23 @@ test('runSync: LLM entities go to the NLP step, excerpts run after it, removal f
     assert.match(summary.items[0].error ?? '', /LLM down/);
     assert.equal((await loadState(config.stateFile)).items.s1.version, 'v1');
 
+    // An older import of the same story (and its chunked file) goes with it, so a re-import can't
+    // bring it back; another story's file stays.
+    const legacy = join(config.interviewsDir, 'coll-a', 'legacy-copy.json');
+    const chunked = join(config.interviewsDir, 'coll-a', 'chunked', 'old-s1.chunks.json');
+    const other = join(config.interviewsDir, 'coll-a', 'other-story.json');
+    await mkdir(join(config.interviewsDir, 'coll-a', 'chunked'), { recursive: true });
+    await writeFile(legacy, JSON.stringify({ story: { _id: 's1' } }));
+    await writeFile(chunked, '[]');
+    await writeFile(other, JSON.stringify({ story: { _id: 's2' } }));
+
     calls.length = 0;
     current.items = [];
     summary = await runSync(config, deps, 'test');
     assert.deepEqual(calls, ['forget:s1']);
+    assert.ok(!existsSync(legacy), 'older import removed');
+    assert.ok(existsSync(chunked), 'a 2-character id never matches by file name');
+    assert.ok(existsSync(other), "another story's file stays");
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

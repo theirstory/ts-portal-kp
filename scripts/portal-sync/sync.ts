@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, unlink } from 'node:fs/promises';
-import { dirname, join, resolve, sep } from 'node:path';
+import { basename, dirname, join, relative, resolve, sep } from 'node:path';
 import { normalizeCollectionId, testimonyUuid } from '../lib/testimony-ids';
 import type { ListedTestimony } from './backends';
 import type { PortalSyncConfig } from './config';
@@ -9,7 +9,7 @@ import type { Enricher } from './enrich';
 import type { TimedEntity } from './llm-ner';
 import { collectionMetaHash, planSync, resolveCollection, SAFE_STORY_ID, summarizeRun } from './diff';
 import type { PlannedRemoval, PlannedUpdate } from './diff';
-import { scanInterviewFiles } from './interview-files';
+import { listJsonFiles, readStoryId, scanInterviewFiles } from './interview-files';
 import type { InterviewFile } from './interview-files';
 import { reportInventory } from './inventory';
 import { acquireLock, describeLock } from './lock';
@@ -164,10 +164,34 @@ class SyncRun {
     await this.ensureWeaviate();
     const { chunksDeleted } = await this.deps.weaviate.deleteTestimony(previous.uuid);
     await removeFileIfExists(this.abs(previous.file));
+    const leftovers = await this.removeOtherFiles(storyId);
     await this.deps.enrich?.forget(storyId);
     delete this.state.items[storyId];
     await this.persist();
-    log.info(`Removed ${storyId} (uuid=${previous.uuid}, chunks deleted=${chunksDeleted}, file=${previous.file})`);
+    log.info(
+      `Removed ${storyId} (uuid=${previous.uuid}, chunks deleted=${chunksDeleted}, file=${previous.file}` +
+        `${leftovers.length ? `, older files deleted: ${leftovers.join(', ')}` : ''})`,
+    );
+  }
+
+  /**
+   * Older copies of a story under the interviews dir (a pre-sync import, or its chunked file), so a
+   * later `weaviate:import` can't bring an unpublished recording back. Matched by the story id in the
+   * payload or in the file name; files of other synced items are never touched.
+   */
+  private async removeOtherFiles(storyId: string): Promise<string[]> {
+    if (!SAFE_STORY_ID.test(storyId)) return [];
+    const managed = new Set(Object.values(this.state.items).map((item) => this.abs(item.file)));
+    const deleted: string[] = [];
+    for (const file of await listJsonFiles(this.config.interviewsDir)) {
+      if (managed.has(file)) continue;
+      // A name match needs an id long enough not to collide (TheirStory ids are 24 hex characters).
+      const named = storyId.length >= 12 && basename(file).includes(storyId);
+      if (!named && (await readStoryId(file)) !== storyId) continue;
+      await removeFileIfExists(file);
+      deleted.push(relative(this.config.interviewsDir, file));
+    }
+    return deleted;
   }
 
   async remove({ storyId, previous }: PlannedRemoval): Promise<void> {
@@ -216,6 +240,7 @@ class SyncRun {
           deletedFiles.push(f.file);
         }
       }
+      if (storyId) await this.deps.enrich?.forget(storyId);
       log.info(
         `Removed unmanaged ${uuid} (chunks deleted=${chunksDeleted}, files deleted=${deletedFiles.length}` +
           `${deletedFiles.length ? `: ${deletedFiles.join(', ')}` : ''})`,
@@ -337,6 +362,7 @@ class SyncRun {
     );
 
     if (this.deps.enrich?.excerpts) await this.deps.enrich.excerpts(storyId, snapshot.payload);
+    await this.deps.enrich?.restore(storyId);
 
     if (this.deps.postProcess) {
       log.info(`${storyId}: running post-process command`);

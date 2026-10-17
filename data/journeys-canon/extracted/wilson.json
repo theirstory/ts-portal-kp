@@ -3,10 +3,6 @@
   "slug": "wilson",
   "recordings": [
     {
-      "part": 1,
-      "story_id": "698248dce12e409359b38973"
-    },
-    {
       "part": 2,
       "story_id": "69e13e94117c81e5e310776c"
     }
@@ -168,21 +164,6 @@
       "end": 3400.65
     },
     {
-      "t": 77.15,
-      "part": 1,
-      "year": 2015,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "She heard of the opening after the 2015 affiliation she dates, while finishing her AMD term.",
-      "stage": "call",
-      "label": "Seeks Southeast Permanente EMD job",
-      "fortune": 2,
-      "fortune_basis": "this seemed like a new thing and a big challenge",
-      "quote": "It was really a situation where I heard about it, and I thought that might be good for me.",
-      "event_ref": "SCPMG affiliation with Southeast Permanente",
-      "sensitive": false,
-      "end": 81.35
-    },
-    {
       "t": 1271.18,
       "part": 2,
       "year": null,
@@ -228,51 +209,6 @@
       "end": 2234.16
     },
     {
-      "t": 1797,
-      "part": 1,
-      "year": 2018,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "Year from the interviewer: \"So let's transition again to the 2018 Emory Healthcare System Partnership.\"",
-      "stage": "reward",
-      "label": "Emory transition goes smoothly",
-      "fortune": 2,
-      "fortune_basis": "It was pretty amazing.",
-      "quote": "once we went live, um, people were amazing. They may not have liked the idea, you know, they may not have wanted it, but people really jumped in. So the transition was amazingly smooth.",
-      "event_ref": "Emory Healthcare hospital partnership",
-      "sensitive": false,
-      "end": 1809.56
-    },
-    {
-      "t": 2776.94,
-      "part": 1,
-      "year": 2020,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "Year from the interviewer: \"So, you know, as the pandemic started and was pushing through last year, in 2020, what were the top three challenges that had to be addressed for Spmg?\"",
-      "stage": "trials",
-      "label": "Leads Georgia through COVID's first months",
-      "fortune": -2,
-      "fortune_basis": "I was terrified that that someone was going to get sick and die.",
-      "quote": "I was terrified that that someone was going to get sick and die. Um, and so that was on everybody's mind, not just me.",
-      "event_ref": "COVID-19 pandemic",
-      "sensitive": false,
-      "end": 2784.3
-    },
-    {
-      "t": 984.64,
-      "part": 1,
-      "year": 2021,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "She is retiring at the time of this interview, recorded in 2021.",
-      "stage": "return",
-      "label": "Hands the medical group to Nkem",
-      "fortune": 2,
-      "fortune_basis": "I feel like we've built a great foundation for Nkem to step into.",
-      "quote": "I feel like we've built a great foundation for Nkem to step into.",
-      "event_ref": null,
-      "sensitive": false,
-      "end": 988.44
-    },
-    {
       "t": 2423.56,
       "part": 2,
       "year": 2026,
@@ -290,41 +226,6 @@
   ],
   "events": [
     {
-      "name": "SCPMG affiliation with Southeast Permanente",
-      "year_start": 2015,
-      "year_end": null,
-      "year_basis": "stated",
-      "view": "She saw the affiliation as Georgia's effort to share services and ideas and lift performance, though she underestimated local resistance to it.",
-      "t": 24.44,
-      "part": 1,
-      "quote": "So in 2015, the medical groups affiliated together with TSCpmg and SCpmg, and that was the result of some desire on the part of the region in Georgia",
-      "prompt": {
-        "question": "So let's begin with your transition to Georgia. Walk me through how you answered the search to be KPMG's next medical director.",
-        "list_number": "Q4",
-        "type": "narrators_choice"
-      },
-      "sensitive": false,
-      "end": 37.04
-    },
-    {
-      "name": "Emory Healthcare hospital partnership",
-      "year_start": 2018,
-      "year_end": null,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "Year from the interviewer: \"So let's transition again to the 2018 Emory Healthcare System Partnership.\"",
-      "view": "She saw it as her biggest Georgia challenge: a needed hospital strategy, resisted and kept secret, that brought stable rates and the care model into hospitals.",
-      "t": 1656.47,
-      "part": 1,
-      "quote": "that's the biggest challenge I had here really for a long time because it was clearly we clearly needed a hospital strategy.",
-      "prompt": {
-        "question": "So let's transition again to the 2018 Emory Healthcare System Partnership. And I want to know more about you know, what were the controversies surrounding this and what challenges you know, you experienced",
-        "list_number": null,
-        "type": "asked_directly"
-      },
-      "sensitive": false,
-      "end": 1663.95
-    },
-    {
       "name": "Georgia region financial crisis",
       "year_start": null,
       "year_end": null,
@@ -340,23 +241,6 @@
       },
       "sensitive": false,
       "end": 2056.75
-    },
-    {
-      "name": "HealthConnect instance consolidation",
-      "year_start": null,
-      "year_end": null,
-      "year_basis": "unknown",
-      "view": "She thought merging Georgia into one HealthConnect instance cost local nimbleness but the benefit of shared, cheaper tools outweighed it.",
-      "t": 903.7,
-      "part": 1,
-      "quote": "the other big thing I did I mentioned is that Healthconnect merged into the same instance. And so that was a very big deal for folks.",
-      "prompt": {
-        "question": "was there a replacement of such systems or was it just putting something new in place?",
-        "list_number": null,
-        "type": "follow_up"
-      },
-      "sensitive": false,
-      "end": 910.14
     },
     {
       "name": "Electronic health record rollout",
@@ -391,24 +275,6 @@
       },
       "sensitive": false,
       "end": 4613.32
-    },
-    {
-      "name": "Black Lives Matter movement",
-      "year_start": 2020,
-      "year_end": null,
-      "year_basis": "inferred_from_transcript",
-      "year_note": "Year from the interviewer: \"And then follow that mid year in 2020 which is the social justice awareness and the movement across that was more national even global arguably.\"",
-      "view": "She saw listening sessions, bias testing and chiefs' stories as making the medical group stronger and more aware of disparities.",
-      "t": 2295.82,
-      "part": 1,
-      "quote": "We're a better, stronger organization because we address that head on, got passionate about it, dealt with it.",
-      "prompt": {
-        "question": "how would you describe our role in moving forward in this type of, um, awareness and movement that people are having socially?",
-        "list_number": null,
-        "type": "asked_directly"
-      },
-      "sensitive": false,
-      "end": 2302.54
     },
     {
       "name": "1990s KP financial crisis",
@@ -467,16 +333,6 @@
       "end": 3555.62
     },
     {
-      "title": "Interrupting as the only woman",
-      "summary": "A senior leader kindly told the young Wilson she interrupted too much in meetings. She answered that as the only woman there, she feared no one would listen otherwise.",
-      "t": 731.3,
-      "part": 1,
-      "quote": "I noticed you interrupt all the time in the meetings and I'm like, well, did you also notice that I'm the only woman in there? And I'm afraid nobody's going to listen to me if I don't interrupt.",
-      "why": "A candid, human view of gender dynamics in early physician leadership.",
-      "sensitive": true,
-      "end": 740.22
-    },
-    {
       "title": "Leading from where you stand",
       "summary": "Frustrated by wasted time getting patients roomed, the young pediatrician walked the clinic with her nurse to find delays. A senior colleague told her to stop complaining and find a solution, and she did.",
       "t": 3039.76,
@@ -507,16 +363,6 @@
       "why": "Drew her frank reflections on difficult conversations, overpromising and giving burnt-out physicians time.",
       "sensitive": false,
       "end": 916.86
-    },
-    {
-      "t": 672.28,
-      "part": 1,
-      "question": "So I want to know whether you've experienced any obstacles or challenges being a woman physician or being a woman physician leader inside and outside of, you know, Kaiser Permanente, the medical groups.",
-      "source": "written_for_narrator",
-      "list_number": null,
-      "why": "Drew candid admissions of being unheard as the only woman and harassment in training.",
-      "sensitive": true,
-      "end": 683.72
     }
   ]
 }

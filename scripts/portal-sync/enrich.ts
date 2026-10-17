@@ -2,9 +2,11 @@
  * The LLM enrichment steps of a sync, built from config: entities before the NLP step (so the
  * processor attaches them to the Testimony and its chunks) and Explore excerpts after it.
  */
+import { readdir, rm } from 'node:fs/promises';
+import { join } from 'node:path';
 import type { EvidenceBank } from '@/types/insights';
 import type { PortalSyncConfig } from './config';
-import { extractExcerpts, loadBaseBank, removeExcerpts } from './excerpts';
+import { extractExcerpts, loadBaseBank, removeExcerpts, restoreExcerpts } from './excerpts';
 import { createLlm } from './llm';
 import type { Llm } from './llm';
 import { extractEntities } from './llm-ner';
@@ -16,8 +18,10 @@ export type Enricher = {
   /** Entities for the story; undefined means "let the NLP processor decide" (GLiNER or none). */
   entities?(storyId: string, payload: any): Promise<TimedEntity[]>;
   excerpts?(storyId: string, payload: any): Promise<void>;
-  /** The story is gone: drop anything generated for it. */
+  /** The story is gone: drop anything generated for it and hide it on Explore. */
   forget(storyId: string): Promise<void>;
+  /** The story synced (again): undo a previous forget's hiding on Explore. */
+  restore(storyId: string): Promise<void>;
 };
 
 export async function createEnricher(config: PortalSyncConfig): Promise<Enricher> {
@@ -62,6 +66,16 @@ export async function createEnricher(config: PortalSyncConfig): Promise<Enricher
     async forget(storyId) {
       if (await removeExcerpts(config.evidenceAdditionsFile, storyId)) {
         log.info(`${storyId}: removed its generated Explore excerpts`);
+      }
+      log.info(`${storyId}: hidden on Explore`);
+      // Cached LLM results quote the transcript; an unpublished recording keeps none.
+      for (const name of await readdir(config.llmCacheDir).catch(() => [] as string[])) {
+        if (name.includes(`-${storyId}.`)) await rm(join(config.llmCacheDir, name), { force: true });
+      }
+    },
+    async restore(storyId) {
+      if (await restoreExcerpts(config.evidenceAdditionsFile, storyId)) {
+        log.info(`${storyId}: published again; shown on Explore`);
       }
     },
   };

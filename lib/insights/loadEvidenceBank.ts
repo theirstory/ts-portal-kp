@@ -30,12 +30,35 @@ function readAdditions(): EvidenceAdditions | null {
   }
 }
 
-/** Reviewed interviews first (their order is curated), then generated ones by title. */
-export function mergeEvidence(base: EvidenceBank, additions: EvidenceAdditions | null): EvidenceBank {
+/** The bank without interviews unpublished from the portal (additions.removed). */
+function withoutRemoved(base: EvidenceBank, removed: string[]): EvidenceBank {
+  const gone = base.interviews.filter((i) => removed.includes(i.interview_id));
+  if (gone.length === 0) return base;
+  const goneTitles = new Set(gone.map((i) => i.interview_title));
+  return {
+    ...base,
+    interviews: base.interviews.filter((i) => !goneTitles.has(i.interview_title)),
+    questions: base.questions.map((q) => ({
+      ...q,
+      by_interview: Object.fromEntries(Object.entries(q.by_interview).filter(([title]) => !goneTitles.has(title))),
+    })),
+  };
+}
+
+/**
+ * Reviewed interviews first (their order is curated), then generated ones by title. Interviews
+ * unpublished from the portal are left out of both.
+ */
+export function mergeEvidence(reviewedBank: EvidenceBank, additions: EvidenceAdditions | null): EvidenceBank {
+  const removed = additions?.removed ?? [];
+  const base = withoutRemoved(reviewedBank, removed);
   const reviewedIds = new Set(base.interviews.map((i) => i.interview_id));
   const reviewedTitles = new Set(base.interviews.map((i) => i.interview_title));
   const generated = Object.values(additions?.interviews ?? {})
-    .filter((g) => !reviewedIds.has(g.interview_id) && !reviewedTitles.has(g.interview_title))
+    .filter(
+      (g) =>
+        !removed.includes(g.interview_id) && !reviewedIds.has(g.interview_id) && !reviewedTitles.has(g.interview_title),
+    )
     .sort((a, b) => a.interview_title.localeCompare(b.interview_title));
   if (generated.length === 0) return base;
 
