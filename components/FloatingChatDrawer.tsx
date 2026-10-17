@@ -430,19 +430,6 @@ export const FloatingChatDrawer = () => {
                   {formatTime(activeCitation.startTime)}–{formatTime(activeCitation.endTime)}
                 </Typography>
 
-                {/* Quote block */}
-                <Box
-                  sx={{
-                    borderLeft: `3px solid ${activeCitation.isChapterSynopsis ? colors.success.main : colors.primary.main}`,
-                    pl: 2,
-                    py: 1,
-                    mb: 3,
-                  }}>
-                  <Typography variant="body2" sx={{ fontStyle: 'italic', lineHeight: 1.6 }}>
-                    &ldquo;{activeCitation.transcription}&rdquo;
-                  </Typography>
-                </Box>
-
                 {/* Open Full Transcript */}
                 <Button
                   variant="outlined"
@@ -453,10 +440,22 @@ export const FloatingChatDrawer = () => {
                     textTransform: 'none',
                     borderRadius: 2,
                     py: 1.25,
-                    mb: 1.5,
+                    mb: 2,
                   }}>
                   Open Full Transcript
                 </Button>
+
+                {/* Quote block */}
+                <Box
+                  sx={{
+                    borderLeft: `3px solid ${activeCitation.isChapterSynopsis ? colors.success.main : colors.primary.main}`,
+                    pl: 2,
+                    py: 1,
+                  }}>
+                  <Typography variant="body2" sx={{ fontStyle: 'italic', lineHeight: 1.6 }}>
+                    &ldquo;{activeCitation.transcription}&rdquo;
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           )}

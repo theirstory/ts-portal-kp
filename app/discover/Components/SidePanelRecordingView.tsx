@@ -753,6 +753,16 @@ export const SidePanelRecordingView = () => {
             </Typography>
           </Box>
 
+          <Button
+            variant="outlined"
+            size="small"
+            fullWidth
+            startIcon={<ArticleIcon />}
+            onClick={() => openTranscript(activeCitation)}
+            sx={{ textTransform: 'none' }}>
+            Open Full Transcript
+          </Button>
+
           <Box
             sx={{
               bgcolor: colors.grey[50],
@@ -765,15 +775,6 @@ export const SidePanelRecordingView = () => {
             </Typography>
           </Box>
 
-          <Button
-            variant="outlined"
-            size="small"
-            fullWidth
-            startIcon={<ArticleIcon />}
-            onClick={() => openTranscript(activeCitation)}
-            sx={{ textTransform: 'none' }}>
-            Open Full Transcript
-          </Button>
         </Box>
       </Box>
     );
