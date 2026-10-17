@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useSemanticSearchStore } from '@/app/stores/useSemanticSearchStore';
@@ -15,11 +15,20 @@ import { ActiveFiltersDisplay } from './ActiveFiltersDisplay';
 import { Pagination } from './Pagination';
 import { NoInterviewsMessage } from './NoInterviewsMessage';
 import { FeaturedInterview, selectFeaturedStories } from './FeaturedInterview';
+import { AskCollectionCard, AskResults, useAskCollection, useExcerptDrawer } from './AskCollection';
 import { colors } from '@/lib/theme';
 
 export default function CollectionLayout() {
   const { loading: semanticSearchLoading, stories, result, currentPage, hasSearched } = useSemanticSearchStore();
   const [viewMode, setViewMode] = useState<'list' | 'grid'>('grid');
+  const { state: askState, ask, clear: clearAsk } = useAskCollection();
+  const excerptDrawer = useExcerptDrawer();
+  const askResultsRef = useRef<HTMLDivElement>(null);
+  const handleAsk = (query: string) => {
+    void ask(query);
+    // After the results section has rendered.
+    requestAnimationFrame(() => askResultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
 
   const storiesTestimonies = stories as WeaviateReturn<Testimonies, any> | null;
   const results = result?.objects || [];
@@ -122,7 +131,19 @@ export default function CollectionLayout() {
                     <>
                       {/* Lives inside the scroll area so it scrolls away rather than
                           permanently shortening the recordings list. */}
-                      <FeaturedInterview stories={storiesTestimonies.objects} />
+                      <Box
+                        sx={{
+                          display: 'grid',
+                          gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1.3fr) minmax(0, 1fr)' },
+                          gap: { xs: 2, md: 3 },
+                          mb: { xs: 2, md: 3 },
+                        }}>
+                        <FeaturedInterview stories={storiesTestimonies.objects} compact />
+                        <AskCollectionCard onAsk={handleAsk} loading={askState.status === 'loading'} />
+                      </Box>
+                      <Box ref={askResultsRef} sx={{ scrollMarginTop: 8 }}>
+                        <AskResults state={askState} onClear={clearAsk} onOpen={excerptDrawer.open} />
+                      </Box>
 
                       {/* Sticky so the search bar and view toggle stay reachable once
                           the featured section has scrolled out of view. */}
@@ -205,6 +226,7 @@ export default function CollectionLayout() {
             ))}
         </Box>
       </Box>
+      {excerptDrawer.drawer}
     </Box>
   );
 }

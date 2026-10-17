@@ -2,6 +2,10 @@ import weaviate, { WeaviateClient } from 'weaviate-client';
 
 let client: WeaviateClient | null = null;
 
+// The startup gRPC health check defaults to 2s, which a remote Weaviate (e.g. through an ssh tunnel)
+// can exceed; a slow first check shouldn't fail the request.
+const timeout = { init: 15, query: 60, insert: 120 };
+
 function isLocalWeaviate(host?: string) {
   return host === 'localhost' || host === '127.0.0.1' || host === 'weaviate';
 }
@@ -34,6 +38,7 @@ export async function initWeaviateClient() {
         httpPort,
         grpcHost,
         grpcPort,
+        timeout,
       });
       return client;
     }
@@ -43,6 +48,7 @@ export async function initWeaviateClient() {
       httpPort,
       grpcHost,
       grpcPort,
+      timeout,
       ...(adminKey ? { authCredentials: new weaviate.ApiKey(adminKey) } : {}),
     });
   }

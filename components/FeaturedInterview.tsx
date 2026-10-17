@@ -75,7 +75,17 @@ export const selectFeaturedStories = (stories: FeaturedStory[], { applyLimit = t
 
 const featuredLimit = (): number => config.ui?.featuredInterviews?.limit ?? DEFAULT_LIMIT;
 
-const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: boolean; onBroken: () => void }) => {
+const Slide = ({
+  story,
+  visible,
+  onBroken,
+  compact,
+}: {
+  story: FeaturedStory;
+  visible: boolean;
+  onBroken: () => void;
+  compact: boolean;
+}) => {
   // Recording titles here carry boilerplate ("TheirStory Interview With Dr …"); show the person.
   const title = story.properties.interview_title ? displayName(story.properties.interview_title) : 'Untitled';
   const description = truncate(story.properties.interview_description || '', DESCRIPTION_LIMIT);
@@ -93,12 +103,19 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.5s ease',
         pointerEvents: visible ? 'auto' : 'none',
-        display: 'grid',
+        // Compact: the copy sits over the still rather than beside it.
+        display: compact ? 'block' : 'grid',
         gridTemplateColumns: { xs: '1fr', md: '1.1fr 0.9fr' },
         gridTemplateRows: { xs: 'minmax(200px, 240px) 1fr', md: '100%' },
       }}>
       {/* Still */}
-      <Box sx={{ position: 'relative', overflow: 'hidden', bgcolor: colors.common.black }}>
+      <Box
+        sx={{
+          position: compact ? 'absolute' : 'relative',
+          inset: compact ? 0 : undefined,
+          overflow: 'hidden',
+          bgcolor: colors.common.black,
+        }}>
         {still && (
           <Box
             component="img"
@@ -121,7 +138,7 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
             borderRadius: '50%',
             bgcolor: colors.primary.main,
             color: colors.primary.contrastText,
-            display: 'inline-flex',
+            display: compact ? 'none' : 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: `0 8px 24px ${colors.common.shadow}`,
@@ -135,8 +152,7 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
           <Box
             sx={{
               position: 'absolute',
-              right: { xs: 12, md: 20 },
-              bottom: { xs: 16, md: 24 },
+              ...(compact ? { left: 16, top: 16 } : { right: { xs: 12, md: 20 }, bottom: { xs: 16, md: 24 } }),
               bgcolor: colors.common.overlay,
               color: colors.common.white,
               fontSize: 12,
@@ -153,14 +169,27 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
       {/* Copy */}
       <Box
         sx={{
-          bgcolor: colors.grey[900],
           color: colors.common.white,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          px: { xs: 2.5, sm: 3.5, md: 5 },
-          py: { xs: 3, md: 4 },
           minWidth: 0,
+          ...(compact
+            ? {
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                bottom: 0,
+                px: { xs: 2.5, md: 3.5 },
+                pt: 10,
+                pb: { xs: 2.5, md: 3 },
+                background: `linear-gradient(to top, ${colors.common.black}e6 0%, ${colors.common.black}b3 55%, transparent 100%)`,
+              }
+            : {
+                bgcolor: colors.grey[900],
+                px: { xs: 2.5, sm: 3.5, md: 5 },
+                py: { xs: 3, md: 4 },
+              }),
         }}>
         <Typography
           component="span"
@@ -169,8 +198,9 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
             letterSpacing: '0.16em',
             fontWeight: 700,
             fontSize: 12,
-            color: colors.primary.light,
-            mb: 1.25,
+            // Over a photo the brand blue loses contrast, so the compact kicker is white.
+            color: compact ? `${colors.common.white}e0` : colors.primary.light,
+            mb: compact ? 1 : 1.25,
           }}>
           Featured Interview
         </Typography>
@@ -180,8 +210,10 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
             m: 0,
             fontWeight: 700,
             lineHeight: 1.1,
-            fontSize: { xs: '24px', sm: '30px', md: 'clamp(28px, 2.6vw, 40px)' },
-            mb: 1.5,
+            fontSize: compact
+              ? { xs: '24px', md: 'clamp(24px, 2vw, 32px)' }
+              : { xs: '24px', sm: '30px', md: 'clamp(28px, 2.6vw, 40px)' },
+            mb: compact ? 1 : 1.5,
             textWrap: 'balance',
           }}>
           {title}
@@ -195,7 +227,13 @@ const Slide = ({ story, visible, onBroken }: { story: FeaturedStory; visible: bo
               fontSize: { xs: 14, md: 15.5 },
               lineHeight: 1.6,
               maxWidth: 520,
-              mb: 3,
+              mb: compact ? 2 : 3,
+              ...(compact && {
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }),
             }}>
             {description}
           </Typography>
@@ -246,7 +284,14 @@ const navButtonSx = {
   '&:hover': { bgcolor: colors.primary.main, borderColor: colors.primary.main },
 } as const;
 
-export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => {
+const compactNav = (right: number) =>
+  ({ top: 'auto', bottom: { xs: 24, md: 28 }, transform: 'none', right, display: 'inline-flex' }) as const;
+
+/**
+ * `compact` is for a narrower column (the home page pairs it with "Ask the collection"): the copy
+ * overlays the still, and the carousel fills its parent's height.
+ */
+export const FeaturedInterview = ({ stories, compact = false }: { stories: FeaturedStory[]; compact?: boolean }) => {
   // A recording whose video is gone from Mux has no still and won't play, so its slide is dropped
   // when the still fails to load and the next recording in line takes its place.
   const [broken, setBroken] = useState<string[]>([]);
@@ -293,8 +338,9 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
         overflow: 'hidden',
         borderRadius: 2,
         boxShadow: `0 1px 3px ${colors.common.shadow}`,
-        mb: { xs: 2, md: 3 },
-        height: { xs: 520, sm: 540, md: 'clamp(320px, 42vh, 420px)' },
+        ...(compact
+          ? { height: { xs: 420, md: '100%' }, minHeight: { md: 380 } }
+          : { mb: { xs: 2, md: 3 }, height: { xs: 520, sm: 540, md: 'clamp(320px, 42vh, 420px)' } }),
       }}>
       {slides.map((story, slideIndex) => (
         <Slide
@@ -302,6 +348,7 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
           story={story}
           visible={slideIndex === Math.min(index, slides.length - 1)}
           onBroken={() => markBroken(story.uuid)}
+          compact={compact}
         />
       ))}
 
@@ -312,7 +359,11 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
             type="button"
             aria-label="Previous featured interview"
             onClick={goPrev}
-            sx={{ ...navButtonSx, left: { xs: 8, md: 16 } }}>
+            sx={{
+              ...navButtonSx,
+              // Compact: both arrows sit bottom-right, level with "Watch the interview", clear of the copy.
+              ...(compact ? compactNav(72) : { left: { xs: 8, md: 16 } }),
+            }}>
             <ChevronLeftIcon />
           </Box>
           <Box
@@ -320,7 +371,12 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
             type="button"
             aria-label="Next featured interview"
             onClick={goNext}
-            sx={{ ...navButtonSx, left: { xs: 'auto', md: 'calc(55% - 56px)' }, right: { xs: 8, md: 'auto' } }}>
+            sx={{
+              ...navButtonSx,
+              ...(compact
+                ? compactNav(20)
+                : { left: { xs: 'auto', md: 'calc(55% - 56px)' }, right: { xs: 8, md: 'auto' } }),
+            }}>
             <ChevronRightIcon />
           </Box>
           <Box
@@ -330,8 +386,8 @@ export const FeaturedInterview = ({ stories }: { stories: FeaturedStory[] }) => 
               position: 'absolute',
               right: { xs: 14, md: 22 },
               // On phones the copy pane's button sits at the bottom, so the dots go over the still.
-              top: { xs: 14, md: 'auto' },
-              bottom: { xs: 'auto', md: 18 },
+              top: compact ? 18 : { xs: 14, md: 'auto' },
+              bottom: compact ? 'auto' : { xs: 'auto', md: 18 },
               display: 'inline-flex',
               gap: 1,
               zIndex: 4,
