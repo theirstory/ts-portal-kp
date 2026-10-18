@@ -15,7 +15,7 @@ import { retrieveChunksForChat } from '@/lib/weaviate/chatRetrieval';
 import type { Citation } from '@/types/chat';
 import type { EvidenceClip, EvidenceQuestion } from '@/types/insights';
 import { questionClipCount, respondentCount } from './evidenceBank';
-import { categorySlug } from './format';
+import { categorySlug, initials } from './format';
 import { loadEvidenceIndex } from './loadEvidenceBank';
 
 const MODEL = 'claude-haiku-4-5-20251001';
@@ -31,6 +31,8 @@ export interface AskMatch {
   narratorCount: number;
   clipCount: number;
   previews: EvidenceClip[];
+  /** Everyone who answered, most excerpts first, with a moment to take their face from. */
+  voices: { interview_title: string; name: string; initials: string; time: number }[];
 }
 
 export interface AskResponse {
@@ -69,10 +71,15 @@ async function rankQuestionsWithModel(query: string, questions: EvidenceQuestion
       model: MODEL,
       max_tokens: 100,
       system:
-        'You match a visitor\'s question to the interview questions of an oral-history collection: interviews with Kaiser Permanente physician leaders. ' +
+        "You match a visitor's question to the interview questions of an oral-history collection: interviews with Kaiser Permanente physician leaders. " +
         `Reply with only a JSON array of the ids of the interview questions whose answers would best help the visitor, best first, at most ${MAX_QUESTIONS}. ` +
         'Include a question only if its answers would genuinely speak to what the visitor asked. Reply [] if none do.',
-      messages: [{ role: 'user', content: `Interview questions (id | theme | question):\n${list}\n\nVisitor's question: ${query}` }],
+      messages: [
+        {
+          role: 'user',
+          content: `Interview questions (id | theme | question):\n${list}\n\nVisitor's question: ${query}`,
+        },
+      ],
     });
     const text = response.content.map((block) => (block.type === 'text' ? block.text : '')).join('');
     const array = text.match(/\[[\d,\s]*\]/);
@@ -160,6 +167,17 @@ export async function askCollection(rawQuery: string): Promise<AskResponse> {
       seen.add(clip.interview_title);
       previews.push(clip);
     }
+    const byNarrator = new Map<string, EvidenceClip[]>();
+    for (const { clip } of scored)
+      byNarrator.set(clip.interview_title, [...(byNarrator.get(clip.interview_title) ?? []), clip]);
+    const voices = [...byNarrator.values()]
+      .sort((a, b) => b.length - a.length)
+      .map((clips) => ({
+        interview_title: clips[0].interview_title,
+        name: clips[0].name,
+        initials: initials(clips[0].name),
+        time: clips[0].start + 2,
+      }));
     return {
       question_id: question.question_id,
       question: question.question,
@@ -168,6 +186,7 @@ export async function askCollection(rawQuery: string): Promise<AskResponse> {
       narratorCount: respondentCount(question),
       clipCount: questionClipCount(question),
       previews,
+      voices,
     };
   });
 

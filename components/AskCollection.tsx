@@ -16,10 +16,12 @@ import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { ChatInteractionProvider } from '@/app/discover/ChatInteractionContext';
 import { SidePanel } from '@/app/discover/Components/SidePanel';
+import { SpeakerThumb } from '@/app/explore/Components/SpeakerThumb';
 import { useOpenExcerpt } from '@/app/explore/Components/useOpenExcerpt';
 import { useChatStore } from '@/app/stores/useChatStore';
 import { loadInterviewRefs } from '@/lib/insights/interviewRefs';
 import { colors } from '@/lib/theme';
+import { initials } from '@/lib/insights/format';
 import type { AskMatch, AskResponse } from '@/lib/insights/ask';
 import type { EvidenceClip } from '@/types/insights';
 
@@ -86,13 +88,7 @@ export const useAskCollection = () => {
   return { state, ask, clear };
 };
 
-export const AskCollectionCard = ({
-  onAsk,
-  loading,
-}: {
-  onAsk: (query: string) => void;
-  loading: boolean;
-}) => {
+export const AskCollectionCard = ({ onAsk, loading }: { onAsk: (query: string) => void; loading: boolean }) => {
   const [value, setValue] = useState('');
 
   const submit = (query = value) => {
@@ -111,6 +107,8 @@ export const AskCollectionCard = ({
         p: { xs: 2.5, md: 3.5 },
         display: 'flex',
         flexDirection: 'column',
+        // The card stretches to the carousel's height; keep its content centred in it.
+        justifyContent: 'center',
         minWidth: 0,
       }}>
       <Typography
@@ -123,17 +121,13 @@ export const AskCollectionCard = ({
           color: colors.primary.main,
           mb: 1,
         }}>
-        Ask the collection
+        Ask the archive
       </Typography>
       <Typography
         id="ask-collection-heading"
         component="h2"
-        sx={{ m: 0, fontWeight: 700, fontSize: { xs: 22, md: 'clamp(22px, 1.7vw, 27px)' }, lineHeight: 1.2, mb: 1 }}>
+        sx={{ m: 0, fontWeight: 700, fontSize: { xs: 22, md: 'clamp(22px, 1.7vw, 27px)' }, lineHeight: 1.2, mb: 2.5 }}>
         What would you like to learn from Permanente physician leaders?
-      </Typography>
-      <Typography sx={{ color: colors.text.secondary, fontSize: 14, lineHeight: 1.55, mb: 2 }}>
-        Ask in your own words. You&rsquo;ll get the curated interview questions that answer it, in the leaders&rsquo;
-        own words.
       </Typography>
 
       <Box
@@ -148,9 +142,9 @@ export const AskCollectionCard = ({
           gap: 1,
           border: `1.5px solid ${colors.grey[300]}`,
           borderRadius: 2,
-          pl: 2,
-          pr: 1,
-          py: 1,
+          pl: 2.25,
+          pr: 1.25,
+          py: 1.5,
           transition: 'border-color .15s ease',
           '&:focus-within': { borderColor: colors.primary.main },
         }}>
@@ -164,11 +158,11 @@ export const AskCollectionCard = ({
             }
           }}
           multiline
-          minRows={2}
-          maxRows={4}
-          placeholder="e.g. How do I earn the trust of physicians as a new leader?"
+          minRows={4}
+          maxRows={8}
+          placeholder="What makes the Permanente culture distinctive?"
           inputProps={{ 'aria-label': 'Ask a question about the collection', maxLength: 500 }}
-          sx={{ flex: 1, fontSize: 15, lineHeight: 1.5, py: 0.25 }}
+          sx={{ flex: 1, fontSize: 16, lineHeight: 1.55, py: 0.25 }}
         />
         <IconButton
           type="submit"
@@ -177,8 +171,8 @@ export const AskCollectionCard = ({
           sx={{
             bgcolor: colors.primary.main,
             color: colors.primary.contrastText,
-            width: 40,
-            height: 40,
+            width: 44,
+            height: 44,
             '&:hover': { bgcolor: colors.primary.dark },
             '&.Mui-disabled': { bgcolor: colors.grey[300], color: colors.common.white },
           }}>
@@ -228,7 +222,7 @@ const Excerpt = ({ clip, onOpen }: { clip: EvidenceClip; onOpen: (clip: Evidence
     sx={{
       display: 'flex',
       alignItems: 'flex-start',
-      gap: 1.25,
+      gap: 1.75,
       width: '100%',
       textAlign: 'left',
       p: 1.25,
@@ -236,28 +230,48 @@ const Excerpt = ({ clip, onOpen }: { clip: EvidenceClip; onOpen: (clip: Evidence
       minHeight: 0,
       transition: 'background-color .15s ease',
       '&:hover': { bgcolor: colors.grey[100] },
-      '&:hover .play': { bgcolor: colors.primary.main, color: colors.primary.contrastText },
+      '&:hover .play': { bgcolor: colors.primary.main, transform: 'scale(1.08)' },
     }}>
-    <Box
-      className="play"
-      sx={{
-        flexShrink: 0,
-        mt: 0.25,
-        width: 28,
-        height: 28,
-        borderRadius: '50%',
-        border: `1.5px solid ${colors.primary.main}`,
-        color: colors.primary.main,
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'background-color .15s ease, color .15s ease',
-      }}>
-      <PlayArrowRoundedIcon sx={{ fontSize: 18 }} />
+    {/* Their face at the moment they say it, with a play badge. */}
+    <Box sx={{ position: 'relative', flexShrink: 0 }}>
+      <SpeakerThumb
+        interviewTitle={clip.interview_title}
+        initials={initials(clip.name)}
+        time={clip.start + 2}
+        size={76}
+        radius="12px"
+      />
+      <Box
+        className="play"
+        sx={{
+          position: 'absolute',
+          right: -6,
+          bottom: -6,
+          width: 28,
+          height: 28,
+          borderRadius: '50%',
+          bgcolor: colors.primary.dark,
+          color: colors.common.white,
+          border: `2px solid ${colors.background.paper}`,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'background-color .15s ease, transform .15s ease',
+        }}>
+        <PlayArrowRoundedIcon sx={{ fontSize: 18 }} />
+      </Box>
     </Box>
     <Box sx={{ minWidth: 0 }}>
+      <Typography sx={{ fontSize: 14, fontWeight: 700, color: colors.text.primary, lineHeight: 1.3 }}>
+        {clip.name}
+        <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary, fontSize: 12.5 }}>
+          {' '}
+          · {formatTime(clip.start)}
+        </Box>
+      </Typography>
       <Typography
         sx={{
+          mt: 0.5,
           fontSize: 14,
           lineHeight: 1.55,
           fontStyle: 'italic',
@@ -269,14 +283,51 @@ const Excerpt = ({ clip, onOpen }: { clip: EvidenceClip; onOpen: (clip: Evidence
         }}>
         &ldquo;{clip.quote}&rdquo;
       </Typography>
-      <Typography sx={{ fontSize: 12.5, mt: 0.5 }} color="text.secondary">
-        <Box component="span" sx={{ fontWeight: 700, color: colors.text.primary }}>
-          {clip.name}
-        </Box>{' '}
-        · {formatTime(clip.start)}
-      </Typography>
     </Box>
   </ButtonBase>
+);
+
+const FACES = 7;
+
+/** The faces of everyone who answered, overlapping, with the overflow as a count. */
+const Voices = ({ voices }: { voices: AskMatch['voices'] }) => (
+  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, mt: 1.25, mb: 1 }}>
+    <Box sx={{ display: 'flex', pl: '6px' }}>
+      {voices.slice(0, FACES).map((voice) => (
+        <Box
+          key={voice.interview_title}
+          title={voice.name}
+          sx={{ ml: '-6px', borderRadius: '50%', border: `2px solid ${colors.background.paper}`, lineHeight: 0 }}>
+          <SpeakerThumb
+            interviewTitle={voice.interview_title}
+            initials={voice.initials}
+            time={voice.time}
+            size={34}
+            radius="50%"
+          />
+        </Box>
+      ))}
+      {voices.length > FACES && (
+        <Box
+          sx={{
+            ml: '-6px',
+            width: 38,
+            height: 38,
+            borderRadius: '50%',
+            border: `2px solid ${colors.background.paper}`,
+            bgcolor: colors.grey[200],
+            color: colors.text.secondary,
+            fontSize: 12,
+            fontWeight: 700,
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          +{voices.length - FACES}
+        </Box>
+      )}
+    </Box>
+  </Box>
 );
 
 const MatchCard = ({ match, onOpen }: { match: AskMatch; onOpen: (clip: EvidenceClip) => void }) => (
@@ -306,9 +357,7 @@ const MatchCard = ({ match, onOpen }: { match: AskMatch; onOpen: (clip: Evidence
       }}>
       {match.category}
     </Box>
-    <Typography
-      component="h3"
-      sx={{ m: 0, mt: 0.75, fontSize: { xs: 17, md: 18 }, fontWeight: 700, lineHeight: 1.35 }}>
+    <Typography component="h3" sx={{ m: 0, mt: 0.75, fontSize: { xs: 17, md: 18 }, fontWeight: 700, lineHeight: 1.35 }}>
       <Box
         component={Link}
         href={`/explore/q/${match.question_id}`}
@@ -316,11 +365,14 @@ const MatchCard = ({ match, onOpen }: { match: AskMatch; onOpen: (clip: Evidence
         {match.question}
       </Box>
     </Typography>
-    <Typography sx={{ fontSize: 13, mt: 0.5, mb: 1 }} color="text.secondary">
-      {match.narratorCount} {match.narratorCount === 1 ? 'leader' : 'leaders'} answered · {match.clipCount}{' '}
-      {match.clipCount === 1 ? 'excerpt' : 'excerpts'}
-    </Typography>
-    <Box sx={{ display: 'flex', flexDirection: 'column', mx: -1.25 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', columnGap: 1.25 }}>
+      <Voices voices={match.voices} />
+      <Typography sx={{ fontSize: 13 }} color="text.secondary">
+        {match.narratorCount} {match.narratorCount === 1 ? 'leader' : 'leaders'} answered · {match.clipCount}{' '}
+        {match.clipCount === 1 ? 'excerpt' : 'excerpts'}
+      </Typography>
+    </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', mx: -1.25, mt: 0.5 }}>
       {match.previews.map((clip) => (
         <Excerpt key={`${clip.interview_title}-${clip.start}`} clip={clip} onOpen={onOpen} />
       ))}
@@ -341,7 +393,7 @@ const MatchCard = ({ match, onOpen }: { match: AskMatch; onOpen: (clip: Evidence
         textDecoration: 'none',
         '&:hover': { textDecoration: 'underline' },
       }}>
-      See all {match.clipCount} excerpts
+      Hear all {match.clipCount} excerpts
       <ArrowForwardRoundedIcon sx={{ fontSize: 16 }} />
     </Box>
   </Box>
