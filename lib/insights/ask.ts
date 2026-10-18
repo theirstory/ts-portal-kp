@@ -73,7 +73,8 @@ async function rankQuestionsWithModel(query: string, questions: EvidenceQuestion
       system:
         "You match a visitor's question to the interview questions of an oral-history collection: interviews with Kaiser Permanente physician leaders. " +
         `Reply with only a JSON array of the ids of the interview questions whose answers would best help the visitor, best first, at most ${MAX_QUESTIONS}. ` +
-        'Include a question only if its answers would genuinely speak to what the visitor asked. Reply [] if none do.',
+        "Leaders answer broadly, so a question qualifies when its answers are likely to cover the visitor's topic even if the question itself doesn't name it (a question about challenges faced will cover a crisis such as the pandemic). " +
+        "Reply [] only if no question's answers would plausibly speak to it.",
       messages: [
         {
           role: 'user',
