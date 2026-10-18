@@ -11,9 +11,16 @@ interface PlayerState {
   setDuration: (duration: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
   seekTo: (time: number) => void;
+  /** A seek requested before the player could take it (not mounted, or no metadata yet). */
+  pendingSeek: number | null;
+  /** Applies pendingSeek; StoryVideo calls it once the player has metadata. */
+  applyPendingSeek: () => void;
   setPlayerRef: (ref: MuxPlayerElement | null) => void;
   playerRef: MuxPlayerElement | null;
 }
+
+// HAVE_METADATA: the player knows the duration and can seek.
+const hasMetadata = (player: MuxPlayerElement): boolean => (player.readyState ?? 0) >= 1;
 
 const usePlayerStore = create<PlayerState>((set) => ({
   play: false,
@@ -21,6 +28,7 @@ const usePlayerStore = create<PlayerState>((set) => ({
   duration: 0,
   isPlaying: false,
   playerRef: null,
+  pendingSeek: null,
   setPlay: (play) =>
     set((state) => {
       if (state.playerRef) {
@@ -43,12 +51,24 @@ const usePlayerStore = create<PlayerState>((set) => ({
   setDuration: (duration) => set({ duration }),
   setIsPlaying: (isPlaying) => set({ isPlaying }),
   setPlayerRef: (ref) => set({ playerRef: ref }),
+  // A seek can arrive before the player has mounted or loaded its metadata (e.g. ?start= on page
+  // load), when setting currentTime is lost or leaves the player stuck; it is held until then.
   seekTo: (time) => {
     set((state) => {
-      if (state.playerRef?.currentTime !== undefined) {
-        state.playerRef.currentTime = time;
+      const player = state.playerRef;
+      if (player && hasMetadata(player)) {
+        player.currentTime = time;
+        return { currentTime: time, pendingSeek: null };
       }
-      return { currentTime: time };
+      return { currentTime: time, pendingSeek: time };
+    });
+  },
+  applyPendingSeek: () => {
+    set((state) => {
+      const player = state.playerRef;
+      if (state.pendingSeek === null || !player || !hasMetadata(player)) return {};
+      player.currentTime = state.pendingSeek;
+      return { currentTime: state.pendingSeek, pendingSeek: null };
     });
   },
 }));

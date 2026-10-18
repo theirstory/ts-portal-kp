@@ -12,7 +12,7 @@ import { AudioFileWave } from '@/app/assets/svg/AudioFileWave';
 
 export const StoryVideo = () => {
   const { storyHubPage } = useSemanticSearchStore();
-  const { setIsPlaying, setPlayerRef, isPlaying, setCurrentTime, setDuration } = usePlayerStore();
+  const { setIsPlaying, setPlayerRef, isPlaying, setCurrentTime, setDuration, applyPendingSeek } = usePlayerStore();
 
   const videoRef = useRef<MuxPlayerElement>(null);
   const videoSrc = storyHubPage?.properties.video_url;
@@ -29,8 +29,10 @@ export const StoryVideo = () => {
   useEffect(() => {
     if (videoRef.current) {
       setPlayerRef(videoRef.current);
+      // Metadata may already be in (cached), in which case loadedmetadata has fired.
+      applyPendingSeek();
     }
-  }, [setPlayerRef]);
+  }, [setPlayerRef, applyPendingSeek]);
 
   useEffect(() => {
     return () => {
@@ -101,6 +103,7 @@ export const StoryVideo = () => {
             syncCurrentTime();
           }}
           onLoadedMetadata={() => {
+            applyPendingSeek();
             if (videoRef.current?.duration) {
               setDuration(videoRef.current.duration);
             }

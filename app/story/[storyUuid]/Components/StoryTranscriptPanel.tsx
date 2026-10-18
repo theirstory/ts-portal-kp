@@ -58,6 +58,20 @@ export const StoryTranscriptPanel = ({ isMobile = false }: StoryTranscriptPanelP
   const endParam = searchParams.get('end');
 
   /**
+   * A target that falls between two paragraphs (e.g. ?start=6287 when one paragraph ends at 6285.42
+   * and the next starts at 6287.38) matches no paragraph, so nothing would scroll. Snap it to the
+   * next paragraph, or the last one if it's past the end.
+   */
+  useEffect(() => {
+    if (targetScrollTime === null || sections.length === 0) return;
+    if (sections.some((s) => s.start === targetScrollTime)) return;
+    const paragraphs = sections.flatMap((sec) => sec.paragraphs ?? []);
+    if (paragraphs.some((p) => targetScrollTime >= p.start && targetScrollTime < p.end)) return;
+    const next = paragraphs.find((p) => p.start > targetScrollTime) ?? paragraphs[paragraphs.length - 1];
+    if (next) setTargetScrollTime(next.start);
+  }, [targetScrollTime, sections, setTargetScrollTime]);
+
+  /**
    * Expand the accordion section that contains the target scroll time so the paragraph can mount and scroll.
    * Without this, the paragraph at e.g. 1:10:53 is inside a collapsed section and never runs its scroll effect.
    */
