@@ -17,6 +17,10 @@ export interface EvidenceMatch {
   end: number;
   confidence: Confidence;
   rationale: string;
+  /** A few words for what this excerpt says that the question's other answers don't (AI wording). */
+  tag?: string;
+  /** The quote's most telling words, verbatim (checked to appear in `quote`). */
+  key_phrase?: string;
 }
 
 export interface EvidenceInterview {

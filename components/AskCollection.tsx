@@ -215,10 +215,48 @@ export const AskCollectionCard = ({ onAsk, loading }: { onAsk: (query: string) =
   );
 };
 
+/** Characters of the quote kept before its key phrase, so the phrase shows within the clamped lines. */
+const LEAD = 45;
+
+/**
+ * The quote with its key phrase highlighted. A long quote is shown from shortly before the phrase
+ * (with an ellipsis) so the highlight is always in view.
+ */
+const QuoteWithPhrase = ({ quote, phrase }: { quote: string; phrase?: string }) => {
+  const at = phrase ? quote.indexOf(phrase) : -1;
+  if (!phrase || at < 0) return <>&ldquo;{quote}&rdquo;</>;
+
+  let from = 0;
+  if (at > LEAD) {
+    const space = quote.indexOf(' ', at - LEAD);
+    from = space >= 0 && space < at ? space + 1 : at;
+  }
+  return (
+    <>
+      &ldquo;{from > 0 && '…'}
+      {quote.slice(from, at)}
+      <Box
+        component="mark"
+        sx={{
+          bgcolor: `${colors.primary.main}1f`,
+          color: colors.text.primary,
+          fontWeight: 600,
+          borderRadius: '3px',
+          px: '2px',
+          boxDecorationBreak: 'clone',
+          WebkitBoxDecorationBreak: 'clone',
+        }}>
+        {phrase}
+      </Box>
+      {quote.slice(at + phrase.length)}&rdquo;
+    </>
+  );
+};
+
 const Excerpt = ({ clip, onOpen }: { clip: EvidenceClip; onOpen: (clip: EvidenceClip) => void }) => (
   <ButtonBase
     onClick={() => onOpen(clip)}
-    aria-label={`Play excerpt from ${clip.name} at ${formatTime(clip.start)}`}
+    aria-label={`Play excerpt from ${clip.name} at ${formatTime(clip.start)}${clip.tag ? `: ${clip.tag}` : ''}`}
     sx={{
       display: 'flex',
       alignItems: 'flex-start',
@@ -262,26 +300,47 @@ const Excerpt = ({ clip, onOpen }: { clip: EvidenceClip; onOpen: (clip: Evidence
       </Box>
     </Box>
     <Box sx={{ minWidth: 0 }}>
-      <Typography sx={{ fontSize: 14, fontWeight: 700, color: colors.text.primary, lineHeight: 1.3 }}>
-        {clip.name}
-        <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary, fontSize: 12.5 }}>
-          {' '}
-          · {formatTime(clip.start)}
-        </Box>
+      {clip.tag && (
+        <Typography sx={{ fontSize: 15.5, fontWeight: 700, color: colors.text.primary, lineHeight: 1.3, mb: 0.25 }}>
+          {clip.tag}
+        </Typography>
+      )}
+      <Typography
+        sx={
+          clip.tag
+            ? { fontSize: 12.5, color: colors.text.secondary, lineHeight: 1.3 }
+            : { fontSize: 14, fontWeight: 700, color: colors.text.primary, lineHeight: 1.3 }
+        }>
+        {clip.tag ? (
+          <>
+            <Box component="span" sx={{ fontWeight: 600 }}>
+              {clip.name}
+            </Box>{' '}
+            · {formatTime(clip.start)}
+          </>
+        ) : (
+          <>
+            {clip.name}
+            <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary, fontSize: 12.5 }}>
+              {' '}
+              · {formatTime(clip.start)}
+            </Box>
+          </>
+        )}
       </Typography>
       <Typography
         sx={{
-          mt: 0.5,
+          mt: 0.75,
           fontSize: 14,
-          lineHeight: 1.55,
+          lineHeight: 1.6,
           fontStyle: 'italic',
-          color: colors.text.primary,
+          color: colors.text.secondary,
           display: '-webkit-box',
           WebkitLineClamp: 3,
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden',
         }}>
-        &ldquo;{clip.quote}&rdquo;
+        <QuoteWithPhrase quote={clip.quote} phrase={clip.key_phrase} />
       </Typography>
     </Box>
   </ButtonBase>

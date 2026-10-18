@@ -14,6 +14,7 @@
 import { readFile } from 'node:fs/promises';
 import type { EvidenceAdditions, EvidenceBank, EvidenceMatch, EvidenceQuestion } from '@/types/insights';
 import { CONFIDENCE_LEVELS } from '@/types/insights';
+import { labelQuestion } from './labels';
 import type { Llm } from './llm';
 import { mapLimit } from './llm';
 import { log } from './log';
@@ -57,7 +58,7 @@ export async function loadAdditions(path: string): Promise<EvidenceAdditions> {
   return { version: 1, interviews: {} };
 }
 
-async function saveAdditions(path: string, additions: EvidenceAdditions): Promise<void> {
+export async function saveAdditions(path: string, additions: EvidenceAdditions): Promise<void> {
   await writeFileAtomic(path, `${JSON.stringify(additions, null, 2)}\n`);
 }
 
@@ -142,6 +143,33 @@ function place(paragraphs: Paragraph[], match: LlmMatch, questionIds: Set<number
   };
 }
 
+/**
+ * Tag and key-phrase one interview's excerpts that have none yet (see labels.ts), keeping tags
+ * distinct from the ones other interviews' answers to the same question already have. A failed
+ * question is logged and left unlabeled: Explore shows the excerpt without a label.
+ */
+export async function labelInterviewExcerpts(
+  llm: Llm,
+  bank: EvidenceBank,
+  speaker: string,
+  byQuestion: Record<string, EvidenceMatch[]>,
+): Promise<number> {
+  const counts = await mapLimit(bank.questions, CONCURRENCY, async (question) => {
+    const targets = (byQuestion[question.question_id] ?? []).filter((m) => !m.tag).map((match) => ({ speaker, match }));
+    if (targets.length === 0) return 0;
+    const existing = Object.values(question.by_interview)
+      .flat()
+      .flatMap((m) => (m.tag ? [m.tag] : []));
+    try {
+      return await labelQuestion(llm, question, targets, existing);
+    } catch (error) {
+      log.warn(`  ${speaker}: couldn't label excerpts for q${question.question_id}: ${(error as Error).message}`);
+      return 0;
+    }
+  });
+  return counts.reduce((a, b) => a + b, 0);
+}
+
 export type ExcerptOutcome = 'skipped-reviewed' | 'cached' | 'generated';
 
 /**
@@ -166,12 +194,14 @@ export async function extractExcerpts(opts: {
   const key = transcriptHash(paragraphs, `${PROMPT_VERSION}|${llm.id}|${questionKey}`);
   const existing = (await loadAdditions(additionsFile)).interviews[storyId];
   if (existing?.key === key) {
-    if (existing.interview_title !== title) {
+    const unlabeled = Object.values(existing.by_question).some((list) => list.some((m) => !m.tag));
+    const labeled = unlabeled ? await labelInterviewExcerpts(llm, bank, title, existing.by_question) : 0;
+    if (existing.interview_title !== title || labeled > 0) {
       const additions = await loadAdditions(additionsFile);
       additions.interviews[storyId] = { ...existing, interview_title: title };
       await saveAdditions(additionsFile, additions);
     }
-    log.info(`${storyId}: Explore excerpts unchanged (cached)`);
+    log.info(`${storyId}: Explore excerpts unchanged (cached)${labeled ? `; labeled ${labeled}` : ''}`);
     return 'cached';
   }
 
@@ -212,6 +242,9 @@ export async function extractExcerpts(opts: {
     `${storyId}: ${total} excerpt(s) across ${answered}/${bank.questions.length} question(s)` +
       (dropped ? `; ${dropped} quote(s) dropped because they weren't found verbatim in the transcript` : ''),
   );
+
+  const labeled = await labelInterviewExcerpts(llm, bank, title, byQuestion);
+  log.info(`${storyId}: labeled ${labeled}/${total} excerpt(s)`);
 
   // Re-read right before writing: the file is only written by this service, one story at a time,
   // but never clobber an entry some other story wrote since we loaded it.

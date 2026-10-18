@@ -865,44 +865,51 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
     };
     const llm = scriptedLlm([
       (prompt) =>
-        prompt.includes('Theme: Background')
+        prompt.startsWith('Interview question:')
           ? {
-              matches: [
-                {
-                  question_id: 1,
-                  paragraph: 1,
-                  quote: 'I was born in Arkadelphia, Arkansas',
-                  confidence: 'high',
-                  rationale: 'Birthplace.',
-                },
-                {
-                  question_id: 1,
-                  paragraph: 1,
-                  quote: 'I grew up in Chicago.',
-                  confidence: 'high',
-                  rationale: 'Invented.',
-                },
-                {
-                  question_id: 2,
-                  paragraph: 3,
-                  quote: 'wrong theme',
-                  confidence: 'high',
-                  rationale: 'Not asked here.',
-                },
-              ],
+              // Labels: the key phrase is checked against the quote; an invented one is dropped.
+              labels: prompt.includes('Arkadelphia')
+                ? [{ n: 1, tag: 'Born in Arkansas.', key_phrase: 'born in Arkadelphia' }]
+                : [{ n: 1, tag: 'Prevention focus', key_phrase: 'it was the focus on wellness' }],
             }
-          : {
-              matches: [
-                // Wrong paragraph number, but the quote is verbatim elsewhere: kept, re-anchored.
-                {
-                  question_id: 2,
-                  paragraph: 0,
-                  quote: 'it was the prevention focus.',
-                  confidence: 'bogus',
-                  rationale: 'Prevention.',
-                },
-              ],
-            },
+          : prompt.includes('Theme: Background')
+            ? {
+                matches: [
+                  {
+                    question_id: 1,
+                    paragraph: 1,
+                    quote: 'I was born in Arkadelphia, Arkansas',
+                    confidence: 'high',
+                    rationale: 'Birthplace.',
+                  },
+                  {
+                    question_id: 1,
+                    paragraph: 1,
+                    quote: 'I grew up in Chicago.',
+                    confidence: 'high',
+                    rationale: 'Invented.',
+                  },
+                  {
+                    question_id: 2,
+                    paragraph: 3,
+                    quote: 'wrong theme',
+                    confidence: 'high',
+                    rationale: 'Not asked here.',
+                  },
+                ],
+              }
+            : {
+                matches: [
+                  // Wrong paragraph number, but the quote is verbatim elsewhere: kept, re-anchored.
+                  {
+                    question_id: 2,
+                    paragraph: 0,
+                    quote: 'it was the prevention focus.',
+                    confidence: 'bogus',
+                    rationale: 'Prevention.',
+                  },
+                ],
+              },
     ]);
     const paragraphs = paragraphsFromPayload(WHEELER);
     const run = () =>
@@ -923,15 +930,21 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
     const q2 = entry.by_question['2'][0];
     assert.equal(q2.chunk_id, 3);
     assert.equal(q2.confidence, 'medium', 'unknown confidence falls back to medium');
-    assert.equal(llm.prompts.length, 2, 'one call per theme');
-    assert.match(llm.prompts[0], /\[3\] 0:00:\d\d Calvin Wheeler: Honestly/);
+    const excerptPrompts = llm.prompts.filter((p) => !p.startsWith('Interview question:'));
+    assert.equal(excerptPrompts.length, 2, 'one call per theme');
+    assert.match(excerptPrompts[0], /\[3\] 0:00:\d\d Calvin Wheeler: Honestly/);
+    assert.equal(llm.prompts.length, 4, 'and one labeling call per answered question');
+    assert.equal(q1.tag, 'Born in Arkansas', 'trailing period trimmed');
+    assert.equal(q1.key_phrase, 'born in Arkadelphia');
+    assert.equal(q2.tag, 'Prevention focus');
+    assert.equal(q2.key_phrase, undefined, 'a key phrase not in the quote is dropped');
 
     assert.equal(await run(), 'cached');
-    assert.equal(llm.prompts.length, 2);
+    assert.equal(llm.prompts.length, 4, 'labeled excerpts are not relabeled');
 
     const reviewed = await extractExcerpts({ llm, storyId: 'reviewed1', title: 'R', paragraphs, bank, additionsFile });
     assert.equal(reviewed, 'skipped-reviewed');
-    assert.equal(llm.prompts.length, 2);
+    assert.equal(llm.prompts.length, 4);
 
     assert.equal(await removeExcerpts(additionsFile, 'cw1'), true);
     assert.deepEqual((await loadAdditions(additionsFile)).interviews, {});

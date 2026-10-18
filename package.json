@@ -19,6 +19,7 @@
     "portal-sync:once": "tsx scripts/portal-sync/index.ts --once",
     "portal-sync:test": "tsx scripts/portal-sync/selftest.ts",
     "portal-sync:legacy": "tsx scripts/portal-sync/legacy.ts",
+    "insights:label": "tsx scripts/insights/label-excerpts.ts",
     "gen:weaviate-types": "tsx scripts/generateWeaviateTypes",
     "validate:config": "tsx scripts/validateConfig",
     "type-check": "tsc --noEmit",
