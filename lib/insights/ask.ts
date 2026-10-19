@@ -15,12 +15,11 @@ import { retrieveChunksForChat } from '@/lib/weaviate/chatRetrieval';
 import type { Citation } from '@/types/chat';
 import type { EvidenceClip, EvidenceQuestion } from '@/types/insights';
 import { questionClipCount, respondentCount } from './evidenceBank';
-import { categorySlug, initials } from './format';
+import { categorySlug } from './format';
 import { loadEvidenceIndex } from './loadEvidenceBank';
 
 const MODEL = 'claude-haiku-4-5-20251001';
 const MAX_QUESTIONS = 5;
-const PREVIEWS = 3;
 const CHUNKS = 60;
 
 export interface AskMatch {
@@ -30,9 +29,8 @@ export interface AskMatch {
   categorySlug: string;
   narratorCount: number;
   clipCount: number;
-  previews: EvidenceClip[];
-  /** Everyone who answered, most excerpts first, with a moment to take their face from. */
-  voices: { interview_title: string; name: string; initials: string; time: number }[];
+  /** Every excerpt on the question, closest to the visitor's question first (the page shows a few, or filters them). */
+  excerpts: EvidenceClip[];
 }
 
 export interface AskResponse {
@@ -159,26 +157,6 @@ export async function askCollection(rawQuery: string): Promise<AskResponse> {
       .allClipsFor(question)
       .map((clip) => ({ clip, score: scoreClip(clip) }))
       .sort((a, b) => b.score - a.score);
-    // Best excerpts, one per narrator where possible, so the preview shows a range of voices.
-    const previews: EvidenceClip[] = [];
-    const seen = new Set<string>();
-    for (const { clip } of scored) {
-      if (previews.length >= PREVIEWS) break;
-      if (seen.has(clip.interview_title)) continue;
-      seen.add(clip.interview_title);
-      previews.push(clip);
-    }
-    const byNarrator = new Map<string, EvidenceClip[]>();
-    for (const { clip } of scored)
-      byNarrator.set(clip.interview_title, [...(byNarrator.get(clip.interview_title) ?? []), clip]);
-    const voices = [...byNarrator.values()]
-      .sort((a, b) => b.length - a.length)
-      .map((clips) => ({
-        interview_title: clips[0].interview_title,
-        name: clips[0].name,
-        initials: initials(clips[0].name),
-        time: clips[0].start + 2,
-      }));
     return {
       question_id: question.question_id,
       question: question.question,
@@ -186,8 +164,8 @@ export async function askCollection(rawQuery: string): Promise<AskResponse> {
       categorySlug: categorySlug(question.category),
       narratorCount: respondentCount(question),
       clipCount: questionClipCount(question),
-      previews,
-      voices,
+      // The model's reasoning isn't shown; leave it out of the payload.
+      excerpts: scored.map(({ clip }) => ({ ...clip, rationale: '' })),
     };
   });
 

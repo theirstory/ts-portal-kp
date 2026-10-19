@@ -19,7 +19,9 @@ export interface EvidenceMatch {
   rationale: string;
   /** A few words for what this excerpt says that the question's other answers don't (AI wording). */
   tag?: string;
-  /** The quote's most telling words, verbatim (checked to appear in `quote`). */
+  /** 1–4 keywords from the shared vocabulary (json/insights/keyword_vocabulary.json), for filtering. */
+  keywords?: string[];
+  /** Superseded by `keywords`; removed when an excerpt is relabeled. */
   key_phrase?: string;
 }
 

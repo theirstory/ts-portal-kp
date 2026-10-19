@@ -856,6 +856,9 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
   const dir = await mkdtemp(join(tmpdir(), 'portal-sync-excerpts-'));
   try {
     const additionsFile = join(dir, 'evidence-additions.json');
+    const vocabularyFile = join(dir, 'keyword_vocabulary.json');
+    await writeFile(vocabularyFile, JSON.stringify({ keywords: ['Birthplace', 'Prevention and health promotion'] }));
+    process.env.PORTAL_SYNC_KEYWORD_VOCABULARY_FILE = vocabularyFile;
     const bank = {
       interviews: [{ interview_title: 'Reviewed', interview_id: 'reviewed1', source_file: '' }],
       questions: [
@@ -869,8 +872,8 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
           ? {
               // Labels: the key phrase is checked against the quote; an invented one is dropped.
               labels: prompt.includes('Arkadelphia')
-                ? [{ n: 1, tag: 'Born in Arkansas.', key_phrase: 'born in Arkadelphia' }]
-                : [{ n: 1, tag: 'Prevention focus', key_phrase: 'it was the focus on wellness' }],
+                ? [{ n: 1, tag: 'Born in Arkansas.', keywords: ['birthplace', 'Childhood'] }]
+                : [{ n: 1, tag: 'Prevention focus', keywords: ['Prevention and health promotion'] }],
             }
           : prompt.includes('Theme: Background')
             ? {
@@ -935,9 +938,9 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
     assert.match(excerptPrompts[0], /\[3\] 0:00:\d\d Calvin Wheeler: Honestly/);
     assert.equal(llm.prompts.length, 4, 'and one labeling call per answered question');
     assert.equal(q1.tag, 'Born in Arkansas', 'trailing period trimmed');
-    assert.equal(q1.key_phrase, 'born in Arkadelphia');
+    assert.deepEqual(q1.keywords, ['Birthplace'], 'vocabulary spelling; keywords outside it dropped');
     assert.equal(q2.tag, 'Prevention focus');
-    assert.equal(q2.key_phrase, undefined, 'a key phrase not in the quote is dropped');
+    assert.deepEqual(q2.keywords, ['Prevention and health promotion']);
 
     assert.equal(await run(), 'cached');
     assert.equal(llm.prompts.length, 4, 'labeled excerpts are not relabeled');
@@ -962,6 +965,7 @@ test('excerpts: placed verbatim, unplaceable dropped, reviewed skipped, cached, 
     const shown = mergeEvidence(bank, await loadAdditions(additionsFile));
     assert.ok(shown.interviews.some((i) => i.interview_id === 'reviewed1'));
   } finally {
+    delete process.env.PORTAL_SYNC_KEYWORD_VOCABULARY_FILE;
     await rm(dir, { recursive: true, force: true });
   }
 });

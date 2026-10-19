@@ -14,7 +14,7 @@
 import { readFile } from 'node:fs/promises';
 import type { EvidenceAdditions, EvidenceBank, EvidenceMatch, EvidenceQuestion } from '@/types/insights';
 import { CONFIDENCE_LEVELS } from '@/types/insights';
-import { labelQuestion } from './labels';
+import { labelQuestion, loadVocabulary, needsLabel } from './labels';
 import type { Llm } from './llm';
 import { mapLimit } from './llm';
 import { log } from './log';
@@ -144,7 +144,7 @@ function place(paragraphs: Paragraph[], match: LlmMatch, questionIds: Set<number
 }
 
 /**
- * Tag and key-phrase one interview's excerpts that have none yet (see labels.ts), keeping tags
+ * Tag and keyword one interview's excerpts that have none yet (see labels.ts), keeping tags
  * distinct from the ones other interviews' answers to the same question already have. A failed
  * question is logged and left unlabeled: Explore shows the excerpt without a label.
  */
@@ -154,14 +154,17 @@ export async function labelInterviewExcerpts(
   speaker: string,
   byQuestion: Record<string, EvidenceMatch[]>,
 ): Promise<number> {
+  const vocabulary = await loadVocabulary();
   const counts = await mapLimit(bank.questions, CONCURRENCY, async (question) => {
-    const targets = (byQuestion[question.question_id] ?? []).filter((m) => !m.tag).map((match) => ({ speaker, match }));
+    const targets = (byQuestion[question.question_id] ?? [])
+      .filter((m) => needsLabel(m, vocabulary))
+      .map((match) => ({ speaker, match }));
     if (targets.length === 0) return 0;
     const existing = Object.values(question.by_interview)
       .flat()
       .flatMap((m) => (m.tag ? [m.tag] : []));
     try {
-      return await labelQuestion(llm, question, targets, existing);
+      return await labelQuestion(llm, question, targets, vocabulary, existing);
     } catch (error) {
       log.warn(`  ${speaker}: couldn't label excerpts for q${question.question_id}: ${(error as Error).message}`);
       return 0;
@@ -194,7 +197,8 @@ export async function extractExcerpts(opts: {
   const key = transcriptHash(paragraphs, `${PROMPT_VERSION}|${llm.id}|${questionKey}`);
   const existing = (await loadAdditions(additionsFile)).interviews[storyId];
   if (existing?.key === key) {
-    const unlabeled = Object.values(existing.by_question).some((list) => list.some((m) => !m.tag));
+    const vocabulary = await loadVocabulary();
+    const unlabeled = Object.values(existing.by_question).some((list) => list.some((m) => needsLabel(m, vocabulary)));
     const labeled = unlabeled ? await labelInterviewExcerpts(llm, bank, title, existing.by_question) : 0;
     if (existing.interview_title !== title || labeled > 0) {
       const additions = await loadAdditions(additionsFile);
