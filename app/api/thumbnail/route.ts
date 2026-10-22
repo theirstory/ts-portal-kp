@@ -135,7 +135,7 @@ export async function GET(request: NextRequest) {
   const duration = Number(searchParams.get('duration') ?? '');
   const time =
     requestedTime != null && requestedTime !== '' && Number.isFinite(Number(requestedTime))
-      ? Math.max(0, Math.floor(Number(requestedTime)))
+      ? Math.max(0, Number(requestedTime))
       : await pickPosterTime(playbackId, duration, version);
 
   const params = new URLSearchParams({ width, fit_mode: fitMode });

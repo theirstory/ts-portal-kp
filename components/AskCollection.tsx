@@ -59,21 +59,22 @@ const formatTime = (seconds: number): string => {
   return h ? `${h}:${String(m).padStart(2, '0')}:${rest}` : `${m}:${rest}`;
 };
 
+/** `topic` is set when the question came from a topic chip, so the results can be headed by the chip's label. */
 type AskState =
   | { status: 'idle' }
-  | { status: 'loading'; query: string }
-  | { status: 'done'; response: AskResponse }
-  | { status: 'error'; query: string; message: string };
+  | { status: 'loading'; query: string; topic?: string }
+  | { status: 'done'; response: AskResponse; topic?: string }
+  | { status: 'error'; query: string; message: string; topic?: string };
 
 export const useAskCollection = () => {
   const [state, setState] = useState<AskState>({ status: 'idle' });
   const latest = useRef(0);
 
-  const ask = useCallback(async (query: string) => {
+  const ask = useCallback(async (query: string, topic?: string) => {
     const q = query.trim();
     if (q.length < 3) return;
     const id = ++latest.current;
-    setState({ status: 'loading', query: q });
+    setState({ status: 'loading', query: q, topic });
     try {
       const res = await fetch('/api/insights/ask', {
         method: 'POST',
@@ -83,12 +84,13 @@ export const useAskCollection = () => {
       const data = await res.json();
       if (id !== latest.current) return;
       if (!res.ok) throw new Error(data?.error || 'Something went wrong finding answers.');
-      setState({ status: 'done', response: data as AskResponse });
+      setState({ status: 'done', response: data as AskResponse, topic });
     } catch (err) {
       if (id !== latest.current) return;
       setState({
         status: 'error',
         query: q,
+        topic,
         message: err instanceof Error ? err.message : 'Something went wrong finding answers.',
       });
     }
@@ -102,12 +104,18 @@ export const useAskCollection = () => {
   return { state, ask, clear };
 };
 
-export const AskCollectionCard = ({ onAsk, loading }: { onAsk: (query: string) => void; loading: boolean }) => {
+export const AskCollectionCard = ({
+  onAsk,
+  loading,
+}: {
+  onAsk: (query: string, topic?: string) => void;
+  loading: boolean;
+}) => {
   const [value, setValue] = useState('');
 
-  const submit = (query = value) => {
+  const submit = (query = value, topic?: string) => {
     if (query.trim().length < 3 || loading) return;
-    onAsk(query);
+    onAsk(query, topic);
   };
 
   return (
@@ -207,7 +215,7 @@ export const AskCollectionCard = ({ onAsk, loading }: { onAsk: (query: string) =
             title={topic.example}
             onClick={() => {
               setValue(topic.example);
-              submit(topic.example);
+              submit(topic.example, topic.label);
             }}
             sx={{
               px: 1.25,
@@ -1180,17 +1188,32 @@ export const AskResults = ({
         <Typography
           component="h2"
           sx={{ flex: 1, minWidth: 0, m: 0, fontSize: { xs: 17, md: 19 }, fontWeight: 700, lineHeight: 1.35 }}>
-          {state.status === 'done' && state.response.matches.length > 0 ? (
+          {state.topic && state.status !== 'error' ? (
             <>
-              {state.response.matches.length} curated {state.response.matches.length === 1 ? 'question' : 'questions'}{' '}
-              for{' '}
+              {state.status === 'done' && state.response.matches.length > 0
+                ? `${state.response.matches.length} ${state.response.matches.length === 1 ? 'question' : 'questions'} related to `
+                : state.status === 'loading'
+                  ? 'Finding questions related to '
+                  : null}
+              <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary }}>
+                {state.topic}
+              </Box>
             </>
-          ) : state.status === 'loading' ? (
-            'Finding answers to '
-          ) : null}
-          <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary }}>
-            &ldquo;{query}&rdquo;
-          </Box>
+          ) : (
+            <>
+              {state.status === 'done' && state.response.matches.length > 0 ? (
+                <>
+                  {state.response.matches.length} curated{' '}
+                  {state.response.matches.length === 1 ? 'question' : 'questions'} for{' '}
+                </>
+              ) : state.status === 'loading' ? (
+                'Finding answers to '
+              ) : null}
+              <Box component="span" sx={{ fontWeight: 400, color: colors.text.secondary }}>
+                &ldquo;{query}&rdquo;
+              </Box>
+            </>
+          )}
         </Typography>
         <IconButton aria-label="Clear answers" onClick={onClear} size="small">
           <CloseRoundedIcon fontSize="small" />

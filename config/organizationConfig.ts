@@ -113,6 +113,11 @@ export interface AppConfig {
      */
     thumbnailTimes?: Record<string, number>;
     /**
+     * Recordings to list first on the home page, in this order (uuids from /story/<uuid>).
+     * Everything else follows in its usual order.
+     */
+    storyOrder?: string[];
+    /**
      * Featured interview carousel on the home view. `storyUuids` sets which
      * recordings appear and in what order (uuids from /story/<uuid>); leave it
      * empty to feature the first recordings. `limit` caps how many (default 6, 0 = all).

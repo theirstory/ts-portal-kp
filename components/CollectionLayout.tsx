@@ -24,8 +24,8 @@ export default function CollectionLayout() {
   const { state: askState, ask, clear: clearAsk } = useAskCollection();
   const excerptDrawer = useExcerptDrawer();
   const askResultsRef = useRef<HTMLDivElement>(null);
-  const handleAsk = (query: string) => {
-    void ask(query);
+  const handleAsk = (query: string, topic?: string) => {
+    void ask(query, topic);
     // After the results section has rendered.
     requestAnimationFrame(() => askResultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   };

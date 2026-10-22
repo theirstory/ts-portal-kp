@@ -16,6 +16,7 @@ import {
   type CollectionFilterOption,
 } from '@/lib/weaviate/search';
 import { Chunks, Testimonies, SchemaMap, SchemaTypes } from '@/types/weaviate';
+import { config } from '@/config/organizationConfig';
 import { NerLabel } from '@/types/ner';
 import { SearchType } from '@/types/searchType';
 import { Transcription, Word } from '@/types/transcription';
@@ -189,6 +190,13 @@ export const useSemanticSearchStore = create<SemanticSearchStore>()(
             countStoriesInCollection(collection, selectedCollectionIds),
           ]);
           const hasNextStoriesPage = offset + limit < totalStories;
+
+          // Recordings named in config (ui.storyOrder) lead the list, in that order.
+          const rank = (uuid: string) => {
+            const i = config.ui?.storyOrder?.indexOf(uuid) ?? -1;
+            return i === -1 ? Infinity : i;
+          };
+          stories.objects = [...stories.objects].sort((a, b) => rank(a.uuid) - rank(b.uuid));
 
           set({ stories: stories, hasNextStoriesPage, totalStories, loading: false }, false, 'getAllStories:success');
         } catch {

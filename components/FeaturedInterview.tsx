@@ -48,7 +48,7 @@ const stillUrl = (story: FeaturedStory): string | null => {
 
   const pinned = config.ui?.thumbnailTimes?.[story.uuid];
   const duration = Math.floor(story.properties.interview_duration ?? 0);
-  const hint = pinned ? `&time=${Math.floor(pinned)}` : duration ? `&duration=${duration}` : '';
+  const hint = pinned ? `&time=${pinned}` : duration ? `&duration=${duration}` : '';
 
   return `/api/thumbnail?playbackId=${playbackId}&width=1280&height=720&fit_mode=crop${hint}`;
 };

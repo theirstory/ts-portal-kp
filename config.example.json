@@ -89,6 +89,7 @@
       "storyUuids": [],
       "limit": 6
     },
+    "storyOrder": [],
     "portalHeaderOverlay": {
       "_comment": "Enable or disable overlay behind portal title/description.",
       "enabled": true

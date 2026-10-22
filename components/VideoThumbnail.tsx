@@ -1,6 +1,7 @@
 import { AudioFileWave } from '@/app/assets/svg/AudioFileWave';
 import { getMuxPlaybackId } from '@/app/utils/converters';
 import { durationFormatHandler } from '@/app/utils/util';
+import { config } from '@/config/organizationConfig';
 import { colors } from '@/lib/theme';
 import { Chunks, Testimonies } from '@/types/weaviate';
 import { Box, Skeleton } from '@mui/material';
@@ -40,14 +41,18 @@ export const VideoThumbnail = ({
     const targetWidth = 320;
     const targetHeight = Math.round(targetWidth / aspectRatio);
 
-    const gifStart = startTime || 3;
+    // An excerpt's own start wins; otherwise a recording can pin its still in config (ui.thumbnailTimes).
+    const pinned = config.ui?.thumbnailTimes?.[story.uuid];
+    const time = startTime || pinned;
+
+    const gifStart = time || 3;
     const gifEnd = gifStart + 2;
 
     return {
-      thumbnailUrl: `https://image.mux.com/${playbackId}/thumbnail.jpg?time=${startTime || 5}&width=${targetWidth}&height=${targetHeight}&fit_mode=crop`,
+      thumbnailUrl: `https://image.mux.com/${playbackId}/thumbnail.jpg?time=${time || 5}&width=${targetWidth}&height=${targetHeight}&fit_mode=crop`,
       gifUrl: `https://image.mux.com/${playbackId}/animated.gif?start=${gifStart}&end=${gifEnd}&width=${targetWidth}&height=${targetHeight}&fps=10&fit_mode=crop`,
     };
-  }, [aspectRatio, startTime, story.properties.video_url]);
+  }, [aspectRatio, startTime, story.uuid, story.properties.video_url]);
 
   // Lazy loading with IntersectionObserver
   useEffect(() => {
